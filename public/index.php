@@ -11,7 +11,7 @@ function findAndExit(string $uri, string $language): void
         exit(file_get_contents($path . '/en.html'));
     }
 }
-function findAdAndExit(string $file)
+function findAdAndExit(string $file): void
 {
     $path = ROOT_DIR . '/ads/' . date('Y-m');
     if (is_file($path . '/' . $file)) {
@@ -21,7 +21,7 @@ function findAdAndExit(string $file)
         exit(file_get_contents(ROOT_DIR . '/ads/0000-00/' . $file));
     }
 }
-$uri = rtrim($_SERVER['REQUEST_URI'] ?? '', '/');
+$uri = trim($_SERVER['REQUEST_URI'] ?? '', '/');
 $language = 'en';
 if ($uri === 'ad.jpg') {
     findAdAndExit('ad.jpg');

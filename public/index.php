@@ -23,10 +23,10 @@ function findAdAndExit(string $file)
 }
 $uri = rtrim($_SERVER['REQUEST_URI'] ?? '', '/');
 $language = 'en';
-if ($uri === '/ad.jpg') {
+if ($uri === 'ad.jpg') {
     findAdAndExit('ad.jpg');
 }
-if ($uri === '/ad.lnk') {
+if ($uri === 'ad.lnk') {
     findAdAndExit('link.txt');
 }
 if ($uri === '') {

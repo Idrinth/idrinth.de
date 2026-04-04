@@ -1,7 +1,7 @@
 <?php
 
 define("ROOT_DIR", dirname(__DIR__));
-exit(file_get_contents(ROOT_DIR . '/templates/template.html'));
+exit(file_get_contents(ROOT_DIR . '/resources/template.html'));
 function findAndExit(string $uri, string $language): void
 {
     $path = ROOT_DIR . str_replace('//', '/', '/output/' . $uri . '/');

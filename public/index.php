@@ -6,10 +6,14 @@ function findAndExit(string $uri, string $language): void
     $path = ROOT_DIR . str_replace('//', '/', '/output/' . $uri . '/');
     if (is_file($path . $language . '.html')) {
         header('Content-type: text/html; charset=utf-8');
+        header('Link: </styles.css>; rel=preload; as=style');
+        header('Link: </ad.jpg>; rel=preload; as=image');
         exit(file_get_contents($path . $language . '.html'));
     }
     if (is_file($path . 'en.html')) {
         header('Content-type: text/html; charset=utf-8');
+        header('Link: </styles.css>; rel=preload; as=style');
+        header('Link: </ad.jpg>; rel=preload; as=image');
         exit(file_get_contents($path . '/en.html'));
     }
 }

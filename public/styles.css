@@ -72,6 +72,9 @@ a:hover {
     color: darkred;
     text-decoration: none;
 }
+img {
+    max-width: 100%;
+}
 nav > ul {
     list-style-type: none;
     margin: 0;
@@ -112,6 +115,9 @@ article > aside {
 article > aside > img {
     float: left;
     padding: 0.7em;
+}
+article > aside > p {
+    padding: 0.2em;
 }
 .advertisement > a > i {
     visibility: hidden;

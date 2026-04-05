@@ -259,6 +259,7 @@ function buildListingEntries(array $posts, string $entryTemplate, string $tagLin
         }
 
         $entry = $entryTemplate;
+        $entry = str_replace('###LANG###', $lang, $entry);
         $entry = str_replace('###POST_CATEGORY###', htmlspecialchars($post['category'] . '/' . $slug), $entry);
         $entry = str_replace('###POST_TITLE###', htmlspecialchars($title), $entry);
         $entry = str_replace('###POST_DESCRIPTION###', htmlspecialchars($description), $entry);

@@ -212,16 +212,7 @@ th {
 td:last-child, th:last-child {
     text-align: right;
 }
-.advertisement > a > i {
-    visibility: hidden;
-    margin-top: -2em;
-    display: block;
-}
 .advertisement > a,
 .advertisement > a > img {
     display: block;
-}
-.advertisement:hover > a > i,
-.advertisement:focus > a > i {
-    visibility: visible;
 }

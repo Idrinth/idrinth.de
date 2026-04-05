@@ -63,6 +63,16 @@ if ($uri === 'views' || str_starts_with($uri, 'views/')) {
     header('Cache-Control: no-cache');
     exit(is_file($viewFile) ? file_get_contents($viewFile) : '0');
 }
+if ($uri === 'random') {
+    $posts = glob(ROOT_DIR . '/posts/*/meta.json');
+    if ($posts) {
+        $chosen = $posts[array_rand($posts)];
+        $meta = json_decode(file_get_contents($chosen), true);
+        $slug = basename(dirname($chosen));
+        header('Location: /' . $meta['category'] . '/' . $slug, true, 302);
+        exit;
+    }
+}
 if ($uri === '') {
     findAndExit($uri, $language);
 }

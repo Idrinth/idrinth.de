@@ -7,11 +7,11 @@
     <language>fr</language>
     <atom:link href="https://idrinth.de/fr/tag/php/feed.rss" rel="self" type="application/rss+xml"/>
     <item>
-        <title>Blogging Experience - Or why i built a blog from scratch</title>
+        <title>Expérience de blogging - Ou pourquoi j&#039;ai construit un blog à partir de zéro</title>
         <link>https://idrinth.de/fr/software-engineering/blogging-experience</link>
         <guid>https://idrinth.de/fr/software-engineering/blogging-experience</guid>
         <pubDate>Sun, 05 Apr 2026 00:00:00 +0000</pubDate>
-        <description>As you might have noticed, this is a static site for the most part, containing HTML, CSS and a tiny amount of javascr...</description>
+        <description>Comme vous l&#039;avez peut-être remarqué, il s&#039;agit en grande partie d&#039;un site statique, contenant du HTML, du CSS et u...</description>
     </item>
 
 </channel>

@@ -6,18 +6,18 @@
     <id>https://idrinth.de/de</id>
     <updated>2026-04-05T00:00:00+00:00</updated>
     <entry>
-        <title>Blogging Experience - Or why i built a blog from scratch</title>
+        <title>Blogging-Erfahrung - Oder warum ich einen Blog von Grund auf gebaut habe</title>
         <link href="https://idrinth.de/de/software-engineering/blogging-experience"/>
         <id>https://idrinth.de/de/software-engineering/blogging-experience</id>
         <updated>2026-04-05T00:00:00+00:00</updated>
-        <summary>As you might have noticed, this is a static site for the most part, containing HTML, CSS and a tiny amount of javascr...</summary>
+        <summary>Wie man vielleicht bemerkt hat, ist dies größtenteils eine statische Seite, bestehend aus HTML, CSS und einer klein...</summary>
     </entry>
     <entry>
         <title>Idrinth Thalui in Skyrim v1.1</title>
         <link href="https://idrinth.de/de/modding/idrinth-thalui-in-skyrim-v1-1"/>
         <id>https://idrinth.de/de/modding/idrinth-thalui-in-skyrim-v1-1</id>
         <updated>2026-04-04T00:00:00+00:00</updated>
-        <summary>One of the major mods I&#039;m currently working on is Idrinth Thalui, the Altmer Vampire in Skyrim SE. Besides thousands ...</summary>
+        <summary>Eine der großen Mods, an denen ich gerade arbeite, ist Idrinth Thalui, der Altmer-Vampir in Skyrim SE. Neben tausend...</summary>
     </entry>
 
 </feed>

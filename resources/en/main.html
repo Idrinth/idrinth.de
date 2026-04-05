@@ -25,12 +25,12 @@
     </a>
     <strong>Idrinth's Random Thoughts</strong>
     <div>
-        <select onchange="document.cookie='language='+this.value+'; expires='+(new Date().getTime() + 86400*30*1000)+ '; domain='+location.hostname+'; path=/';let p=location.pathname.replace(/^\/(en|fr|de)(\/|$)/,'/'+this.value+'$2');if(p===location.pathname)p='/'+this.value+location.pathname;location.href=p">
+        <select aria-label="Language" onchange="document.cookie='language='+this.value+'; expires='+(new Date().getTime() + 86400*30*1000)+ '; domain='+location.hostname+'; path=/';let p=location.pathname.replace(/^\/(en|fr|de)(\/|$)/,'/'+this.value+'$2');if(p===location.pathname)p='/'+this.value+location.pathname;location.href=p">
             <option value="en" selected>English</option>
             <option value="fr">Francais</option>
             <option value="de">Deutsch</option>
         </select>
-        <select id="mode-select" onchange="document.cookie='mode='+this.value+'; expires='+(new Date().getTime() + 86400*30*1000)+ '; domain='+location.hostname+'; path=/';document.documentElement.className=document.documentElement.className.replace(/theme-\w+/,'theme-'+this.value)">
+        <select aria-label="Theme" id="mode-select" onchange="document.cookie='mode='+this.value+'; expires='+(new Date().getTime() + 86400*30*1000)+ '; domain='+location.hostname+'; path=/';document.documentElement.className=document.documentElement.className.replace(/theme-\w+/,'theme-'+this.value)">
             <option value="light">☀</option>
             <option value="dark">☾</option>
             <option value="auto">☁</option>
@@ -44,7 +44,7 @@
     </div>
 </header>
 <div class="page background">
-    <nav>
+    <nav aria-label="Categories">
         <ul>
             <li>
                 <a href="/software-engineering">Software Engineering</a>
@@ -76,7 +76,7 @@
         </ul>
     </nav>
 </div>
-<article class="page">
+<main class="page">
     <aside>
         <h2>Who am I?</h2>
         <picture>
@@ -92,9 +92,9 @@
         </div>
     </aside>
     ###CONTENT###
-</article>
+</main>
 <footer class="page background">
-    <nav>
+    <nav aria-label="Social links">
         <ul>
             <li>
                 <a href="/imprint">Imprint</a>

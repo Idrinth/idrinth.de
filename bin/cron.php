@@ -194,7 +194,16 @@ foreach ($languages as $lang) {
 }
 
 // Generate category listing pages (last 9 per category) per language
-$categories = [];
+$categories = [
+    'software-engineering' => [],
+    'open-source' => [],
+    'games' => [],
+    'streaming' => [],
+    'modding' => [],
+    'stories' => [],
+    'pen-and-paper' => [],
+    'world-building' => [],
+];
 foreach ($posts as $post) {
     $cat = $post['category'];
     if (!isset($categories[$cat])) {

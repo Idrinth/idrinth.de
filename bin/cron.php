@@ -481,6 +481,73 @@ foreach ($languages as $lang) {
     file_put_contents($imprintDir . '/' . $lang . '.html', $page);
 }
 
+// Generate statistics page (English only, not linked or in sitemap)
+$statisticsDir = ROOT_DIR . '/output/statistics';
+if (!is_dir($statisticsDir)) {
+    mkdir($statisticsDir, 0755, true);
+}
+$statsContent = '<h1>Statistics</h1>' . "\n";
+
+// Reader count per post
+$statsContent .= '<h2>Readers per Post</h2>' . "\n";
+$statsContent .= '<table>' . "\n";
+$statsContent .= '<tr><th>Post</th><th>Category</th><th>Readers</th></tr>' . "\n";
+$postsByViews = $posts;
+usort($postsByViews, function ($a, $b) {
+    $viewFileA = ROOT_DIR . '/output/' . $a['category'] . '/' . $a['slug'] . '/viewcount.txt';
+    $viewFileB = ROOT_DIR . '/output/' . $b['category'] . '/' . $b['slug'] . '/viewcount.txt';
+    $viewsA = is_file($viewFileA) ? (int)file_get_contents($viewFileA) : 0;
+    $viewsB = is_file($viewFileB) ? (int)file_get_contents($viewFileB) : 0;
+    return $viewsB <=> $viewsA;
+});
+foreach ($postsByViews as $post) {
+    $viewFile = ROOT_DIR . '/output/' . $post['category'] . '/' . $post['slug'] . '/viewcount.txt';
+    $views = is_file($viewFile) ? (int)file_get_contents($viewFile) : 0;
+    $mdFile = ROOT_DIR . '/posts/' . $post['slug'] . '/en.md';
+    $title = is_file($mdFile) ? extractTitle(file_get_contents($mdFile), $post['slug']) : $post['slug'];
+    $categoryTitle = $translations['en']['categories'][$post['category']] ?? $post['category'];
+    $statsContent .= '<tr><td>' . htmlspecialchars($title) . '</td><td>' . htmlspecialchars($categoryTitle) . '</td><td>' . $views . '</td></tr>' . "\n";
+}
+$statsContent .= '</table>' . "\n";
+
+// Reader count per category
+$statsContent .= '<h2>Readers per Category</h2>' . "\n";
+$statsContent .= '<table>' . "\n";
+$statsContent .= '<tr><th>Category</th><th>Readers</th></tr>' . "\n";
+$categoryViews = [];
+foreach ($posts as $post) {
+    $viewFile = ROOT_DIR . '/output/' . $post['category'] . '/' . $post['slug'] . '/viewcount.txt';
+    $views = is_file($viewFile) ? (int)file_get_contents($viewFile) : 0;
+    $categoryViews[$post['category']] = ($categoryViews[$post['category']] ?? 0) + $views;
+}
+arsort($categoryViews);
+foreach ($categoryViews as $cat => $views) {
+    $categoryTitle = $translations['en']['categories'][$cat] ?? $cat;
+    $statsContent .= '<tr><td>' . htmlspecialchars($categoryTitle) . '</td><td>' . $views . '</td></tr>' . "\n";
+}
+$statsContent .= '</table>' . "\n";
+
+// Post count per category
+$statsContent .= '<h2>Posts per Category</h2>' . "\n";
+$statsContent .= '<table>' . "\n";
+$statsContent .= '<tr><th>Category</th><th>Posts</th></tr>' . "\n";
+$categoryCounts = [];
+foreach ($posts as $post) {
+    $categoryCounts[$post['category']] = ($categoryCounts[$post['category']] ?? 0) + 1;
+}
+arsort($categoryCounts);
+foreach ($categoryCounts as $cat => $count) {
+    $categoryTitle = $translations['en']['categories'][$cat] ?? $cat;
+    $statsContent .= '<tr><td>' . htmlspecialchars($categoryTitle) . '</td><td>' . $count . '</td></tr>' . "\n";
+}
+$statsContent .= '</table>' . "\n";
+
+$statsPage = $mainTemplates['en'];
+$statsPage = str_replace('###PAGE_TITLE###', 'Statistics', $statsPage);
+$statsPage = str_replace('###CONTENT###', $statsContent, $statsPage);
+$statsPage = str_replace('<meta name="description"', '<meta name="robots" content="noindex, nofollow">' . "\n" . '    <meta name="description"', $statsPage);
+file_put_contents($statisticsDir . '/en.html', $statsPage);
+
 // Generate sitemap.xml
 $sitemapUrls = [];
 $baseUrl = 'https://idrinth.de';

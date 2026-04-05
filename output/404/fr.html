@@ -2,15 +2,15 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Page Not Found | Idrinth's Random Thoughts</title>
+    <title>Page non trouvée | Les pensées aléatoires d'Idrinth</title>
     <link rel="stylesheet" href="/styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="A blog of my choosing, feel free to explore!">
+    <meta name="description" content="Un blog de mon choix, n'hésitez pas à explorer !">
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="Idrinth's Random Thoughts" />
+    <meta name="apple-mobile-web-app-title" content="Les pensées aléatoires d'Idrinth" />
     <link rel="manifest" href="/site.webmanifest" />
 </head>
 <body>
@@ -19,26 +19,26 @@
         <picture>
             <source type="image/avif" srcset="/logo.avif">
             <source type="image/webp" srcset="/logo.webp">
-            <img src="/logo.png" alt="Logo: Idrinth's Random Thoughts">
+            <img src="/logo.png" alt="Logo : Les pensées aléatoires d'Idrinth">
         </picture>
     </a>
-    <strong>Idrinth's Random Thoughts</strong>
+    <strong>Les pensées aléatoires d'Idrinth</strong>
     <div>
         <select onchange="document.cookie='language='+this.value+'; expires='+(new Date().getTime() + 86400*30*1000)+ '; domain='+location.hostname+'; path=/';var p=location.pathname.replace(/^\/(en|fr|de)(\/|$)/,'/'+this.value+'$2');if(p===location.pathname)p='/'+this.value+location.pathname;location.href=p">
             <option value="en">English</option>
-            <option value="fr">Francais</option>
+            <option value="fr" selected>Francais</option>
             <option value="de">Deutsch</option>
         </select>
         <select onchange="document.cookie='mode='+this.value+'; expires='+(new Date().getTime() + 86400*30*1000)+ '; domain='+location.hostname+'; path=/'">
-            <option value="light">light mode</option>
-            <option value="dark">dark mode</option>
-            <option value="auto">auto mode</option>
+            <option value="light">mode clair</option>
+            <option value="dark">mode sombre</option>
+            <option value="auto">mode auto</option>
         </select>
     </div>
     <div class="advertisement">
         <a href="#" id="ad-link" onload="(async() => {document.getElementById('ad-link').setAttribute('href', await (await fetch('/ad.lnk')).text());})()" target="_blank" rel="noopener noreferrer">
-            <img alt="advertisement" id="leaderboard-ad" fetchpriority="high" src="/ad.jpg" width="728" height="90"/>
-            <i>This ad helps keeping the blog alive.</i>
+            <img alt="publicité" id="leaderboard-ad" fetchpriority="high" src="/ad.jpg" width="728" height="90"/>
+            <i>Cette publicité aide à maintenir le blog en vie.</i>
         </a>
     </div>
 </header>
@@ -46,13 +46,13 @@
     <nav>
         <ul>
             <li>
-                <a href="/software-engineering">Software Engineering</a>
+                <a href="/software-engineering">Génie logiciel</a>
             </li>
             <li>
                 <a href="/open-source">Open-Source</a>
             </li>
             <li>
-                <a href="/games">Games</a>
+                <a href="/games">Jeux</a>
             </li>
             <li>
                 <a href="/streaming">Streaming</a>
@@ -61,41 +61,41 @@
                 <a href="/modding">Modding</a>
             </li>
             <li>
-                <a href="/stories">Written Stories</a>
+                <a href="/stories">Histoires écrites</a>
             </li>
             <li>
-                <a href="/pen-and-paper">Pen &amp; Paper</a>
+                <a href="/pen-and-paper">Jeu de rôle</a>
             </li>
             <li>
-                <a href="/world-building">World Building Results</a>
+                <a href="/world-building">Création de mondes</a>
             </li>
             <li>
-                <a href="/random">Random Post</a>
+                <a href="/random">Article aléatoire</a>
             </li>
         </ul>
     </nav>
 </div>
 <article class="page">
     <aside>
-        <h2>Who am I?</h2>
+        <h2>Qui suis-je ?</h2>
         <picture>
             <source type="image/avif" srcset="/bjoern.avif">
             <source type="image/webp" srcset="/bjoern.webp">
             <img src="/bjoern.jpg" alt="Björn Büttner">
         </picture>
-        <p>My name is Björn and I go by Idrinth online. I have been a software developer for over a decade and I'm still spending way too much time modding games.</p>
-        <p>I enjoy talking with people, so this is a way I can provide another platform next to my discord.</p>
-        <p>If you need to reach out, please do so via discord and don't send random emails.</p>
+        <p>Je m'appelle Björn et je suis connu sous le nom d'Idrinth en ligne. Je suis développeur logiciel depuis plus d'une décennie et je passe toujours beaucoup trop de temps à modder des jeux.</p>
+        <p>J'aime discuter avec les gens, c'est donc une autre plateforme en plus de mon Discord.</p>
+        <p>Si vous avez besoin de me contacter, veuillez le faire via Discord et n'envoyez pas d'e-mails au hasard.</p>
     </aside>
-    <h1>Page Not Found</h1>
-<p>The page you are looking for does not exist.</p>
+    <h1>Page non trouvée</h1>
+<p>La page que vous recherchez n'existe pas.</p>
 
 </article>
 <footer class="page background">
     <nav>
         <ul>
             <li>
-                <a href="/imprint">Imprint</a>
+                <a href="/imprint">Mentions légales</a>
             </li>
             <li>
                 <a target="_blank" rel="noopener noreferrer" href="https://github.com/idrinth">Github</a>
@@ -118,7 +118,7 @@
         document.querySelectorAll('.views[data-path]').forEach(function(el) {
             fetch('/views/' + el.getAttribute('data-path'))
                 .then(function(r) { return r.text(); })
-                .then(function(count) { el.textContent = count + ' views'; });
+                .then(function(count) { el.textContent = count + ' vues'; });
         });
     }
     if (document.querySelector('.views[data-path]')) {

@@ -110,6 +110,11 @@ article > ol > li {
     box-shadow: 2px 2px 4px #e2e2e2;
     border-radius: 0.1em;
 }
+time {
+    color: #666;
+    font-size: 0.85em;
+    display: block;
+}
 article > aside {
     float: right;
     width: auto;

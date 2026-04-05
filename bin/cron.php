@@ -124,6 +124,7 @@ function buildListingEntries(array $posts, string $entryTemplate, string $lang):
         $entry = str_replace('###POST_TITLE###', htmlspecialchars($title), $entry);
         $entry = str_replace('###POST_DESCRIPTION###', htmlspecialchars($description), $entry);
         $entry = str_replace('###POST_TAGS###', $tagsHtml, $entry);
+        $entry = str_replace('###POST_DATE###', htmlspecialchars($post['date']), $entry);
 
         $entries .= $entry . "\n";
     }
@@ -187,6 +188,8 @@ foreach ($posts as $post) {
         $markdown = file_get_contents($mdFile);
         $content = markdownToHtml($markdown);
         $title = extractTitle($markdown, $slug);
+        $dateHtml = '<time datetime="' . htmlspecialchars($post['date']) . '">' . htmlspecialchars($post['date']) . '</time>' . "\n";
+        $content = preg_replace('/<\/h1>\n/', "</h1>\n" . $dateHtml, $content, 1);
 
         $page = $mainTemplate;
         $page = str_replace('###PAGE_TITLE###', htmlspecialchars($title), $page);

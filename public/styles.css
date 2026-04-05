@@ -12,6 +12,7 @@ html {
     --text-color: darkred;
     --shadow-color: #e2e2e2;
     --secondary-text: #666;
+    --primary-text: #111;
     --tag-bg: darkred;
     --tag-text: white;
     --bg-gradient-1: rgba(0,0,0,0.0);
@@ -25,6 +26,7 @@ html {
     --text-color: #e06060;
     --shadow-color: #111;
     --secondary-text: #999;
+    --primary-text: #eee;
     --tag-bg: #8b0000;
     --tag-text: #eee;
     --bg-gradient-1: rgba(0,0,0,0.95);
@@ -39,6 +41,7 @@ html {
         --text-color: #e06060;
         --shadow-color: #111;
         --secondary-text: #999;
+        --primary-text: #eee;
         --tag-bg: #8b0000;
         --tag-text: #eee;
         --bg-gradient-1: rgba(0,0,0,0.95);
@@ -54,6 +57,7 @@ body {
     background: linear-gradient(to right, var(--bg-gradient-1) 0%, var(--bg-gradient-2) 100%), linear-gradient(to bottom, var(--bg-gradient-1) 0%, var(--bg-gradient-2) 100%);
     display: grid;
     grid-template-rows: 6em 3em calc(100% - 12em) 3em;
+    color: var(--primary-text);
 }
 header {
     display: grid;

@@ -26,6 +26,7 @@ $translations = [
             . '<p>The use of our website is generally possible without providing personal data. As far as personal data (e.g. name, address or email addresses) is collected on our pages, this is always done on a voluntary basis as far as possible. This data will not be passed on to third parties without your express consent.</p>' . "\n"
             . '<p>We point out that data transmission over the Internet (e.g. communication by email) can have security gaps. Complete protection of data against access by third parties is not possible.</p>' . "\n"
             . '<p>The use of contact data published within the framework of the imprint obligation by third parties for sending unsolicited advertising and information materials is hereby expressly prohibited. The operators of the pages expressly reserve the right to take legal action in the event of unsolicited sending of advertising information, such as spam emails.</p>' . "\n",
+        'related_posts' => 'Related Posts',
         'categories' => [
             'software-engineering' => 'Software Engineering',
             'open-source' => 'Open-Source',
@@ -59,6 +60,7 @@ $translations = [
             . '<p>Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.</p>' . "\n"
             . '<p>Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten durch Dritte zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit ausdrücklich widersprochen. Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-Mails, vor.</p>' . "\n"
             . '<p><small>Quelle: Disclaimer von eRecht24, dem Portal zum Internetrecht von Rechtsanwalt Sören Siebert.</small></p>' . "\n",
+        'related_posts' => 'Ähnliche Beiträge',
         'categories' => [
             'software-engineering' => 'Softwareentwicklung',
             'open-source' => 'Open-Source',
@@ -91,6 +93,7 @@ $translations = [
             . '<p>L\'utilisation de notre site web est généralement possible sans fournir de données personnelles. Dans la mesure où des données personnelles (par exemple, nom, adresse ou adresses e-mail) sont collectées sur nos pages, cela se fait toujours sur une base volontaire dans la mesure du possible. Ces données ne seront pas transmises à des tiers sans votre consentement explicite.</p>' . "\n"
             . '<p>Nous soulignons que la transmission de données sur Internet (par exemple, la communication par e-mail) peut présenter des failles de sécurité. Une protection complète des données contre l\'accès par des tiers n\'est pas possible.</p>' . "\n"
             . '<p>L\'utilisation par des tiers des coordonnées publiées dans le cadre de l\'obligation de mentions légales pour l\'envoi de publicité et de matériel d\'information non expressément demandés est expressément interdite. Les exploitants des pages se réservent expressément le droit d\'engager des poursuites judiciaires en cas d\'envoi non sollicité d\'informations publicitaires, telles que des courriers indésirables.</p>' . "\n",
+        'related_posts' => 'Articles similaires',
         'categories' => [
             'software-engineering' => 'Génie logiciel',
             'open-source' => 'Open-Source',
@@ -195,6 +198,35 @@ function extractDescription(string $markdown): string
         return $trimmed;
     }
     return '';
+}
+
+function getRelatedPosts(array $currentPost, array $allPosts, int $maxResults = 5): array
+{
+    $scored = [];
+    $currentTags = $currentPost['tags'] ?? [];
+
+    foreach ($allPosts as $post) {
+        if ($post['slug'] === $currentPost['slug']) {
+            continue;
+        }
+        $points = 0.0;
+        if ($post['category'] === $currentPost['category']) {
+            $points += 10;
+        }
+        $sharedTags = array_intersect($currentTags, $post['tags'] ?? []);
+        $points += count($sharedTags);
+        if ($points < 1) {
+            continue;
+        }
+        $points += mt_rand(0, 1000) / 1000;
+        $scored[] = ['post' => $post, 'score' => $points];
+    }
+
+    usort($scored, function ($a, $b) {
+        return $b['score'] <=> $a['score'];
+    });
+
+    return array_slice(array_column($scored, 'post'), 0, $maxResults);
 }
 
 function buildListingEntries(array $posts, string $entryTemplate, string $lang): string
@@ -310,6 +342,29 @@ foreach ($posts as $post) {
         $dateHtml = '<time datetime="' . htmlspecialchars($post['date']) . '">' . htmlspecialchars($post['date']) . '</time>'
             . ' <span class="views" data-path="' . htmlspecialchars($category . '/' . $slug) . '">' . $viewCount . ' ' . $viewsLabel . '</span>' . "\n";
         $content = preg_replace('/<\/h1>\n/', "</h1>\n" . $dateHtml, $content, 1);
+
+        $relatedPosts = getRelatedPosts($post, $posts);
+        if ($relatedPosts !== []) {
+            $categoryTitle = $translations[$lang]['categories'][$category] ?? $category;
+            $relatedHtml = '<h2>' . $translations[$lang]['related_posts'] . "</h2>\n<ol>\n";
+            foreach ($relatedPosts as $related) {
+                $relMdFile = ROOT_DIR . '/posts/' . $related['slug'] . '/' . $lang . '.md';
+                if (!is_file($relMdFile)) {
+                    $relMdFile = ROOT_DIR . '/posts/' . $related['slug'] . '/en.md';
+                }
+                if (!is_file($relMdFile)) {
+                    continue;
+                }
+                $relTitle = extractTitle(file_get_contents($relMdFile), $related['slug']);
+                $relCategory = $translations[$lang]['categories'][$related['category']] ?? $related['category'];
+                $relatedHtml .= '<li><a href="/' . htmlspecialchars($related['category'] . '/' . $related['slug']) . '/' . $lang . '.html">'
+                    . htmlspecialchars($relTitle) . '</a> — '
+                    . htmlspecialchars($relCategory) . ', '
+                    . htmlspecialchars($related['date']) . "</li>\n";
+            }
+            $relatedHtml .= "</ol>\n";
+            $content .= $relatedHtml;
+        }
 
         $page = $mainTemplates[$lang];
         $page = str_replace('###PAGE_TITLE###', htmlspecialchars($title), $page);

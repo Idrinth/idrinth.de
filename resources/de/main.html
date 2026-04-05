@@ -14,6 +14,23 @@
     <link rel="manifest" href="/site.webmanifest" />
 </head>
 <body>
+<script>
+(function() {
+    var mode = '';
+    var cookies = document.cookie.split(';');
+    for (var i = 0; i < cookies.length; i++) {
+        var c = cookies[i].trim();
+        if (c.indexOf('mode=') === 0) {
+            mode = c.substring(5);
+            break;
+        }
+    }
+    if (mode !== 'light' && mode !== 'dark' && mode !== 'auto') {
+        mode = 'auto';
+    }
+    document.body.classList.add('theme-' + mode);
+})();
+</script>
 <header class="page background">
     <a href="/">
         <picture>
@@ -29,7 +46,7 @@
             <option value="fr">Francais</option>
             <option value="de" selected>Deutsch</option>
         </select>
-        <select onchange="document.cookie='mode='+this.value+'; expires='+(new Date().getTime() + 86400*30*1000)+ '; domain='+location.hostname+'; path=/'">
+        <select id="mode-select" onchange="document.cookie='mode='+this.value+'; expires='+(new Date().getTime() + 86400*30*1000)+ '; domain='+location.hostname+'; path=/';document.body.className=document.body.className.replace(/theme-\w+/,'theme-'+this.value)">
             <option value="light">Hellmodus</option>
             <option value="dark">Dunkelmodus</option>
             <option value="auto">Automatisch</option>
@@ -112,6 +129,11 @@
 </footer>
 <script>
 (function() {
+    var modeSelect = document.getElementById('mode-select');
+    if (modeSelect) {
+        var current = document.body.className.match(/theme-(\w+)/);
+        if (current) modeSelect.value = current[1];
+    }
     function updateViews() {
         document.querySelectorAll('.views[data-path]').forEach(function(el) {
             fetch('/views/' + el.getAttribute('data-path'))

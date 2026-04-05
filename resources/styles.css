@@ -159,7 +159,7 @@ nav > ul > li > a {
     border-bottom: 1px solid var(--text-color);
     border-radius: 0.15em;
 }
-article > ol {
+main > ol {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     list-style-type: none;
@@ -167,11 +167,11 @@ article > ol {
     padding: 0;
     gap: 1em;
 }
-article {
+main {
     overflow-y: auto;
     overflow-x: hidden;
 }
-article > ol > li {
+main > ol > li {
     box-shadow: 2px 2px 4px var(--shadow-color);
     border-radius: 0.1em;
 }
@@ -184,7 +184,7 @@ time {
     color: var(--secondary-text);
     font-size: 0.85em;
 }
-article > aside {
+main > aside {
     float: right;
     width: auto;
     max-width: 20%;
@@ -193,11 +193,11 @@ article > aside {
     margin-bottom: 1em;
     box-shadow: 2px 2px 4px var(--shadow-color);
 }
-article > aside > img {
+main > aside > img {
     float: left;
     padding: 0.7em;
 }
-article > aside > p {
+main > aside > p {
     padding: 0.2em;
 }
 th, td {

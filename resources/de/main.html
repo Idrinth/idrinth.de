@@ -25,12 +25,12 @@
     </a>
     <strong>Idrinths zufällige Gedanken</strong>
     <div>
-        <select onchange="document.cookie='language='+this.value+'; expires='+(new Date().getTime() + 86400*30*1000)+ '; domain='+location.hostname+'; path=/';let p=location.pathname.replace(/^\/(en|fr|de)(\/|$)/,'/'+this.value+'$2');if(p===location.pathname)p='/'+this.value+location.pathname;location.href=p">
+        <select aria-label="Sprache" onchange="document.cookie='language='+this.value+'; expires='+(new Date().getTime() + 86400*30*1000)+ '; domain='+location.hostname+'; path=/';let p=location.pathname.replace(/^\/(en|fr|de)(\/|$)/,'/'+this.value+'$2');if(p===location.pathname)p='/'+this.value+location.pathname;location.href=p">
             <option value="en">English</option>
             <option value="fr">Francais</option>
             <option value="de" selected>Deutsch</option>
         </select>
-        <select id="mode-select" onchange="document.cookie='mode='+this.value+'; expires='+(new Date().getTime() + 86400*30*1000)+ '; domain='+location.hostname+'; path=/';document.documentElement.className=document.documentElement.className.replace(/theme-\w+/,'theme-'+this.value)">
+        <select aria-label="Farbschema" id="mode-select" onchange="document.cookie='mode='+this.value+'; expires='+(new Date().getTime() + 86400*30*1000)+ '; domain='+location.hostname+'; path=/';document.documentElement.className=document.documentElement.className.replace(/theme-\w+/,'theme-'+this.value)">
             <option value="light">☀</option>
             <option value="dark">☾</option>
             <option value="auto">☁</option>
@@ -44,7 +44,7 @@
     </div>
 </header>
 <div class="page background">
-    <nav>
+    <nav aria-label="Kategorien">
         <ul>
             <li>
                 <a href="/software-engineering">Softwareentwicklung</a>
@@ -76,7 +76,7 @@
         </ul>
     </nav>
 </div>
-<article class="page">
+<main class="page">
     <aside>
         <h2>Wer bin ich?</h2>
         <picture>
@@ -89,9 +89,9 @@
         <p>Wenn du mich erreichen möchtest, nutze bitte Discord und schicke keine zufälligen E-Mails.</p>
     </aside>
     ###CONTENT###
-</article>
+</main>
 <footer class="page background">
-    <nav>
+    <nav aria-label="Soziale Links">
         <ul>
             <li>
                 <a href="/imprint">Impressum</a>

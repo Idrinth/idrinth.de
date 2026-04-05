@@ -13,7 +13,7 @@ The backend is json and md files, with pretty much everything generated from the
 
 If anything else is missing, let me know, I'd be happy to think about adding more!
 
-# Why not Wordpress or other blod systems
+# Why not Wordpress or other blog systems
 
 There are multiple reasons, but it mostly comes down to overhead. I can write HTML or Markdown very easily and don't care about most features these tools bring along. On the other end I end up with somebody else's code running on my server and potentially have risks that I can not predict.
 

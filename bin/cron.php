@@ -237,7 +237,7 @@ function buildListingEntries(array $posts, string $entryTemplate, string $tagLin
 
         $tagsHtml = '';
         foreach ($post['tags'] ?? [] as $tag) {
-            $tagSlug = htmlspecialchars($tag);
+            $tagSlug = htmlspecialchars(str_replace(' ', '-', $tag));
             $tagLink = str_replace('###LANG###', $lang, $tagLinkTemplate);
             $tagLink = str_replace('###TAG###', $tagSlug, $tagLink);
             $tagsHtml .= $tagLink;
@@ -491,7 +491,8 @@ foreach ($posts as $post) {
 if ($postsChanged) {
     foreach ($tags as $tag => $tagPosts) {
         $tagPosts = array_slice($tagPosts, 0, 9);
-        $outputDir = ROOT_DIR . '/output/tag/' . $tag;
+        $tagDirName = str_replace(' ', '-', $tag);
+        $outputDir = ROOT_DIR . '/output/tag/' . $tagDirName;
         if (!is_dir($outputDir)) {
             mkdir($outputDir, 0755, true);
         }
@@ -614,7 +615,7 @@ foreach ($posts as $post) {
 
 // Tag pages
 foreach (array_keys($tags) as $tag) {
-    $sitemapUrls[] = $baseUrl . '/tag/' . $tag;
+    $sitemapUrls[] = $baseUrl . '/tag/' . str_replace(' ', '-', $tag);
 }
 
 // Imprint

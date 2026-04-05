@@ -24,6 +24,7 @@ function displayHTMLAndExit(string $path, bool $countView = true): void
         }
         header('Content-type: text/html; charset=utf-8');
         header('Link: </styles.css>; rel=preload; as=style, </theme.js>; rel=preload; as=script, </ad.jpg>; rel=preload; as=image');
+        header('Permissions-Policy: all=()');
         exit(file_get_contents($path));
     }
 }

@@ -96,6 +96,9 @@ h4  {
 table, tr, td {
   border-collapse: collapse;
 }
+table {
+    width: auto;
+}
 td {
   border: 1px solid var(--primary-text);
   padding: 0.5em;
@@ -196,11 +199,6 @@ article > aside > img {
 }
 article > aside > p {
     padding: 0.2em;
-}
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 0.5em 0 1em;
 }
 th, td {
     text-align: left;

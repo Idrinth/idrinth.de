@@ -493,20 +493,12 @@ $statsContent .= '<h2>Readers per Post</h2>' . "\n";
 $statsContent .= '<table>' . "\n";
 $statsContent .= '<tr><th>Post</th><th>Category</th><th>Readers</th></tr>' . "\n";
 $postsByViews = $posts;
-usort($postsByViews, function ($a, $b) {
-    $viewFileA = ROOT_DIR . '/output/' . $a['category'] . '/' . $a['slug'] . '/viewcount.txt';
-    $viewFileB = ROOT_DIR . '/output/' . $b['category'] . '/' . $b['slug'] . '/viewcount.txt';
-    $viewsA = is_file($viewFileA) ? (int)file_get_contents($viewFileA) : 0;
-    $viewsB = is_file($viewFileB) ? (int)file_get_contents($viewFileB) : 0;
-    return $viewsB <=> $viewsA;
-});
 foreach ($postsByViews as $post) {
-    $viewFile = ROOT_DIR . '/output/' . $post['category'] . '/' . $post['slug'] . '/viewcount.txt';
-    $views = is_file($viewFile) ? (int)file_get_contents($viewFile) : 0;
     $mdFile = ROOT_DIR . '/posts/' . $post['slug'] . '/en.md';
     $title = is_file($mdFile) ? extractTitle(file_get_contents($mdFile), $post['slug']) : $post['slug'];
     $categoryTitle = $translations['en']['categories'][$post['category']] ?? $post['category'];
-    $statsContent .= '<tr><td>' . htmlspecialchars($title) . '</td><td>' . htmlspecialchars($categoryTitle) . '</td><td>' . $views . '</td></tr>' . "\n";
+    $dataPath = htmlspecialchars($post['category'] . '/' . $post['slug']);
+    $statsContent .= '<tr><td>' . htmlspecialchars($title) . '</td><td>' . htmlspecialchars($categoryTitle) . '</td><td><span class="views" data-path="' . $dataPath . '" data-category="' . htmlspecialchars($post['category']) . '">0 views</span></td></tr>' . "\n";
 }
 $statsContent .= '</table>' . "\n";
 
@@ -516,14 +508,11 @@ $statsContent .= '<table>' . "\n";
 $statsContent .= '<tr><th>Category</th><th>Readers</th></tr>' . "\n";
 $categoryViews = [];
 foreach ($posts as $post) {
-    $viewFile = ROOT_DIR . '/output/' . $post['category'] . '/' . $post['slug'] . '/viewcount.txt';
-    $views = is_file($viewFile) ? (int)file_get_contents($viewFile) : 0;
-    $categoryViews[$post['category']] = ($categoryViews[$post['category']] ?? 0) + $views;
+    $categoryViews[$post['category']] = true;
 }
-arsort($categoryViews);
 foreach ($categoryViews as $cat => $views) {
     $categoryTitle = $translations['en']['categories'][$cat] ?? $cat;
-    $statsContent .= '<tr><td>' . htmlspecialchars($categoryTitle) . '</td><td>' . $views . '</td></tr>' . "\n";
+    $statsContent .= '<tr><td>' . htmlspecialchars($categoryTitle) . '</td><td><span class="category-views" data-category="' . htmlspecialchars($cat) . '">0 views</span></td></tr>' . "\n";
 }
 $statsContent .= '</table>' . "\n";
 

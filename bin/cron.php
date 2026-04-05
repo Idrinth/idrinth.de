@@ -27,6 +27,7 @@ $translations = [
             . '<p>We point out that data transmission over the Internet (e.g. communication by email) can have security gaps. Complete protection of data against access by third parties is not possible.</p>' . "\n"
             . '<p>The use of contact data published within the framework of the imprint obligation by third parties for sending unsolicited advertising and information materials is hereby expressly prohibited. The operators of the pages expressly reserve the right to take legal action in the event of unsolicited sending of advertising information, such as spam emails.</p>' . "\n",
         'related_posts' => 'Related Posts',
+        'latest_posts_with_tag' => 'Latest Posts tagged',
         'categories' => [
             'software-engineering' => 'Software Engineering',
             'open-source' => 'Open-Source',
@@ -61,6 +62,7 @@ $translations = [
             . '<p>Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten durch Dritte zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit ausdrücklich widersprochen. Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-Mails, vor.</p>' . "\n"
             . '<p><small>Quelle: Disclaimer von eRecht24, dem Portal zum Internetrecht von Rechtsanwalt Sören Siebert.</small></p>' . "\n",
         'related_posts' => 'Ähnliche Beiträge',
+        'latest_posts_with_tag' => 'Neueste Beiträge mit Tag',
         'categories' => [
             'software-engineering' => 'Softwareentwicklung',
             'open-source' => 'Open-Source',
@@ -94,6 +96,7 @@ $translations = [
             . '<p>Nous soulignons que la transmission de données sur Internet (par exemple, la communication par e-mail) peut présenter des failles de sécurité. Une protection complète des données contre l\'accès par des tiers n\'est pas possible.</p>' . "\n"
             . '<p>L\'utilisation par des tiers des coordonnées publiées dans le cadre de l\'obligation de mentions légales pour l\'envoi de publicité et de matériel d\'information non expressément demandés est expressément interdite. Les exploitants des pages se réservent expressément le droit d\'engager des poursuites judiciaires en cas d\'envoi non sollicité d\'informations publicitaires, telles que des courriers indésirables.</p>' . "\n",
         'related_posts' => 'Articles similaires',
+        'latest_posts_with_tag' => 'Derniers articles avec le tag',
         'categories' => [
             'software-engineering' => 'Génie logiciel',
             'open-source' => 'Open-Source',
@@ -248,7 +251,8 @@ function buildListingEntries(array $posts, string $entryTemplate, string $lang):
 
         $tagsHtml = '';
         foreach ($post['tags'] ?? [] as $tag) {
-            $tagsHtml .= '<li>' . htmlspecialchars($tag) . "</li>\n";
+            $tagSlug = htmlspecialchars($tag);
+            $tagsHtml .= '<li><a href="/' . $lang . '/tag/' . $tagSlug . '/">' . $tagSlug . "</a></li>\n";
         }
 
         $entry = $entryTemplate;
@@ -454,6 +458,41 @@ if ($postsChanged) {
     }
 }
 
+// Generate tag listing pages (last 9 per tag) per language
+$tags = [];
+foreach ($posts as $post) {
+    foreach ($post['tags'] ?? [] as $tag) {
+        if (!isset($tags[$tag])) {
+            $tags[$tag] = [];
+        }
+        $tags[$tag][] = $post;
+    }
+}
+
+if ($postsChanged) {
+    foreach ($tags as $tag => $tagPosts) {
+        $tagPosts = array_slice($tagPosts, 0, 9);
+        $outputDir = ROOT_DIR . '/output/tag/' . $tag;
+        if (!is_dir($outputDir)) {
+            mkdir($outputDir, 0755, true);
+        }
+
+        foreach ($languages as $lang) {
+            $listing = buildListingEntries($tagPosts, $entryTemplates[$lang], $lang);
+
+            $headingText = $translations[$lang]['latest_posts_with_tag'] . ' ' . htmlspecialchars($tag);
+            $listingContent = str_replace('###POST_LISTING_ENTRY###', $listing, $listingTemplates[$lang]);
+            $listingContent = preg_replace('/<h1>[^<]+<\/h1>/', '<h1>' . $headingText . '</h1>', $listingContent, 1);
+
+            $page = $mainTemplates[$lang];
+            $page = str_replace('###PAGE_TITLE###', htmlspecialchars($tag), $page);
+            $page = str_replace('###CONTENT###', $listingContent, $page);
+
+            file_put_contents($outputDir . '/' . $lang . '.html', $page);
+        }
+    }
+}
+
 // Generate 404 page per language
 $notFoundDir = ROOT_DIR . '/output/404';
 if (!is_dir($notFoundDir)) {
@@ -496,6 +535,11 @@ foreach (array_keys($categories) as $category) {
 // Individual post pages
 foreach ($posts as $post) {
     $sitemapUrls[] = $baseUrl . '/' . $post['category'] . '/' . $post['slug'];
+}
+
+// Tag pages
+foreach (array_keys($tags) as $tag) {
+    $sitemapUrls[] = $baseUrl . '/tag/' . $tag;
 }
 
 // Imprint

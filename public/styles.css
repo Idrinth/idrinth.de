@@ -27,8 +27,8 @@ html {
     --secondary-text: #999;
     --tag-bg: #8b0000;
     --tag-text: #eee;
-    --bg-gradient-1: rgba(0,0,0,0.0);
-    --bg-gradient-2: rgba(0,0,0,0.05);
+    --bg-gradient-1: rgba(0,0,0,0.95);
+    --bg-gradient-2: rgba(0,0,0,1);
     --bg-overlay-1: rgba(0,0,0,0.1);
     --bg-overlay-2: rgba(0,0,0,0.05);
     --bg-overlay-3: rgba(0,0,0,0.3);
@@ -41,8 +41,8 @@ html {
         --secondary-text: #999;
         --tag-bg: #8b0000;
         --tag-text: #eee;
-        --bg-gradient-1: rgba(0,0,0,0.0);
-        --bg-gradient-2: rgba(0,0,0,0.05);
+        --bg-gradient-1: rgba(0,0,0,0.95);
+        --bg-gradient-2: rgba(0,0,0,1);
         --bg-overlay-1: rgba(0,0,0,0.1);
         --bg-overlay-2: rgba(0,0,0,0.05);
         --bg-overlay-3: rgba(0,0,0,0.3);

@@ -337,10 +337,8 @@ foreach ($languages as $lang) {
 $sitemapUrls = [];
 $baseUrl = 'https://idrinth.de';
 
-// Home pages
-foreach ($languages as $lang) {
-    $sitemapUrls[] = $baseUrl . '/' . $lang;
-}
+// Home page
+$sitemapUrls[] = $baseUrl . '/';
 
 // Category pages
 foreach (array_keys($categories) as $category) {

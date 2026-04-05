@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://idrinth.de/en</loc></url>
-  <url><loc>https://idrinth.de/de</loc></url>
-  <url><loc>https://idrinth.de/fr</loc></url>
+  <url><loc>https://idrinth.de/</loc></url>
   <url><loc>https://idrinth.de/software-engineering</loc></url>
   <url><loc>https://idrinth.de/open-source</loc></url>
   <url><loc>https://idrinth.de/games</loc></url>

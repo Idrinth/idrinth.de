@@ -110,6 +110,19 @@ $translations = [
     ],
 ];
 
+function minifyHtml(string $html): string
+{
+    // Remove HTML comments (but preserve conditional comments like <!--[if)
+    $html = preg_replace('/<!--(?!\[).*?-->/s', '', $html);
+    // Collapse whitespace between tags
+    $html = preg_replace('/>\s+</', '> <', $html);
+    // Remove leading/trailing whitespace on each line, then collapse newlines
+    $html = preg_replace('/^\s+/m', '', $html);
+    $html = preg_replace('/\s+$/m', '', $html);
+    $html = preg_replace('/\n+/', "\n", $html);
+    return trim($html);
+}
+
 function markdownToHtml(string $markdown): string
 {
     $lines = explode("\n", $markdown);
@@ -374,7 +387,7 @@ foreach ($posts as $post) {
         $page = str_replace('###PAGE_TITLE###', htmlspecialchars($title), $page);
         $page = str_replace('###CONTENT###', $content, $page);
 
-        file_put_contents($outputFile, $page);
+        file_put_contents($outputFile, minifyHtml($page));
     }
 }
 
@@ -410,7 +423,7 @@ if ($postsChanged) {
         $page = str_replace('###PAGE_TITLE###', $translations[$lang]['latest_posts'], $page);
         $page = str_replace('###CONTENT###', $listingContent, $page);
 
-        file_put_contents(ROOT_DIR . '/output/' . $lang . '.html', $page);
+        file_put_contents(ROOT_DIR . '/output/' . $lang . '.html', minifyHtml($page));
     }
 }
 
@@ -453,7 +466,7 @@ if ($postsChanged) {
             $page = str_replace('###PAGE_TITLE###', htmlspecialchars($categoryTitle), $page);
             $page = str_replace('###CONTENT###', $listingContent, $page);
 
-            file_put_contents($outputDir . '/' . $lang . '.html', $page);
+            file_put_contents($outputDir . '/' . $lang . '.html', minifyHtml($page));
         }
     }
 }
@@ -488,7 +501,7 @@ if ($postsChanged) {
             $page = str_replace('###PAGE_TITLE###', htmlspecialchars($tag), $page);
             $page = str_replace('###CONTENT###', $listingContent, $page);
 
-            file_put_contents($outputDir . '/' . $lang . '.html', $page);
+            file_put_contents($outputDir . '/' . $lang . '.html', minifyHtml($page));
         }
     }
 }
@@ -505,7 +518,7 @@ foreach ($languages as $lang) {
     $page = $mainTemplates[$lang];
     $page = str_replace('###PAGE_TITLE###', $translations[$lang]['page_not_found'], $page);
     $page = str_replace('###CONTENT###', $notFoundContent, $page);
-    file_put_contents($notFoundDir . '/' . $lang . '.html', $page);
+    file_put_contents($notFoundDir . '/' . $lang . '.html', minifyHtml($page));
 }
 
 // Generate imprint page per language
@@ -517,7 +530,7 @@ foreach ($languages as $lang) {
     $page = $mainTemplates[$lang];
     $page = str_replace('###PAGE_TITLE###', $translations[$lang]['imprint_title'], $page);
     $page = str_replace('###CONTENT###', $translations[$lang]['imprint_content'], $page);
-    file_put_contents($imprintDir . '/' . $lang . '.html', $page);
+    file_put_contents($imprintDir . '/' . $lang . '.html', minifyHtml($page));
 }
 
 // Generate statistics page (English only, not linked or in sitemap)
@@ -574,7 +587,7 @@ $statsPage = $mainTemplates['en'];
 $statsPage = str_replace('###PAGE_TITLE###', 'Statistics', $statsPage);
 $statsPage = str_replace('###CONTENT###', $statsContent, $statsPage);
 $statsPage = str_replace('<meta name="description"', '<meta name="robots" content="noindex, nofollow">' . "\n" . '    <meta name="description"', $statsPage);
-file_put_contents($statisticsDir . '/en.html', $statsPage);
+file_put_contents($statisticsDir . '/en.html', minifyHtml($statsPage));
 
 // Generate sitemap.xml
 $sitemapUrls = [];

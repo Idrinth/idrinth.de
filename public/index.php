@@ -25,7 +25,8 @@ function displayHTMLAndExit(string $path, bool $countView = true): void
         header('Content-type: text/html; charset=utf-8');
         header('Link: </styles.css>; rel=preload; as=style, </theme.js>; rel=preload; as=script, </ad.jpg>; rel=preload; as=image');
         header('Permissions-Policy: all=()');
-        exit(file_get_contents($path));
+        readfile($path);
+        exit;
     }
 }
 function findAndExit(string $uri, string $language, bool $countView = true): void
@@ -39,11 +40,13 @@ function findAdAndExit(string $file, string $mime): void
     $path = ROOT_DIR . '/ads/' . date('Y-m');
     if (is_file($path . '/' . $file)) {
         header('Content-type: ' . $mime);
-        exit(file_get_contents($path . '/' . $file));
+        readfile($path . '/' . $file);
+        exit;
     }
     if (is_file(ROOT_DIR . '/ads/0000-00/' . $file)) {
         header('Content-type: ' . $mime);
-        exit(file_get_contents(ROOT_DIR . '/ads/0000-00/' . $file));
+        readfile(ROOT_DIR . '/ads/0000-00/' . $file);
+        exit;
     }
 }
 $uri = trim($_SERVER['REQUEST_URI'] ?? '', '/');
@@ -96,7 +99,12 @@ if ($uri === 'views' || str_starts_with($uri, 'views/')) {
     $viewFile = ROOT_DIR . '/output/' . ($viewPath !== '' ? $viewPath . '/' : '') . 'viewcount.txt';
     header('Content-type: text/plain');
     header('Cache-Control: no-cache');
-    exit(is_file($viewFile) ? file_get_contents($viewFile) : '0');
+    if (is_file($viewFile)) {
+        readfile($viewFile);
+    } else {
+        echo '0';
+    }
+    exit;
 }
 if ($uri === 'random') {
     $postsFile = ROOT_DIR . '/output/posts.json';

@@ -274,6 +274,72 @@ function buildListingEntries(array $posts, string $entryTemplate, string $tagLin
     return $entries;
 }
 
+function generateFeeds(
+    array $posts,
+    string $outputDir,
+    string $feedTitle,
+    string $feedDescription,
+    string $selfPath,
+    string $lang,
+    string $baseUrl,
+    string $rssTemplate,
+    string $rssEntryTemplate,
+    string $atomTemplate,
+    string $atomEntryTemplate
+): void {
+    $rssEntries = '';
+    $atomEntries = '';
+    $latestDate = $posts[0]['date'] ?? date('Y-m-d');
+
+    foreach ($posts as $post) {
+        $slug = $post['slug'];
+        $mdFile = ROOT_DIR . '/posts/' . $slug . '/' . $lang . '.md';
+        if (!is_file($mdFile)) {
+            $mdFile = ROOT_DIR . '/posts/' . $slug . '/en.md';
+        }
+        if (!is_file($mdFile)) {
+            continue;
+        }
+        $markdown = file_get_contents($mdFile);
+        $title = extractTitle($markdown, $slug);
+        $description = extractDescription($markdown);
+        $link = $baseUrl . '/' . $lang . '/' . $post['category'] . '/' . $slug;
+
+        $rssEntry = $rssEntryTemplate;
+        $rssEntry = str_replace('###POST_TITLE###', htmlspecialchars($title), $rssEntry);
+        $rssEntry = str_replace('###POST_LINK###', htmlspecialchars($link), $rssEntry);
+        $rssEntry = str_replace('###POST_DATE###', date('r', strtotime($post['date'])), $rssEntry);
+        $rssEntry = str_replace('###POST_DESCRIPTION###', htmlspecialchars($description), $rssEntry);
+        $rssEntries .= $rssEntry;
+
+        $atomEntry = $atomEntryTemplate;
+        $atomEntry = str_replace('###POST_TITLE###', htmlspecialchars($title), $atomEntry);
+        $atomEntry = str_replace('###POST_LINK###', htmlspecialchars($link), $atomEntry);
+        $atomEntry = str_replace('###POST_DATE###', $post['date'] . 'T00:00:00+00:00', $atomEntry);
+        $atomEntry = str_replace('###POST_DESCRIPTION###', htmlspecialchars($description), $atomEntry);
+        $atomEntries .= $atomEntry;
+    }
+
+    $feedLink = $baseUrl . '/' . $lang . $selfPath;
+
+    $rss = $rssTemplate;
+    $rss = str_replace('###FEED_TITLE###', htmlspecialchars($feedTitle), $rss);
+    $rss = str_replace('###FEED_LINK###', htmlspecialchars($feedLink), $rss);
+    $rss = str_replace('###FEED_DESCRIPTION###', htmlspecialchars($feedDescription), $rss);
+    $rss = str_replace('###LANG###', $lang, $rss);
+    $rss = str_replace('###FEED_SELF###', htmlspecialchars($feedLink . '/feed.rss'), $rss);
+    $rss = str_replace('###FEED_ENTRIES###', $rssEntries, $rss);
+    file_put_contents($outputDir . '/' . $lang . '.rss', $rss);
+
+    $atom = $atomTemplate;
+    $atom = str_replace('###FEED_TITLE###', htmlspecialchars($feedTitle), $atom);
+    $atom = str_replace('###FEED_LINK###', htmlspecialchars($feedLink), $atom);
+    $atom = str_replace('###FEED_SELF###', htmlspecialchars($feedLink . '/feed.atom'), $atom);
+    $atom = str_replace('###FEED_UPDATED###', $latestDate . 'T00:00:00+00:00', $atom);
+    $atom = str_replace('###FEED_ENTRIES###', $atomEntries, $atom);
+    file_put_contents($outputDir . '/' . $lang . '.atom', $atom);
+}
+
 // Load per-language templates
 $mainTemplates = [];
 $entryTemplates = [];
@@ -303,6 +369,10 @@ $statisticsCategoryViewRowTemplate = file_get_contents(ROOT_DIR . '/resources/en
 $statisticsCategoryCountRowTemplate = file_get_contents(ROOT_DIR . '/resources/en/statistics-category-count-row.html');
 $sitemapTemplate = file_get_contents(ROOT_DIR . '/resources/sitemap.xml');
 $sitemapEntryTemplate = file_get_contents(ROOT_DIR . '/resources/sitemap-entry.xml');
+$rssTemplate = file_get_contents(ROOT_DIR . '/resources/rss.xml');
+$rssEntryTemplate = file_get_contents(ROOT_DIR . '/resources/rss-entry.xml');
+$atomTemplate = file_get_contents(ROOT_DIR . '/resources/atom.xml');
+$atomEntryTemplate = file_get_contents(ROOT_DIR . '/resources/atom-entry.xml');
 
 // Minify and write CSS/JS to public directory
 file_put_contents(ROOT_DIR . '/public/styles.css', minifyCss(file_get_contents(ROOT_DIR . '/resources/styles.css')));
@@ -315,7 +385,8 @@ $allTemplateContents = implode('', $mainTemplates) . implode('', $entryTemplates
     . implode('', $notFoundTemplates) . implode('', $imprintTemplates) . implode('', $canceledTemplates) . implode('', $thankYouTemplates) . implode('', $postDateTemplates)
     . implode('', $relatedPostsTemplates) . $relatedPostEntryTemplate . $tagLinkTemplate
     . $statisticsTemplate . $statisticsPostRowTemplate . $statisticsCategoryViewRowTemplate
-    . $statisticsCategoryCountRowTemplate . $sitemapTemplate . $sitemapEntryTemplate;
+    . $statisticsCategoryCountRowTemplate . $sitemapTemplate . $sitemapEntryTemplate
+    . $rssTemplate . $rssEntryTemplate . $atomTemplate . $atomEntryTemplate;
 $currentHash = md5($allTemplateContents);
 $templatesChanged = true;
 if (is_file($templateHashFile)) {
@@ -456,6 +527,12 @@ if ($postsChanged) {
         $page = str_replace('###CONTENT###', $listingContent, $page);
 
         file_put_contents(ROOT_DIR . '/output/' . $lang . '.html', minifyHtml($page));
+
+        generateFeeds(
+            $homePosts, ROOT_DIR . '/output', $translations[$lang]['latest_posts'],
+            $translations[$lang]['default_description'], '', $lang, 'https://idrinth.de',
+            $rssTemplate, $rssEntryTemplate, $atomTemplate, $atomEntryTemplate
+        );
     }
 }
 
@@ -502,6 +579,12 @@ if ($postsChanged) {
             $page = str_replace('###CONTENT###', $listingContent, $page);
 
             file_put_contents($outputDir . '/' . $lang . '.html', minifyHtml($page));
+
+            generateFeeds(
+                $catPosts, $outputDir, $translations[$lang]['latest_posts_in'] . ' ' . $categoryTitle,
+                $categoryDescription, '/' . $category, $lang, 'https://idrinth.de',
+                $rssTemplate, $rssEntryTemplate, $atomTemplate, $atomEntryTemplate
+            );
         }
     }
 }
@@ -541,6 +624,12 @@ if ($postsChanged) {
             $page = str_replace('###CONTENT###', $listingContent, $page);
 
             file_put_contents($outputDir . '/' . $lang . '.html', minifyHtml($page));
+
+            generateFeeds(
+                $tagPosts, $outputDir, $translations[$lang]['latest_posts_with_tag'] . ' ' . $tag,
+                $tagDescription, '/tag/' . $tagDirName, $lang, 'https://idrinth.de',
+                $rssTemplate, $rssEntryTemplate, $atomTemplate, $atomEntryTemplate
+            );
         }
     }
 }

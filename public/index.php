@@ -116,6 +116,21 @@ if ($uri === 'random') {
         }
     }
 }
+$feedFormats = ['feed.rss' => 'application/rss+xml', 'feed.atom' => 'application/atom+xml'];
+foreach ($feedFormats as $feedFile => $contentType) {
+    if ($uri === $feedFile || str_ends_with($uri, '/' . $feedFile)) {
+        $feedPath = $uri === $feedFile ? '' : substr($uri, 0, -(strlen($feedFile) + 1));
+        $ext = str_ends_with($feedFile, '.rss') ? 'rss' : 'atom';
+        $file = ROOT_DIR . '/output/' . ($feedPath !== '' ? $feedPath . '/' : '') . $language . '.' . $ext;
+        if (is_file($file)) {
+            header('Content-Type: ' . $contentType . '; charset=utf-8');
+            header('Cache-Control: max-age=3600');
+            readfile($file);
+            exit;
+        }
+        break;
+    }
+}
 if ($uri === '') {
     findAndExit($uri, $language);
 }

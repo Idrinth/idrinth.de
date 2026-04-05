@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>###FEED_TITLE###</title>
+    <link href="###FEED_LINK###"/>
+    <link href="###FEED_SELF###" rel="self" type="application/atom+xml"/>
+    <id>###FEED_LINK###</id>
+    <updated>###FEED_UPDATED###</updated>
+###FEED_ENTRIES###
+</feed>

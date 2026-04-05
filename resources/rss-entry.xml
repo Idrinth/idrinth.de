@@ -1,0 +1,7 @@
+    <item>
+        <title>###POST_TITLE###</title>
+        <link>###POST_LINK###</link>
+        <guid>###POST_LINK###</guid>
+        <pubDate>###POST_DATE###</pubDate>
+        <description>###POST_DESCRIPTION###</description>
+    </item>

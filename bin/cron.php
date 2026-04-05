@@ -10,6 +10,7 @@ $translations = [
         'latest_posts_in' => 'Latest Posts in',
         'page_not_found' => 'Page Not Found',
         'imprint_title' => 'Imprint',
+        'thank_you_title' => 'Thank You!',
         'latest_posts_with_tag' => 'Latest Posts tagged',
         'canceled_title' => 'Thank You!',
         'default_description' => 'A blog of my choosing, feel free to explore!',
@@ -31,6 +32,7 @@ $translations = [
         'latest_posts_in' => 'Neueste Beiträge in',
         'page_not_found' => 'Seite nicht gefunden',
         'imprint_title' => 'Impressum',
+        'thank_you_title' => 'Vielen Dank!',
         'latest_posts_with_tag' => 'Neueste Beiträge mit Tag',
         'canceled_title' => 'Vielen Dank!',
         'default_description' => 'Ein Blog meiner Wahl, schau dich gerne um!',
@@ -52,6 +54,7 @@ $translations = [
         'latest_posts_in' => 'Derniers articles dans',
         'page_not_found' => 'Page non trouvée',
         'imprint_title' => 'Mentions légales',
+        'thank_you_title' => 'Merci !',
         'latest_posts_with_tag' => 'Derniers articles avec le tag',
         'canceled_title' => 'Merci !',
         'default_description' => "Un blog de mon choix, n'hésitez pas à explorer !",
@@ -278,6 +281,7 @@ $listingTemplates = [];
 $notFoundTemplates = [];
 $imprintTemplates = [];
 $canceledTemplates = [];
+$thankYouTemplates = [];
 $postDateTemplates = [];
 $relatedPostsTemplates = [];
 foreach ($languages as $lang) {
@@ -287,6 +291,7 @@ foreach ($languages as $lang) {
     $notFoundTemplates[$lang] = file_get_contents(ROOT_DIR . '/resources/' . $lang . '/404.html');
     $imprintTemplates[$lang] = file_get_contents(ROOT_DIR . '/resources/' . $lang . '/imprint.html');
     $canceledTemplates[$lang] = file_get_contents(ROOT_DIR . '/resources/' . $lang . '/canceled.html');
+    $thankYouTemplates[$lang] = file_get_contents(ROOT_DIR . '/resources/' . $lang . '/thank-you.html');
     $postDateTemplates[$lang] = file_get_contents(ROOT_DIR . '/resources/' . $lang . '/post-date.html');
     $relatedPostsTemplates[$lang] = file_get_contents(ROOT_DIR . '/resources/' . $lang . '/related-posts.html');
 }
@@ -307,8 +312,8 @@ file_put_contents(ROOT_DIR . '/public/theme.js', minifyJs(file_get_contents(ROOT
 // Detect template changes
 $templateHashFile = ROOT_DIR . '/output/.template-hash';
 $allTemplateContents = implode('', $mainTemplates) . implode('', $entryTemplates) . implode('', $listingTemplates)
-    . implode('', $notFoundTemplates) . implode('', $imprintTemplates) . implode('', $postDateTemplates)
-    . implode('', $relatedPostsTemplates) . implode('', $canceledTemplates) . $relatedPostEntryTemplate . $tagLinkTemplate
+    . implode('', $notFoundTemplates) . implode('', $imprintTemplates) . implode('', $canceledTemplates) . implode('', $thankYouTemplates) . implode('', $postDateTemplates)
+    . implode('', $relatedPostsTemplates) . $relatedPostEntryTemplate . $tagLinkTemplate
     . $statisticsTemplate . $statisticsPostRowTemplate . $statisticsCategoryViewRowTemplate
     . $statisticsCategoryCountRowTemplate . $sitemapTemplate . $sitemapEntryTemplate;
 $currentHash = md5($allTemplateContents);
@@ -578,6 +583,20 @@ foreach ($languages as $lang) {
     $page = str_replace('###CONTENT###', $canceledTemplates[$lang], $page);
     $page = str_replace('<meta name="description"', '<meta name="robots" content="noindex, nofollow">' . "\n" . '    <meta name="description"', $page);
     file_put_contents($canceledDir . '/' . $lang . '.html', minifyHtml($page));
+}
+
+// Generate thank-you page per language (not in sitemap)
+$thankYouDir = ROOT_DIR . '/output/thank-you';
+if (!is_dir($thankYouDir)) {
+    mkdir($thankYouDir, 0755, true);
+}
+foreach ($languages as $lang) {
+    $page = $mainTemplates[$lang];
+    $page = str_replace('###PAGE_TITLE###', $translations[$lang]['thank_you_title'], $page);
+    $page = str_replace('###PAGE_DESCRIPTION###', htmlspecialchars($translations[$lang]['default_description']), $page);
+    $page = str_replace('###CONTENT###', $thankYouTemplates[$lang], $page);
+    $page = str_replace('<meta name="description"', '<meta name="robots" content="noindex, nofollow">' . "\n" . '    <meta name="description"', $page);
+    file_put_contents($thankYouDir . '/' . $lang . '.html', minifyHtml($page));
 }
 
 // Generate statistics page (English only, not linked or in sitemap)

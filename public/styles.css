@@ -59,6 +59,12 @@ body {
     grid-template-rows: 6em 3em calc(100% - 12em) 3em;
     color: var(--primary-text);
 }
+select {
+  background: transparent;
+  color: var(--primary-text);
+  border-radius: 0.2em;
+  border: 1px solid var(--text-color);
+}
 header {
     display: grid;
     grid-template-columns: 30px calc(100% - 758px - 10em) 10em 728px;

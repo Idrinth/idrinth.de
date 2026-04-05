@@ -20,13 +20,6 @@ html {
     --bg-overlay-2: rgba(255,255,255,0.0015);
     --bg-overlay-3: rgba(0,0,0,0.1);
 }
-body {
-    height: 100%;
-    overflow: hidden;
-    background: linear-gradient(to right, var(--bg-gradient-1) 0%, var(--bg-gradient-2) 100%), linear-gradient(to bottom, var(--bg-gradient-1) 0%, var(--bg-gradient-2) 100%);
-    display: grid;
-    grid-template-rows: 6em 3em calc(100% - 12em) 3em;
-}
 .theme-dark {
     --bg-color: #222;
     --text-color: #e06060;
@@ -54,6 +47,13 @@ body {
         --bg-overlay-2: rgba(0,0,0,0.05);
         --bg-overlay-3: rgba(0,0,0,0.3);
     }
+}
+body {
+    height: 100%;
+    overflow: hidden;
+    background: linear-gradient(to right, var(--bg-gradient-1) 0%, var(--bg-gradient-2) 100%), linear-gradient(to bottom, var(--bg-gradient-1) 0%, var(--bg-gradient-2) 100%);
+    display: grid;
+    grid-template-rows: 6em 3em calc(100% - 12em) 3em;
 }
 header {
     display: grid;

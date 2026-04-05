@@ -93,6 +93,19 @@ h3  {
 h4  {
     font-size: 1.25em;
 }
+table, tr, td {
+  border-collapse: collapse;
+}
+td {
+  border: 1px solid var(--primary-text);
+  padding: 0.5em;
+}
+td:first-of-type {
+  border-left: none;
+}
+td:last-of-type {
+  border-right: none;
+}
 .page {
     box-shadow: 2px 2px 4px var(--shadow-color);
     max-width: 1250px;

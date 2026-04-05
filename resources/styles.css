@@ -65,6 +65,10 @@ select {
   border-radius: 0.2em;
   border: 1px solid var(--text-color);
 }
+select option {
+  background: var(--bg-color);
+  color: var(--primary-text);
+}
 header {
     display: grid;
     grid-template-columns: 30px calc(100% - 758px - 10em) 10em 728px;

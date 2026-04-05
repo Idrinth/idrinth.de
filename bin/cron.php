@@ -9,24 +9,7 @@ $translations = [
         'latest_posts' => 'Latest Posts',
         'latest_posts_in' => 'Latest Posts in',
         'page_not_found' => 'Page Not Found',
-        'page_not_found_text' => 'The page you are looking for does not exist.',
-        'views' => 'views',
         'imprint_title' => 'Imprint',
-        'imprint_content' => '<h1>Legal Notice</h1>' . "\n"
-            . '<h2>Information according to § 5 TMG</h2>' . "\n"
-            . '<p>Björn Büttner<br>Böllerts Höfe 4<br>45479 Mülheim an der Ruhr</p>' . "\n"
-            . '<h2>Contact</h2>' . "\n"
-            . '<p>Phone: +4917647945826<br>Email: webmaster@bjoern-buettner.me</p>' . "\n"
-            . '<h2>Responsible for content according to § 55 Abs. 2 RStV</h2>' . "\n"
-            . '<p>Björn Büttner<br>Böllerts Höfe 4<br>45479 Mülheim an der Ruhr</p>' . "\n"
-            . '<h2>Disclaimer</h2>' . "\n"
-            . '<h3>Liability for Links</h3>' . "\n"
-            . '<p>Our website contains links to external third-party websites, over whose content we have no influence. Therefore, we cannot accept any liability for this external content. The respective provider or operator of the linked pages is always responsible for the content of the linked pages. The linked pages were checked for possible legal violations at the time of linking. Illegal content was not recognisable at the time of linking. However, permanent monitoring of the content of the linked pages is not reasonable without concrete evidence of a violation of the law. If we become aware of any infringements, we will remove such links immediately.</p>' . "\n"
-            . '<h3>Data Protection</h3>' . "\n"
-            . '<p>The use of our website is generally possible without providing personal data. As far as personal data (e.g. name, address or email addresses) is collected on our pages, this is always done on a voluntary basis as far as possible. This data will not be passed on to third parties without your express consent.</p>' . "\n"
-            . '<p>We point out that data transmission over the Internet (e.g. communication by email) can have security gaps. Complete protection of data against access by third parties is not possible.</p>' . "\n"
-            . '<p>The use of contact data published within the framework of the imprint obligation by third parties for sending unsolicited advertising and information materials is hereby expressly prohibited. The operators of the pages expressly reserve the right to take legal action in the event of unsolicited sending of advertising information, such as spam emails.</p>' . "\n",
-        'related_posts' => 'Related Posts',
         'latest_posts_with_tag' => 'Latest Posts tagged',
         'categories' => [
             'software-engineering' => 'Software Engineering',
@@ -43,25 +26,7 @@ $translations = [
         'latest_posts' => 'Neueste Beiträge',
         'latest_posts_in' => 'Neueste Beiträge in',
         'page_not_found' => 'Seite nicht gefunden',
-        'page_not_found_text' => 'Die Seite, die Sie suchen, existiert nicht.',
-        'views' => 'Aufrufe',
         'imprint_title' => 'Impressum',
-        'imprint_content' => '<h1>Impressum</h1>' . "\n"
-            . '<h2>Angaben gemäß § 5 TMG</h2>' . "\n"
-            . '<p>Björn Büttner<br>Böllerts Höfe 4<br>45479 Mülheim an der Ruhr</p>' . "\n"
-            . '<h2>Kontakt</h2>' . "\n"
-            . '<p>Telefon: +4917647945826<br>eMail: webmaster@bjoern-buettner.me</p>' . "\n"
-            . '<h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>' . "\n"
-            . '<p>Björn Büttner<br>Böllerts Höfe 4<br>45479 Mülheim an der Ruhr</p>' . "\n"
-            . '<h2>Haftungsausschluss</h2>' . "\n"
-            . '<h3>Haftung für Links</h3>' . "\n"
-            . '<p>Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.</p>' . "\n"
-            . '<h3>Datenschutz</h3>' . "\n"
-            . '<p>Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder eMail-Adressen) erhoben werden, erfolgt dies, soweit möglich, stets auf freiwilliger Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben.</p>' . "\n"
-            . '<p>Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.</p>' . "\n"
-            . '<p>Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten durch Dritte zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit ausdrücklich widersprochen. Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-Mails, vor.</p>' . "\n"
-            . '<p><small>Quelle: Disclaimer von eRecht24, dem Portal zum Internetrecht von Rechtsanwalt Sören Siebert.</small></p>' . "\n",
-        'related_posts' => 'Ähnliche Beiträge',
         'latest_posts_with_tag' => 'Neueste Beiträge mit Tag',
         'categories' => [
             'software-engineering' => 'Softwareentwicklung',
@@ -78,24 +43,7 @@ $translations = [
         'latest_posts' => 'Derniers articles',
         'latest_posts_in' => 'Derniers articles dans',
         'page_not_found' => 'Page non trouvée',
-        'page_not_found_text' => 'La page que vous recherchez n\'existe pas.',
-        'views' => 'vues',
         'imprint_title' => 'Mentions légales',
-        'imprint_content' => '<h1>Mentions légales</h1>' . "\n"
-            . '<h2>Informations conformément au § 5 TMG</h2>' . "\n"
-            . '<p>Björn Büttner<br>Böllerts Höfe 4<br>45479 Mülheim an der Ruhr</p>' . "\n"
-            . '<h2>Contact</h2>' . "\n"
-            . '<p>Téléphone : +4917647945826<br>Email : webmaster@bjoern-buettner.me</p>' . "\n"
-            . '<h2>Responsable du contenu selon § 55 Abs. 2 RStV</h2>' . "\n"
-            . '<p>Björn Büttner<br>Böllerts Höfe 4<br>45479 Mülheim an der Ruhr</p>' . "\n"
-            . '<h2>Avertissement</h2>' . "\n"
-            . '<h3>Responsabilité pour les liens</h3>' . "\n"
-            . '<p>Notre offre contient des liens vers des sites web externes de tiers, sur le contenu desquels nous n\'avons aucune influence. Par conséquent, nous ne pouvons assumer aucune responsabilité pour ces contenus externes. Le fournisseur ou exploitant respectif des pages liées est toujours responsable du contenu des pages liées. Les pages liées ont été vérifiées pour d\'éventuelles violations de la loi au moment de la liaison. Aucun contenu illégal n\'était identifiable au moment de la liaison. Cependant, un contrôle permanent du contenu des pages liées n\'est pas raisonnable sans preuve concrète d\'une violation de la loi. Dès que nous aurons connaissance de violations de la loi, nous supprimerons immédiatement ces liens.</p>' . "\n"
-            . '<h3>Protection des données</h3>' . "\n"
-            . '<p>L\'utilisation de notre site web est généralement possible sans fournir de données personnelles. Dans la mesure où des données personnelles (par exemple, nom, adresse ou adresses e-mail) sont collectées sur nos pages, cela se fait toujours sur une base volontaire dans la mesure du possible. Ces données ne seront pas transmises à des tiers sans votre consentement explicite.</p>' . "\n"
-            . '<p>Nous soulignons que la transmission de données sur Internet (par exemple, la communication par e-mail) peut présenter des failles de sécurité. Une protection complète des données contre l\'accès par des tiers n\'est pas possible.</p>' . "\n"
-            . '<p>L\'utilisation par des tiers des coordonnées publiées dans le cadre de l\'obligation de mentions légales pour l\'envoi de publicité et de matériel d\'information non expressément demandés est expressément interdite. Les exploitants des pages se réservent expressément le droit d\'engager des poursuites judiciaires en cas d\'envoi non sollicité d\'informations publicitaires, telles que des courriers indésirables.</p>' . "\n",
-        'related_posts' => 'Articles similaires',
         'latest_posts_with_tag' => 'Derniers articles avec le tag',
         'categories' => [
             'software-engineering' => 'Génie logiciel',
@@ -270,7 +218,7 @@ function getRelatedPosts(array $currentPost, array $allPosts, int $maxResults = 
     return array_slice(array_column($scored, 'post'), 0, $maxResults);
 }
 
-function buildListingEntries(array $posts, string $entryTemplate, string $lang): string
+function buildListingEntries(array $posts, string $entryTemplate, string $tagLinkTemplate, string $lang): string
 {
     $entries = '';
     foreach ($posts as $post) {
@@ -290,7 +238,9 @@ function buildListingEntries(array $posts, string $entryTemplate, string $lang):
         $tagsHtml = '';
         foreach ($post['tags'] ?? [] as $tag) {
             $tagSlug = htmlspecialchars($tag);
-            $tagsHtml .= '<li><a href="/' . $lang . '/tag/' . $tagSlug . '/">' . $tagSlug . "</a></li>\n";
+            $tagLink = str_replace('###LANG###', $lang, $tagLinkTemplate);
+            $tagLink = str_replace('###TAG###', $tagSlug, $tagLink);
+            $tagsHtml .= $tagLink;
         }
 
         $entry = $entryTemplate;
@@ -313,11 +263,27 @@ function buildListingEntries(array $posts, string $entryTemplate, string $lang):
 $mainTemplates = [];
 $entryTemplates = [];
 $listingTemplates = [];
+$notFoundTemplates = [];
+$imprintTemplates = [];
+$postDateTemplates = [];
+$relatedPostsTemplates = [];
 foreach ($languages as $lang) {
     $mainTemplates[$lang] = file_get_contents(ROOT_DIR . '/resources/' . $lang . '/main.html');
     $entryTemplates[$lang] = file_get_contents(ROOT_DIR . '/resources/' . $lang . '/post-listing-entry.html');
     $listingTemplates[$lang] = file_get_contents(ROOT_DIR . '/resources/' . $lang . '/post-listing.html');
+    $notFoundTemplates[$lang] = file_get_contents(ROOT_DIR . '/resources/' . $lang . '/404.html');
+    $imprintTemplates[$lang] = file_get_contents(ROOT_DIR . '/resources/' . $lang . '/imprint.html');
+    $postDateTemplates[$lang] = file_get_contents(ROOT_DIR . '/resources/' . $lang . '/post-date.html');
+    $relatedPostsTemplates[$lang] = file_get_contents(ROOT_DIR . '/resources/' . $lang . '/related-posts.html');
 }
+$relatedPostEntryTemplate = file_get_contents(ROOT_DIR . '/resources/related-post-entry.html');
+$tagLinkTemplate = file_get_contents(ROOT_DIR . '/resources/tag-link.html');
+$statisticsTemplate = file_get_contents(ROOT_DIR . '/resources/en/statistics.html');
+$statisticsPostRowTemplate = file_get_contents(ROOT_DIR . '/resources/en/statistics-post-row.html');
+$statisticsCategoryViewRowTemplate = file_get_contents(ROOT_DIR . '/resources/en/statistics-category-view-row.html');
+$statisticsCategoryCountRowTemplate = file_get_contents(ROOT_DIR . '/resources/en/statistics-category-count-row.html');
+$sitemapTemplate = file_get_contents(ROOT_DIR . '/resources/sitemap.xml');
+$sitemapEntryTemplate = file_get_contents(ROOT_DIR . '/resources/sitemap-entry.xml');
 
 // Minify and write CSS/JS to public directory
 file_put_contents(ROOT_DIR . '/public/styles.css', minifyCss(file_get_contents(ROOT_DIR . '/resources/styles.css')));
@@ -326,7 +292,12 @@ file_put_contents(ROOT_DIR . '/public/theme.js', minifyJs(file_get_contents(ROOT
 
 // Detect template changes
 $templateHashFile = ROOT_DIR . '/output/.template-hash';
-$currentHash = md5(implode('', $mainTemplates) . implode('', $entryTemplates) . implode('', $listingTemplates));
+$allTemplateContents = implode('', $mainTemplates) . implode('', $entryTemplates) . implode('', $listingTemplates)
+    . implode('', $notFoundTemplates) . implode('', $imprintTemplates) . implode('', $postDateTemplates)
+    . implode('', $relatedPostsTemplates) . $relatedPostEntryTemplate . $tagLinkTemplate
+    . $statisticsTemplate . $statisticsPostRowTemplate . $statisticsCategoryViewRowTemplate
+    . $statisticsCategoryCountRowTemplate . $sitemapTemplate . $sitemapEntryTemplate;
+$currentHash = md5($allTemplateContents);
 $templatesChanged = true;
 if (is_file($templateHashFile)) {
     $templatesChanged = file_get_contents($templateHashFile) !== $currentHash;
@@ -385,15 +356,16 @@ foreach ($posts as $post) {
         $title = extractTitle($markdown, $slug);
         $viewFile = $outputDir . '/viewcount.txt';
         $viewCount = is_file($viewFile) ? (int)file_get_contents($viewFile) : 0;
-        $viewsLabel = $translations[$lang]['views'];
-        $dateHtml = '<time datetime="' . htmlspecialchars($post['date']) . '">' . htmlspecialchars($post['date']) . '</time>'
-            . ' <span class="views" data-path="' . htmlspecialchars($category . '/' . $slug) . '">' . $viewCount . ' ' . $viewsLabel . '</span>' . "\n";
+
+        $dateHtml = $postDateTemplates[$lang];
+        $dateHtml = str_replace('###POST_DATE###', htmlspecialchars($post['date']), $dateHtml);
+        $dateHtml = str_replace('###POST_PATH###', htmlspecialchars($category . '/' . $slug), $dateHtml);
+        $dateHtml = str_replace('###POST_VIEWS###', (string)$viewCount, $dateHtml);
         $content = preg_replace('/<\/h1>\n/', "</h1>\n" . $dateHtml, $content, 1);
 
         $relatedPosts = getRelatedPosts($post, $posts);
         if ($relatedPosts !== []) {
-            $categoryTitle = $translations[$lang]['categories'][$category] ?? $category;
-            $relatedHtml = '<h2>' . $translations[$lang]['related_posts'] . "</h2>\n<ol>\n";
+            $relatedEntries = '';
             foreach ($relatedPosts as $related) {
                 $relMdFile = ROOT_DIR . '/posts/' . $related['slug'] . '/' . $lang . '.md';
                 if (!is_file($relMdFile)) {
@@ -404,12 +376,16 @@ foreach ($posts as $post) {
                 }
                 $relTitle = extractTitle(file_get_contents($relMdFile), $related['slug']);
                 $relCategory = $translations[$lang]['categories'][$related['category']] ?? $related['category'];
-                $relatedHtml .= '<li><a href="/' . $lang . '/' . htmlspecialchars($related['category'] . '/' . $related['slug']) . '/">'
-                    . htmlspecialchars($relTitle) . '</a> — '
-                    . htmlspecialchars($relCategory) . ', '
-                    . htmlspecialchars($related['date']) . "</li>\n";
+
+                $entry = $relatedPostEntryTemplate;
+                $entry = str_replace('###LANG###', $lang, $entry);
+                $entry = str_replace('###POST_PATH###', htmlspecialchars($related['category'] . '/' . $related['slug']), $entry);
+                $entry = str_replace('###POST_TITLE###', htmlspecialchars($relTitle), $entry);
+                $entry = str_replace('###POST_CATEGORY###', htmlspecialchars($relCategory), $entry);
+                $entry = str_replace('###POST_DATE###', htmlspecialchars($related['date']), $entry);
+                $relatedEntries .= $entry;
             }
-            $relatedHtml .= "</ol>\n";
+            $relatedHtml = str_replace('###RELATED_ENTRIES###', $relatedEntries, $relatedPostsTemplates[$lang]);
             $content .= $relatedHtml;
         }
 
@@ -445,7 +421,7 @@ if (!$postsChanged) {
 $homePosts = array_slice($posts, 0, 9);
 if ($postsChanged) {
     foreach ($languages as $lang) {
-        $listing = buildListingEntries($homePosts, $entryTemplates[$lang], $lang);
+        $listing = buildListingEntries($homePosts, $entryTemplates[$lang], $tagLinkTemplate, $lang);
 
         $listingContent = str_replace('###POST_LISTING_ENTRY###', $listing, $listingTemplates[$lang]);
 
@@ -486,7 +462,7 @@ if ($postsChanged) {
 
         foreach ($languages as $lang) {
             $categoryTitle = $translations[$lang]['categories'][$category] ?? ucwords(str_replace('-', ' ', $category));
-            $listing = buildListingEntries($catPosts, $entryTemplates[$lang], $lang);
+            $listing = buildListingEntries($catPosts, $entryTemplates[$lang], $tagLinkTemplate, $lang);
 
             $headingText = $translations[$lang]['latest_posts_in'] . ' ' . htmlspecialchars($categoryTitle);
             $listingContent = str_replace('###POST_LISTING_ENTRY###', $listing, $listingTemplates[$lang]);
@@ -521,7 +497,7 @@ if ($postsChanged) {
         }
 
         foreach ($languages as $lang) {
-            $listing = buildListingEntries($tagPosts, $entryTemplates[$lang], $lang);
+            $listing = buildListingEntries($tagPosts, $entryTemplates[$lang], $tagLinkTemplate, $lang);
 
             $headingText = $translations[$lang]['latest_posts_with_tag'] . ' ' . htmlspecialchars($tag);
             $listingContent = str_replace('###POST_LISTING_ENTRY###', $listing, $listingTemplates[$lang]);
@@ -542,12 +518,9 @@ if (!is_dir($notFoundDir)) {
     mkdir($notFoundDir, 0755, true);
 }
 foreach ($languages as $lang) {
-    $notFoundContent = '<h1>' . $translations[$lang]['page_not_found'] . '</h1>' . "\n"
-        . '<p>' . $translations[$lang]['page_not_found_text'] . '</p>' . "\n";
-
     $page = $mainTemplates[$lang];
     $page = str_replace('###PAGE_TITLE###', $translations[$lang]['page_not_found'], $page);
-    $page = str_replace('###CONTENT###', $notFoundContent, $page);
+    $page = str_replace('###CONTENT###', $notFoundTemplates[$lang], $page);
     file_put_contents($notFoundDir . '/' . $lang . '.html', minifyHtml($page));
 }
 
@@ -559,7 +532,7 @@ if (!is_dir($imprintDir)) {
 foreach ($languages as $lang) {
     $page = $mainTemplates[$lang];
     $page = str_replace('###PAGE_TITLE###', $translations[$lang]['imprint_title'], $page);
-    $page = str_replace('###CONTENT###', $translations[$lang]['imprint_content'], $page);
+    $page = str_replace('###CONTENT###', $imprintTemplates[$lang], $page);
     file_put_contents($imprintDir . '/' . $lang . '.html', minifyHtml($page));
 }
 
@@ -568,40 +541,36 @@ $statisticsDir = ROOT_DIR . '/output/statistics';
 if (!is_dir($statisticsDir)) {
     mkdir($statisticsDir, 0755, true);
 }
-$statsContent = '<h1>Statistics</h1>' . "\n";
 
-// Reader count per post
-$statsContent .= '<h2>Readers per Post</h2>' . "\n";
-$statsContent .= '<table>' . "\n";
-$statsContent .= '<tr><th>Post</th><th>Category</th><th>Readers</th></tr>' . "\n";
-$postsByViews = $posts;
-foreach ($postsByViews as $post) {
+$postRows = '';
+foreach ($posts as $post) {
     $mdFile = ROOT_DIR . '/posts/' . $post['slug'] . '/en.md';
     $title = is_file($mdFile) ? extractTitle(file_get_contents($mdFile), $post['slug']) : $post['slug'];
     $categoryTitle = $translations['en']['categories'][$post['category']] ?? $post['category'];
     $dataPath = htmlspecialchars($post['category'] . '/' . $post['slug']);
-    $statsContent .= '<tr><td>' . htmlspecialchars($title) . '</td><td>' . htmlspecialchars($categoryTitle) . '</td><td><span class="views" data-path="' . $dataPath . '" data-category="' . htmlspecialchars($post['category']) . '">0 views</span></td></tr>' . "\n";
-}
-$statsContent .= '</table>' . "\n";
 
-// Reader count per category
-$statsContent .= '<h2>Readers per Category</h2>' . "\n";
-$statsContent .= '<table>' . "\n";
-$statsContent .= '<tr><th>Category</th><th>Readers</th></tr>' . "\n";
+    $row = $statisticsPostRowTemplate;
+    $row = str_replace('###POST_TITLE###', htmlspecialchars($title), $row);
+    $row = str_replace('###POST_CATEGORY###', htmlspecialchars($categoryTitle), $row);
+    $row = str_replace('###POST_PATH###', $dataPath, $row);
+    $row = str_replace('###POST_CATEGORY_SLUG###', htmlspecialchars($post['category']), $row);
+    $postRows .= $row;
+}
+
+$categoryViewRows = '';
 $categoryViews = [];
 foreach ($posts as $post) {
     $categoryViews[$post['category']] = true;
 }
 foreach ($categoryViews as $cat => $views) {
     $categoryTitle = $translations['en']['categories'][$cat] ?? $cat;
-    $statsContent .= '<tr><td>' . htmlspecialchars($categoryTitle) . '</td><td><span class="category-views" data-category="' . htmlspecialchars($cat) . '">0 views</span></td></tr>' . "\n";
+    $row = $statisticsCategoryViewRowTemplate;
+    $row = str_replace('###CATEGORY_TITLE###', htmlspecialchars($categoryTitle), $row);
+    $row = str_replace('###CATEGORY_SLUG###', htmlspecialchars($cat), $row);
+    $categoryViewRows .= $row;
 }
-$statsContent .= '</table>' . "\n";
 
-// Post count per category
-$statsContent .= '<h2>Posts per Category</h2>' . "\n";
-$statsContent .= '<table>' . "\n";
-$statsContent .= '<tr><th>Category</th><th>Posts</th></tr>' . "\n";
+$categoryCountRows = '';
 $categoryCounts = [];
 foreach ($posts as $post) {
     $categoryCounts[$post['category']] = ($categoryCounts[$post['category']] ?? 0) + 1;
@@ -609,9 +578,16 @@ foreach ($posts as $post) {
 arsort($categoryCounts);
 foreach ($categoryCounts as $cat => $count) {
     $categoryTitle = $translations['en']['categories'][$cat] ?? $cat;
-    $statsContent .= '<tr><td>' . htmlspecialchars($categoryTitle) . '</td><td>' . $count . '</td></tr>' . "\n";
+    $row = $statisticsCategoryCountRowTemplate;
+    $row = str_replace('###CATEGORY_TITLE###', htmlspecialchars($categoryTitle), $row);
+    $row = str_replace('###CATEGORY_COUNT###', (string)$count, $row);
+    $categoryCountRows .= $row;
 }
-$statsContent .= '</table>' . "\n";
+
+$statsContent = $statisticsTemplate;
+$statsContent = str_replace('###STATS_POST_ROWS###', $postRows, $statsContent);
+$statsContent = str_replace('###STATS_CATEGORY_VIEW_ROWS###', $categoryViewRows, $statsContent);
+$statsContent = str_replace('###STATS_CATEGORY_COUNT_ROWS###', $categoryCountRows, $statsContent);
 
 $statsPage = $mainTemplates['en'];
 $statsPage = str_replace('###PAGE_TITLE###', 'Statistics', $statsPage);
@@ -644,12 +620,12 @@ foreach (array_keys($tags) as $tag) {
 // Imprint
 $sitemapUrls[] = $baseUrl . '/imprint';
 
-$sitemap = '<?xml version="1.0" encoding="UTF-8"?>' . "\n"
-    . '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
+$sitemapEntries = '';
 foreach ($sitemapUrls as $url) {
-    $sitemap .= '  <url><loc>' . htmlspecialchars($url) . '</loc></url>' . "\n";
+    $entry = str_replace('###URL###', htmlspecialchars($url), $sitemapEntryTemplate);
+    $sitemapEntries .= $entry;
 }
-$sitemap .= '</urlset>' . "\n";
+$sitemap = str_replace('###SITEMAP_URLS###', $sitemapEntries, $sitemapTemplate);
 file_put_contents(ROOT_DIR . '/public/sitemap.xml', $sitemap);
 
 // Save template hash after successful generation

@@ -50,6 +50,27 @@ function findAdAndExit(string $file, string $mime): void
 }
 $uri = trim($_SERVER['REQUEST_URI'] ?? '', '/');
 $language = 'en';
+$supportedLanguages = ['en', 'fr', 'de'];
+$languageFromUrl = false;
+foreach ($supportedLanguages as $lang) {
+    if ($uri === $lang || str_starts_with($uri, $lang . '/')) {
+        $language = $lang;
+        $uri = trim(substr($uri, strlen($lang)), '/');
+        $languageFromUrl = true;
+        break;
+    }
+}
+if (!$languageFromUrl && isset($_COOKIE['language']) && in_array($_COOKIE['language'], $supportedLanguages, true)) {
+    $language = $_COOKIE['language'];
+    $redirect = '/' . $language . '/' . $uri;
+    $redirect = rtrim($redirect, '/');
+    header('Location: ' . $redirect, true, 302);
+    exit;
+}
+setcookie('language', $language, [
+    'expires' => time() + 30 * 24 * 60 * 60,
+    'path' => '/',
+]);
 if ($uri === 'ad.jpg') {
     findAdAndExit('ad.jpg', 'image/jpeg');
 }

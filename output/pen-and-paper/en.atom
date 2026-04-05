@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Latest Posts in Pen &amp; Paper</title>
+    <link href="https://idrinth.de/en/pen-and-paper"/>
+    <link href="https://idrinth.de/en/pen-and-paper/feed.atom" rel="self" type="application/atom+xml"/>
+    <id>https://idrinth.de/en/pen-and-paper</id>
+    <updated>2026-04-05T00:00:00+00:00</updated>
+
+</feed>

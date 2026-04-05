@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+    <title>Neueste Beiträge mit Tag static site</title>
+    <link>https://idrinth.de/de/tag/static-site</link>
+    <description>Hier findest du die neuesten Beiträge zum Stichwort static site.</description>
+    <language>de</language>
+    <atom:link href="https://idrinth.de/de/tag/static-site/feed.rss" rel="self" type="application/rss+xml"/>
+    <item>
+        <title>Blogging Experience - Or why i built a blog from scratch</title>
+        <link>https://idrinth.de/de/software-engineering/blogging-experience</link>
+        <guid>https://idrinth.de/de/software-engineering/blogging-experience</guid>
+        <pubDate>Sun, 05 Apr 2026 00:00:00 +0000</pubDate>
+        <description>As you might have noticed, this is a static site for the most part, containing HTML, CSS and a tiny amount of javascr...</description>
+    </item>
+
+</channel>
+</rss>

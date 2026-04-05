@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+    <title>Derniers articles dans Jeu de rôle</title>
+    <link>https://idrinth.de/fr/pen-and-paper</link>
+    <description>Découvrez les derniers articles de la catégorie Jeu de rôle ici.</description>
+    <language>fr</language>
+    <atom:link href="https://idrinth.de/fr/pen-and-paper/feed.rss" rel="self" type="application/rss+xml"/>
+
+</channel>
+</rss>

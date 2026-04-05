@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+    <title>Derniers articles dans Création de mondes</title>
+    <link>https://idrinth.de/fr/world-building</link>
+    <description>Découvrez les derniers articles de la catégorie Création de mondes ici.</description>
+    <language>fr</language>
+    <atom:link href="https://idrinth.de/fr/world-building/feed.rss" rel="self" type="application/rss+xml"/>
+
+</channel>
+</rss>

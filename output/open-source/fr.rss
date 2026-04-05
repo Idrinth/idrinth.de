@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+    <title>Derniers articles dans Open-Source</title>
+    <link>https://idrinth.de/fr/open-source</link>
+    <description>Découvrez les derniers articles de la catégorie Open-Source ici.</description>
+    <language>fr</language>
+    <atom:link href="https://idrinth.de/fr/open-source/feed.rss" rel="self" type="application/rss+xml"/>
+
+</channel>
+</rss>

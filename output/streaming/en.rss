@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+    <title>Latest Posts in Streaming</title>
+    <link>https://idrinth.de/en/streaming</link>
+    <description>See the latest posts of the category Streaming here.</description>
+    <language>en</language>
+    <atom:link href="https://idrinth.de/en/streaming/feed.rss" rel="self" type="application/rss+xml"/>
+
+</channel>
+</rss>

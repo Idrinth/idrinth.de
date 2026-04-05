@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Derniers articles dans Création de mondes</title>
+    <link href="https://idrinth.de/fr/world-building"/>
+    <link href="https://idrinth.de/fr/world-building/feed.atom" rel="self" type="application/atom+xml"/>
+    <id>https://idrinth.de/fr/world-building</id>
+    <updated>2026-04-05T00:00:00+00:00</updated>
+
+</feed>

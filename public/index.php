@@ -63,6 +63,16 @@ if ($uri === 'views' || str_starts_with($uri, 'views/')) {
     header('Cache-Control: no-cache');
     exit(is_file($viewFile) ? file_get_contents($viewFile) : '0');
 }
+if ($uri === 'random') {
+    $postsFile = ROOT_DIR . '/output/posts.json';
+    if (is_file($postsFile)) {
+        $posts = json_decode(file_get_contents($postsFile), true);
+        if ($posts) {
+            header('Location: ' . $posts[array_rand($posts)], true, 302);
+            exit;
+        }
+    }
+}
 if ($uri === '') {
     findAndExit($uri, $language);
 }

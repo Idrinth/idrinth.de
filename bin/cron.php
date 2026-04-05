@@ -167,6 +167,12 @@ usort($posts, function ($a, $b) {
     return strcmp($b['date'], $a['date']);
 });
 
+// Generate posts.json for random redirect and other consumers
+$postUrls = array_map(function ($post) {
+    return '/' . $post['category'] . '/' . $post['slug'];
+}, $posts);
+file_put_contents(ROOT_DIR . '/output/posts.json', json_encode($postUrls));
+
 // Generate individual post pages per available language
 foreach ($posts as $post) {
     $slug = $post['slug'];

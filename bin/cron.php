@@ -357,7 +357,7 @@ foreach ($posts as $post) {
                 }
                 $relTitle = extractTitle(file_get_contents($relMdFile), $related['slug']);
                 $relCategory = $translations[$lang]['categories'][$related['category']] ?? $related['category'];
-                $relatedHtml .= '<li><a href="/' . htmlspecialchars($related['category'] . '/' . $related['slug']) . '/' . $lang . '.html">'
+                $relatedHtml .= '<li><a href="/' . $lang . '/' . htmlspecialchars($related['category'] . '/' . $related['slug']) . '/">'
                     . htmlspecialchars($relTitle) . '</a> — '
                     . htmlspecialchars($relCategory) . ', '
                     . htmlspecialchars($related['date']) . "</li>\n";

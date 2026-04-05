@@ -12,25 +12,9 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="Idrinth's Random Thoughts" />
     <link rel="manifest" href="/site.webmanifest" />
+    <script src="/theme.js"></script>
 </head>
-<body>
-<script>
-(function() {
-    let mode = '';
-    const cookies = document.cookie.split(';');
-    for (let i = 0; i < cookies.length; i++) {
-        const c = cookies[i].trim();
-        if (c.indexOf('mode=') === 0) {
-            mode = c.substring(5);
-            break;
-        }
-    }
-    if (mode !== 'light' && mode !== 'dark' && mode !== 'auto') {
-        mode = 'auto';
-    }
-    document.body.classList.add('theme-' + mode);
-})();
-</script>
+<body data-views-label="views">
 <header class="page background">
     <a href="/">
         <picture>
@@ -46,7 +30,7 @@
             <option value="fr">Francais</option>
             <option value="de">Deutsch</option>
         </select>
-        <select id="mode-select" onchange="document.cookie='mode='+this.value+'; expires='+(new Date().getTime() + 86400*30*1000)+ '; domain='+location.hostname+'; path=/';document.body.className=document.body.className.replace(/theme-\w+/,'theme-'+this.value)">
+        <select id="mode-select" onchange="document.cookie='mode='+this.value+'; expires='+(new Date().getTime() + 86400*30*1000)+ '; domain='+location.hostname+'; path=/';document.documentElement.className=document.documentElement.className.replace(/theme-\w+/,'theme-'+this.value)">
             <option value="light">light mode</option>
             <option value="dark">dark mode</option>
             <option value="auto">auto mode</option>
@@ -127,25 +111,6 @@
         </ul>
     </nav>
 </footer>
-<script>
-(function() {
-    const modeSelect = document.getElementById('mode-select');
-    if (modeSelect) {
-        const current = document.body.className.match(/theme-(\w+)/);
-        if (current) modeSelect.value = current[1];
-    }
-    function updateViews() {
-        document.querySelectorAll('.views[data-path]').forEach(function(el) {
-            fetch('/views/' + el.getAttribute('data-path'))
-                .then(function(r) { return r.text(); })
-                .then(function(count) { el.textContent = count + ' views'; });
-        });
-    }
-    if (document.querySelector('.views[data-path]')) {
-        updateViews();
-        setInterval(updateViews, 60000);
-    }
-})();
-</script>
+<script src="/scripts.js"></script>
 </body>
 </html>

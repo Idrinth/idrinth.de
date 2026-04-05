@@ -27,7 +27,7 @@ body {
     display: grid;
     grid-template-rows: 6em 3em calc(100% - 12em) 3em;
 }
-body.theme-dark {
+.theme-dark {
     --bg-color: #222;
     --text-color: #e06060;
     --shadow-color: #111;
@@ -41,7 +41,7 @@ body.theme-dark {
     --bg-overlay-3: rgba(0,0,0,0.3);
 }
 @media (prefers-color-scheme: dark) {
-    body.theme-auto {
+    .theme-auto {
         --bg-color: #222;
         --text-color: #e06060;
         --shadow-color: #111;

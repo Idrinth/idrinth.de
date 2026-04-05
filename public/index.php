@@ -126,6 +126,9 @@ if (!str_contains($uri, '.')) {
     if ($uri === 'statistics') {
         findAndExit($uri, 'en', false);
     }
+    if ($uri === 'canceled') {
+        findAndExit($uri, $language, false);
+    }
     findAndExit($uri, $language);
 }
 header('Content-type: text/html; charset=utf-8', true, 404);

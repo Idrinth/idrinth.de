@@ -134,6 +134,14 @@ function buildListingEntries(array $posts, string $entryTemplate, string $lang):
 $mainTemplate = file_get_contents(ROOT_DIR . '/resources/main.html');
 $entryTemplate = file_get_contents(ROOT_DIR . '/resources/post-listing-entry.html');
 
+// Detect template changes
+$templateHashFile = ROOT_DIR . '/output/.template-hash';
+$currentHash = md5($mainTemplate . $entryTemplate);
+$templatesChanged = true;
+if (is_file($templateHashFile)) {
+    $templatesChanged = file_get_contents($templateHashFile) !== $currentHash;
+}
+
 // Collect all posts with metadata
 $posts = [];
 foreach (scandir(ROOT_DIR . '/posts') as $folder) {
@@ -168,6 +176,14 @@ foreach ($posts as $post) {
         if (!is_file($mdFile)) {
             continue;
         }
+        $outputFile = $outputDir . '/' . $lang . '.html';
+        $metaFile = ROOT_DIR . '/posts/' . $slug . '/meta.json';
+        if (!$templatesChanged && is_file($outputFile)
+            && filemtime($outputFile) >= filemtime($mdFile)
+            && filemtime($outputFile) >= filemtime($metaFile)
+        ) {
+            continue;
+        }
         $markdown = file_get_contents($mdFile);
         $content = markdownToHtml($markdown);
         $title = extractTitle($markdown, $slug);
@@ -177,21 +193,43 @@ foreach ($posts as $post) {
         $page = str_replace("<h1>Latest Posts</h1>\n    <ol>\n        ###POST_LISTING###\n    </ol>", $content, $page);
         $page = str_replace('lang="en"', 'lang="' . $lang . '"', $page);
 
-        file_put_contents($outputDir . '/' . $lang . '.html', $page);
+        file_put_contents($outputFile, $page);
+    }
+}
+
+// Determine if any post source files changed (for listing pages)
+$postsChanged = $templatesChanged;
+if (!$postsChanged) {
+    foreach ($posts as $post) {
+        $slug = $post['slug'];
+        $metaFile = ROOT_DIR . '/posts/' . $slug . '/meta.json';
+        foreach ($languages as $lang) {
+            $mdFile = ROOT_DIR . '/posts/' . $slug . '/' . $lang . '.md';
+            $outputFile = ROOT_DIR . '/output/' . $post['category'] . '/' . $slug . '/' . $lang . '.html';
+            if (!is_file($outputFile)
+                || (is_file($mdFile) && filemtime($mdFile) > filemtime($outputFile))
+                || filemtime($metaFile) > filemtime($outputFile)
+            ) {
+                $postsChanged = true;
+                break 2;
+            }
+        }
     }
 }
 
 // Generate home page listing (last 9 posts) per language
 $homePosts = array_slice($posts, 0, 9);
-foreach ($languages as $lang) {
-    $listing = buildListingEntries($homePosts, $entryTemplate, $lang);
+if ($postsChanged) {
+    foreach ($languages as $lang) {
+        $listing = buildListingEntries($homePosts, $entryTemplate, $lang);
 
-    $page = $mainTemplate;
-    $page = str_replace('###PAGE_TITLE###', 'Latest Posts', $page);
-    $page = str_replace('###POST_LISTING###', $listing, $page);
-    $page = str_replace('lang="en"', 'lang="' . $lang . '"', $page);
+        $page = $mainTemplate;
+        $page = str_replace('###PAGE_TITLE###', 'Latest Posts', $page);
+        $page = str_replace('###POST_LISTING###', $listing, $page);
+        $page = str_replace('lang="en"', 'lang="' . $lang . '"', $page);
 
-    file_put_contents(ROOT_DIR . '/output/' . $lang . '.html', $page);
+        file_put_contents(ROOT_DIR . '/output/' . $lang . '.html', $page);
+    }
 }
 
 // Generate category listing pages (last 9 per category) per language
@@ -213,24 +251,29 @@ foreach ($posts as $post) {
     $categories[$cat][] = $post;
 }
 
-foreach ($categories as $category => $catPosts) {
-    $catPosts = array_slice($catPosts, 0, 9);
-    $outputDir = ROOT_DIR . '/output/' . $category;
-    if (!is_dir($outputDir)) {
-        mkdir($outputDir, 0755, true);
-    }
+if ($postsChanged) {
+    foreach ($categories as $category => $catPosts) {
+        $catPosts = array_slice($catPosts, 0, 9);
+        $outputDir = ROOT_DIR . '/output/' . $category;
+        if (!is_dir($outputDir)) {
+            mkdir($outputDir, 0755, true);
+        }
 
-    $categoryTitle = ucwords(str_replace('-', ' ', $category));
+        $categoryTitle = ucwords(str_replace('-', ' ', $category));
 
-    foreach ($languages as $lang) {
-        $listing = buildListingEntries($catPosts, $entryTemplate, $lang);
+        foreach ($languages as $lang) {
+            $listing = buildListingEntries($catPosts, $entryTemplate, $lang);
 
-        $page = $mainTemplate;
-        $page = str_replace('###PAGE_TITLE###', htmlspecialchars($categoryTitle), $page);
-        $page = str_replace('Latest Posts', 'Latest Posts in ' . htmlspecialchars($categoryTitle), $page);
-        $page = str_replace('###POST_LISTING###', $listing, $page);
-        $page = str_replace('lang="en"', 'lang="' . $lang . '"', $page);
+            $page = $mainTemplate;
+            $page = str_replace('###PAGE_TITLE###', htmlspecialchars($categoryTitle), $page);
+            $page = str_replace('Latest Posts', 'Latest Posts in ' . htmlspecialchars($categoryTitle), $page);
+            $page = str_replace('###POST_LISTING###', $listing, $page);
+            $page = str_replace('lang="en"', 'lang="' . $lang . '"', $page);
 
-        file_put_contents($outputDir . '/' . $lang . '.html', $page);
+            file_put_contents($outputDir . '/' . $lang . '.html', $page);
+        }
     }
 }
+
+// Save template hash after successful generation
+file_put_contents($templateHashFile, $currentHash);

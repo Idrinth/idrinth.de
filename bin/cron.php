@@ -120,7 +120,7 @@ function buildListingEntries(array $posts, string $entryTemplate, string $lang):
         }
 
         $entry = $entryTemplate;
-        $entry = str_replace('###POST_CATEGORY###', htmlspecialchars($slug), $entry);
+        $entry = str_replace('###POST_CATEGORY###', htmlspecialchars($post['category'] . '/' . $slug), $entry);
         $entry = str_replace('###POST_TITLE###', htmlspecialchars($title), $entry);
         $entry = str_replace('###POST_DESCRIPTION###', htmlspecialchars($description), $entry);
         $entry = str_replace('###POST_TAGS###', $tagsHtml, $entry);
@@ -157,7 +157,8 @@ usort($posts, function ($a, $b) {
 // Generate individual post pages per available language
 foreach ($posts as $post) {
     $slug = $post['slug'];
-    $outputDir = ROOT_DIR . '/output/' . $slug;
+    $category = $post['category'];
+    $outputDir = ROOT_DIR . '/output/' . $category . '/' . $slug;
     if (!is_dir($outputDir)) {
         mkdir($outputDir, 0755, true);
     }

@@ -123,6 +123,9 @@ if (!str_contains($uri, '.')) {
     if ($uri === 'imprint') {
         findAndExit($uri, $language, false);
     }
+    if ($uri === 'thank-you') {
+        findAndExit($uri, $language, false);
+    }
     if ($uri === 'statistics') {
         findAndExit($uri, 'en', false);
     }

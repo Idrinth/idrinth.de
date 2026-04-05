@@ -88,7 +88,7 @@
         <p>If you need to reach out, please do so via discord and don't send random emails.</p>
     </aside>
     <h1>Idrinth Thalui in Skyrim v1.1</h1>
-<time datetime="2026-04-04">2026-04-04</time>
+<time datetime="2026-04-04">2026-04-04</time> <span class="views" data-path="modding/idrinth-thalui-in-skyrim-v1-1">1 views</span>
 <p>One of the major mods I&#039;m currently working on is Idrinth Thalui, the Altmer Vampire in Skyrim SE. Besides thousands of voice lines, own mechanics and a lot of things to discover, I decided the next version will be a bit more focused on the relaxing times outside combat.</p>
 <p>The following things are already being worked on:</p>
 <ul>
@@ -126,5 +126,20 @@
         </ul>
     </nav>
 </footer>
+<script>
+(function() {
+    function updateViews() {
+        document.querySelectorAll('.views[data-path]').forEach(function(el) {
+            fetch('/views/' + el.getAttribute('data-path'))
+                .then(function(r) { return r.text(); })
+                .then(function(count) { el.textContent = count + ' views'; });
+        });
+    }
+    if (document.querySelector('.views[data-path]')) {
+        updateViews();
+        setInterval(updateViews, 60000);
+    }
+})();
+</script>
 </body>
 </html>

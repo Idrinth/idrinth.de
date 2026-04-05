@@ -112,5 +112,20 @@
         </ul>
     </nav>
 </footer>
+<script>
+(function() {
+    function updateViews() {
+        document.querySelectorAll('.views[data-path]').forEach(function(el) {
+            fetch('/views/' + el.getAttribute('data-path'))
+                .then(function(r) { return r.text(); })
+                .then(function(count) { el.textContent = count + ' views'; });
+        });
+    }
+    if (document.querySelector('.views[data-path]')) {
+        updateViews();
+        setInterval(updateViews, 60000);
+    }
+})();
+</script>
 </body>
 </html>

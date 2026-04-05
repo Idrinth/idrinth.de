@@ -184,6 +184,23 @@ article > aside > img {
 article > aside > p {
     padding: 0.2em;
 }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.5em 0 1em;
+}
+th, td {
+    text-align: left;
+    padding: 0.35em 0.5em;
+    border-bottom: 1px solid var(--shadow-color);
+}
+th {
+    font-weight: bold;
+    color: var(--text-color);
+}
+td:last-child, th:last-child {
+    text-align: right;
+}
 .advertisement > a > i {
     visibility: hidden;
     margin-top: -2em;

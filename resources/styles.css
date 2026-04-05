@@ -193,7 +193,7 @@ main > aside {
     margin-bottom: 1em;
     box-shadow: 2px 2px 4px var(--shadow-color);
 }
-main > aside > img {
+main > aside > picture > img {
     float: left;
     padding: 0.7em;
 }

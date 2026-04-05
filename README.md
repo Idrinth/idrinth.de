@@ -4,5 +4,5 @@ This is a small blog for personal use, feel free to use the source code elsewher
 
 # LICENSE
 
-Sourcecode(PHP, HTML, CSS, JS): MIT
-MD: Quoting allowed, Copying not. Original Blog article has to be linked as source
+- Sourcecode(PHP, HTML, CSS, JS): MIT
+- MD: Quoting allowed, Copying not. Original Blog article has to be linked as source

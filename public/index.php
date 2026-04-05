@@ -32,8 +32,8 @@ function displayHTMLAndExit(string $path, bool $countView = true): void
 function findAndExit(string $uri, string $language, bool $countView = true): void
 {
     $path = ROOT_DIR . str_replace('//', '/', '/output/' . $uri . '/');
-    displayHTMLAndExit($path . $language . '.html');
-    displayHTMLAndExit($path . 'en.html');
+    displayHTMLAndExit($path . $language . '.html', $countView);
+    displayHTMLAndExit($path . 'en.html', $countView);
 }
 function findAdAndExit(string $file, string $mime): void
 {

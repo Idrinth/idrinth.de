@@ -11,6 +11,9 @@ $translations = [
         'page_not_found' => 'Page Not Found',
         'imprint_title' => 'Imprint',
         'latest_posts_with_tag' => 'Latest Posts tagged',
+        'default_description' => 'A blog of my choosing, feel free to explore!',
+        'category_description' => 'See the latest posts of the category %s here.',
+        'tag_description' => 'See the latest posts of the keyword %s here.',
         'categories' => [
             'software-engineering' => 'Software Engineering',
             'open-source' => 'Open-Source',
@@ -28,6 +31,9 @@ $translations = [
         'page_not_found' => 'Seite nicht gefunden',
         'imprint_title' => 'Impressum',
         'latest_posts_with_tag' => 'Neueste Beiträge mit Tag',
+        'default_description' => 'Ein Blog meiner Wahl, schau dich gerne um!',
+        'category_description' => 'Hier findest du die neuesten Beiträge der Kategorie %s.',
+        'tag_description' => 'Hier findest du die neuesten Beiträge zum Stichwort %s.',
         'categories' => [
             'software-engineering' => 'Softwareentwicklung',
             'open-source' => 'Open-Source',
@@ -45,6 +51,9 @@ $translations = [
         'page_not_found' => 'Page non trouvée',
         'imprint_title' => 'Mentions légales',
         'latest_posts_with_tag' => 'Derniers articles avec le tag',
+        'default_description' => "Un blog de mon choix, n'hésitez pas à explorer !",
+        'category_description' => 'Découvrez les derniers articles de la catégorie %s ici.',
+        'tag_description' => 'Découvrez les derniers articles du mot-clé %s ici.',
         'categories' => [
             'software-engineering' => 'Génie logiciel',
             'open-source' => 'Open-Source',
@@ -389,8 +398,14 @@ foreach ($posts as $post) {
             $content .= $relatedHtml;
         }
 
+        $description = extractDescription($markdown);
+        if ($description === '') {
+            $description = $translations[$lang]['default_description'];
+        }
+
         $page = $mainTemplates[$lang];
         $page = str_replace('###PAGE_TITLE###', htmlspecialchars($title), $page);
+        $page = str_replace('###PAGE_DESCRIPTION###', htmlspecialchars($description), $page);
         $page = str_replace('###CONTENT###', $content, $page);
 
         file_put_contents($outputFile, minifyHtml($page));
@@ -427,6 +442,7 @@ if ($postsChanged) {
 
         $page = $mainTemplates[$lang];
         $page = str_replace('###PAGE_TITLE###', $translations[$lang]['latest_posts'], $page);
+        $page = str_replace('###PAGE_DESCRIPTION###', htmlspecialchars($translations[$lang]['default_description']), $page);
         $page = str_replace('###CONTENT###', $listingContent, $page);
 
         file_put_contents(ROOT_DIR . '/output/' . $lang . '.html', minifyHtml($page));
@@ -468,8 +484,11 @@ if ($postsChanged) {
             $listingContent = str_replace('###POST_LISTING_ENTRY###', $listing, $listingTemplates[$lang]);
             $listingContent = preg_replace('/<h1>[^<]+<\/h1>/', '<h1>' . $headingText . '</h1>', $listingContent, 1);
 
+            $categoryDescription = sprintf($translations[$lang]['category_description'], $categoryTitle);
+
             $page = $mainTemplates[$lang];
             $page = str_replace('###PAGE_TITLE###', htmlspecialchars($categoryTitle), $page);
+            $page = str_replace('###PAGE_DESCRIPTION###', htmlspecialchars($categoryDescription), $page);
             $page = str_replace('###CONTENT###', $listingContent, $page);
 
             file_put_contents($outputDir . '/' . $lang . '.html', minifyHtml($page));
@@ -504,8 +523,11 @@ if ($postsChanged) {
             $listingContent = str_replace('###POST_LISTING_ENTRY###', $listing, $listingTemplates[$lang]);
             $listingContent = preg_replace('/<h1>[^<]+<\/h1>/', '<h1>' . $headingText . '</h1>', $listingContent, 1);
 
+            $tagDescription = sprintf($translations[$lang]['tag_description'], $tag);
+
             $page = $mainTemplates[$lang];
             $page = str_replace('###PAGE_TITLE###', htmlspecialchars($tag), $page);
+            $page = str_replace('###PAGE_DESCRIPTION###', htmlspecialchars($tagDescription), $page);
             $page = str_replace('###CONTENT###', $listingContent, $page);
 
             file_put_contents($outputDir . '/' . $lang . '.html', minifyHtml($page));
@@ -521,6 +543,7 @@ if (!is_dir($notFoundDir)) {
 foreach ($languages as $lang) {
     $page = $mainTemplates[$lang];
     $page = str_replace('###PAGE_TITLE###', $translations[$lang]['page_not_found'], $page);
+    $page = str_replace('###PAGE_DESCRIPTION###', htmlspecialchars($translations[$lang]['default_description']), $page);
     $page = str_replace('###CONTENT###', $notFoundTemplates[$lang], $page);
     file_put_contents($notFoundDir . '/' . $lang . '.html', minifyHtml($page));
 }
@@ -533,6 +556,7 @@ if (!is_dir($imprintDir)) {
 foreach ($languages as $lang) {
     $page = $mainTemplates[$lang];
     $page = str_replace('###PAGE_TITLE###', $translations[$lang]['imprint_title'], $page);
+    $page = str_replace('###PAGE_DESCRIPTION###', htmlspecialchars($translations[$lang]['default_description']), $page);
     $page = str_replace('###CONTENT###', $imprintTemplates[$lang], $page);
     file_put_contents($imprintDir . '/' . $lang . '.html', minifyHtml($page));
 }
@@ -592,6 +616,7 @@ $statsContent = str_replace('###STATS_CATEGORY_COUNT_ROWS###', $categoryCountRow
 
 $statsPage = $mainTemplates['en'];
 $statsPage = str_replace('###PAGE_TITLE###', 'Statistics', $statsPage);
+$statsPage = str_replace('###PAGE_DESCRIPTION###', htmlspecialchars($translations['en']['default_description']), $statsPage);
 $statsPage = str_replace('###CONTENT###', $statsContent, $statsPage);
 $statsPage = str_replace('<meta name="description"', '<meta name="robots" content="noindex, nofollow">' . "\n" . '    <meta name="description"', $statsPage);
 file_put_contents($statisticsDir . '/en.html', minifyHtml($statsPage));

@@ -10,11 +10,50 @@ html {
     height: 100%;
 }
 body {
+    --bg-color: #eeeeee;
+    --text-color: darkred;
+    --shadow-color: #e2e2e2;
+    --secondary-text: #666;
+    --tag-bg: darkred;
+    --tag-text: white;
+    --bg-gradient-1: rgba(0,0,0,0.0);
+    --bg-gradient-2: rgba(0,0,0,0.01);
+    --bg-overlay-1: rgba(255,255,255,0.005);
+    --bg-overlay-2: rgba(255,255,255,0.0015);
+    --bg-overlay-3: rgba(0,0,0,0.1);
     height: 100%;
     overflow: hidden;
-    background: linear-gradient(to right, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.01) 100%), linear-gradient(to bottom, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.01) 100%);
+    background: linear-gradient(to right, var(--bg-gradient-1) 0%, var(--bg-gradient-2) 100%), linear-gradient(to bottom, var(--bg-gradient-1) 0%, var(--bg-gradient-2) 100%);
     display: grid;
     grid-template-rows: 6em 3em calc(100% - 12em) 3em;
+}
+.theme-dark {
+    --bg-color: #222;
+    --text-color: #e06060;
+    --shadow-color: #111;
+    --secondary-text: #999;
+    --tag-bg: #8b0000;
+    --tag-text: #eee;
+    --bg-gradient-1: rgba(0,0,0,0.0);
+    --bg-gradient-2: rgba(0,0,0,0.05);
+    --bg-overlay-1: rgba(0,0,0,0.1);
+    --bg-overlay-2: rgba(0,0,0,0.05);
+    --bg-overlay-3: rgba(0,0,0,0.3);
+}
+@media (prefers-color-scheme: dark) {
+    .theme-auto {
+        --bg-color: #222;
+        --text-color: #e06060;
+        --shadow-color: #111;
+        --secondary-text: #999;
+        --tag-bg: #8b0000;
+        --tag-text: #eee;
+        --bg-gradient-1: rgba(0,0,0,0.0);
+        --bg-gradient-2: rgba(0,0,0,0.05);
+        --bg-overlay-1: rgba(0,0,0,0.1);
+        --bg-overlay-2: rgba(0,0,0,0.05);
+        --bg-overlay-3: rgba(0,0,0,0.3);
+    }
 }
 header {
     display: grid;
@@ -45,7 +84,7 @@ h4  {
     font-size: 1.25em;
 }
 .page {
-    box-shadow: 2px 2px 4px #e2e2e2;
+    box-shadow: 2px 2px 4px var(--shadow-color);
     max-width: 1250px;
     padding: 1em;
 }
@@ -57,26 +96,26 @@ h4  {
     list-style: none;
 }
 .tags > li {
-    background: darkred;
-    color: white;
+    background: var(--tag-bg);
+    color: var(--tag-text);
     border-radius: 1em;
     padding: 0.25em;
-    box-shadow: 2px 2px 4px #e2e2e2;
+    box-shadow: 2px 2px 4px var(--shadow-color);
 }
 .tags > li > a {
-    color: white;
+    color: var(--tag-text);
 }
 .background {
-    background-color: #eeeeee;
-    color: darkred;
-    background-image: linear-gradient(to bottom, rgba(255,255,255,0.005) 0%, rgba(255,255,255,0.0015) 25%, rgba(0,0,0,0.1) 100%);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    background-image: linear-gradient(to bottom, var(--bg-overlay-1) 0%, var(--bg-overlay-2) 25%, var(--bg-overlay-3) 100%);
 }
 a,
 a:visited,
 a:active,
 a:focus,
 a:hover {
-    color: darkred;
+    color: var(--text-color);
     text-decoration: none;
 }
 img {
@@ -91,7 +130,7 @@ nav > ul {
     gap: 0.5em;
 }
 nav > ul > li > a {
-    border-bottom: 1px solid darkred;
+    border-bottom: 1px solid var(--text-color);
     border-radius: 0.15em;
 }
 article > ol {
@@ -107,16 +146,16 @@ article {
     overflow-x: hidden;
 }
 article > ol > li {
-    box-shadow: 2px 2px 4px #e2e2e2;
+    box-shadow: 2px 2px 4px var(--shadow-color);
     border-radius: 0.1em;
 }
 time {
-    color: #666;
+    color: var(--secondary-text);
     font-size: 0.85em;
     display: inline;
 }
 .views {
-    color: #666;
+    color: var(--secondary-text);
     font-size: 0.85em;
 }
 article > aside {
@@ -126,7 +165,7 @@ article > aside {
     overflow: hidden;
     margin-left: 1em;
     margin-bottom: 1em;
-    box-shadow: 2px 2px 4px #e2e2e2;
+    box-shadow: 2px 2px 4px var(--shadow-color);
 }
 article > aside > img {
     float: left;

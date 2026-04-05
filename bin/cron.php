@@ -275,5 +275,47 @@ if ($postsChanged) {
     }
 }
 
+// Generate 404 page per language
+$notFoundContent = '<h1>Page Not Found</h1>' . "\n" . '<p>The page you are looking for does not exist.</p>' . "\n";
+$notFoundDir = ROOT_DIR . '/output/404';
+if (!is_dir($notFoundDir)) {
+    mkdir($notFoundDir, 0755, true);
+}
+foreach ($languages as $lang) {
+    $page = $mainTemplate;
+    $page = str_replace('###PAGE_TITLE###', 'Page Not Found', $page);
+    $page = str_replace("<h1>Latest Posts</h1>\n    <ol>\n        ###POST_LISTING###\n    </ol>", $notFoundContent, $page);
+    $page = str_replace('lang="en"', 'lang="' . $lang . '"', $page);
+    file_put_contents($notFoundDir . '/' . $lang . '.html', $page);
+}
+
+// Generate imprint page per language
+$imprintContent = '<h1>Impressum</h1>' . "\n"
+    . '<h2>Angaben gemäß § 5 TMG</h2>' . "\n"
+    . '<p>Björn Büttner<br>Böllerts Höfe 4<br>45479 Mülheim an der Ruhr</p>' . "\n"
+    . '<h2>Kontakt</h2>' . "\n"
+    . '<p>Telefon: +4917647945826<br>eMail: webmaster@bjoern-buettner.me</p>' . "\n"
+    . '<h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>' . "\n"
+    . '<p>Björn Büttner<br>Böllerts Höfe 4<br>45479 Mülheim an der Ruhr</p>' . "\n"
+    . '<h2>Haftungsausschluss</h2>' . "\n"
+    . '<h3>Haftung für Links</h3>' . "\n"
+    . '<p>Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.</p>' . "\n"
+    . '<h3>Datenschutz</h3>' . "\n"
+    . '<p>Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder eMail-Adressen) erhoben werden, erfolgt dies, soweit möglich, stets auf freiwilliger Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben.</p>' . "\n"
+    . '<p>Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.</p>' . "\n"
+    . '<p>Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten durch Dritte zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit ausdrücklich widersprochen. Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-Mails, vor.</p>' . "\n"
+    . '<p><small>Quelle: Disclaimer von eRecht24, dem Portal zum Internetrecht von Rechtsanwalt Sören Siebert.</small></p>' . "\n";
+$imprintDir = ROOT_DIR . '/output/imprint';
+if (!is_dir($imprintDir)) {
+    mkdir($imprintDir, 0755, true);
+}
+foreach ($languages as $lang) {
+    $page = $mainTemplate;
+    $page = str_replace('###PAGE_TITLE###', 'Impressum', $page);
+    $page = str_replace("<h1>Latest Posts</h1>\n    <ol>\n        ###POST_LISTING###\n    </ol>", $imprintContent, $page);
+    $page = str_replace('lang="en"', 'lang="' . $lang . '"', $page);
+    file_put_contents($imprintDir . '/' . $lang . '.html', $page);
+}
+
 // Save template hash after successful generation
 file_put_contents($templateHashFile, $currentHash);

@@ -126,6 +126,10 @@ function buildListingEntries(array $posts, string $entryTemplate, string $lang):
         $entry = str_replace('###POST_TAGS###', $tagsHtml, $entry);
         $entry = str_replace('###POST_DATE###', htmlspecialchars($post['date']), $entry);
 
+        $viewFile = ROOT_DIR . '/output/' . $post['category'] . '/' . $slug . '/viewcount.txt';
+        $viewCount = is_file($viewFile) ? (int)file_get_contents($viewFile) : 0;
+        $entry = str_replace('###POST_VIEWS###', (string)$viewCount, $entry);
+
         $entries .= $entry . "\n";
     }
     return $entries;
@@ -188,7 +192,10 @@ foreach ($posts as $post) {
         $markdown = file_get_contents($mdFile);
         $content = markdownToHtml($markdown);
         $title = extractTitle($markdown, $slug);
-        $dateHtml = '<time datetime="' . htmlspecialchars($post['date']) . '">' . htmlspecialchars($post['date']) . '</time>' . "\n";
+        $viewFile = $outputDir . '/viewcount.txt';
+        $viewCount = is_file($viewFile) ? (int)file_get_contents($viewFile) : 0;
+        $dateHtml = '<time datetime="' . htmlspecialchars($post['date']) . '">' . htmlspecialchars($post['date']) . '</time>'
+            . ' <span class="views" data-path="' . htmlspecialchars($category . '/' . $slug) . '">' . $viewCount . ' views</span>' . "\n";
         $content = preg_replace('/<\/h1>\n/', "</h1>\n" . $dateHtml, $content, 1);
 
         $page = $mainTemplate;

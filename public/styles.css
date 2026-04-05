@@ -29,6 +29,9 @@ h1, h2, h3, h4, h5, p, li {
     padding-top: 0.25em;
     padding-bottom: 0.25em;
 }
+ul {
+    padding-left: 1em;
+}
 h1 {
     font-size: 2em;
 }

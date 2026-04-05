@@ -34,4 +34,10 @@ if (document.querySelector('.views[data-path]')) {
 updateViews();
 setInterval(updateViews, 60000);
 }
+var adLink = document.getElementById('ad-link');
+if (adLink) {
+fetch('/ad.lnk')
+.then(function(r) { return r.text(); })
+.then(function(href) { adLink.setAttribute('href', href); });
+}
 })();

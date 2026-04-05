@@ -110,6 +110,31 @@ $translations = [
     ],
 ];
 
+function minifyCss(string $css): string
+{
+    // Remove comments
+    $css = preg_replace('/\/\*.*?\*\//s', '', $css);
+    // Remove whitespace around selectors and properties
+    $css = preg_replace('/\s*([{}:;,>~+])\s*/', '$1', $css);
+    // Collapse remaining whitespace
+    $css = preg_replace('/\s+/', ' ', $css);
+    return trim($css);
+}
+
+function minifyJs(string $js): string
+{
+    // Remove multi-line comments
+    $js = preg_replace('/\/\*.*?\*\//s', '', $js);
+    // Remove single-line comments (not inside strings, not URLs)
+    $js = preg_replace('#(^|[^:\'"])//[^\n]*#m', '$1', $js);
+    // Collapse whitespace to single spaces
+    $js = preg_replace('/[ \t]+/', ' ', $js);
+    // Remove whitespace around newlines and collapse blank lines
+    $js = preg_replace('/\s*\n\s*/', "\n", $js);
+    $js = preg_replace('/\n+/', "\n", $js);
+    return trim($js);
+}
+
 function minifyHtml(string $html): string
 {
     // Remove HTML comments (but preserve conditional comments like <!--[if)
@@ -293,6 +318,11 @@ foreach ($languages as $lang) {
     $entryTemplates[$lang] = file_get_contents(ROOT_DIR . '/resources/' . $lang . '/post-listing-entry.html');
     $listingTemplates[$lang] = file_get_contents(ROOT_DIR . '/resources/' . $lang . '/post-listing.html');
 }
+
+// Minify and write CSS/JS to public directory
+file_put_contents(ROOT_DIR . '/public/styles.css', minifyCss(file_get_contents(ROOT_DIR . '/resources/styles.css')));
+file_put_contents(ROOT_DIR . '/public/scripts.js', minifyJs(file_get_contents(ROOT_DIR . '/resources/scripts.js')));
+file_put_contents(ROOT_DIR . '/public/theme.js', minifyJs(file_get_contents(ROOT_DIR . '/resources/theme.js')));
 
 // Detect template changes
 $templateHashFile = ROOT_DIR . '/output/.template-hash';

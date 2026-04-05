@@ -1,3 +1,6 @@
 /.idea
 /output/.template-hash
 /output/**/viewcount.txt
+/public/styles.css
+/public/scripts.js
+/public/theme.js

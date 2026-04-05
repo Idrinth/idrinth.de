@@ -16,25 +16,22 @@ function incrementViewCount(string $path): void
         fclose($fp);
     }
 }
+function displayHTMLAndExit(string $path, bool $countView = true): void
+{
+    if (is_file($path)) {
+        if ($countView) {
+            incrementViewCount(dirname($path));
+        }
+        header('Content-type: text/html; charset=utf-8');
+        header('Link: </styles.css>; rel=preload; as=style, </theme.js>; rel=preload; as=script, </ad.jpg>; rel=preload; as=image');
+        exit(file_get_contents($path));
+    }
+}
 function findAndExit(string $uri, string $language, bool $countView = true): void
 {
     $path = ROOT_DIR . str_replace('//', '/', '/output/' . $uri . '/');
-    if (is_file($path . $language . '.html')) {
-        if ($countView) {
-            incrementViewCount($path);
-        }
-        header('Content-type: text/html; charset=utf-8');
-        header('Link: </styles.css>; rel=preload; as=style, </ad.jpg>; rel=preload; as=image');
-        exit(file_get_contents($path . $language . '.html'));
-    }
-    if (is_file($path . 'en.html')) {
-        if ($countView) {
-            incrementViewCount($path);
-        }
-        header('Content-type: text/html; charset=utf-8');
-        header('Link: </styles.css>; rel=preload; as=style, </ad.jpg>; rel=preload; as=image');
-        exit(file_get_contents($path . '/en.html'));
-    }
+    displayHTMLAndExit($path . $language . '.html');
+    displayHTMLAndExit($path . 'en.html');
 }
 function findAdAndExit(string $file, string $mime): void
 {

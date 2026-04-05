@@ -333,5 +333,33 @@ foreach ($languages as $lang) {
     file_put_contents($imprintDir . '/' . $lang . '.html', $page);
 }
 
+// Generate sitemap.xml
+$sitemapUrls = [];
+$baseUrl = 'https://idrinth.de';
+
+// Home page
+$sitemapUrls[] = $baseUrl . '/';
+
+// Category pages
+foreach (array_keys($categories) as $category) {
+    $sitemapUrls[] = $baseUrl . '/' . $category;
+}
+
+// Individual post pages
+foreach ($posts as $post) {
+    $sitemapUrls[] = $baseUrl . '/' . $post['category'] . '/' . $post['slug'];
+}
+
+// Imprint
+$sitemapUrls[] = $baseUrl . '/imprint';
+
+$sitemap = '<?xml version="1.0" encoding="UTF-8"?>' . "\n"
+    . '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
+foreach ($sitemapUrls as $url) {
+    $sitemap .= '  <url><loc>' . htmlspecialchars($url) . '</loc></url>' . "\n";
+}
+$sitemap .= '</urlset>' . "\n";
+file_put_contents(ROOT_DIR . '/public/sitemap.xml', $sitemap);
+
 // Save template hash after successful generation
 file_put_contents($templateHashFile, $currentHash);

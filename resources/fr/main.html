@@ -16,10 +16,10 @@
 <body>
 <script>
 (function() {
-    var mode = '';
-    var cookies = document.cookie.split(';');
-    for (var i = 0; i < cookies.length; i++) {
-        var c = cookies[i].trim();
+    let mode = '';
+    const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+        const c = cookies[i].trim();
         if (c.indexOf('mode=') === 0) {
             mode = c.substring(5);
             break;
@@ -41,7 +41,7 @@
     </a>
     <strong>Les pensées aléatoires d'Idrinth</strong>
     <div>
-        <select onchange="document.cookie='language='+this.value+'; expires='+(new Date().getTime() + 86400*30*1000)+ '; domain='+location.hostname+'; path=/';var p=location.pathname.replace(/^\/(en|fr|de)(\/|$)/,'/'+this.value+'$2');if(p===location.pathname)p='/'+this.value+location.pathname;location.href=p">
+        <select onchange="document.cookie='language='+this.value+'; expires='+(new Date().getTime() + 86400*30*1000)+ '; domain='+location.hostname+'; path=/';let p=location.pathname.replace(/^\/(en|fr|de)(\/|$)/,'/'+this.value+'$2');if(p===location.pathname)p='/'+this.value+location.pathname;location.href=p">
             <option value="en">English</option>
             <option value="fr" selected>Francais</option>
             <option value="de">Deutsch</option>
@@ -129,9 +129,9 @@
 </footer>
 <script>
 (function() {
-    var modeSelect = document.getElementById('mode-select');
+    const modeSelect = document.getElementById('mode-select');
     if (modeSelect) {
-        var current = document.body.className.match(/theme-(\w+)/);
+        const current = document.body.className.match(/theme-(\w+)/);
         if (current) modeSelect.value = current[1];
     }
     function updateViews() {

@@ -73,6 +73,30 @@ $translations = [
     ],
 ];
 
+function buildHreflangHtml(string $path, string $baseUrl, array $languages): string
+{
+    $tags = '';
+    foreach ($languages as $lang) {
+        $url = $baseUrl . '/' . $lang . ($path !== '' ? '/' . $path : '');
+        $tags .= '<link rel="alternate" hreflang="' . $lang . '" href="' . htmlspecialchars($url) . '" />' . "\n    ";
+    }
+    $defaultUrl = $baseUrl . ($path !== '' ? '/' . $path : '/');
+    $tags .= '<link rel="alternate" hreflang="x-default" href="' . htmlspecialchars($defaultUrl) . '" />';
+    return $tags;
+}
+
+function buildHreflangSitemap(string $path, string $baseUrl, array $languages): string
+{
+    $links = '';
+    foreach ($languages as $lang) {
+        $url = $baseUrl . '/' . $lang . ($path !== '' ? '/' . $path : '');
+        $links .= '    <xhtml:link rel="alternate" hreflang="' . $lang . '" href="' . htmlspecialchars($url) . '" />' . "\n";
+    }
+    $defaultUrl = $baseUrl . ($path !== '' ? '/' . $path : '/');
+    $links .= '    <xhtml:link rel="alternate" hreflang="x-default" href="' . htmlspecialchars($defaultUrl) . '" />';
+    return $links;
+}
+
 function minifyCss(string $css): string
 {
     // Remove comments
@@ -511,6 +535,7 @@ foreach ($posts as $post) {
         $page = $mainTemplates[$lang];
         $page = str_replace('###PAGE_TITLE###', htmlspecialchars($title), $page);
         $page = str_replace('###PAGE_DESCRIPTION###', htmlspecialchars($description), $page);
+        $page = str_replace('###HREFLANG###', buildHreflangHtml($category . '/' . $slug, 'https://idrinth.de', $languages), $page);
         $page = str_replace('###CANONICAL_URL###', 'https://idrinth.de/' . $lang . '/' . $category . '/' . $slug, $page);
         $page = str_replace('###CONTENT###', $content, $page);
 
@@ -549,6 +574,7 @@ if ($postsChanged) {
         $page = $mainTemplates[$lang];
         $page = str_replace('###PAGE_TITLE###', $translations[$lang]['latest_posts'], $page);
         $page = str_replace('###PAGE_DESCRIPTION###', htmlspecialchars($translations[$lang]['default_description']), $page);
+        $page = str_replace('###HREFLANG###', buildHreflangHtml('', 'https://idrinth.de', $languages), $page);
         $page = str_replace('###CANONICAL_URL###', 'https://idrinth.de/' . $lang, $page);
         $page = str_replace('###CONTENT###', $listingContent, $page);
 
@@ -602,6 +628,7 @@ if ($postsChanged) {
             $page = $mainTemplates[$lang];
             $page = str_replace('###PAGE_TITLE###', htmlspecialchars($categoryTitle), $page);
             $page = str_replace('###PAGE_DESCRIPTION###', htmlspecialchars($categoryDescription), $page);
+            $page = str_replace('###HREFLANG###', buildHreflangHtml($category, 'https://idrinth.de', $languages), $page);
             $page = str_replace('###CANONICAL_URL###', 'https://idrinth.de/' . $lang . '/' . $category, $page);
             $page = str_replace('###CONTENT###', $listingContent, $page);
 
@@ -648,6 +675,7 @@ if ($postsChanged) {
             $page = $mainTemplates[$lang];
             $page = str_replace('###PAGE_TITLE###', htmlspecialchars($tag), $page);
             $page = str_replace('###PAGE_DESCRIPTION###', htmlspecialchars($tagDescription), $page);
+            $page = str_replace('###HREFLANG###', buildHreflangHtml('tag/' . $tagDirName, 'https://idrinth.de', $languages), $page);
             $page = str_replace('###CANONICAL_URL###', 'https://idrinth.de/' . $lang . '/tag/' . $tagDirName, $page);
             $page = str_replace('###CONTENT###', $listingContent, $page);
 
@@ -671,6 +699,7 @@ foreach ($languages as $lang) {
     $page = $mainTemplates[$lang];
     $page = str_replace('###PAGE_TITLE###', $translations[$lang]['page_not_found'], $page);
     $page = str_replace('###PAGE_DESCRIPTION###', htmlspecialchars($translations[$lang]['default_description']), $page);
+    $page = str_replace('###HREFLANG###', '', $page);
     $page = str_replace('###CANONICAL_URL###', 'https://idrinth.de/' . $lang . '/404', $page);
     $page = str_replace('###CONTENT###', $notFoundTemplates[$lang], $page);
     file_put_contents($notFoundDir . '/' . $lang . '.html', minifyHtml($page));
@@ -685,6 +714,7 @@ foreach ($languages as $lang) {
     $page = $mainTemplates[$lang];
     $page = str_replace('###PAGE_TITLE###', $translations[$lang]['imprint_title'], $page);
     $page = str_replace('###PAGE_DESCRIPTION###', htmlspecialchars($translations[$lang]['default_description']), $page);
+    $page = str_replace('###HREFLANG###', buildHreflangHtml('imprint', 'https://idrinth.de', $languages), $page);
     $page = str_replace('###CANONICAL_URL###', 'https://idrinth.de/' . $lang . '/imprint', $page);
     $page = str_replace('###CONTENT###', $imprintTemplates[$lang], $page);
     file_put_contents($imprintDir . '/' . $lang . '.html', minifyHtml($page));
@@ -699,6 +729,7 @@ foreach ($languages as $lang) {
     $page = $mainTemplates[$lang];
     $page = str_replace('###PAGE_TITLE###', $translations[$lang]['canceled_title'], $page);
     $page = str_replace('###PAGE_DESCRIPTION###', htmlspecialchars($translations[$lang]['default_description']), $page);
+    $page = str_replace('###HREFLANG###', '', $page);
     $page = str_replace('###CANONICAL_URL###', 'https://idrinth.de/' . $lang . '/canceled', $page);
     $page = str_replace('###CONTENT###', $canceledTemplates[$lang], $page);
     $page = str_replace('<meta name="description"', '<meta name="robots" content="noindex, nofollow">' . "\n" . '    <meta name="description"', $page);
@@ -714,6 +745,7 @@ foreach ($languages as $lang) {
     $page = $mainTemplates[$lang];
     $page = str_replace('###PAGE_TITLE###', $translations[$lang]['thank_you_title'], $page);
     $page = str_replace('###PAGE_DESCRIPTION###', htmlspecialchars($translations[$lang]['default_description']), $page);
+    $page = str_replace('###HREFLANG###', '', $page);
     $page = str_replace('###CANONICAL_URL###', 'https://idrinth.de/' . $lang . '/thank-you', $page);
     $page = str_replace('###CONTENT###', $thankYouTemplates[$lang], $page);
     $page = str_replace('<meta name="description"', '<meta name="robots" content="noindex, nofollow">' . "\n" . '    <meta name="description"', $page);
@@ -776,40 +808,46 @@ $statsContent = str_replace('###STATS_CATEGORY_COUNT_ROWS###', $categoryCountRow
 $statsPage = $mainTemplates['en'];
 $statsPage = str_replace('###PAGE_TITLE###', 'Statistics', $statsPage);
 $statsPage = str_replace('###PAGE_DESCRIPTION###', htmlspecialchars($translations['en']['default_description']), $statsPage);
+$statsPage = str_replace('###HREFLANG###', '', $statsPage);
 $statsPage = str_replace('###CANONICAL_URL###', 'https://idrinth.de/en/statistics', $statsPage);
 $statsPage = str_replace('###CONTENT###', $statsContent, $statsPage);
 $statsPage = str_replace('<meta name="description"', '<meta name="robots" content="noindex, nofollow">' . "\n" . '    <meta name="description"', $statsPage);
 file_put_contents($statisticsDir . '/en.html', minifyHtml($statsPage));
 
 // Generate sitemap.xml
-$sitemapUrls = [];
+$sitemapPaths = [];
 $baseUrl = 'https://idrinth.de';
 
 // Home page
-$sitemapUrls[] = $baseUrl . '/';
+$sitemapPaths[] = '';
 
 // Category pages
 foreach (array_keys($categories) as $category) {
-    $sitemapUrls[] = $baseUrl . '/' . $category;
+    $sitemapPaths[] = $category;
 }
 
 // Individual post pages
 foreach ($posts as $post) {
-    $sitemapUrls[] = $baseUrl . '/' . $post['category'] . '/' . $post['slug'];
+    $sitemapPaths[] = $post['category'] . '/' . $post['slug'];
 }
 
 // Tag pages
 foreach (array_keys($tags) as $tag) {
-    $sitemapUrls[] = $baseUrl . '/tag/' . str_replace(' ', '-', $tag);
+    $sitemapPaths[] = 'tag/' . str_replace(' ', '-', $tag);
 }
 
 // Imprint
-$sitemapUrls[] = $baseUrl . '/imprint';
+$sitemapPaths[] = 'imprint';
 
 $sitemapEntries = '';
-foreach ($sitemapUrls as $url) {
-    $entry = str_replace('###URL###', htmlspecialchars($url), $sitemapEntryTemplate);
-    $sitemapEntries .= $entry;
+foreach ($sitemapPaths as $path) {
+    $hreflangLinks = buildHreflangSitemap($path, $baseUrl, $languages);
+    foreach ($languages as $lang) {
+        $url = $baseUrl . '/' . $lang . ($path !== '' ? '/' . $path : '');
+        $entry = str_replace('###URL###', htmlspecialchars($url), $sitemapEntryTemplate);
+        $entry = str_replace('###HREFLANG_LINKS###', $hreflangLinks, $entry);
+        $sitemapEntries .= $entry;
+    }
 }
 $sitemap = str_replace('###SITEMAP_URLS###', $sitemapEntries, $sitemapTemplate);
 file_put_contents(ROOT_DIR . '/public/sitemap.xml', $sitemap);

@@ -220,3 +220,32 @@ td:last-child, th:last-child {
 .advertisement > a > img {
     display: block;
 }
+@media (max-width: 999px) {
+    html {
+        overflow: auto;
+    }
+    body {
+        display: block;
+        overflow: auto;
+        height: auto;
+        min-height: 100%;
+    }
+    header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.5em;
+        padding: 0.5em;
+    }
+    main > ol {
+        grid-template-columns: 1fr;
+    }
+    main > aside {
+        float: none;
+        max-width: 100%;
+        margin-left: 0;
+    }
+    .advertisement {
+        display: none;
+    }
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+    <title>Neueste Beiträge mit Tag x</title>
+    <link>https://idrinth.de/de/tag/x</link>
+    <description>Hier findest du die neuesten Beiträge zum Stichwort x.</description>
+    <language>de</language>
+    <atom:link href="https://idrinth.de/de/tag/x/feed.rss" rel="self" type="application/rss+xml"/>
+
+</channel>
+</rss>

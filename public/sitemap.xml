@@ -190,6 +190,27 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/world-building" />
   </url>
   <url>
+    <loc>https://idrinth.de/en/software-engineering/is-x-a-growth-hack</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/software-engineering/is-x-a-growth-hack" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/software-engineering/is-x-a-growth-hack" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/software-engineering/is-x-a-growth-hack" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/software-engineering/is-x-a-growth-hack" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/software-engineering/is-x-a-growth-hack</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/software-engineering/is-x-a-growth-hack" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/software-engineering/is-x-a-growth-hack" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/software-engineering/is-x-a-growth-hack" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/software-engineering/is-x-a-growth-hack" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/software-engineering/is-x-a-growth-hack</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/software-engineering/is-x-a-growth-hack" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/software-engineering/is-x-a-growth-hack" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/software-engineering/is-x-a-growth-hack" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/software-engineering/is-x-a-growth-hack" />
+  </url>
+  <url>
     <loc>https://idrinth.de/en/world-building/power-of-names</loc>
         <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/world-building/power-of-names" />
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/world-building/power-of-names" />
@@ -251,6 +272,90 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/modding/idrinth-thalui-in-skyrim-v1-1" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/modding/idrinth-thalui-in-skyrim-v1-1" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/modding/idrinth-thalui-in-skyrim-v1-1" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/x</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/x" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/x" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/x" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/x" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/x</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/x" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/x" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/x" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/x" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/x</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/x" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/x" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/x" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/x" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/twitter</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/twitter" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/twitter" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/twitter" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/twitter" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/twitter</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/twitter" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/twitter" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/twitter" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/twitter" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/twitter</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/twitter" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/twitter" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/twitter" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/twitter" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/growth</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/growth" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/growth" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/growth" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/growth" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/growth</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/growth" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/growth" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/growth" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/growth" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/growth</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/growth" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/growth" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/growth" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/growth" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/project</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/project" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/project" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/project" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/project" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/project</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/project" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/project" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/project" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/project" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/project</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/project" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/project" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/project" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/project" />
   </url>
   <url>
     <loc>https://idrinth.de/en/tag/theory</loc>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Neueste Beiträge mit Tag project</title>
+    <link href="https://idrinth.de/de/tag/project"/>
+    <link href="https://idrinth.de/de/tag/project/feed.atom" rel="self" type="application/atom+xml"/>
+    <id>https://idrinth.de/de/tag/project</id>
+    <updated>2026-04-07T00:00:00+00:00</updated>
+
+</feed>

@@ -5,5 +5,12 @@
     <link href="https://idrinth.de/fr/tag/x/feed.atom" rel="self" type="application/atom+xml"/>
     <id>https://idrinth.de/fr/tag/x</id>
     <updated>2026-04-07T00:00:00+00:00</updated>
+    <entry>
+        <title>Is X a Growth Hack?</title>
+        <link href="https://idrinth.de/fr/software-engineering/is-x-a-growth-hack"/>
+        <id>https://idrinth.de/fr/software-engineering/is-x-a-growth-hack</id>
+        <updated>2026-04-07T00:00:00+00:00</updated>
+        <summary>I&#039;ve been active on X/Twitter again recently and the amount of people who promise growth is even higher than before. ...</summary>
+    </entry>
 
 </feed>

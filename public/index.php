@@ -61,11 +61,29 @@ foreach ($supportedLanguages as $lang) {
         break;
     }
 }
+if ($uri === 'ad/leaderboard.avif') {
+    findAdAndExit('leaderboard.avif', 'image/avif');
+}
+if ($uri === 'ad/leaderboard.webp') {
+    findAdAndExit('leaderboard.webp', 'image/webp');
+}
 if ($uri === 'ad/leaderboard.jpg') {
     findAdAndExit('leaderboard.jpg', 'image/jpeg');
 }
+if ($uri === 'ad/banner.avif') {
+    findAdAndExit('banner.avif', 'image/avif');
+}
+if ($uri === 'ad/banner.webp') {
+    findAdAndExit('banner.webp', 'image/webp');
+}
 if ($uri === 'ad/banner.jpg') {
     findAdAndExit('banner.jpg', 'image/jpeg');
+}
+if ($uri === 'ad/mobile.avif') {
+    findAdAndExit('mobile.avif', 'image/avif');
+}
+if ($uri === 'ad/mobile.webp') {
+    findAdAndExit('mobile.webp', 'image/webp');
 }
 if ($uri === 'ad/mobile.jpg') {
     findAdAndExit('mobile.jpg', 'image/jpeg');

@@ -3,7 +3,7 @@
 define("ROOT_DIR", dirname(__DIR__));
 function incrementViewCount(string $path): void
 {
-    $viewFile = $path . 'viewcount.txt';
+    $viewFile = $path . '/viewcount.txt';
     $fp = fopen($viewFile, 'c+');
     if ($fp && flock($fp, LOCK_EX)) {
         $count = (int)stream_get_contents($fp);

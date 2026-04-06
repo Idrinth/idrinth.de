@@ -61,33 +61,6 @@ foreach ($supportedLanguages as $lang) {
         break;
     }
 }
-if (!$languageFromUrl && isset($_COOKIE['language']) && in_array($_COOKIE['language'], $supportedLanguages, true)) {
-    $language = $_COOKIE['language'];
-    $redirect = '/' . $language . '/' . $uri;
-    $redirect = rtrim($redirect, '/');
-    header('Location: ' . $redirect, true, 302);
-    exit;
-}
-if (!$languageFromUrl) {
-    $accept = $_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? '';
-    if (preg_match_all('/([a-z]{2})(?:-[a-zA-Z]+)?(?:;q=([0-9.]+))?/', $accept, $matches, PREG_SET_ORDER)) {
-        usort($matches, fn($a, $b) => ($b[2] ?? '1') <=> ($a[2] ?? '1'));
-        foreach ($matches as $match) {
-            if (in_array($match[1], $supportedLanguages, true)) {
-                $language = $match[1];
-                break;
-            }
-        }
-    }
-    $redirect = '/' . $language . '/' . $uri;
-    $redirect = rtrim($redirect, '/');
-    header('Location: ' . $redirect, true, 302);
-    exit;
-}
-setcookie('language', $language, [
-    'expires' => time() + 30 * 24 * 60 * 60,
-    'path' => '/',
-]);
 if ($uri === 'ad.jpg') {
     findAdAndExit('ad.jpg', 'image/jpeg');
 }
@@ -116,6 +89,33 @@ if ($uri === 'random') {
         }
     }
 }
+if (!$languageFromUrl && isset($_COOKIE['language']) && in_array($_COOKIE['language'], $supportedLanguages, true)) {
+    $language = $_COOKIE['language'];
+    $redirect = '/' . $language . '/' . $uri;
+    $redirect = rtrim($redirect, '/');
+    header('Location: ' . $redirect, true, 302);
+    exit;
+}
+if (!$languageFromUrl) {
+    $accept = $_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? '';
+    if (preg_match_all('/([a-z]{2})(?:-[a-zA-Z]+)?(?:;q=([0-9.]+))?/', $accept, $matches, PREG_SET_ORDER)) {
+        usort($matches, fn($a, $b) => ($b[2] ?? '1') <=> ($a[2] ?? '1'));
+        foreach ($matches as $match) {
+            if (in_array($match[1], $supportedLanguages, true)) {
+                $language = $match[1];
+                break;
+            }
+        }
+    }
+    $redirect = '/' . $language . '/' . $uri;
+    $redirect = rtrim($redirect, '/');
+    header('Location: ' . $redirect, true, 302);
+    exit;
+}
+setcookie('language', $language, [
+    'expires' => time() + 30 * 24 * 60 * 60,
+    'path' => '/',
+]);
 $feedFormats = ['feed.rss' => 'application/rss+xml', 'feed.atom' => 'application/atom+xml'];
 foreach ($feedFormats as $feedFile => $contentType) {
     if ($uri === $feedFile || str_ends_with($uri, '/' . $feedFile)) {

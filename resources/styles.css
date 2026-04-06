@@ -224,7 +224,9 @@ td:last-child, th:last-child {
     text-align: right;
 }
 .advertisement > a,
-.advertisement > a > img {
+.advertisement > a > img,
+.advertisement > a > picture,
+.advertisement > a > picture > img {
     display: block;
 }
 @media (max-width: 999px) {
@@ -253,7 +255,8 @@ td:last-child, th:last-child {
         margin-left: 0;
     }
     .advertisement {
-        display: none;
+        width: 100%;
+        text-align: center;
     }
 }
 @media (max-width: 600px) {

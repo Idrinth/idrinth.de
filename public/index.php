@@ -23,7 +23,7 @@ function displayHTMLAndExit(string $path, bool $countView = true): void
             incrementViewCount(dirname($path));
         }
         header('Content-type: text/html; charset=utf-8');
-        header('Link: </styles.css>; rel=preload; as=style, </theme.js>; rel=preload; as=script, </ad.jpg>; rel=preload; as=image');
+        header('Link: </styles.css>; rel=preload; as=style, </theme.js>; rel=preload; as=script');
         header('Permissions-Policy: all=()');
         readfile($path);
         exit;
@@ -61,8 +61,14 @@ foreach ($supportedLanguages as $lang) {
         break;
     }
 }
-if ($uri === 'ad.jpg') {
-    findAdAndExit('ad.jpg', 'image/jpeg');
+if ($uri === 'ad/leaderboard.jpg') {
+    findAdAndExit('leaderboard.jpg', 'image/jpeg');
+}
+if ($uri === 'ad/banner.jpg') {
+    findAdAndExit('banner.jpg', 'image/jpeg');
+}
+if ($uri === 'ad/mobile.jpg') {
+    findAdAndExit('mobile.jpg', 'image/jpeg');
 }
 if ($uri === 'ad.lnk') {
     findAdAndExit('link.txt', 'txt/plain');

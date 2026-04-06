@@ -40,7 +40,11 @@
     </div>
     <div class="advertisement">
         <a href="#" id="ad-link" target="_blank" rel="noopener noreferrer">
-            <img alt="publicité" id="leaderboard-ad" fetchpriority="low" src="/ad.jpg" width="728" height="90"/>
+            <picture>
+                <source media="(min-width: 800px)" srcset="/ad/leaderboard.jpg" width="728" height="90"/>
+                <source media="(min-width: 500px)" srcset="/ad/banner.jpg" width="468" height="60"/>
+                <img alt="publicité" fetchpriority="low" src="/ad/mobile.jpg" width="320" height="50"/>
+            </picture>
         </a>
     </div>
 </header>

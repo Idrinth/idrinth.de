@@ -151,6 +151,9 @@ a:hover {
 img {
     max-width: 100%;
 }
+nav {
+    overflow: hidden;
+}
 nav > ul {
     list-style-type: none;
     margin: 0;
@@ -158,6 +161,8 @@ nav > ul {
     display: flex;
     flex-direction: row;
     gap: 0.5em;
+    flex-wrap: wrap;
+    max-width: 100%;
 }
 nav > ul > li > a {
     border-bottom: 1px solid var(--text-color);
@@ -238,7 +243,7 @@ td:last-child, th:last-child {
         padding: 0.5em;
     }
     main > ol {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
     main > aside {
         float: none;
@@ -247,5 +252,10 @@ td:last-child, th:last-child {
     }
     .advertisement {
         display: none;
+    }
+}
+@media (max-width: 600px) {
+    main > ol {
+        grid-template-columns: 1fr;
     }
 }

@@ -41,8 +41,14 @@
     <div class="advertisement">
         <a href="#" id="ad-link" target="_blank" rel="noopener noreferrer">
             <picture>
+                <source media="(min-width: 800px)" type="image/avif" srcset="/ad/leaderboard.avif" width="728" height="90"/>
+                <source media="(min-width: 800px)" type="image/webp" srcset="/ad/leaderboard.webp" width="728" height="90"/>
                 <source media="(min-width: 800px)" srcset="/ad/leaderboard.jpg" width="728" height="90"/>
+                <source media="(min-width: 500px)" type="image/avif" srcset="/ad/banner.avif" width="468" height="60"/>
+                <source media="(min-width: 500px)" type="image/webp" srcset="/ad/banner.webp" width="468" height="60"/>
                 <source media="(min-width: 500px)" srcset="/ad/banner.jpg" width="468" height="60"/>
+                <source type="image/avif" srcset="/ad/mobile.avif" width="320" height="50"/>
+                <source type="image/webp" srcset="/ad/mobile.webp" width="320" height="50"/>
                 <img alt="Werbung" fetchpriority="low" src="/ad/mobile.jpg" width="320" height="50"/>
             </picture>
         </a>

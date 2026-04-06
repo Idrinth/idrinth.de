@@ -27,12 +27,12 @@
     </a>
     <strong>Idrinths zufällige Gedanken</strong>
     <div>
-        <select aria-label="Sprache" onchange="document.cookie='language='+this.value+'; expires='+(new Date().getTime() + 86400*30*1000)+ '; domain='+location.hostname+'; path=/';let p=location.pathname.replace(/^\/(en|fr|de)(\/|$)/,'/'+this.value+'$2');if(p===location.pathname)p='/'+this.value+location.pathname;location.href=p">
+        <select aria-label="Sprache" id="language-select">
             <option value="en">English</option>
             <option value="fr">Francais</option>
             <option value="de" selected>Deutsch</option>
         </select>
-        <select aria-label="Farbschema" id="mode-select" onchange="document.cookie='mode='+this.value+'; expires='+(new Date().getTime() + 86400*30*1000)+ '; domain='+location.hostname+'; path=/';document.documentElement.className=document.documentElement.className.replace(/theme-\w+/,'theme-'+this.value)">
+        <select aria-label="Farbschema" id="mode-select">
             <option value="light">☀</option>
             <option value="dark">☾</option>
             <option value="auto">☁</option>
@@ -99,7 +99,7 @@
         <p>Ich unterhalte mich gerne mit Menschen, daher ist dies eine weitere Plattform neben meinem Discord.</p>
         <p>Wenn du mich erreichen möchtest, nutze bitte Discord und schicke keine zufälligen E-Mails.</p>
         <div id="donate-button-container">
-            <div id="donate-button"></div>
+            <div id="donate-button" data-paypal-id="GBETUCHKXQ4B6" data-donate-src="/donate-de.png" data-donate-alt="Mit Paypal spenden"></div>
         </div>
     </aside>
     ###CONTENT###
@@ -130,16 +130,5 @@
 </footer>
 <script src="/scripts.js"></script>
 <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
-<script>
-    PayPal.Donation.Button({
-        env: 'production',
-        hosted_button_id: 'GBETUCHKXQ4B6',
-        image: {
-            src: '/donate-de.png',
-            alt: 'Mit Paypal spenden',
-            title: 'PayPal - The safer, easier way to pay online!',
-        }
-    }).render('#donate-button');
-</script>
 </body>
 </html>

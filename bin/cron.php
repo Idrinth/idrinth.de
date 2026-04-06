@@ -393,6 +393,16 @@ file_put_contents(ROOT_DIR . '/public/styles.css', minifyCss(file_get_contents(R
 file_put_contents(ROOT_DIR . '/public/scripts.js', minifyJs(file_get_contents(ROOT_DIR . '/resources/scripts.js')));
 file_put_contents(ROOT_DIR . '/public/theme.js', minifyJs(file_get_contents(ROOT_DIR . '/resources/theme.js')));
 
+// Add cache-breaker query parameters to CSS/JS references in templates
+$cssHash = md5_file(ROOT_DIR . '/public/styles.css');
+$scriptsHash = md5_file(ROOT_DIR . '/public/scripts.js');
+$themeHash = md5_file(ROOT_DIR . '/public/theme.js');
+foreach ($languages as $lang) {
+    $mainTemplates[$lang] = str_replace('/styles.css', '/styles.css?' . $cssHash, $mainTemplates[$lang]);
+    $mainTemplates[$lang] = str_replace('/scripts.js', '/scripts.js?' . $scriptsHash, $mainTemplates[$lang]);
+    $mainTemplates[$lang] = str_replace('/theme.js', '/theme.js?' . $themeHash, $mainTemplates[$lang]);
+}
+
 // Detect template changes
 $templateHashFile = ROOT_DIR . '/output/.template-hash';
 $allTemplateContents = implode('', $mainTemplates) . implode('', $entryTemplates) . implode('', $listingTemplates)

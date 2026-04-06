@@ -133,6 +133,19 @@ function markdownToHtml(string $markdown): string
             continue;
         }
 
+        if (str_starts_with($trimmed, '## ')) {
+            if ($paragraph !== '') {
+                $html .= '<p>' . htmlspecialchars($paragraph) . "</p>\n";
+                $paragraph = '';
+            }
+            if ($inList) {
+                $html .= "</ul>\n";
+                $inList = false;
+            }
+            $html .= '<h2>' . htmlspecialchars(substr($trimmed, 3)) . "</h2>\n";
+            continue;
+        }
+
         if (str_starts_with($trimmed, '# ')) {
             if ($paragraph !== '') {
                 $html .= '<p>' . htmlspecialchars($paragraph) . "</p>\n";

@@ -34,6 +34,35 @@ if (document.querySelector('.views[data-path]')) {
 updateViews();
 setInterval(updateViews, 60000);
 }
+var languageSelect = document.getElementById('language-select');
+if (languageSelect) {
+languageSelect.addEventListener('change', function() {
+var expires = new Date().getTime() + 86400 * 30 * 1000;
+document.cookie = 'language=' + this.value + '; expires=' + expires + '; domain=' + location.hostname + '; path=/';
+var p = location.pathname.replace(/^\/(en|fr|de)(\/|$)/, '/' + this.value + '$2');
+if (p === location.pathname) p = '/' + this.value + location.pathname;
+location.href = p;
+});
+}
+if (modeSelect) {
+modeSelect.addEventListener('change', function() {
+var expires = new Date().getTime() + 86400 * 30 * 1000;
+document.cookie = 'mode=' + this.value + '; expires=' + expires + '; domain=' + location.hostname + '; path=/';
+document.documentElement.className = document.documentElement.className.replace(/theme-\w+/, 'theme-' + this.value);
+});
+}
+var donateButton = document.getElementById('donate-button');
+if (donateButton && donateButton.dataset.paypalId && typeof PayPal !== 'undefined') {
+PayPal.Donation.Button({
+env: 'production',
+hosted_button_id: donateButton.dataset.paypalId,
+image: {
+src: donateButton.dataset.donateSrc,
+alt: donateButton.dataset.donateAlt,
+title: 'PayPal - The safer, easier way to pay online!',
+}
+}).render('#donate-button');
+}
 var adLink = document.getElementById('ad-link');
 if (adLink) {
 fetch('/ad.lnk')

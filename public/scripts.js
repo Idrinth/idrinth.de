@@ -67,6 +67,12 @@ var adLink = document.getElementById('ad-link');
 if (adLink) {
 fetch('/ad.lnk')
 .then(function(r) { return r.text(); })
-.then(function(href) { adLink.setAttribute('href', href); var adImg = adLink.querySelector('img'); if (adImg && adLink.dataset.adTitle) { adImg.setAttribute('title', adLink.dataset.adTitle.replace('{href}', href)); } });
+.then(function(href) {
+adLink.setAttribute('href', href);
+var adImg = adLink.querySelector('img');
+if (adImg && adLink.dataset.adTitle) {
+adImg.setAttribute('title', adLink.dataset.adTitle.replace('{href}', href));
+}
+});
 }
 })();

@@ -171,7 +171,7 @@ nav > ul > li > a {
     border-bottom: 1px solid var(--text-color);
     border-radius: 0.15em;
 }
-main > ol {
+main > ol.post-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     list-style-type: none;
@@ -183,7 +183,7 @@ main {
     overflow-y: auto;
     overflow-x: hidden;
 }
-main > ol > li {
+main > ol.post-grid > li {
     box-shadow: 2px 2px 4px var(--shadow-color);
     border-radius: 0.1em;
 }
@@ -252,7 +252,7 @@ td:last-child, th:last-child {
     header > a img {
         max-height: auto;
     }
-    main > ol {
+    main > ol.post-grid {
         grid-template-columns: 1fr 1fr;
     }
     main > aside {
@@ -266,7 +266,7 @@ td:last-child, th:last-child {
     }
 }
 @media (max-width: 600px) {
-    main > ol {
+    main > ol.post-grid {
         grid-template-columns: 1fr;
     }
 }

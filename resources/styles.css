@@ -71,7 +71,7 @@ select option {
 }
 header {
     display: grid;
-    grid-template-columns: 30px calc(100% - 758px - 10em) 10em 728px;
+    grid-template-columns: 100px calc(100% - 828px - 10em) 10em 728px;
     align-items: center;
 }
 h1,h2,h3,h4,h5 {

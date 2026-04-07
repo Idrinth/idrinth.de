@@ -872,6 +872,8 @@ precompress($statisticsDir . '/en.html');
 
 // Generate weighted word score index per language
 foreach ($languages as $lang) {
+    $paths = [];
+    $pathIndex = [];
     $wordScores = [];
 
     foreach ($posts as $post) {
@@ -883,6 +885,13 @@ foreach ($languages as $lang) {
         if (!is_file($mdFile)) {
             continue;
         }
+
+        if (!isset($pathIndex[$articlePath])) {
+            $pathIndex[$articlePath] = count($paths);
+            $paths[] = $articlePath;
+        }
+        $pathKey = $pathIndex[$articlePath];
+
         $markdown = file_get_contents($mdFile);
         $articleWords = [];
 
@@ -933,12 +942,21 @@ foreach ($languages as $lang) {
             if (!isset($wordScores[$word])) {
                 $wordScores[$word] = [];
             }
-            $wordScores[$word][$articlePath] = $score;
+            $wordScores[$word][$pathKey] = $score;
         }
     }
 
     ksort($wordScores);
-    file_put_contents(ROOT_DIR . '/output/words-' . $lang . '.json', json_encode($wordScores, JSON_UNESCAPED_UNICODE));
+    $terms = new stdClass();
+    foreach ($wordScores as $word => $articles) {
+        $obj = new stdClass();
+        foreach ($articles as $idx => $score) {
+            $obj->{(string)$idx} = $score;
+        }
+        $terms->{$word} = $obj;
+    }
+    $output = ['paths' => $paths, 'terms' => $terms];
+    file_put_contents(ROOT_DIR . '/output/words-' . $lang . '.json', json_encode($output, JSON_UNESCAPED_UNICODE));
     precompress(ROOT_DIR . '/output/words-' . $lang . '.json');
 }
 

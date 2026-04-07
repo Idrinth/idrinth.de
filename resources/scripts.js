@@ -29,22 +29,29 @@
         });
     }
     function updateViews() {
-        var promises = [];
+        var paths = {};
         document.querySelectorAll('.views[data-path]').forEach(function(el) {
             var path = el.getAttribute('data-path');
-            var p = fetch('/views/' + path)
-                .then(function(r) { return r.text(); })
-                .then(function(count) { el.textContent = count + ' ' + viewsLabel; });
-            promises.push(p);
-            fetch('/unique-views/' + path)
-                .then(function(r) { return r.text(); })
-                .then(function(count) { el.setAttribute('title', uniqueViewsTitle.replace('{count}', count)); });
+            if (!paths[path]) paths[path] = { views: [], unique: [] };
+            paths[path].views.push(el);
         });
         document.querySelectorAll('.unique-views[data-path]').forEach(function(el) {
-            var p = fetch('/unique-views/' + el.getAttribute('data-path'))
-                .then(function(r) { return r.text(); })
-                .then(function(count) { el.textContent = count + ' ' + viewsLabel; });
-            promises.push(p);
+            var path = el.getAttribute('data-path');
+            if (!paths[path]) paths[path] = { views: [], unique: [] };
+            paths[path].unique.push(el);
+        });
+        var promises = Object.keys(paths).map(function(path) {
+            return fetch('/views/' + path)
+                .then(function(r) { return r.json(); })
+                .then(function(data) {
+                    paths[path].views.forEach(function(el) {
+                        el.textContent = data.views + ' ' + viewsLabel;
+                        el.setAttribute('title', uniqueViewsTitle.replace('{count}', data.unique));
+                    });
+                    paths[path].unique.forEach(function(el) {
+                        el.textContent = data.unique + ' ' + viewsLabel;
+                    });
+                });
         });
         if (document.querySelector('.category-views[data-category]')) {
             Promise.all(promises).then(updateCategoryViews);

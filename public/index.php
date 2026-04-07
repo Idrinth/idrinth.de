@@ -163,26 +163,15 @@ if ($uri === 'ad.lnk') {
 }
 if ($uri === 'views' || str_starts_with($uri, 'views/')) {
     $viewPath = trim(substr($uri, 5), '/');
-    $viewFile = ROOT_DIR . '/output/' . ($viewPath !== '' ? $viewPath . '/' : '') . 'viewcount.txt';
-    header('Content-type: text/plain');
+    $basePath = ROOT_DIR . '/output/' . ($viewPath !== '' ? $viewPath . '/' : '');
+    $viewFile = $basePath . 'viewcount.txt';
+    $uniqueFile = $basePath . 'unique-viewcount.txt';
+    header('Content-type: application/json');
     header('Cache-Control: no-cache');
-    if (is_file($viewFile)) {
-        readfile($viewFile);
-    } else {
-        echo '0';
-    }
-    exit;
-}
-if ($uri === 'unique-views' || str_starts_with($uri, 'unique-views/')) {
-    $viewPath = trim(substr($uri, 12), '/');
-    $viewFile = ROOT_DIR . '/output/' . ($viewPath !== '' ? $viewPath . '/' : '') . 'unique-viewcount.txt';
-    header('Content-type: text/plain');
-    header('Cache-Control: no-cache');
-    if (is_file($viewFile)) {
-        readfile($viewFile);
-    } else {
-        echo '0';
-    }
+    echo json_encode([
+        'views' => is_file($viewFile) ? (int)file_get_contents($viewFile) : 0,
+        'unique' => is_file($uniqueFile) ? (int)file_get_contents($uniqueFile) : 0,
+    ]);
     exit;
 }
 if ($uri === 'random') {

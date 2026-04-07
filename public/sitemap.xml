@@ -190,6 +190,27 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/world-building" />
   </url>
   <url>
+    <loc>https://idrinth.de/en/software-engineering/a-question-of-databases</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/software-engineering/a-question-of-databases" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/software-engineering/a-question-of-databases" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/software-engineering/a-question-of-databases" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/software-engineering/a-question-of-databases" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/software-engineering/a-question-of-databases</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/software-engineering/a-question-of-databases" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/software-engineering/a-question-of-databases" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/software-engineering/a-question-of-databases" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/software-engineering/a-question-of-databases" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/software-engineering/a-question-of-databases</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/software-engineering/a-question-of-databases" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/software-engineering/a-question-of-databases" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/software-engineering/a-question-of-databases" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/software-engineering/a-question-of-databases" />
+  </url>
+  <url>
     <loc>https://idrinth.de/en/software-engineering/is-x-a-growth-hack</loc>
         <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/software-engineering/is-x-a-growth-hack" />
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/software-engineering/is-x-a-growth-hack" />
@@ -272,6 +293,111 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/modding/idrinth-thalui-in-skyrim-v1-1" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/modding/idrinth-thalui-in-skyrim-v1-1" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/modding/idrinth-thalui-in-skyrim-v1-1" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/database</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/database" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/database" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/database" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/database" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/database</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/database" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/database" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/database" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/database" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/database</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/database" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/database" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/database" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/database" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/system-design</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/system-design" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/system-design" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/system-design" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/system-design" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/system-design</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/system-design" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/system-design" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/system-design" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/system-design" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/system-design</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/system-design" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/system-design" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/system-design" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/system-design" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/relational</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/relational" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/relational" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/relational" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/relational" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/relational</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/relational" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/relational" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/relational" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/relational" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/relational</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/relational" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/relational" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/relational" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/relational" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/document</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/document" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/document" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/document" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/document" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/document</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/document" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/document" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/document" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/document" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/document</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/document" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/document" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/document" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/document" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/vector</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/vector" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/vector" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/vector" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/vector" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/vector</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/vector" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/vector" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/vector" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/vector" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/vector</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/vector" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/vector" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/vector" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/vector" />
   </url>
   <url>
     <loc>https://idrinth.de/en/tag/x</loc>

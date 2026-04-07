@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+    <title>Derniers articles avec le tag database</title>
+    <link>https://idrinth.de/fr/tag/database</link>
+    <description>Découvrez les derniers articles du mot-clé database ici.</description>
+    <language>fr</language>
+    <atom:link href="https://idrinth.de/fr/tag/database/feed.rss" rel="self" type="application/rss+xml"/>
+    <item>
+        <title>A question of databases</title>
+        <link>https://idrinth.de/fr/software-engineering/a-question-of-databases</link>
+        <guid>https://idrinth.de/fr/software-engineering/a-question-of-databases</guid>
+        <pubDate>Wed, 08 Apr 2026 00:00:00 +0000</pubDate>
+        <description>I read quite a few posts in X recently, that were promoting single database applications. I am concered reading this,...</description>
+    </item>
+
+</channel>
+</rss>

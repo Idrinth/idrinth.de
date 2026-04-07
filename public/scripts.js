@@ -51,18 +51,6 @@ document.cookie = 'mode=' + this.value + '; expires=' + expires + '; domain=' + 
 document.documentElement.className = document.documentElement.className.replace(/theme-\w+/, 'theme-' + this.value);
 });
 }
-var donateButton = document.getElementById('donate-button');
-if (donateButton && donateButton.dataset.paypalId && typeof PayPal !== 'undefined') {
-PayPal.Donation.Button({
-env: 'production',
-hosted_button_id: donateButton.dataset.paypalId,
-image: {
-src: donateButton.dataset.donateSrc,
-alt: donateButton.dataset.donateAlt,
-title: 'PayPal - The safer, easier way to pay online!',
-}
-}).render('#donate-button');
-}
 var adLink = document.getElementById('ad-link');
 if (adLink) {
 fetch('/ad.lnk')

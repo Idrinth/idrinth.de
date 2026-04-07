@@ -100,9 +100,13 @@
         <p>Mein Name ist Björn und im Internet bin ich als Idrinth bekannt. Ich bin seit über einem Jahrzehnt Softwareentwickler und verbringe immer noch viel zu viel Zeit mit dem Modden von Spielen.</p>
         <p>Ich unterhalte mich gerne mit Menschen, daher ist dies eine weitere Plattform neben meinem Discord.</p>
         <p>Wenn du mich erreichen möchtest, nutze bitte Discord und schicke keine zufälligen E-Mails.</p>
-        <div id="donate-button-container">
-            <div id="donate-button" data-paypal-id="GBETUCHKXQ4B6" data-donate-src="/donate-de.png" data-donate-alt="Mit Paypal spenden"></div>
-        </div>
+        <a id="donate-button" href="https://www.paypal.com/donate/?hosted_button_id=GBETUCHKXQ4B6">
+            <picture>
+                <source type="image/avif" srcset="/donate-de.avif">
+                <source type="image/webp" srcset="/donate-de.webp">
+                <img src="/donate-de.png" alt="Mit Paypal spenden">
+            </picture>
+        </a>
     </aside>
     ###CONTENT###
 </main>
@@ -130,7 +134,5 @@
         </ul>
     </nav>
 </footer>
-<script src="/scripts.js"></script>
-<script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
-</body>
+<script src="/scripts.js"></script></body>
 </html>

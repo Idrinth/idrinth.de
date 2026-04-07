@@ -74,6 +74,9 @@ header {
     grid-template-columns: 100px calc(100% - 828px - 10em) 10em 728px;
     align-items: center;
 }
+header > a > picture {
+    max-height: 68px;
+}
 h1,h2,h3,h4,h5 {
     text-decoration: none;
     font-weight: bold;
@@ -245,6 +248,9 @@ td:last-child, th:last-child {
         align-items: center;
         gap: 0.5em;
         padding: 0.5em;
+    }
+    header > a > picture {
+        max-height: auto;
     }
     main > ol {
         grid-template-columns: 1fr 1fr;

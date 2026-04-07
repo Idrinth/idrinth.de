@@ -4,13 +4,14 @@ define("ROOT_DIR", dirname(__DIR__));
 
 $outputDir = ROOT_DIR . '/output';
 
-foreach (glob($outputDir . '/*viewcount.txt') as $file) {
-    $basename = basename($file, 'viewcount.txt');
+foreach (['viewcount.txt', 'unique-viewcount.txt'] as $countFile) {
+foreach (glob($outputDir . '/*' . $countFile) as $file) {
+    $basename = basename($file, $countFile);
     if ($basename === '') {
-        // This is the root viewcount.txt, skip it
+        // This is the root file, skip it
         continue;
     }
-    $folderViewcount = $outputDir . '/' . $basename . '/viewcount.txt';
+    $folderViewcount = $outputDir . '/' . $basename . '/' . $countFile;
     if (!is_file($folderViewcount)) {
         echo "Skipping $file: target $folderViewcount does not exist\n";
         continue;
@@ -42,5 +43,6 @@ foreach (glob($outputDir . '/*viewcount.txt') as $file) {
 
     unlink($file);
 
-    echo "Merged $basename: $currentCount + $oldCount = $newCount\n";
+    echo "Merged $basename ($countFile): $currentCount + $oldCount = $newCount\n";
+}
 }

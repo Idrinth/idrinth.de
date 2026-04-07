@@ -271,10 +271,12 @@ function getRelatedPosts(array $currentPost, array $allPosts, int $maxResults = 
         }
         $points = 0.0;
         if ($post['category'] === $currentPost['category']) {
-            $points += 10;
+            $points += 25;
         }
         $sharedTags = array_intersect($currentTags, $post['tags'] ?? []);
-        $points += count($sharedTags);
+        $points += count($sharedTags) * 5;
+        $sharedWords = array_intersect($currentPost['title_words'] ?? [], $post['title_words'] ?? []);
+        $points += count($sharedWords);
         if ($points < 1) {
             continue;
         }
@@ -477,6 +479,26 @@ foreach (scandir(ROOT_DIR . '/posts') as $folder) {
     }
     $meta = json_decode(file_get_contents($metaFile), true);
     $meta['slug'] = $folder;
+    $titleMdFile = ROOT_DIR . '/posts/' . $folder . '/en.md';
+    if (!is_file($titleMdFile)) {
+        foreach (['de', 'fr'] as $fallbackLang) {
+            $titleMdFile = ROOT_DIR . '/posts/' . $folder . '/' . $fallbackLang . '.md';
+            if (is_file($titleMdFile)) {
+                break;
+            }
+        }
+    }
+    $titleWords = [];
+    if (is_file($titleMdFile)) {
+        $title = extractTitle(file_get_contents($titleMdFile), '');
+        if ($title !== '') {
+            $titleWords = array_unique(array_filter(
+                preg_split('/\s+/', strtolower($title)),
+                fn($w) => strlen($w) > 2
+            ));
+        }
+    }
+    $meta['title_words'] = array_values($titleWords);
     $posts[] = $meta;
 }
 

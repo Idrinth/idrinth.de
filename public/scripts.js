@@ -81,6 +81,90 @@ document.cookie = 'mode=' + this.value + '; expires=' + expires + '; domain=' + 
 document.documentElement.className = document.documentElement.className.replace(/theme-\w+/, 'theme-' + this.value);
 });
 }
+var searchForm = document.getElementById('search-form');
+if (searchForm) {
+searchForm.removeAttribute('hidden');
+var lang = document.documentElement.getAttribute('lang') || 'en';
+var wordsData = null;
+var noResultsText = searchForm.getAttribute('data-no-results') || 'No results found.';
+searchForm.addEventListener('submit', function(e) {
+e.preventDefault();
+var query = document.getElementById('search-input').value.trim();
+if (!query) return;
+function doSearch(data) {
+var words = query.toLowerCase().replace(/[^\p{L}\p{N}\s]/gu, '').split(/\s+/).filter(function(w) { return w.length >= 1; });
+var scores = {};
+words.forEach(function(word) {
+if (data.terms[word]) {
+var entries = data.terms[word];
+Object.keys(entries).forEach(function(idx) {
+scores[idx] = (scores[idx] || 0) + entries[idx];
+});
+}
+});
+var results = Object.keys(scores)
+.map(function(idx) { return { path: data.paths[idx], score: scores[idx] }; })
+.sort(function(a, b) { return b.score - a.score; })
+.slice(0, 12);
+showSearchResults(results, lang, noResultsText);
+}
+if (wordsData) {
+doSearch(wordsData);
+} else {
+fetch('/words-' + lang + '.json')
+.then(function(r) { return r.json(); })
+.then(function(data) {
+wordsData = data;
+doSearch(data);
+});
+}
+});
+}
+function showSearchResults(results, lang, noResultsText) {
+var existing = document.querySelector('.search-modal-overlay');
+if (existing) existing.remove();
+var overlay = document.createElement('div');
+overlay.className = 'search-modal-overlay';
+var modal = document.createElement('div');
+modal.className = 'search-modal';
+modal.setAttribute('role', 'dialog');
+modal.setAttribute('aria-modal', 'true');
+var closeBtn = document.createElement('button');
+closeBtn.className = 'search-modal-close';
+closeBtn.innerHTML = '&times;';
+closeBtn.setAttribute('aria-label', 'Close');
+closeBtn.addEventListener('click', function() { overlay.remove(); });
+modal.appendChild(closeBtn);
+if (results.length === 0) {
+var p = document.createElement('p');
+p.textContent = noResultsText;
+modal.appendChild(p);
+} else {
+var ul = document.createElement('ul');
+results.forEach(function(result) {
+var li = document.createElement('li');
+var a = document.createElement('a');
+a.href = '/' + lang + '/' + result.path;
+var slug = result.path.split('/').pop();
+a.textContent = slug.replace(/-/g, ' ').replace(/\b\w/g, function(c) { return c.toUpperCase(); });
+li.appendChild(a);
+ul.appendChild(li);
+});
+modal.appendChild(ul);
+}
+overlay.appendChild(modal);
+document.body.appendChild(overlay);
+overlay.addEventListener('click', function(e) {
+if (e.target === overlay) overlay.remove();
+});
+var escHandler = function(e) {
+if (e.key === 'Escape') {
+overlay.remove();
+document.removeEventListener('keydown', escHandler);
+}
+};
+document.addEventListener('keydown', escHandler);
+}
 var adLink = document.getElementById('ad-link');
 if (adLink) {
 fetch('/ad.lnk')

@@ -1,6 +1,35 @@
 <?php
 
 define("ROOT_DIR", dirname(__DIR__));
+function preferredEncoding(): string
+{
+    $accept = $_SERVER['HTTP_ACCEPT_ENCODING'] ?? '';
+    if (str_contains($accept, 'br')) {
+        return 'br';
+    }
+    if (str_contains($accept, 'gzip')) {
+        return 'gzip';
+    }
+    return '';
+}
+function sendCompressed(string $path, string $contentType): void
+{
+    $encoding = preferredEncoding();
+    if ($encoding === 'br' && is_file($path . '.br')) {
+        header('Content-Encoding: br');
+        header('Content-Type: ' . $contentType);
+        readfile($path . '.br');
+        return;
+    }
+    if ($encoding === 'gzip' && is_file($path . '.gz')) {
+        header('Content-Encoding: gzip');
+        header('Content-Type: ' . $contentType);
+        readfile($path . '.gz');
+        return;
+    }
+    header('Content-Type: ' . $contentType);
+    readfile($path);
+}
 function incrementViewCount(string $path): void
 {
     $viewFile = $path . '/viewcount.txt';
@@ -22,10 +51,10 @@ function displayHTMLAndExit(string $path, bool $countView = true): void
         if ($countView) {
             incrementViewCount(dirname($path));
         }
-        header('Content-type: text/html; charset=utf-8');
+        header('Vary: Accept-Encoding');
         header('Link: </styles.css>; rel=preload; as=style, </theme.js>; rel=preload; as=script');
         header('Permissions-Policy: all=()');
-        readfile($path);
+        sendCompressed($path, 'text/html; charset=utf-8');
         exit;
     }
 }
@@ -147,9 +176,9 @@ foreach ($feedFormats as $feedFile => $contentType) {
         $ext = str_ends_with($feedFile, '.rss') ? 'rss' : 'atom';
         $file = ROOT_DIR . '/output/' . ($feedPath !== '' ? $feedPath . '/' : '') . $language . '.' . $ext;
         if (is_file($file)) {
-            header('Content-Type: ' . $contentType . '; charset=utf-8');
+            header('Vary: Accept-Encoding');
             header('Cache-Control: max-age=3600');
-            readfile($file);
+            sendCompressed($file, $contentType . '; charset=utf-8');
             exit;
         }
         break;

@@ -97,6 +97,25 @@ function buildHreflangSitemap(string $path, string $baseUrl, array $languages): 
     return $links;
 }
 
+function precompress(string $filePath): void
+{
+    $content = file_get_contents($filePath);
+    // Gzip (max compression, built-in PHP)
+    $gz = gzencode($content, 9);
+    if ($gz !== false) {
+        file_put_contents($filePath . '.gz', $gz);
+    }
+    // Brotli (max compression via CLI, skip if unavailable)
+    static $hasBrotli = null;
+    if ($hasBrotli === null) {
+        exec('which brotli 2>/dev/null', $out, $code);
+        $hasBrotli = $code === 0;
+    }
+    if ($hasBrotli) {
+        exec('brotli -q 11 -f ' . escapeshellarg($filePath) . ' -o ' . escapeshellarg($filePath . '.br'));
+    }
+}
+
 function minifyCss(string $css): string
 {
     // Remove comments
@@ -368,6 +387,7 @@ function generateFeeds(
     $rss = str_replace('###FEED_SELF###', htmlspecialchars($feedLink . '/feed.rss'), $rss);
     $rss = str_replace('###FEED_ENTRIES###', $rssEntries, $rss);
     file_put_contents($outputDir . '/' . $lang . '.rss', $rss);
+    precompress($outputDir . '/' . $lang . '.rss');
 
     $atom = $atomTemplate;
     $atom = str_replace('###FEED_TITLE###', htmlspecialchars($feedTitle), $atom);
@@ -376,6 +396,7 @@ function generateFeeds(
     $atom = str_replace('###FEED_UPDATED###', $latestDate . 'T00:00:00+00:00', $atom);
     $atom = str_replace('###FEED_ENTRIES###', $atomEntries, $atom);
     file_put_contents($outputDir . '/' . $lang . '.atom', $atom);
+    precompress($outputDir . '/' . $lang . '.atom');
 }
 
 // Load per-language templates
@@ -414,8 +435,11 @@ $atomEntryTemplate = file_get_contents(ROOT_DIR . '/resources/atom-entry.xml');
 
 // Minify and write CSS/JS to public directory
 file_put_contents(ROOT_DIR . '/public/styles.css', minifyCss(file_get_contents(ROOT_DIR . '/resources/styles.css')));
+precompress(ROOT_DIR . '/public/styles.css');
 file_put_contents(ROOT_DIR . '/public/scripts.js', minifyJs(file_get_contents(ROOT_DIR . '/resources/scripts.js')));
+precompress(ROOT_DIR . '/public/scripts.js');
 file_put_contents(ROOT_DIR . '/public/theme.js', minifyJs(file_get_contents(ROOT_DIR . '/resources/theme.js')));
+precompress(ROOT_DIR . '/public/theme.js');
 
 // Add cache-breaker query parameters to CSS/JS references in templates
 $cssHash = md5_file(ROOT_DIR . '/public/styles.css');
@@ -466,6 +490,7 @@ $postUrls = array_map(function ($post) {
     return '/' . $post['category'] . '/' . $post['slug'];
 }, $posts);
 file_put_contents(ROOT_DIR . '/output/posts.json', json_encode($postUrls));
+precompress(ROOT_DIR . '/output/posts.json');
 
 // Generate individual post pages per available language
 foreach ($posts as $post) {
@@ -540,6 +565,7 @@ foreach ($posts as $post) {
         $page = str_replace('###CONTENT###', $content, $page);
 
         file_put_contents($outputFile, minifyHtml($page));
+        precompress($outputFile);
     }
 }
 
@@ -579,6 +605,7 @@ if ($postsChanged) {
         $page = str_replace('###CONTENT###', $listingContent, $page);
 
         file_put_contents(ROOT_DIR . '/output/' . $lang . '.html', minifyHtml($page));
+        precompress(ROOT_DIR . '/output/' . $lang . '.html');
 
         generateFeeds(
             $homePosts, ROOT_DIR . '/output', $translations[$lang]['latest_posts'],
@@ -633,6 +660,7 @@ if ($postsChanged) {
             $page = str_replace('###CONTENT###', $listingContent, $page);
 
             file_put_contents($outputDir . '/' . $lang . '.html', minifyHtml($page));
+            precompress($outputDir . '/' . $lang . '.html');
 
             generateFeeds(
                 $catPosts, $outputDir, $translations[$lang]['latest_posts_in'] . ' ' . $categoryTitle,
@@ -680,6 +708,7 @@ if ($postsChanged) {
             $page = str_replace('###CONTENT###', $listingContent, $page);
 
             file_put_contents($outputDir . '/' . $lang . '.html', minifyHtml($page));
+            precompress($outputDir . '/' . $lang . '.html');
 
             generateFeeds(
                 $tagPosts, $outputDir, $translations[$lang]['latest_posts_with_tag'] . ' ' . $tag,
@@ -703,6 +732,7 @@ foreach ($languages as $lang) {
     $page = str_replace('###CANONICAL_URL###', 'https://idrinth.de/' . $lang . '/404', $page);
     $page = str_replace('###CONTENT###', $notFoundTemplates[$lang], $page);
     file_put_contents($notFoundDir . '/' . $lang . '.html', minifyHtml($page));
+    precompress($notFoundDir . '/' . $lang . '.html');
 }
 
 // Generate imprint page per language
@@ -718,6 +748,7 @@ foreach ($languages as $lang) {
     $page = str_replace('###CANONICAL_URL###', 'https://idrinth.de/' . $lang . '/imprint', $page);
     $page = str_replace('###CONTENT###', $imprintTemplates[$lang], $page);
     file_put_contents($imprintDir . '/' . $lang . '.html', minifyHtml($page));
+    precompress($imprintDir . '/' . $lang . '.html');
 }
 
 // Generate canceled donation page per language (not in sitemap)
@@ -734,6 +765,7 @@ foreach ($languages as $lang) {
     $page = str_replace('###CONTENT###', $canceledTemplates[$lang], $page);
     $page = str_replace('<meta name="description"', '<meta name="robots" content="noindex, nofollow">' . "\n" . '    <meta name="description"', $page);
     file_put_contents($canceledDir . '/' . $lang . '.html', minifyHtml($page));
+    precompress($canceledDir . '/' . $lang . '.html');
 }
 
 // Generate thank-you page per language (not in sitemap)
@@ -750,6 +782,7 @@ foreach ($languages as $lang) {
     $page = str_replace('###CONTENT###', $thankYouTemplates[$lang], $page);
     $page = str_replace('<meta name="description"', '<meta name="robots" content="noindex, nofollow">' . "\n" . '    <meta name="description"', $page);
     file_put_contents($thankYouDir . '/' . $lang . '.html', minifyHtml($page));
+    precompress($thankYouDir . '/' . $lang . '.html');
 }
 
 // Generate statistics page (English only, not linked or in sitemap)
@@ -813,6 +846,7 @@ $statsPage = str_replace('###CANONICAL_URL###', 'https://idrinth.de/en/statistic
 $statsPage = str_replace('###CONTENT###', $statsContent, $statsPage);
 $statsPage = str_replace('<meta name="description"', '<meta name="robots" content="noindex, nofollow">' . "\n" . '    <meta name="description"', $statsPage);
 file_put_contents($statisticsDir . '/en.html', minifyHtml($statsPage));
+precompress($statisticsDir . '/en.html');
 
 // Generate sitemap.xml
 $sitemapPaths = [];
@@ -851,6 +885,7 @@ foreach ($sitemapPaths as $path) {
 }
 $sitemap = str_replace('###SITEMAP_URLS###', $sitemapEntries, $sitemapTemplate);
 file_put_contents(ROOT_DIR . '/public/sitemap.xml', $sitemap);
+precompress(ROOT_DIR . '/public/sitemap.xml');
 
 // Save template hash after successful generation
 file_put_contents($templateHashFile, $currentHash);

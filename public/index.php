@@ -161,6 +161,15 @@ if ($uri === 'ad/mobile.jpg') {
 if ($uri === 'ad.lnk') {
     findAdAndExit('link.txt', 'txt/plain');
 }
+if (preg_match('/^words-(en|de|fr)\.json$/', $uri, $wm)) {
+    $wordsFile = ROOT_DIR . '/output/words-' . $wm[1] . '.json';
+    if (is_file($wordsFile)) {
+        header('Vary: Accept-Encoding');
+        header('Cache-Control: max-age=3600');
+        sendCompressed($wordsFile, 'application/json; charset=utf-8');
+        exit;
+    }
+}
 if ($uri === 'views' || str_starts_with($uri, 'views/')) {
     $viewPath = trim(substr($uri, 5), '/');
     $basePath = ROOT_DIR . '/output/' . ($viewPath !== '' ? $viewPath . '/' : '');

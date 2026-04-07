@@ -44,6 +44,45 @@ function incrementViewCount(string $path): void
     if ($fp) {
         fclose($fp);
     }
+    incrementUniqueViewCount($path);
+}
+function incrementUniqueViewCount(string $path): void
+{
+    $ip = $_SERVER['REMOTE_ADDR'] ?? '';
+    $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
+    $date = date('Y-m-d');
+    $hash = md5($ip . $userAgent . $date);
+    $visitorsFile = $path . '/visitors-' . $date . '.txt';
+    $fp = fopen($visitorsFile, 'c+');
+    if (!$fp || !flock($fp, LOCK_EX)) {
+        if ($fp) {
+            fclose($fp);
+        }
+        return;
+    }
+    $contents = stream_get_contents($fp);
+    $visitors = $contents !== '' ? explode("\n", trim($contents)) : [];
+    if (in_array($hash, $visitors, true)) {
+        flock($fp, LOCK_UN);
+        fclose($fp);
+        return;
+    }
+    fseek($fp, 0, SEEK_END);
+    fwrite($fp, $hash . "\n");
+    flock($fp, LOCK_UN);
+    fclose($fp);
+    $uniqueFile = $path . '/unique-viewcount.txt';
+    $ufp = fopen($uniqueFile, 'c+');
+    if ($ufp && flock($ufp, LOCK_EX)) {
+        $count = (int)stream_get_contents($ufp);
+        ftruncate($ufp, 0);
+        rewind($ufp);
+        fwrite($ufp, (string)($count + 1));
+        flock($ufp, LOCK_UN);
+    }
+    if ($ufp) {
+        fclose($ufp);
+    }
 }
 function displayHTMLAndExit(string $path, bool $countView = true): void
 {
@@ -125,6 +164,18 @@ if ($uri === 'ad.lnk') {
 if ($uri === 'views' || str_starts_with($uri, 'views/')) {
     $viewPath = trim(substr($uri, 5), '/');
     $viewFile = ROOT_DIR . '/output/' . ($viewPath !== '' ? $viewPath . '/' : '') . 'viewcount.txt';
+    header('Content-type: text/plain');
+    header('Cache-Control: no-cache');
+    if (is_file($viewFile)) {
+        readfile($viewFile);
+    } else {
+        echo '0';
+    }
+    exit;
+}
+if ($uri === 'unique-views' || str_starts_with($uri, 'unique-views/')) {
+    $viewPath = trim(substr($uri, 12), '/');
+    $viewFile = ROOT_DIR . '/output/' . ($viewPath !== '' ? $viewPath . '/' : '') . 'unique-viewcount.txt';
     header('Content-type: text/plain');
     header('Cache-Control: no-cache');
     if (is_file($viewFile)) {

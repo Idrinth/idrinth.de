@@ -8,8 +8,7 @@
     const uniqueViewsTitle = document.body.getAttribute('data-unique-views-title') || 'At least {count} unique views.';
     function updateCategoryViews() {
         var categoryTotals = {};
-        var categoryElements = document.querySelectorAll('.views[data-category]');
-        categoryElements.forEach(function(el) {
+        document.querySelectorAll('.views[data-category]').forEach(function(el) {
             var cat = el.getAttribute('data-category');
             var count = parseInt(el.textContent, 10) || 0;
             categoryTotals[cat] = (categoryTotals[cat] || 0) + count;
@@ -17,6 +16,16 @@
         document.querySelectorAll('.category-views[data-category]').forEach(function(el) {
             var cat = el.getAttribute('data-category');
             el.textContent = (categoryTotals[cat] || 0) + ' ' + viewsLabel;
+        });
+        var categoryUniqueTotals = {};
+        document.querySelectorAll('.unique-views[data-category]').forEach(function(el) {
+            var cat = el.getAttribute('data-category');
+            var count = parseInt(el.textContent, 10) || 0;
+            categoryUniqueTotals[cat] = (categoryUniqueTotals[cat] || 0) + count;
+        });
+        document.querySelectorAll('.category-unique-views[data-category]').forEach(function(el) {
+            var cat = el.getAttribute('data-category');
+            el.textContent = (categoryUniqueTotals[cat] || 0) + ' ' + viewsLabel;
         });
     }
     function updateViews() {
@@ -31,11 +40,17 @@
                 .then(function(r) { return r.text(); })
                 .then(function(count) { el.setAttribute('title', uniqueViewsTitle.replace('{count}', count)); });
         });
+        document.querySelectorAll('.unique-views[data-path]').forEach(function(el) {
+            var p = fetch('/unique-views/' + el.getAttribute('data-path'))
+                .then(function(r) { return r.text(); })
+                .then(function(count) { el.textContent = count + ' ' + viewsLabel; });
+            promises.push(p);
+        });
         if (document.querySelector('.category-views[data-category]')) {
             Promise.all(promises).then(updateCategoryViews);
         }
     }
-    if (document.querySelector('.views[data-path]')) {
+    if (document.querySelector('.views[data-path]') || document.querySelector('.unique-views[data-path]')) {
         var scheduleViews = window.requestIdleCallback || function(cb) { setTimeout(cb, 200); };
         scheduleViews(function() {
             updateViews();

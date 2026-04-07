@@ -18,6 +18,9 @@ jobs:
         with:
           php-version: '8.3'
 
+      - name: Install brotli
+        run: sudo apt-get install -y brotli
+
       - name: Run cron.php
         run: php bin/cron.php
 

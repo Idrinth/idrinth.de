@@ -1,10 +1,55 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /
+
+    # Serve pre-compressed Brotli files if client supports it
+    RewriteCond %{HTTP:Accept-Encoding} br
+    RewriteCond %{REQUEST_FILENAME}.br -f
+    RewriteRule ^(.+)\.(css|js|xml)$ $1.$2.br [L]
+
+    # Serve pre-compressed gzip files if client supports it
+    RewriteCond %{HTTP:Accept-Encoding} gzip
+    RewriteCond %{REQUEST_FILENAME}.gz -f
+    RewriteRule ^(.+)\.(css|js|xml)$ $1.$2.gz [L]
+
     RewriteRule ^index\.php$ - [L]
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule . index.php [L]
+</IfModule>
+
+# Set correct Content-Type and Content-Encoding for pre-compressed files
+<IfModule mod_headers.c>
+    <FilesMatch "\.css\.br$">
+        Header set Content-Encoding br
+        Header set Content-Type "text/css; charset=utf-8"
+        Header set Vary Accept-Encoding
+    </FilesMatch>
+    <FilesMatch "\.js\.br$">
+        Header set Content-Encoding br
+        Header set Content-Type "application/javascript; charset=utf-8"
+        Header set Vary Accept-Encoding
+    </FilesMatch>
+    <FilesMatch "\.xml\.br$">
+        Header set Content-Encoding br
+        Header set Content-Type "application/xml; charset=utf-8"
+        Header set Vary Accept-Encoding
+    </FilesMatch>
+    <FilesMatch "\.css\.gz$">
+        Header set Content-Encoding gzip
+        Header set Content-Type "text/css; charset=utf-8"
+        Header set Vary Accept-Encoding
+    </FilesMatch>
+    <FilesMatch "\.js\.gz$">
+        Header set Content-Encoding gzip
+        Header set Content-Type "application/javascript; charset=utf-8"
+        Header set Vary Accept-Encoding
+    </FilesMatch>
+    <FilesMatch "\.xml\.gz$">
+        Header set Content-Encoding gzip
+        Header set Content-Type "application/xml; charset=utf-8"
+        Header set Vary Accept-Encoding
+    </FilesMatch>
 </IfModule>
 <IfModule mod_expires.c>
     ExpiresActive On

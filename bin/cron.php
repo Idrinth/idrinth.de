@@ -870,6 +870,78 @@ $statsPage = str_replace('<meta name="description"', '<meta name="robots" conten
 file_put_contents($statisticsDir . '/en.html', minifyHtml($statsPage));
 precompress($statisticsDir . '/en.html');
 
+// Generate weighted word score index per language
+foreach ($languages as $lang) {
+    $wordScores = [];
+
+    foreach ($posts as $post) {
+        $slug = $post['slug'];
+        $category = $post['category'];
+        $articlePath = $category . '/' . $slug;
+
+        $mdFile = ROOT_DIR . '/posts/' . $slug . '/' . $lang . '.md';
+        if (!is_file($mdFile)) {
+            continue;
+        }
+        $markdown = file_get_contents($mdFile);
+        $articleWords = [];
+
+        // H1 words: 10 points each
+        if (preg_match_all('/^# (?!#)(.+)$/m', $markdown, $matches)) {
+            foreach ($matches[1] as $heading) {
+                foreach (preg_split('/\s+/', mb_strtolower($heading)) as $word) {
+                    $word = preg_replace('/[^\p{L}\p{N}]/u', '', $word);
+                    if (mb_strlen($word) >= 3) {
+                        $articleWords[$word] = ($articleWords[$word] ?? 0) + 10;
+                    }
+                }
+            }
+        }
+
+        // H2 words: 4 points each
+        if (preg_match_all('/^## (?!#)(.+)$/m', $markdown, $matches)) {
+            foreach ($matches[1] as $heading) {
+                foreach (preg_split('/\s+/', mb_strtolower($heading)) as $word) {
+                    $word = preg_replace('/[^\p{L}\p{N}]/u', '', $word);
+                    if (mb_strlen($word) >= 3) {
+                        $articleWords[$word] = ($articleWords[$word] ?? 0) + 4;
+                    }
+                }
+            }
+        }
+
+        // Tag words: 6 points each
+        foreach ($post['tags'] ?? [] as $tag) {
+            foreach (preg_split('/[\s-]+/', mb_strtolower($tag)) as $word) {
+                $word = preg_replace('/[^\p{L}\p{N}]/u', '', $word);
+                if (mb_strlen($word) >= 3) {
+                    $articleWords[$word] = ($articleWords[$word] ?? 0) + 6;
+                }
+            }
+        }
+
+        // Category words: 8 points each
+        $categoryName = $translations[$lang]['categories'][$category] ?? $category;
+        foreach (preg_split('/[\s-]+/', mb_strtolower($categoryName)) as $word) {
+            $word = preg_replace('/[^\p{L}\p{N}]/u', '', $word);
+            if (mb_strlen($word) >= 3) {
+                $articleWords[$word] = ($articleWords[$word] ?? 0) + 8;
+            }
+        }
+
+        foreach ($articleWords as $word => $score) {
+            if (!isset($wordScores[$word])) {
+                $wordScores[$word] = [];
+            }
+            $wordScores[$word][$articlePath] = $score;
+        }
+    }
+
+    ksort($wordScores);
+    file_put_contents(ROOT_DIR . '/output/words-' . $lang . '.json', json_encode($wordScores, JSON_UNESCAPED_UNICODE));
+    precompress(ROOT_DIR . '/output/words-' . $lang . '.json');
+}
+
 // Generate sitemap.xml
 $sitemapPaths = [];
 $baseUrl = 'https://idrinth.de';

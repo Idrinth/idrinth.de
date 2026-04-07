@@ -5,6 +5,7 @@ const current = document.documentElement.className.match(/theme-(\w+)/);
 if (current) modeSelect.value = current[1];
 }
 const viewsLabel = document.body.getAttribute('data-views-label') || 'views';
+const uniqueViewsTitle = document.body.getAttribute('data-unique-views-title') || 'At least {count} unique views.';
 function updateCategoryViews() {
 var categoryTotals = {};
 var categoryElements = document.querySelectorAll('.views[data-category]');
@@ -21,10 +22,14 @@ el.textContent = (categoryTotals[cat] || 0) + ' ' + viewsLabel;
 function updateViews() {
 var promises = [];
 document.querySelectorAll('.views[data-path]').forEach(function(el) {
-var p = fetch('/views/' + el.getAttribute('data-path'))
+var path = el.getAttribute('data-path');
+var p = fetch('/views/' + path)
 .then(function(r) { return r.text(); })
 .then(function(count) { el.textContent = count + ' ' + viewsLabel; });
 promises.push(p);
+fetch('/unique-views/' + path)
+.then(function(r) { return r.text(); })
+.then(function(count) { el.setAttribute('title', uniqueViewsTitle.replace('{count}', count)); });
 });
 if (document.querySelector('.category-views[data-category]')) {
 Promise.all(promises).then(updateCategoryViews);

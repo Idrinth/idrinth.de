@@ -31,8 +31,11 @@ Promise.all(promises).then(updateCategoryViews);
 }
 }
 if (document.querySelector('.views[data-path]')) {
+var scheduleViews = window.requestIdleCallback || function(cb) { setTimeout(cb, 200); };
+scheduleViews(function() {
 updateViews();
 setInterval(updateViews, 60000);
+});
 }
 var languageSelect = document.getElementById('language-select');
 if (languageSelect) {

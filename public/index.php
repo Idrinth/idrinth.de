@@ -52,7 +52,9 @@ function displayHTMLAndExit(string $path, bool $countView = true): void
             incrementViewCount(dirname($path));
         }
         header('Vary: Accept-Encoding');
-        header('Link: </styles.css>; rel=preload; as=style, </theme.js>; rel=preload; as=script');
+        $cssHash = md5_file(ROOT_DIR . '/public/styles.css');
+        $themeHash = md5_file(ROOT_DIR . '/public/theme.js');
+        header("Link: </styles.css?$cssHash>; rel=preload; as=style, </theme.js?$themeHash>; rel=preload; as=script");
         header('Permissions-Policy: all=()');
         sendCompressed($path, 'text/html; charset=utf-8');
         exit;

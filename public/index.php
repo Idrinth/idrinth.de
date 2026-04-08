@@ -30,10 +30,9 @@ function sendCompressed(string $path, string $contentType): void
     header('Content-Type: ' . $contentType);
     readfile($path);
 }
-function incrementViewCount(string $path): void
+function incrementFile(string $filePath): void
 {
-    $viewFile = $path . '/viewcount.txt';
-    $fp = fopen($viewFile, 'c+');
+    $fp = fopen($filePath, 'c+');
     if ($fp && flock($fp, LOCK_EX)) {
         $count = (int)stream_get_contents($fp);
         ftruncate($fp, 0);
@@ -44,15 +43,13 @@ function incrementViewCount(string $path): void
     if ($fp) {
         fclose($fp);
     }
-    incrementUniqueViewCount($path);
 }
-function incrementUniqueViewCount(string $path): void
+function trackUniqueVisitor(string $visitorsFile, string $uniqueCounterFile): void
 {
     $ip = $_SERVER['REMOTE_ADDR'] ?? '';
     $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
     $date = date('Y-m-d');
     $hash = md5($ip . $userAgent . $date);
-    $visitorsFile = $path . '/visitors-' . $date . '.txt';
     $fp = fopen($visitorsFile, 'c+');
     if (!$fp || !flock($fp, LOCK_EX)) {
         if ($fp) {
@@ -71,18 +68,12 @@ function incrementUniqueViewCount(string $path): void
     fwrite($fp, $hash . "\n");
     flock($fp, LOCK_UN);
     fclose($fp);
-    $uniqueFile = $path . '/unique-viewcount.txt';
-    $ufp = fopen($uniqueFile, 'c+');
-    if ($ufp && flock($ufp, LOCK_EX)) {
-        $count = (int)stream_get_contents($ufp);
-        ftruncate($ufp, 0);
-        rewind($ufp);
-        fwrite($ufp, (string)($count + 1));
-        flock($ufp, LOCK_UN);
-    }
-    if ($ufp) {
-        fclose($ufp);
-    }
+    incrementFile($uniqueCounterFile);
+}
+function incrementViewCount(string $path): void
+{
+    incrementFile($path . '/viewcount.txt');
+    trackUniqueVisitor($path . '/visitors-' . date('Y-m-d') . '.txt', $path . '/unique-viewcount.txt');
 }
 function displayHTMLAndExit(string $path, bool $countView = true): void
 {
@@ -105,17 +96,26 @@ function findAndExit(string $uri, string $language, bool $countView = true): voi
     displayHTMLAndExit($path . $language . '.html', $countView);
     displayHTMLAndExit($path . 'en.html', $countView);
 }
+function incrementAdViewCount(string $adDir, string $size): void
+{
+    incrementFile($adDir . '/viewed-' . $size . '.txt');
+    trackUniqueVisitor($adDir . '/ad-visitors-' . date('Y-m-d') . '.txt', $adDir . '/unique-viewed.txt');
+}
 function findAdAndExit(string $file, string $mime): void
 {
+    $size = pathinfo($file, PATHINFO_FILENAME);
     $path = ROOT_DIR . '/ads/' . date('Y-m');
     if (is_file($path . '/' . $file)) {
+        register_shutdown_function('incrementAdViewCount', $path, $size);
         header('Content-type: ' . $mime);
         readfile($path . '/' . $file);
         exit;
     }
-    if (is_file(ROOT_DIR . '/ads/0000-00/' . $file)) {
+    $fallback = ROOT_DIR . '/ads/0000-00';
+    if (is_file($fallback . '/' . $file)) {
+        register_shutdown_function('incrementAdViewCount', $fallback, $size);
         header('Content-type: ' . $mime);
-        readfile(ROOT_DIR . '/ads/0000-00/' . $file);
+        readfile($fallback . '/' . $file);
         exit;
     }
 }

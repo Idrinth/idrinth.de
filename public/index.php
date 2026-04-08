@@ -155,7 +155,7 @@ function findAdAndExit(string $file, string $mime): void
 }
 $uri = trim($_SERVER['REQUEST_URI'] ?? '', '/');
 $language = 'en';
-$supportedLanguages = ['en', 'fr', 'de'];
+$supportedLanguages = array_keys(json_decode(file_get_contents(ROOT_DIR . '/config/languages.json'), true));
 $languageFromUrl = false;
 foreach ($supportedLanguages as $lang) {
     if ($uri === $lang || str_starts_with($uri, $lang . '/')) {
@@ -195,7 +195,8 @@ if ($uri === 'ad/mobile.jpg') {
 if ($uri === 'ad.lnk') {
     findAdAndExit('link.txt', 'txt/plain');
 }
-if (preg_match('/^words-(en|de|fr)\.json$/', $uri, $wm)) {
+$langPattern = implode('|', array_map('preg_quote', $supportedLanguages));
+if (preg_match('/^words-(' . $langPattern . ')\.json$/', $uri, $wm)) {
     $wordsFile = ROOT_DIR . '/output/words-' . $wm[1] . '.json';
     if (is_file($wordsFile)) {
         header('Vary: Accept-Encoding');
@@ -314,7 +315,7 @@ if ($uri === 'lang-stats') {
                 $month = $m[1];
                 $lang = $m[2];
                 if (!isset($result[$month])) {
-                    $result[$month] = ['en' => 0, 'de' => 0, 'fr' => 0];
+                    $result[$month] = array_fill_keys($supportedLanguages, 0);
                 }
                 $result[$month][$lang] = (int)file_get_contents($file);
             }

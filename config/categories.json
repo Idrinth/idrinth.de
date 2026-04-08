@@ -1,0 +1,42 @@
+{
+    "software-engineering": {
+        "en": { "name": "Software Engineering", "description": "" },
+        "de": { "name": "Softwareentwicklung", "description": "" },
+        "fr": { "name": "G\u00e9nie logiciel", "description": "" }
+    },
+    "open-source": {
+        "en": { "name": "Open-Source", "description": "" },
+        "de": { "name": "Open-Source", "description": "" },
+        "fr": { "name": "Open-Source", "description": "" }
+    },
+    "games": {
+        "en": { "name": "Games", "description": "" },
+        "de": { "name": "Spiele", "description": "" },
+        "fr": { "name": "Jeux", "description": "" }
+    },
+    "streaming": {
+        "en": { "name": "Streaming", "description": "" },
+        "de": { "name": "Streaming", "description": "" },
+        "fr": { "name": "Streaming", "description": "" }
+    },
+    "modding": {
+        "en": { "name": "Modding", "description": "" },
+        "de": { "name": "Modding", "description": "" },
+        "fr": { "name": "Modding", "description": "" }
+    },
+    "stories": {
+        "en": { "name": "Written Stories", "description": "" },
+        "de": { "name": "Geschichten", "description": "" },
+        "fr": { "name": "Histoires \u00e9crites", "description": "" }
+    },
+    "pen-and-paper": {
+        "en": { "name": "Pen & Paper", "description": "" },
+        "de": { "name": "Pen & Paper", "description": "" },
+        "fr": { "name": "Jeu de r\u00f4le", "description": "" }
+    },
+    "world-building": {
+        "en": { "name": "World Building Results", "description": "" },
+        "de": { "name": "Weltenbau", "description": "" },
+        "fr": { "name": "Cr\u00e9ation de mondes", "description": "" }
+    }
+}

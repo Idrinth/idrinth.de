@@ -105,17 +105,71 @@ function findAndExit(string $uri, string $language, bool $countView = true): voi
     displayHTMLAndExit($path . $language . '.html', $countView);
     displayHTMLAndExit($path . 'en.html', $countView);
 }
+function incrementAdViewCount(string $adDir, string $size): void
+{
+    $viewFile = $adDir . '/viewed-' . $size . '.txt';
+    $fp = fopen($viewFile, 'c+');
+    if ($fp && flock($fp, LOCK_EX)) {
+        $count = (int)stream_get_contents($fp);
+        ftruncate($fp, 0);
+        rewind($fp);
+        fwrite($fp, (string)($count + 1));
+        flock($fp, LOCK_UN);
+    }
+    if ($fp) {
+        fclose($fp);
+    }
+    $ip = $_SERVER['REMOTE_ADDR'] ?? '';
+    $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
+    $date = date('Y-m-d');
+    $hash = md5($ip . $userAgent . $date);
+    $visitorsFile = $adDir . '/ad-visitors-' . $date . '.txt';
+    $vfp = fopen($visitorsFile, 'c+');
+    if (!$vfp || !flock($vfp, LOCK_EX)) {
+        if ($vfp) {
+            fclose($vfp);
+        }
+        return;
+    }
+    $contents = stream_get_contents($vfp);
+    $visitors = $contents !== '' ? explode("\n", trim($contents)) : [];
+    if (in_array($hash, $visitors, true)) {
+        flock($vfp, LOCK_UN);
+        fclose($vfp);
+        return;
+    }
+    fseek($vfp, 0, SEEK_END);
+    fwrite($vfp, $hash . "\n");
+    flock($vfp, LOCK_UN);
+    fclose($vfp);
+    $uniqueFile = $adDir . '/unique-viewed.txt';
+    $ufp = fopen($uniqueFile, 'c+');
+    if ($ufp && flock($ufp, LOCK_EX)) {
+        $count = (int)stream_get_contents($ufp);
+        ftruncate($ufp, 0);
+        rewind($ufp);
+        fwrite($ufp, (string)($count + 1));
+        flock($ufp, LOCK_UN);
+    }
+    if ($ufp) {
+        fclose($ufp);
+    }
+}
 function findAdAndExit(string $file, string $mime): void
 {
+    $size = pathinfo($file, PATHINFO_FILENAME);
     $path = ROOT_DIR . '/ads/' . date('Y-m');
     if (is_file($path . '/' . $file)) {
+        register_shutdown_function('incrementAdViewCount', $path, $size);
         header('Content-type: ' . $mime);
         readfile($path . '/' . $file);
         exit;
     }
-    if (is_file(ROOT_DIR . '/ads/0000-00/' . $file)) {
+    $fallback = ROOT_DIR . '/ads/0000-00';
+    if (is_file($fallback . '/' . $file)) {
+        register_shutdown_function('incrementAdViewCount', $fallback, $size);
         header('Content-type: ' . $mime);
-        readfile(ROOT_DIR . '/ads/0000-00/' . $file);
+        readfile($fallback . '/' . $file);
         exit;
     }
 }

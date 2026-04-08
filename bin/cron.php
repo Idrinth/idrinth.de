@@ -426,8 +426,7 @@ $relatedPostEntryTemplate = file_get_contents(ROOT_DIR . '/resources/related-pos
 $tagLinkTemplate = file_get_contents(ROOT_DIR . '/resources/tag-link.html');
 $statisticsTemplate = file_get_contents(ROOT_DIR . '/resources/en/statistics.html');
 $statisticsPostRowTemplate = file_get_contents(ROOT_DIR . '/resources/en/statistics-post-row.html');
-$statisticsCategoryViewRowTemplate = file_get_contents(ROOT_DIR . '/resources/en/statistics-category-view-row.html');
-$statisticsCategoryCountRowTemplate = file_get_contents(ROOT_DIR . '/resources/en/statistics-category-count-row.html');
+$statisticsCategoryRowTemplate = file_get_contents(ROOT_DIR . '/resources/en/statistics-category-view-row.html');
 $sitemapTemplate = file_get_contents(ROOT_DIR . '/resources/sitemap.xml');
 $sitemapEntryTemplate = file_get_contents(ROOT_DIR . '/resources/sitemap-entry.xml');
 $rssTemplate = file_get_contents(ROOT_DIR . '/resources/rss.xml');
@@ -458,8 +457,8 @@ $templateHashFile = ROOT_DIR . '/output/.template-hash';
 $allTemplateContents = implode('', $mainTemplates) . implode('', $entryTemplates) . implode('', $listingTemplates)
     . implode('', $notFoundTemplates) . implode('', $imprintTemplates) . implode('', $canceledTemplates) . implode('', $thankYouTemplates) . implode('', $postDateTemplates)
     . implode('', $relatedPostsTemplates) . $relatedPostEntryTemplate . $tagLinkTemplate
-    . $statisticsTemplate . $statisticsPostRowTemplate . $statisticsCategoryViewRowTemplate
-    . $statisticsCategoryCountRowTemplate . $sitemapTemplate . $sitemapEntryTemplate
+    . $statisticsTemplate . $statisticsPostRowTemplate . $statisticsCategoryRowTemplate
+    . $sitemapTemplate . $sitemapEntryTemplate
     . $rssTemplate . $rssEntryTemplate . $atomTemplate . $atomEntryTemplate;
 $currentHash = md5($allTemplateContents);
 $templatesChanged = true;
@@ -828,20 +827,7 @@ foreach ($posts as $post) {
     $postRows .= $row;
 }
 
-$categoryViewRows = '';
-$categoryViews = [];
-foreach ($posts as $post) {
-    $categoryViews[$post['category']] = true;
-}
-foreach ($categoryViews as $cat => $views) {
-    $categoryTitle = $translations['en']['categories'][$cat] ?? $cat;
-    $row = $statisticsCategoryViewRowTemplate;
-    $row = str_replace('###CATEGORY_TITLE###', htmlspecialchars($categoryTitle), $row);
-    $row = str_replace('###CATEGORY_SLUG###', htmlspecialchars($cat), $row);
-    $categoryViewRows .= $row;
-}
-
-$categoryCountRows = '';
+$categoryRows = '';
 $categoryCounts = [];
 foreach ($posts as $post) {
     $categoryCounts[$post['category']] = ($categoryCounts[$post['category']] ?? 0) + 1;
@@ -849,16 +835,16 @@ foreach ($posts as $post) {
 arsort($categoryCounts);
 foreach ($categoryCounts as $cat => $count) {
     $categoryTitle = $translations['en']['categories'][$cat] ?? $cat;
-    $row = $statisticsCategoryCountRowTemplate;
+    $row = $statisticsCategoryRowTemplate;
     $row = str_replace('###CATEGORY_TITLE###', htmlspecialchars($categoryTitle), $row);
+    $row = str_replace('###CATEGORY_SLUG###', htmlspecialchars($cat), $row);
     $row = str_replace('###CATEGORY_COUNT###', (string)$count, $row);
-    $categoryCountRows .= $row;
+    $categoryRows .= $row;
 }
 
 $statsContent = $statisticsTemplate;
 $statsContent = str_replace('###STATS_POST_ROWS###', $postRows, $statsContent);
-$statsContent = str_replace('###STATS_CATEGORY_VIEW_ROWS###', $categoryViewRows, $statsContent);
-$statsContent = str_replace('###STATS_CATEGORY_COUNT_ROWS###', $categoryCountRows, $statsContent);
+$statsContent = str_replace('###STATS_CATEGORY_ROWS###', $categoryRows, $statsContent);
 
 $statsPage = $mainTemplates['en'];
 $statsPage = str_replace('###PAGE_TITLE###', 'Statistics', $statsPage);

@@ -183,6 +183,87 @@ if ($uri === 'views' || str_starts_with($uri, 'views/')) {
     ]);
     exit;
 }
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && preg_match('#^vote/(.+)/(up|down)$#', $uri, $vm)) {
+    $votePath = $vm[1];
+    $direction = $vm[2] === 'up' ? 1 : -1;
+    $basePath = ROOT_DIR . '/output/' . $votePath . '/';
+    if (!is_dir($basePath)) {
+        header('Content-type: application/json', true, 404);
+        echo json_encode(['error' => 'not found']);
+        exit;
+    }
+    $ip = $_SERVER['REMOTE_ADDR'] ?? '';
+    $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
+    $date = date('Y-m-d');
+    $identity = md5($ip . $userAgent) . $date;
+    $votesFile = $basePath . 'votes.json';
+    $fp = fopen($votesFile, 'c+');
+    if ($fp && flock($fp, LOCK_EX)) {
+        $contents = stream_get_contents($fp);
+        $votes = $contents !== '' ? json_decode($contents, true) : [];
+        if (!is_array($votes)) {
+            $votes = [];
+        }
+        $votes[$identity] = $direction;
+        ftruncate($fp, 0);
+        rewind($fp);
+        fwrite($fp, json_encode($votes));
+        flock($fp, LOCK_UN);
+        fclose($fp);
+        $up = 0;
+        $down = 0;
+        foreach ($votes as $v) {
+            if ($v === 1) {
+                $up++;
+            } else {
+                $down++;
+            }
+        }
+        $ratingFile = $basePath . 'rating.txt';
+        $rfp = fopen($ratingFile, 'c+');
+        if ($rfp && flock($rfp, LOCK_EX)) {
+            ftruncate($rfp, 0);
+            rewind($rfp);
+            fwrite($rfp, (string)($up - $down));
+            flock($rfp, LOCK_UN);
+        }
+        if ($rfp) {
+            fclose($rfp);
+        }
+        header('Content-type: application/json');
+        echo json_encode(['up' => $up, 'down' => $down, 'rating' => $up - $down]);
+        exit;
+    }
+    if ($fp) {
+        fclose($fp);
+    }
+    header('Content-type: application/json', true, 500);
+    echo json_encode(['error' => 'failed']);
+    exit;
+}
+if ($uri === 'votes' || str_starts_with($uri, 'votes/')) {
+    $votePath = trim(substr($uri, 5), '/');
+    $basePath = ROOT_DIR . '/output/' . ($votePath !== '' ? $votePath . '/' : '');
+    $votesFile = $basePath . 'votes.json';
+    $up = 0;
+    $down = 0;
+    if (is_file($votesFile)) {
+        $votes = json_decode(file_get_contents($votesFile), true);
+        if (is_array($votes)) {
+            foreach ($votes as $v) {
+                if ($v === 1) {
+                    $up++;
+                } else {
+                    $down++;
+                }
+            }
+        }
+    }
+    header('Content-type: application/json');
+    header('Cache-Control: no-cache');
+    echo json_encode(['up' => $up, 'down' => $down, 'rating' => $up - $down]);
+    exit;
+}
 if ($uri === 'random') {
     $postsFile = ROOT_DIR . '/output/posts.json';
     if (is_file($postsFile)) {

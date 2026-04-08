@@ -165,6 +165,89 @@ document.removeEventListener('keydown', escHandler);
 };
 document.addEventListener('keydown', escHandler);
 }
+var voteLabels = {
+en: { up: 'Vote up', down: 'Vote down' },
+de: { up: 'Positiv bewerten', down: 'Negativ bewerten' },
+fr: { up: 'Vote positif', down: 'Vote négatif' }
+};
+var segments = location.pathname.replace(/^\/|\/$/g, '').split('/');
+if (segments.length === 3 && segments[1] !== 'tag') {
+var votePath = segments[1] + '/' + segments[2];
+var lang = segments[0] || 'en';
+var labels = voteLabels[lang] || voteLabels.en;
+var voting = document.createElement('div');
+voting.className = 'voting';
+voting.setAttribute('data-vote-path', votePath);
+var upBtn = document.createElement('button');
+upBtn.className = 'vote-up';
+upBtn.setAttribute('aria-label', labels.up);
+upBtn.innerHTML = '&#x1F44D;';
+var upCount = document.createElement('span');
+upCount.className = 'vote-up-count';
+upCount.textContent = '0';
+var downBtn = document.createElement('button');
+downBtn.className = 'vote-down';
+downBtn.setAttribute('aria-label', labels.down);
+downBtn.innerHTML = '&#x1F44E;';
+var downCount = document.createElement('span');
+downCount.className = 'vote-down-count';
+downCount.textContent = '0';
+voting.appendChild(upBtn);
+voting.appendChild(upCount);
+voting.appendChild(downBtn);
+voting.appendChild(downCount);
+var related = document.querySelector('main > h2');
+if (related) {
+related.parentNode.insertBefore(voting, related);
+} else {
+document.querySelector('main').appendChild(voting);
+}
+fetch('/votes/' + votePath)
+.then(function(r) { return r.json(); })
+.then(function(data) {
+upCount.textContent = data.up;
+downCount.textContent = data.down;
+});
+}
+function loadStatVotes() {
+var paths = {};
+document.querySelectorAll('.vote-up-stat[data-vote-path]').forEach(function(el) {
+var path = el.getAttribute('data-vote-path');
+if (!paths[path]) paths[path] = { up: [], down: [] };
+paths[path].up.push(el);
+});
+document.querySelectorAll('.vote-down-stat[data-vote-path]').forEach(function(el) {
+var path = el.getAttribute('data-vote-path');
+if (!paths[path]) paths[path] = { up: [], down: [] };
+paths[path].down.push(el);
+});
+Object.keys(paths).forEach(function(path) {
+fetch('/votes/' + path)
+.then(function(r) { return r.json(); })
+.then(function(data) {
+paths[path].up.forEach(function(el) { el.textContent = data.up; });
+paths[path].down.forEach(function(el) { el.textContent = data.down; });
+});
+});
+}
+if (document.querySelector('.vote-up-stat[data-vote-path]')) {
+var scheduleStatVotes = window.requestIdleCallback || function(cb) { setTimeout(cb, 200); };
+scheduleStatVotes(loadStatVotes);
+}
+document.addEventListener('click', function(e) {
+var btn = e.target.closest('.vote-up, .vote-down');
+if (!btn) return;
+var voting = btn.closest('.voting[data-vote-path]');
+if (!voting) return;
+var path = voting.getAttribute('data-vote-path');
+var direction = btn.classList.contains('vote-up') ? 'up' : 'down';
+fetch('/vote/' + path + '/' + direction, { method: 'POST' })
+.then(function(r) { return r.json(); })
+.then(function(data) {
+voting.querySelector('.vote-up-count').textContent = data.up;
+voting.querySelector('.vote-down-count').textContent = data.down;
+});
+});
 var adLink = document.getElementById('ad-link');
 if (adLink) {
 fetch('/ad.lnk')

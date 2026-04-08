@@ -2,79 +2,19 @@
 
 define("ROOT_DIR", dirname(__DIR__));
 
-$languages = ['en', 'de', 'fr'];
+$languageConfig = json_decode(file_get_contents(ROOT_DIR . '/config/languages.json'), true);
+$categoryConfig = json_decode(file_get_contents(ROOT_DIR . '/config/categories.json'), true);
 
-$translations = [
-    'en' => [
-        'latest_posts' => 'Latest Posts',
-        'latest_posts_in' => 'Latest Posts in',
-        'page_not_found' => 'Page Not Found',
-        'imprint_title' => 'Imprint',
-        'thank_you_title' => 'Thank You!',
-        'latest_posts_with_tag' => 'Latest Posts tagged',
-        'canceled_title' => 'Thank You!',
-        'default_description' => 'A blog of my choosing, feel free to explore!',
-        'category_description' => 'See the latest posts of the category %s here.',
-        'tag_description' => 'See the latest posts of the keyword %s here.',
-        'more' => 'Read more',
-        'categories' => [
-            'software-engineering' => 'Software Engineering',
-            'open-source' => 'Open-Source',
-            'games' => 'Games',
-            'streaming' => 'Streaming',
-            'modding' => 'Modding',
-            'stories' => 'Written Stories',
-            'pen-and-paper' => 'Pen & Paper',
-            'world-building' => 'World Building Results',
-        ],
-    ],
-    'de' => [
-        'latest_posts' => 'Neueste Beiträge',
-        'latest_posts_in' => 'Neueste Beiträge in',
-        'page_not_found' => 'Seite nicht gefunden',
-        'imprint_title' => 'Impressum',
-        'thank_you_title' => 'Vielen Dank!',
-        'latest_posts_with_tag' => 'Neueste Beiträge mit Tag',
-        'canceled_title' => 'Vielen Dank!',
-        'default_description' => 'Ein Blog meiner Wahl, schau dich gerne um!',
-        'category_description' => 'Hier findest du die neuesten Beiträge der Kategorie %s.',
-        'tag_description' => 'Hier findest du die neuesten Beiträge zum Stichwort %s.',
-        'more' => 'Weiterlesen',
-        'categories' => [
-            'software-engineering' => 'Softwareentwicklung',
-            'open-source' => 'Open-Source',
-            'games' => 'Spiele',
-            'streaming' => 'Streaming',
-            'modding' => 'Modding',
-            'stories' => 'Geschichten',
-            'pen-and-paper' => 'Pen & Paper',
-            'world-building' => 'Weltenbau',
-        ],
-    ],
-    'fr' => [
-        'latest_posts' => 'Derniers articles',
-        'latest_posts_in' => 'Derniers articles dans',
-        'page_not_found' => 'Page non trouvée',
-        'imprint_title' => 'Mentions légales',
-        'thank_you_title' => 'Merci !',
-        'latest_posts_with_tag' => 'Derniers articles avec le tag',
-        'canceled_title' => 'Merci !',
-        'default_description' => "Un blog de mon choix, n'hésitez pas à explorer !",
-        'category_description' => 'Découvrez les derniers articles de la catégorie %s ici.',
-        'tag_description' => 'Découvrez les derniers articles du mot-clé %s ici.',
-        'more' => 'Lire la suite',
-        'categories' => [
-            'software-engineering' => 'Génie logiciel',
-            'open-source' => 'Open-Source',
-            'games' => 'Jeux',
-            'streaming' => 'Streaming',
-            'modding' => 'Modding',
-            'stories' => 'Histoires écrites',
-            'pen-and-paper' => 'Jeu de rôle',
-            'world-building' => 'Création de mondes',
-        ],
-    ],
-];
+$languages = array_keys($languageConfig);
+
+$translations = [];
+foreach ($languageConfig as $lang => $strings) {
+    $translations[$lang] = $strings;
+    $translations[$lang]['categories'] = [];
+    foreach ($categoryConfig as $slug => $catData) {
+        $translations[$lang]['categories'][$slug] = $catData[$lang]['name'] ?? ucwords(str_replace('-', ' ', $slug));
+    }
+}
 
 function buildHreflangHtml(string $path, string $baseUrl, array $languages): string
 {
@@ -475,7 +415,9 @@ $allTemplateContents = implode('', $mainTemplates) . implode('', $entryTemplates
     . implode('', $relatedPostsTemplates) . $relatedPostEntryTemplate . $tagLinkTemplate
     . $statisticsTemplate . $statisticsPostRowTemplate . $statisticsCategoryRowTemplate
     . $sitemapTemplate . $sitemapEntryTemplate
-    . $rssTemplate . $rssEntryTemplate . $atomTemplate . $atomEntryTemplate;
+    . $rssTemplate . $rssEntryTemplate . $atomTemplate . $atomEntryTemplate
+    . file_get_contents(ROOT_DIR . '/config/languages.json')
+    . file_get_contents(ROOT_DIR . '/config/categories.json');
 $currentHash = md5($allTemplateContents);
 $templatesChanged = true;
 if (is_file($templateHashFile)) {
@@ -496,7 +438,7 @@ foreach (scandir(ROOT_DIR . '/posts') as $folder) {
     $meta['slug'] = $folder;
     $titleMdFile = ROOT_DIR . '/posts/' . $folder . '/en.md';
     if (!is_file($titleMdFile)) {
-        foreach (['de', 'fr'] as $fallbackLang) {
+        foreach ($languages as $fallbackLang) {
             $titleMdFile = ROOT_DIR . '/posts/' . $folder . '/' . $fallbackLang . '.md';
             if (is_file($titleMdFile)) {
                 break;
@@ -639,6 +581,11 @@ if ($postsChanged) {
 
         $listingContent = str_replace('###POST_LISTING_ENTRY###', $listing, $listingTemplates[$lang]);
 
+        $homeIntro = $translations[$lang]['home_intro'] ?? '';
+        if ($homeIntro !== '') {
+            $listingContent = preg_replace('/<\/h1>/', '</h1><p class="listing-intro">' . htmlspecialchars($homeIntro) . '</p>', $listingContent, 1);
+        }
+
         $page = $mainTemplates[$lang];
         $page = str_replace('###PAGE_TITLE###', $translations[$lang]['latest_posts'], $page);
         $page = str_replace('###PAGE_DESCRIPTION###', htmlspecialchars($translations[$lang]['default_description']), $page);
@@ -659,16 +606,7 @@ if ($postsChanged) {
 }
 
 // Generate category listing pages (last 9 per category) per language
-$categories = [
-    'software-engineering' => [],
-    'open-source' => [],
-    'games' => [],
-    'streaming' => [],
-    'modding' => [],
-    'stories' => [],
-    'pen-and-paper' => [],
-    'world-building' => [],
-];
+$categories = array_fill_keys(array_keys($categoryConfig), []);
 foreach ($posts as $post) {
     $cat = $post['category'];
     if (!isset($categories[$cat])) {
@@ -692,6 +630,11 @@ if ($postsChanged) {
             $headingText = $translations[$lang]['latest_posts_in'] . ' ' . htmlspecialchars($categoryTitle);
             $listingContent = str_replace('###POST_LISTING_ENTRY###', $listing, $listingTemplates[$lang]);
             $listingContent = preg_replace('/<h1>[^<]+<\/h1>/', '<h1>' . $headingText . '</h1>', $listingContent, 1);
+
+            $categoryIntro = $categoryConfig[$category][$lang]['description'] ?? '';
+            if ($categoryIntro !== '') {
+                $listingContent = preg_replace('/<\/h1>/', '</h1><p class="listing-intro">' . htmlspecialchars($categoryIntro) . '</p>', $listingContent, 1);
+            }
 
             $categoryDescription = sprintf($translations[$lang]['category_description'], $categoryTitle);
 
@@ -741,6 +684,12 @@ if ($postsChanged) {
             $headingText = $translations[$lang]['latest_posts_with_tag'] . ' ' . htmlspecialchars($tag);
             $listingContent = str_replace('###POST_LISTING_ENTRY###', $listing, $listingTemplates[$lang]);
             $listingContent = preg_replace('/<h1>[^<]+<\/h1>/', '<h1>' . $headingText . '</h1>', $listingContent, 1);
+
+            $tagIntroTemplate = $translations[$lang]['tag_intro'] ?? '';
+            if ($tagIntroTemplate !== '') {
+                $tagIntroText = htmlspecialchars(sprintf($tagIntroTemplate, $tag));
+                $listingContent = preg_replace('/<\/h1>/', '</h1><p class="listing-intro">' . $tagIntroText . '</p>', $listingContent, 1);
+            }
 
             $tagDescription = sprintf($translations[$lang]['tag_description'], $tag);
 

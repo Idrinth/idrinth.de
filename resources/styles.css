@@ -226,6 +226,26 @@ th {
 td:last-child, th:last-child {
     text-align: right;
 }
+.voting {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.voting button {
+    background: none;
+    border: 1px solid var(--text-color);
+    border-radius: 0.25em;
+    padding: 0.25em 0.5em;
+    cursor: pointer;
+    font-size: 1.2em;
+    line-height: 1;
+}
+.voting button:hover {
+    background: var(--tag-bg);
+    color: var(--tag-text);
+}
 .advertisement > a,
 .advertisement > a > img,
 .advertisement > a > picture,

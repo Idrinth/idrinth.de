@@ -30,10 +30,9 @@ function sendCompressed(string $path, string $contentType): void
     header('Content-Type: ' . $contentType);
     readfile($path);
 }
-function incrementViewCount(string $path): void
+function incrementFile(string $filePath): void
 {
-    $viewFile = $path . '/viewcount.txt';
-    $fp = fopen($viewFile, 'c+');
+    $fp = fopen($filePath, 'c+');
     if ($fp && flock($fp, LOCK_EX)) {
         $count = (int)stream_get_contents($fp);
         ftruncate($fp, 0);
@@ -44,15 +43,13 @@ function incrementViewCount(string $path): void
     if ($fp) {
         fclose($fp);
     }
-    incrementUniqueViewCount($path);
 }
-function incrementUniqueViewCount(string $path): void
+function trackUniqueVisitor(string $visitorsFile, string $uniqueCounterFile): void
 {
     $ip = $_SERVER['REMOTE_ADDR'] ?? '';
     $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
     $date = date('Y-m-d');
     $hash = md5($ip . $userAgent . $date);
-    $visitorsFile = $path . '/visitors-' . $date . '.txt';
     $fp = fopen($visitorsFile, 'c+');
     if (!$fp || !flock($fp, LOCK_EX)) {
         if ($fp) {
@@ -71,18 +68,12 @@ function incrementUniqueViewCount(string $path): void
     fwrite($fp, $hash . "\n");
     flock($fp, LOCK_UN);
     fclose($fp);
-    $uniqueFile = $path . '/unique-viewcount.txt';
-    $ufp = fopen($uniqueFile, 'c+');
-    if ($ufp && flock($ufp, LOCK_EX)) {
-        $count = (int)stream_get_contents($ufp);
-        ftruncate($ufp, 0);
-        rewind($ufp);
-        fwrite($ufp, (string)($count + 1));
-        flock($ufp, LOCK_UN);
-    }
-    if ($ufp) {
-        fclose($ufp);
-    }
+    incrementFile($uniqueCounterFile);
+}
+function incrementViewCount(string $path): void
+{
+    incrementFile($path . '/viewcount.txt');
+    trackUniqueVisitor($path . '/visitors-' . date('Y-m-d') . '.txt', $path . '/unique-viewcount.txt');
 }
 function displayHTMLAndExit(string $path, bool $countView = true): void
 {
@@ -107,53 +98,8 @@ function findAndExit(string $uri, string $language, bool $countView = true): voi
 }
 function incrementAdViewCount(string $adDir, string $size): void
 {
-    $viewFile = $adDir . '/viewed-' . $size . '.txt';
-    $fp = fopen($viewFile, 'c+');
-    if ($fp && flock($fp, LOCK_EX)) {
-        $count = (int)stream_get_contents($fp);
-        ftruncate($fp, 0);
-        rewind($fp);
-        fwrite($fp, (string)($count + 1));
-        flock($fp, LOCK_UN);
-    }
-    if ($fp) {
-        fclose($fp);
-    }
-    $ip = $_SERVER['REMOTE_ADDR'] ?? '';
-    $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
-    $date = date('Y-m-d');
-    $hash = md5($ip . $userAgent . $date);
-    $visitorsFile = $adDir . '/ad-visitors-' . $date . '.txt';
-    $vfp = fopen($visitorsFile, 'c+');
-    if (!$vfp || !flock($vfp, LOCK_EX)) {
-        if ($vfp) {
-            fclose($vfp);
-        }
-        return;
-    }
-    $contents = stream_get_contents($vfp);
-    $visitors = $contents !== '' ? explode("\n", trim($contents)) : [];
-    if (in_array($hash, $visitors, true)) {
-        flock($vfp, LOCK_UN);
-        fclose($vfp);
-        return;
-    }
-    fseek($vfp, 0, SEEK_END);
-    fwrite($vfp, $hash . "\n");
-    flock($vfp, LOCK_UN);
-    fclose($vfp);
-    $uniqueFile = $adDir . '/unique-viewed.txt';
-    $ufp = fopen($uniqueFile, 'c+');
-    if ($ufp && flock($ufp, LOCK_EX)) {
-        $count = (int)stream_get_contents($ufp);
-        ftruncate($ufp, 0);
-        rewind($ufp);
-        fwrite($ufp, (string)($count + 1));
-        flock($ufp, LOCK_UN);
-    }
-    if ($ufp) {
-        fclose($ufp);
-    }
+    incrementFile($adDir . '/viewed-' . $size . '.txt');
+    trackUniqueVisitor($adDir . '/ad-visitors-' . date('Y-m-d') . '.txt', $adDir . '/unique-viewed.txt');
 }
 function findAdAndExit(string $file, string $mime): void
 {

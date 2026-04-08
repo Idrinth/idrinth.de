@@ -87,14 +87,14 @@ function incrementUniqueViewCount(string $path): void
 function displayHTMLAndExit(string $path, bool $countView = true): void
 {
     if (is_file($path)) {
-        if ($countView) {
-            incrementViewCount(dirname($path));
-        }
         header('Vary: Accept-Encoding');
         $cssHash = md5_file(ROOT_DIR . '/public/styles.css');
         $themeHash = md5_file(ROOT_DIR . '/public/theme.js');
         header("Link: </styles.css?$cssHash>; rel=preload; as=style, </theme.js?$themeHash>; rel=preload; as=script");
         header('Permissions-Policy: all=()');
+        if ($countView) {
+            register_shutdown_function('incrementViewCount', dirname($path));
+        }
         sendCompressed($path, 'text/html; charset=utf-8');
         exit;
     }

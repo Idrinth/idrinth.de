@@ -187,6 +187,11 @@ main > ol.post-grid > li {
     box-shadow: 2px 2px 4px var(--shadow-color);
     border-radius: 0.1em;
 }
+main > ol.post-grid > li > a.more {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 0.9em;
+}
 time {
     color: var(--secondary-text);
     font-size: 0.85em;

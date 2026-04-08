@@ -196,9 +196,9 @@
         voting.appendChild(upCount);
         voting.appendChild(downBtn);
         voting.appendChild(downCount);
-        var related = document.querySelector('main > h2');
-        if (related) {
-            related.parentNode.insertBefore(voting, related);
+        var target = document.getElementById('voting-target');
+        if (target) {
+            target.appendChild(voting);
         } else {
             document.querySelector('main').appendChild(voting);
         }

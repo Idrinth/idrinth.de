@@ -547,6 +547,7 @@ foreach ($posts as $post) {
         $dateHtml = str_replace('###POST_VIEWS###', (string)$viewCount, $dateHtml);
         $content = preg_replace('/<\/h1>\n/', "</h1>\n" . $dateHtml, $content, 1);
 
+        $content .= '<div id="voting-target"></div>';
         $relatedPosts = getRelatedPosts($post, $posts);
         if ($relatedPosts !== []) {
             $relatedEntries = '';

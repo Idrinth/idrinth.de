@@ -514,6 +514,9 @@ foreach (scandir(ROOT_DIR . '/posts') as $folder) {
         }
     }
     $meta['title_words'] = array_values($titleWords);
+    if ($meta['date'] > date('Y-m-d')) {
+        continue;
+    }
     $posts[] = $meta;
 }
 

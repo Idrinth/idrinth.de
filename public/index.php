@@ -93,19 +93,9 @@ function displayHTMLAndExit(string $path, bool $countView = true): void
         header("Link: </styles.css?$cssHash>; rel=preload; as=style, </theme.js?$themeHash>; rel=preload; as=script");
         header('Permissions-Policy: all=()');
         if ($countView) {
-            ob_start();
-            sendCompressed($path, 'text/html; charset=utf-8');
-            header('Content-Length: ' . ob_get_length());
-            header('Connection: close');
-            ob_end_flush();
-            flush();
-            if (function_exists('fastcgi_finish_request')) {
-                fastcgi_finish_request();
-            }
-            incrementViewCount(dirname($path));
-        } else {
-            sendCompressed($path, 'text/html; charset=utf-8');
+            register_shutdown_function('incrementViewCount', dirname($path));
         }
+        sendCompressed($path, 'text/html; charset=utf-8');
         exit;
     }
 }

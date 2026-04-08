@@ -241,7 +241,7 @@
         if (!voting) return;
         var path = voting.getAttribute('data-vote-path');
         var direction = btn.classList.contains('vote-up') ? 'up' : 'down';
-        fetch('/vote/' + path + '/' + direction, { method: 'POST' })
+        fetch('/vote/' + path, { method: 'POST', body: direction })
             .then(function(r) { return r.json(); })
             .then(function(data) {
                 voting.querySelector('.vote-up-count').textContent = data.up;

@@ -183,9 +183,15 @@ if ($uri === 'views' || str_starts_with($uri, 'views/')) {
     ]);
     exit;
 }
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && preg_match('#^vote/(.+)/(up|down)$#', $uri, $vm)) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && preg_match('#^vote/(.+)$#', $uri, $vm)) {
     $votePath = $vm[1];
-    $direction = $vm[2] === 'up' ? 1 : -1;
+    $body = trim(file_get_contents('php://input'));
+    if ($body !== 'up' && $body !== 'down') {
+        header('Content-type: application/json', true, 400);
+        echo json_encode(['error' => 'body must be up or down']);
+        exit;
+    }
+    $direction = $body === 'up' ? 1 : -1;
     $basePath = ROOT_DIR . '/output/' . $votePath . '/';
     if (!is_dir($basePath)) {
         header('Content-type: application/json', true, 404);

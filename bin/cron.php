@@ -16,6 +16,7 @@ $translations = [
         'default_description' => 'A blog of my choosing, feel free to explore!',
         'category_description' => 'See the latest posts of the category %s here.',
         'tag_description' => 'See the latest posts of the keyword %s here.',
+        'more' => 'Read more',
         'categories' => [
             'software-engineering' => 'Software Engineering',
             'open-source' => 'Open-Source',
@@ -38,6 +39,7 @@ $translations = [
         'default_description' => 'Ein Blog meiner Wahl, schau dich gerne um!',
         'category_description' => 'Hier findest du die neuesten Beiträge der Kategorie %s.',
         'tag_description' => 'Hier findest du die neuesten Beiträge zum Stichwort %s.',
+        'more' => 'Weiterlesen',
         'categories' => [
             'software-engineering' => 'Softwareentwicklung',
             'open-source' => 'Open-Source',
@@ -60,6 +62,7 @@ $translations = [
         'default_description' => "Un blog de mon choix, n'hésitez pas à explorer !",
         'category_description' => 'Découvrez les derniers articles de la catégorie %s ici.',
         'tag_description' => 'Découvrez les derniers articles du mot-clé %s ici.',
+        'more' => 'Lire la suite',
         'categories' => [
             'software-engineering' => 'Génie logiciel',
             'open-source' => 'Open-Source',
@@ -252,10 +255,21 @@ function extractDescription(string $markdown): string
         if ($trimmed === '' || str_starts_with($trimmed, '#') || str_starts_with($trimmed, '- ')) {
             continue;
         }
-        if (strlen($trimmed) > 120) {
-            return substr($trimmed, 0, 117) . '...';
+        if (strlen($trimmed) <= 120) {
+            return rtrim($trimmed);
         }
-        return $trimmed;
+        $cut = substr($trimmed, 0, 120);
+        $lastSpace = strrpos($cut, ' ');
+        if ($lastSpace === false) {
+            $text = $cut;
+        } else {
+            $text = substr($cut, 0, $lastSpace);
+        }
+        $text = rtrim($text);
+        if (preg_match('/[.!?]$/', $text)) {
+            return $text;
+        }
+        return $text . '...';
     }
     return '';
 }
@@ -293,6 +307,7 @@ function getRelatedPosts(array $currentPost, array $allPosts, int $maxResults = 
 
 function buildListingEntries(array $posts, string $entryTemplate, string $tagLinkTemplate, string $lang): string
 {
+    global $translations;
     $entries = '';
     foreach ($posts as $post) {
         $slug = $post['slug'];
@@ -321,6 +336,7 @@ function buildListingEntries(array $posts, string $entryTemplate, string $tagLin
         $entry = str_replace('###POST_CATEGORY###', htmlspecialchars($post['category'] . '/' . $slug), $entry);
         $entry = str_replace('###POST_TITLE###', htmlspecialchars($title), $entry);
         $entry = str_replace('###POST_DESCRIPTION###', htmlspecialchars($description), $entry);
+        $entry = str_replace('###POST_MORE###', htmlspecialchars($translations[$lang]['more']), $entry);
         $entry = str_replace('###POST_TAGS###', $tagsHtml, $entry);
         $entry = str_replace('###POST_DATE###', htmlspecialchars($post['date']), $entry);
 

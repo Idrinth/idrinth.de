@@ -1,42 +1,42 @@
 {
     "software-engineering": {
-        "en": { "name": "Software Engineering", "description": "" },
-        "de": { "name": "Softwareentwicklung", "description": "" },
-        "fr": { "name": "G\u00e9nie logiciel", "description": "" }
+        "en": { "name": "Software Engineering", "description": "Thoughts on building software, from architecture and databases to workflows and best practices. Covering the challenges and decisions that come with professional development." },
+        "de": { "name": "Softwareentwicklung", "description": "Gedanken zum Thema Softwareentwicklung, von Architektur und Datenbanken bis hin zu Arbeitsweisen und Best Practices. \u00dcber die Herausforderungen und Entscheidungen im professionellen Entwickleralltag." },
+        "fr": { "name": "G\u00e9nie logiciel", "description": "R\u00e9flexions sur le d\u00e9veloppement logiciel, de l'architecture et des bases de donn\u00e9es aux m\u00e9thodes de travail et bonnes pratiques. Les d\u00e9fis et d\u00e9cisions du quotidien d'un d\u00e9veloppeur." }
     },
     "open-source": {
-        "en": { "name": "Open-Source", "description": "" },
-        "de": { "name": "Open-Source", "description": "" },
-        "fr": { "name": "Open-Source", "description": "" }
+        "en": { "name": "Open-Source", "description": "Posts about open-source projects, contributions, and the culture around collaborative software development. Why open source matters and how to get involved." },
+        "de": { "name": "Open-Source", "description": "Beitr\u00e4ge \u00fcber Open-Source-Projekte, Mitwirkung und die Kultur der gemeinschaftlichen Softwareentwicklung. Warum Open Source wichtig ist und wie man sich einbringen kann." },
+        "fr": { "name": "Open-Source", "description": "Articles sur les projets open source, les contributions et la culture du d\u00e9veloppement collaboratif. Pourquoi l'open source compte et comment s'y impliquer." }
     },
     "games": {
-        "en": { "name": "Games", "description": "" },
-        "de": { "name": "Spiele", "description": "" },
-        "fr": { "name": "Jeux", "description": "" }
+        "en": { "name": "Games", "description": "Exploring video games, from reviews and recommendations to thoughts on game design and mechanics. A look at what makes games enjoyable and memorable." },
+        "de": { "name": "Spiele", "description": "Rund um Videospiele, von Reviews und Empfehlungen bis hin zu Gedanken \u00fcber Spieldesign und Mechaniken. Was Spiele unterhaltsam und unvergesslich macht." },
+        "fr": { "name": "Jeux", "description": "Autour des jeux vid\u00e9o, des critiques et recommandations aux r\u00e9flexions sur le game design et les m\u00e9caniques. Ce qui rend les jeux agr\u00e9ables et m\u00e9morables." }
     },
     "streaming": {
-        "en": { "name": "Streaming", "description": "" },
-        "de": { "name": "Streaming", "description": "" },
-        "fr": { "name": "Streaming", "description": "" }
+        "en": { "name": "Streaming", "description": "Everything related to live streaming, including tips, experiences, and the journey of building a streaming presence. From setup to community interaction." },
+        "de": { "name": "Streaming", "description": "Alles rund ums Livestreaming, von Tipps und Erfahrungen bis zum Aufbau einer Streaming-Pr\u00e4senz. Von der Einrichtung bis zur Interaktion mit der Community." },
+        "fr": { "name": "Streaming", "description": "Tout sur le streaming en direct, des conseils et exp\u00e9riences \u00e0 la construction d'une pr\u00e9sence de streamer. De la configuration \u00e0 l'interaction avec la communaut\u00e9." }
     },
     "modding": {
-        "en": { "name": "Modding", "description": "" },
-        "de": { "name": "Modding", "description": "" },
-        "fr": { "name": "Modding", "description": "" }
+        "en": { "name": "Modding", "description": "Creating and sharing game modifications. From Skyrim mods to other projects, covering the process of extending games beyond their original boundaries." },
+        "de": { "name": "Modding", "description": "Erstellen und Teilen von Spielmodifikationen. Von Skyrim-Mods bis zu anderen Projekten \u2013 \u00fcber den Prozess, Spiele \u00fcber ihre urspr\u00fcnglichen Grenzen hinaus zu erweitern." },
+        "fr": { "name": "Modding", "description": "Cr\u00e9ation et partage de modifications de jeux. Des mods Skyrim aux autres projets, le processus pour \u00e9tendre les jeux au-del\u00e0 de leurs limites d'origine." }
     },
     "stories": {
-        "en": { "name": "Written Stories", "description": "" },
-        "de": { "name": "Geschichten", "description": "" },
-        "fr": { "name": "Histoires \u00e9crites", "description": "" }
+        "en": { "name": "Written Stories", "description": "Original fiction and creative writing. Short stories and narratives spanning various genres, written for the joy of storytelling." },
+        "de": { "name": "Geschichten", "description": "Eigene Geschichten und kreatives Schreiben. Kurzgeschichten und Erz\u00e4hlungen verschiedener Genres, geschrieben aus Freude am Erz\u00e4hlen." },
+        "fr": { "name": "Histoires \u00e9crites", "description": "Fiction originale et \u00e9criture cr\u00e9ative. Nouvelles et r\u00e9cits de genres vari\u00e9s, \u00e9crits pour le plaisir de raconter des histoires." }
     },
     "pen-and-paper": {
-        "en": { "name": "Pen & Paper", "description": "" },
-        "de": { "name": "Pen & Paper", "description": "" },
-        "fr": { "name": "Jeu de r\u00f4le", "description": "" }
+        "en": { "name": "Pen & Paper", "description": "Tabletop roleplaying games, from session recaps and campaign ideas to thoughts on game mastering and rule systems. Adventures told with dice and imagination." },
+        "de": { "name": "Pen & Paper", "description": "Pen-&-Paper-Rollenspiele, von Sitzungsberichten und Kampagnenideen bis hin zu Gedanken \u00fcber Spielleitung und Regelsysteme. Abenteuer mit W\u00fcrfeln und Fantasie." },
+        "fr": { "name": "Jeu de r\u00f4le", "description": "Jeux de r\u00f4le sur table, des comptes rendus de sessions aux id\u00e9es de campagnes en passant par la ma\u00eetrise du jeu et les syst\u00e8mes de r\u00e8gles. Des aventures avec des d\u00e9s et de l'imagination." }
     },
     "world-building": {
-        "en": { "name": "World Building Results", "description": "" },
-        "de": { "name": "Weltenbau", "description": "" },
-        "fr": { "name": "Cr\u00e9ation de mondes", "description": "" }
+        "en": { "name": "World Building Results", "description": "Crafting fictional worlds with their own histories, cultures, and rules. Exploring the art of building coherent and immersive settings for stories and games." },
+        "de": { "name": "Weltenbau", "description": "Erschaffung fiktiver Welten mit eigener Geschichte, Kultur und eigenen Regeln. Die Kunst, stimmige und fesselnde Settings f\u00fcr Geschichten und Spiele zu gestalten." },
+        "fr": { "name": "Cr\u00e9ation de mondes", "description": "Cr\u00e9ation de mondes fictifs avec leurs propres histoires, cultures et r\u00e8gles. L'art de construire des univers coh\u00e9rents et immersifs pour les histoires et les jeux." }
     }
 }

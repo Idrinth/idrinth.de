@@ -70,12 +70,45 @@ function trackUniqueVisitor(string $visitorsFile, string $uniqueCounterFile): vo
     fclose($fp);
     incrementFile($uniqueCounterFile);
 }
+function trackLanguageVisitor(string $language): void
+{
+    $ip = $_SERVER['REMOTE_ADDR'] ?? '';
+    $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
+    $date = date('Y-m-d');
+    $hash = md5($ip . $userAgent . $date);
+    $month = date('Y-m');
+    $dir = ROOT_DIR . '/output/lang-stats';
+    if (!is_dir($dir)) {
+        mkdir($dir, 0755, true);
+    }
+    $visitorsFile = $dir . '/visitors-' . $month . '-' . $language . '.txt';
+    $counterFile = $dir . '/count-' . $month . '-' . $language . '.txt';
+    $fp = fopen($visitorsFile, 'c+');
+    if (!$fp || !flock($fp, LOCK_EX)) {
+        if ($fp) {
+            fclose($fp);
+        }
+        return;
+    }
+    $contents = stream_get_contents($fp);
+    $visitors = $contents !== '' ? explode("\n", trim($contents)) : [];
+    if (in_array($hash, $visitors, true)) {
+        flock($fp, LOCK_UN);
+        fclose($fp);
+        return;
+    }
+    fseek($fp, 0, SEEK_END);
+    fwrite($fp, $hash . "\n");
+    flock($fp, LOCK_UN);
+    fclose($fp);
+    incrementFile($counterFile);
+}
 function incrementViewCount(string $path): void
 {
     incrementFile($path . '/viewcount.txt');
     trackUniqueVisitor($path . '/visitors-' . date('Y-m-d') . '.txt', $path . '/unique-viewcount.txt');
 }
-function displayHTMLAndExit(string $path, bool $countView = true): void
+function displayHTMLAndExit(string $path, bool $countView = true, string $language = 'en'): void
 {
     if (is_file($path)) {
         header('Vary: Accept-Encoding');
@@ -85,6 +118,7 @@ function displayHTMLAndExit(string $path, bool $countView = true): void
         header('Permissions-Policy: all=()');
         if ($countView) {
             register_shutdown_function('incrementViewCount', dirname($path));
+            register_shutdown_function('trackLanguageVisitor', $language);
         }
         sendCompressed($path, 'text/html; charset=utf-8');
         exit;
@@ -93,8 +127,8 @@ function displayHTMLAndExit(string $path, bool $countView = true): void
 function findAndExit(string $uri, string $language, bool $countView = true): void
 {
     $path = ROOT_DIR . str_replace('//', '/', '/output/' . $uri . '/');
-    displayHTMLAndExit($path . $language . '.html', $countView);
-    displayHTMLAndExit($path . 'en.html', $countView);
+    displayHTMLAndExit($path . $language . '.html', $countView, $language);
+    displayHTMLAndExit($path . 'en.html', $countView, 'en');
 }
 function incrementAdViewCount(string $adDir, string $size): void
 {
@@ -268,6 +302,28 @@ if ($uri === 'votes' || str_starts_with($uri, 'votes/')) {
     header('Content-type: application/json');
     header('Cache-Control: no-cache');
     echo json_encode(['up' => $up, 'down' => $down, 'rating' => $up - $down]);
+    exit;
+}
+if ($uri === 'lang-stats') {
+    $dir = ROOT_DIR . '/output/lang-stats';
+    $result = [];
+    if (is_dir($dir)) {
+        foreach (glob($dir . '/count-*.txt') as $file) {
+            $basename = basename($file, '.txt');
+            if (preg_match('/^count-(\d{4}-\d{2})-(\w{2})$/', $basename, $m)) {
+                $month = $m[1];
+                $lang = $m[2];
+                if (!isset($result[$month])) {
+                    $result[$month] = ['en' => 0, 'de' => 0, 'fr' => 0];
+                }
+                $result[$month][$lang] = (int)file_get_contents($file);
+            }
+        }
+        krsort($result);
+    }
+    header('Content-type: application/json');
+    header('Cache-Control: no-cache');
+    echo json_encode($result);
     exit;
 }
 if ($uri === 'random') {

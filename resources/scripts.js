@@ -234,6 +234,30 @@
         var scheduleStatVotes = window.requestIdleCallback || function(cb) { setTimeout(cb, 200); };
         scheduleStatVotes(loadStatVotes);
     }
+    function loadLangStats() {
+        fetch('/lang-stats')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var tbody = document.getElementById('lang-stats-body');
+                if (!tbody) return;
+                Object.keys(data).forEach(function(month) {
+                    var row = document.createElement('tr');
+                    var monthCell = document.createElement('td');
+                    monthCell.textContent = month;
+                    row.appendChild(monthCell);
+                    ['en', 'de', 'fr'].forEach(function(lang) {
+                        var cell = document.createElement('td');
+                        cell.textContent = data[month][lang] || 0;
+                        row.appendChild(cell);
+                    });
+                    tbody.appendChild(row);
+                });
+            });
+    }
+    if (document.getElementById('lang-stats-body')) {
+        var scheduleLangStats = window.requestIdleCallback || function(cb) { setTimeout(cb, 200); };
+        scheduleLangStats(loadLangStats);
+    }
     document.addEventListener('click', function(e) {
         var btn = e.target.closest('.vote-up, .vote-down');
         if (!btn) return;

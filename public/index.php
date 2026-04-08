@@ -87,15 +87,25 @@ function incrementUniqueViewCount(string $path): void
 function displayHTMLAndExit(string $path, bool $countView = true): void
 {
     if (is_file($path)) {
-        if ($countView) {
-            incrementViewCount(dirname($path));
-        }
         header('Vary: Accept-Encoding');
         $cssHash = md5_file(ROOT_DIR . '/public/styles.css');
         $themeHash = md5_file(ROOT_DIR . '/public/theme.js');
         header("Link: </styles.css?$cssHash>; rel=preload; as=style, </theme.js?$themeHash>; rel=preload; as=script");
         header('Permissions-Policy: all=()');
-        sendCompressed($path, 'text/html; charset=utf-8');
+        if ($countView) {
+            ob_start();
+            sendCompressed($path, 'text/html; charset=utf-8');
+            header('Content-Length: ' . ob_get_length());
+            header('Connection: close');
+            ob_end_flush();
+            flush();
+            if (function_exists('fastcgi_finish_request')) {
+                fastcgi_finish_request();
+            }
+            incrementViewCount(dirname($path));
+        } else {
+            sendCompressed($path, 'text/html; charset=utf-8');
+        }
         exit;
     }
 }

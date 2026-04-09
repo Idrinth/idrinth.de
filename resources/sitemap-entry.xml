@@ -1,4 +1,6 @@
   <url>
     <loc>###URL###</loc>
     ###HREFLANG_LINKS###
+    <changefreq>###CHANGEFREQ###</changefreq>
+    <priority>###PRIORITY###</priority>
   </url>

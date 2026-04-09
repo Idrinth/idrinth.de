@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Latest Posts tagged belief</title>
+    <link href="https://idrinth.de/en/tag/belief"/>
+    <link href="https://idrinth.de/en/tag/belief/feed.atom" rel="self" type="application/atom+xml"/>
+    <id>https://idrinth.de/en/tag/belief</id>
+    <updated>2026-04-09T00:00:00+00:00</updated>
+    <entry>
+        <title>Ancient Gods And Modern Settings</title>
+        <link href="https://idrinth.de/en/world-building/ancient-gods-and-modern-settings"/>
+        <id>https://idrinth.de/en/world-building/ancient-gods-and-modern-settings</id>
+        <updated>2026-04-09T00:00:00+00:00</updated>
+        <summary>I&#039;m currently working on a small project that tries to build a ruleset about divine inheritance and trace strength.</summary>
+    </entry>
+
+</feed>

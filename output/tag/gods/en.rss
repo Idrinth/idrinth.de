@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+    <title>Latest Posts tagged gods</title>
+    <link>https://idrinth.de/en/tag/gods</link>
+    <description>See the latest posts of the keyword gods here.</description>
+    <language>en</language>
+    <atom:link href="https://idrinth.de/en/tag/gods/feed.rss" rel="self" type="application/rss+xml"/>
+    <item>
+        <title>Ancient Gods And Modern Settings</title>
+        <link>https://idrinth.de/en/world-building/ancient-gods-and-modern-settings</link>
+        <guid>https://idrinth.de/en/world-building/ancient-gods-and-modern-settings</guid>
+        <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
+        <description>I&#039;m currently working on a small project that tries to build a ruleset about divine inheritance and trace strength.</description>
+    </item>
+
+</channel>
+</rss>

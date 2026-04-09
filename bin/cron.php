@@ -260,6 +260,12 @@ function getRelatedPosts(array $currentPost, array $allPosts, int $maxResults = 
     return array_slice(array_column($scored, 'post'), 0, $maxResults);
 }
 
+function tagSlug(string $tag): string
+{
+    $slug = preg_replace('/[^a-z0-9]+/', '-', strtolower($tag));
+    return trim($slug, '-');
+}
+
 function buildListingEntries(array $posts, string $entryTemplate, string $tagLinkTemplate, string $lang): string
 {
     global $translations;
@@ -280,9 +286,9 @@ function buildListingEntries(array $posts, string $entryTemplate, string $tagLin
 
         $tagsHtml = '';
         foreach ($post['tags'] ?? [] as $tag) {
-            $tagSlug = htmlspecialchars(str_replace(' ', '-', $tag));
             $tagLink = str_replace('###LANG###', $lang, $tagLinkTemplate);
-            $tagLink = str_replace('###TAG###', $tagSlug, $tagLink);
+            $tagLink = str_replace('###TAG_SLUG###', htmlspecialchars(tagSlug($tag)), $tagLink);
+            $tagLink = str_replace('###TAG_NAME###', htmlspecialchars($tag), $tagLink);
             $tagsHtml .= $tagLink;
         }
 
@@ -766,7 +772,7 @@ foreach ($posts as $post) {
 if ($postsChanged) {
     foreach ($tags as $tag => $tagPosts) {
         $tagPosts = array_slice($tagPosts, 0, 9);
-        $tagDirName = str_replace(' ', '-', $tag);
+        $tagDirName = tagSlug($tag);
         $outputDir = ROOT_DIR . '/output/tag/' . $tagDirName;
         if (!is_dir($outputDir)) {
             mkdir($outputDir, 0755, true);
@@ -1043,7 +1049,7 @@ foreach ($posts as $post) {
 
 // Tag pages
 foreach (array_keys($tags) as $tag) {
-    $sitemapPaths[] = 'tag/' . str_replace(' ', '-', $tag);
+    $sitemapPaths[] = 'tag/' . tagSlug($tag);
 }
 
 // Imprint

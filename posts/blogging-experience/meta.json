@@ -5,5 +5,11 @@
    "static site"
   ],
   "date": "2026-04-05",
-  "links": []
+  "links": [
+    {
+      "link": "https://github.com/idrinth/idrinth.de",
+      "name": "Repository",
+      "description": "see how the site works, the code is Open-Source"
+    }
+  ]
 }

@@ -1058,33 +1058,36 @@ $sitemapPaths = [];
 $baseUrl = 'https://idrinth.de';
 
 // Home page
-$sitemapPaths[] = '';
+$sitemapPaths[] = ['path' => '', 'changefreq' => 'daily', 'priority' => '1.0'];
 
 // Category pages
 foreach (array_keys($categories) as $category) {
-    $sitemapPaths[] = $category;
+    $sitemapPaths[] = ['path' => $category, 'changefreq' => 'daily', 'priority' => '0.8'];
 }
 
 // Individual post pages (exclude future-dated articles)
 foreach ($publishedPosts as $post) {
-    $sitemapPaths[] = $post['category'] . '/' . $post['slug'];
+    $sitemapPaths[] = ['path' => $post['category'] . '/' . $post['slug'], 'changefreq' => 'monthly', 'priority' => '0.6'];
 }
 
 // Tag pages
 foreach (array_keys($tags) as $tag) {
-    $sitemapPaths[] = 'tag/' . tagSlug($tag);
+    $sitemapPaths[] = ['path' => 'tag/' . tagSlug($tag), 'changefreq' => 'daily', 'priority' => '0.8'];
 }
 
 // Imprint
-$sitemapPaths[] = 'imprint';
+$sitemapPaths[] = ['path' => 'imprint', 'changefreq' => 'monthly', 'priority' => '0.2'];
 
 $sitemapEntries = '';
-foreach ($sitemapPaths as $path) {
+foreach ($sitemapPaths as $item) {
+    $path = $item['path'];
     $hreflangLinks = buildHreflangSitemap($path, $baseUrl, $languages);
     foreach ($languages as $lang) {
         $url = $baseUrl . '/' . $lang . ($path !== '' ? '/' . $path : '');
         $entry = str_replace('###URL###', htmlspecialchars($url), $sitemapEntryTemplate);
         $entry = str_replace('###HREFLANG_LINKS###', $hreflangLinks, $entry);
+        $entry = str_replace('###CHANGEFREQ###', $item['changefreq'], $entry);
+        $entry = str_replace('###PRIORITY###', $item['priority'], $entry);
         $sitemapEntries .= $entry;
     }
 }

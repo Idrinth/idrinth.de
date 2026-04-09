@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Derniers articles avec le tag mod configuration tool</title>
+    <link href="https://idrinth.de/fr/tag/mod-configuration-tool"/>
+    <link href="https://idrinth.de/fr/tag/mod-configuration-tool/feed.atom" rel="self" type="application/atom+xml"/>
+    <id>https://idrinth.de/fr/tag/mod-configuration-tool</id>
+    <updated>2026-04-09T00:00:00+00:00</updated>
+    <entry>
+        <title>Écraser des fichiers de mod pour patcher</title>
+        <link href="https://idrinth.de/fr/modding/mod-file-overwriting-to-patch"/>
+        <id>https://idrinth.de/fr/modding/mod-file-overwriting-to-patch</id>
+        <updated>2026-04-09T00:00:00+00:00</updated>
+        <summary>J&#039;en avais récemment assez d&#039;attendre que le Mod Configuration Tool intègre mes corrections, alors j&#039;ai décidé de...</summary>
+    </entry>
+
+</feed>

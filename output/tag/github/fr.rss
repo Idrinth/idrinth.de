@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+    <title>Derniers articles avec le tag github</title>
+    <link>https://idrinth.de/fr/tag/github</link>
+    <description>Découvrez les derniers articles du mot-clé github ici.</description>
+    <language>fr</language>
+    <atom:link href="https://idrinth.de/fr/tag/github/feed.rss" rel="self" type="application/rss+xml"/>
+    <item>
+        <title>Écraser des fichiers de mod pour patcher</title>
+        <link>https://idrinth.de/fr/modding/mod-file-overwriting-to-patch</link>
+        <guid>https://idrinth.de/fr/modding/mod-file-overwriting-to-patch</guid>
+        <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
+        <description>J&#039;en avais récemment assez d&#039;attendre que le Mod Configuration Tool intègre mes corrections, alors j&#039;ai décidé de...</description>
+    </item>
+
+</channel>
+</rss>

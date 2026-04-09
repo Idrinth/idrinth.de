@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+    <title>Neueste Beiträge mit Tag patch</title>
+    <link>https://idrinth.de/de/tag/patch</link>
+    <description>Hier findest du die neuesten Beiträge zum Stichwort patch.</description>
+    <language>de</language>
+    <atom:link href="https://idrinth.de/de/tag/patch/feed.rss" rel="self" type="application/rss+xml"/>
+    <item>
+        <title>Mod-Dateien überschreiben, um zu patchen</title>
+        <link>https://idrinth.de/de/modding/mod-file-overwriting-to-patch</link>
+        <guid>https://idrinth.de/de/modding/mod-file-overwriting-to-patch</guid>
+        <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
+        <description>Ich hatte es kürzlich satt, darauf zu warten, dass das Mod Configuration Tool meine Korrekturen übernimmt, also...</description>
+    </item>
+
+</channel>
+</rss>

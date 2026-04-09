@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Neueste Beiträge mit Tag github</title>
+    <link href="https://idrinth.de/de/tag/github"/>
+    <link href="https://idrinth.de/de/tag/github/feed.atom" rel="self" type="application/atom+xml"/>
+    <id>https://idrinth.de/de/tag/github</id>
+    <updated>2026-04-09T00:00:00+00:00</updated>
+    <entry>
+        <title>Mod-Dateien überschreiben, um zu patchen</title>
+        <link href="https://idrinth.de/de/modding/mod-file-overwriting-to-patch"/>
+        <id>https://idrinth.de/de/modding/mod-file-overwriting-to-patch</id>
+        <updated>2026-04-09T00:00:00+00:00</updated>
+        <summary>Ich hatte es kürzlich satt, darauf zu warten, dass das Mod Configuration Tool meine Korrekturen übernimmt, also...</summary>
+    </entry>
+
+</feed>

@@ -190,6 +190,27 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/world-building" />
   </url>
   <url>
+    <loc>https://idrinth.de/en/modding/mod-file-overwriting-to-patch</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/modding/mod-file-overwriting-to-patch" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/modding/mod-file-overwriting-to-patch" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/modding/mod-file-overwriting-to-patch" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/modding/mod-file-overwriting-to-patch" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/modding/mod-file-overwriting-to-patch</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/modding/mod-file-overwriting-to-patch" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/modding/mod-file-overwriting-to-patch" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/modding/mod-file-overwriting-to-patch" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/modding/mod-file-overwriting-to-patch" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/modding/mod-file-overwriting-to-patch</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/modding/mod-file-overwriting-to-patch" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/modding/mod-file-overwriting-to-patch" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/modding/mod-file-overwriting-to-patch" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/modding/mod-file-overwriting-to-patch" />
+  </url>
+  <url>
     <loc>https://idrinth.de/en/software-engineering/a-question-of-databases</loc>
         <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/software-engineering/a-question-of-databases" />
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/software-engineering/a-question-of-databases" />
@@ -293,6 +314,90 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/modding/idrinth-thalui-in-skyrim-v1-1" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/modding/idrinth-thalui-in-skyrim-v1-1" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/modding/idrinth-thalui-in-skyrim-v1-1" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/patch</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/patch" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/patch" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/patch" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/patch" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/patch</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/patch" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/patch" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/patch" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/patch" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/patch</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/patch" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/patch" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/patch" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/patch" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/total-war:-warhammer-3</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/total-war:-warhammer-3" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/total-war:-warhammer-3" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/total-war:-warhammer-3" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/total-war:-warhammer-3" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/total-war:-warhammer-3</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/total-war:-warhammer-3" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/total-war:-warhammer-3" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/total-war:-warhammer-3" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/total-war:-warhammer-3" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/total-war:-warhammer-3</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/total-war:-warhammer-3" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/total-war:-warhammer-3" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/total-war:-warhammer-3" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/total-war:-warhammer-3" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/mod-configuration-tool</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/mod-configuration-tool" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/mod-configuration-tool" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/mod-configuration-tool" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/mod-configuration-tool" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/mod-configuration-tool</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/mod-configuration-tool" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/mod-configuration-tool" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/mod-configuration-tool" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/mod-configuration-tool" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/mod-configuration-tool</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/mod-configuration-tool" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/mod-configuration-tool" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/mod-configuration-tool" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/mod-configuration-tool" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/github</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/github" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/github" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/github" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/github" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/github</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/github" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/github" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/github" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/github" />
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/github</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/github" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/github" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/github" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/github" />
   </url>
   <url>
     <loc>https://idrinth.de/en/tag/database</loc>

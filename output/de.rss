@@ -7,6 +7,13 @@
     <language>de</language>
     <atom:link href="https://idrinth.de/de/feed.rss" rel="self" type="application/rss+xml"/>
     <item>
+        <title>Mod-Dateien überschreiben, um zu patchen</title>
+        <link>https://idrinth.de/de/modding/mod-file-overwriting-to-patch</link>
+        <guid>https://idrinth.de/de/modding/mod-file-overwriting-to-patch</guid>
+        <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
+        <description>Ich hatte es kürzlich satt, darauf zu warten, dass das Mod Configuration Tool meine Korrekturen übernimmt, also...</description>
+    </item>
+    <item>
         <title>Eine Frage der Datenbanken</title>
         <link>https://idrinth.de/de/software-engineering/a-question-of-databases</link>
         <guid>https://idrinth.de/de/software-engineering/a-question-of-databases</guid>

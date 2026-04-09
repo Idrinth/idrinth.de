@@ -378,6 +378,11 @@ foreach ($languages as $lang) {
     $postDateTemplates[$lang] = file_get_contents(ROOT_DIR . '/resources/' . $lang . '/post-date.html');
     $relatedPostsTemplates[$lang] = file_get_contents(ROOT_DIR . '/resources/' . $lang . '/related-posts.html');
 }
+$linkListTemplates = [];
+foreach ($languages as $lang) {
+    $linkListTemplates[$lang] = file_get_contents(ROOT_DIR . '/resources/' . $lang . '/link-list.html');
+}
+$linkListEntryTemplate = file_get_contents(ROOT_DIR . '/resources/link-list-entry.html');
 $relatedPostEntryTemplate = file_get_contents(ROOT_DIR . '/resources/related-post-entry.html');
 $tagLinkTemplate = file_get_contents(ROOT_DIR . '/resources/tag-link.html');
 $statisticsTemplate = file_get_contents(ROOT_DIR . '/resources/en/statistics.html');
@@ -567,6 +572,19 @@ foreach ($posts as $post) {
         $content = preg_replace('/<\/h1>\n/', "</h1>\n" . $dateHtml, $content, 1);
 
         $content .= '<div id="voting-target"></div>';
+
+        if (!empty($post['links'])) {
+            $linkEntries = '';
+            foreach ($post['links'] as $link) {
+                $entry = $linkListEntryTemplate;
+                $entry = str_replace('###LINK_URL###', htmlspecialchars($link['url'] ?? ''), $entry);
+                $entry = str_replace('###LINK_NAME###', htmlspecialchars($link['name'][$lang] ?? $link['name']['en'] ?? ''), $entry);
+                $entry = str_replace('###LINK_DESCRIPTION###', htmlspecialchars($link['description'][$lang] ?? $link['description']['en'] ?? ''), $entry);
+                $linkEntries .= $entry;
+            }
+            $content .= str_replace('###LINK_ENTRIES###', $linkEntries, $linkListTemplates[$lang]);
+        }
+
         $relatedPosts = getRelatedPosts($post, $posts);
         if ($relatedPosts !== []) {
             $relatedEntries = '';

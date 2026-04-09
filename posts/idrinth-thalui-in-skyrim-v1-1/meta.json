@@ -9,8 +9,16 @@
   "links": [
     {
       "link": "https://www.nexusmods.com/skyrimspecialedition/mods/69338",
-      "name": "mod page",
-      "description": "get the mod here"
+      "name": {
+        "en": "mod page",
+        "de": "Mod-Seite",
+        "fr": "page du mod"
+      },
+      "description": {
+        "en": "get the mod here",
+        "de": "den Mod hier herunterladen",
+        "fr": "télécharger le mod ici"
+      }
     }
   ]
 }

@@ -8,8 +8,16 @@
   "links": [
     {
       "link": "https://github.com/idrinth/idrinth.de",
-      "name": "Repository",
-      "description": "see how the site works, the code is Open-Source"
+      "name": {
+        "en": "Repository",
+        "de": "Repository",
+        "fr": "Dépôt"
+      },
+      "description": {
+        "en": "see how the site works, the code is Open-Source",
+        "de": "so funktioniert die Seite, der Code ist Open-Source",
+        "fr": "découvrez comment le site fonctionne, le code est Open-Source"
+      }
     }
   ]
 }

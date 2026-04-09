@@ -540,9 +540,7 @@ foreach (scandir(ROOT_DIR . '/posts') as $folder) {
         }
     }
     $meta['title_words'] = array_values($titleWords);
-    if ($meta['date'] > date('Y-m-d')) {
-        continue;
-    }
+    $meta['future'] = $meta['date'] > date('Y-m-d');
     $posts[] = $meta;
 }
 
@@ -551,10 +549,13 @@ usort($posts, function ($a, $b) {
     return strcmp($b['date'], $a['date']);
 });
 
+// Published posts exclude future-dated articles (used for listings, feeds, sitemap)
+$publishedPosts = array_values(array_filter($posts, fn($p) => !$p['future']));
+
 // Generate posts.json for random redirect and other consumers
 $postUrls = array_map(function ($post) {
     return '/' . $post['category'] . '/' . $post['slug'];
-}, $posts);
+}, $publishedPosts);
 file_put_contents(ROOT_DIR . '/output/posts.json', json_encode($postUrls));
 precompress(ROOT_DIR . '/output/posts.json');
 
@@ -608,7 +609,7 @@ foreach ($posts as $post) {
             $content .= str_replace('###LINK_ENTRIES###', $linkEntries, $linkListTemplates[$lang]);
         }
 
-        $relatedPosts = getRelatedPosts($post, $posts);
+        $relatedPosts = getRelatedPosts($post, $publishedPosts);
         if ($relatedPosts !== []) {
             $relatedEntries = '';
             foreach ($relatedPosts as $related) {
@@ -656,7 +657,7 @@ foreach ($posts as $post) {
 // Determine if any post source files changed (for listing pages)
 $postsChanged = $templatesChanged;
 if (!$postsChanged) {
-    foreach ($posts as $post) {
+    foreach ($publishedPosts as $post) {
         $slug = $post['slug'];
         $metaFile = ROOT_DIR . '/posts/' . $slug . '/meta.json';
         foreach ($languages as $lang) {
@@ -674,7 +675,7 @@ if (!$postsChanged) {
 }
 
 // Generate home page listing (last 9 posts) per language
-$homePosts = array_slice($posts, 0, 9);
+$homePosts = array_slice($publishedPosts, 0, 9);
 if ($postsChanged) {
     foreach ($languages as $lang) {
         $listing = buildListingEntries($homePosts, $entryTemplates[$lang], $tagLinkTemplate, $lang);
@@ -708,7 +709,7 @@ if ($postsChanged) {
 
 // Generate category listing pages (last 9 per category) per language
 $categories = array_fill_keys(array_keys($categoryConfig), []);
-foreach ($posts as $post) {
+foreach ($publishedPosts as $post) {
     $cat = $post['category'];
     if (!isset($categories[$cat])) {
         $categories[$cat] = [];
@@ -762,7 +763,7 @@ if ($postsChanged) {
 
 // Generate tag listing pages (last 9 per tag) per language
 $tags = [];
-foreach ($posts as $post) {
+foreach ($publishedPosts as $post) {
     foreach ($post['tags'] ?? [] as $tag) {
         if (!isset($tags[$tag])) {
             $tags[$tag] = [];
@@ -1044,8 +1045,8 @@ foreach (array_keys($categories) as $category) {
     $sitemapPaths[] = $category;
 }
 
-// Individual post pages
-foreach ($posts as $post) {
+// Individual post pages (exclude future-dated articles)
+foreach ($publishedPosts as $post) {
     $sitemapPaths[] = $post['category'] . '/' . $post['slug'];
 }
 

@@ -390,6 +390,64 @@ $rssEntryTemplate = file_get_contents(ROOT_DIR . '/resources/rss-entry.xml');
 $atomTemplate = file_get_contents(ROOT_DIR . '/resources/atom.xml');
 $atomEntryTemplate = file_get_contents(ROOT_DIR . '/resources/atom-entry.xml');
 
+// Aside HTML per language (shown on individual posts and static pages, not on listing pages)
+$asideTemplates = [
+    'en' => '<aside>
+        <h2>Who am I?</h2>
+        <picture>
+            <source type="image/avif" srcset="/bjoern.avif">
+            <source type="image/webp" srcset="/bjoern.webp">
+            <img src="/bjoern.jpg" alt="Björn Büttner" title="Björn Büttner">
+        </picture>
+        <p>My name is Björn and I go by Idrinth online. I have been a software developer for over a decade and I\'m still spending way too much time modding games.</p>
+        <p>I enjoy talking with people, so this is a way I can provide another platform next to my discord.</p>
+        <p>If you need to reach out, please do so via discord and don\'t send random emails.</p>
+        <a id="donate-button" href="https://www.paypal.com/donate/?hosted_button_id=YHS42UYG8QN84">
+            <picture>
+                <source type="image/avif" srcset="/donate-en.avif">
+                <source type="image/webp" srcset="/donate-en.webp">
+                <img src="/donate-en.png" alt="Donate with Paypal">
+            </picture>
+        </a>
+    </aside>',
+    'de' => '<aside>
+        <h2>Wer bin ich?</h2>
+        <picture>
+            <source type="image/avif" srcset="/bjoern.avif">
+            <source type="image/webp" srcset="/bjoern.webp">
+            <img src="/bjoern.jpg" alt="Björn Büttner" title="Björn Büttner">
+        </picture>
+        <p>Mein Name ist Björn und im Internet bin ich als Idrinth bekannt. Ich bin seit über einem Jahrzehnt Softwareentwickler und verbringe immer noch viel zu viel Zeit mit dem Modden von Spielen.</p>
+        <p>Ich unterhalte mich gerne mit Menschen, daher ist dies eine weitere Plattform neben meinem Discord.</p>
+        <p>Wenn du mich erreichen möchtest, nutze bitte Discord und schicke keine zufälligen E-Mails.</p>
+        <a id="donate-button" href="https://www.paypal.com/donate/?hosted_button_id=GBETUCHKXQ4B6">
+            <picture>
+                <source type="image/avif" srcset="/donate-de.avif">
+                <source type="image/webp" srcset="/donate-de.webp">
+                <img src="/donate-de.png" alt="Mit Paypal spenden">
+            </picture>
+        </a>
+    </aside>',
+    'fr' => '<aside>
+        <h2>Qui suis-je ?</h2>
+        <picture>
+            <source type="image/avif" srcset="/bjoern.avif">
+            <source type="image/webp" srcset="/bjoern.webp">
+            <img src="/bjoern.jpg" alt="Björn Büttner" title="Björn Büttner">
+        </picture>
+        <p>Je m\'appelle Björn et je suis connu sous le nom d\'Idrinth en ligne. Je suis développeur logiciel depuis plus d\'une décennie et je passe toujours beaucoup trop de temps à modder des jeux.</p>
+        <p>J\'aime discuter avec les gens, c\'est donc une autre plateforme en plus de mon Discord.</p>
+        <p>Si vous avez besoin de me contacter, veuillez le faire via Discord et n\'envoyez pas d\'e-mails au hasard.</p>
+        <a id="donate-button" href="https://www.paypal.com/donate/?hosted_button_id=CV8XUFS34LRXW">
+            <picture>
+                <source type="image/avif" srcset="/donate-fr.avif">
+                <source type="image/webp" srcset="/donate-fr.webp">
+                <img src="/donate-fr.png" alt="Faites un don via PayPal">
+            </picture>
+        </a>
+    </aside>',
+];
+
 // Minify and write CSS/JS to public directory
 file_put_contents(ROOT_DIR . '/public/styles.css', minifyCss(file_get_contents(ROOT_DIR . '/resources/styles.css')));
 precompress(ROOT_DIR . '/public/styles.css');
@@ -546,6 +604,7 @@ foreach ($posts as $post) {
         $page = str_replace('###HREFLANG###', buildHreflangHtml($category . '/' . $slug, 'https://idrinth.de', $languages), $page);
         $page = str_replace('###CANONICAL_URL###', 'https://idrinth.de/' . $lang . '/' . $category . '/' . $slug, $page);
         $page = str_replace('###META_KEYWORDS###', '<meta name="keywords" content="' . htmlspecialchars(implode(', ', $post['tags'] ?? [])) . '">', $page);
+        $page = str_replace('###ASIDE###', $asideTemplates[$lang], $page);
         $page = str_replace('###CONTENT###', $content, $page);
 
         file_put_contents($outputFile, minifyHtml($page));
@@ -592,6 +651,7 @@ if ($postsChanged) {
         $page = str_replace('###HREFLANG###', buildHreflangHtml('', 'https://idrinth.de', $languages), $page);
         $page = str_replace('###CANONICAL_URL###', 'https://idrinth.de/' . $lang, $page);
         $page = str_replace('###META_KEYWORDS###', '', $page);
+        $page = str_replace('###ASIDE###', '', $page);
         $page = str_replace('###CONTENT###', $listingContent, $page);
 
         file_put_contents(ROOT_DIR . '/output/' . $lang . '.html', minifyHtml($page));
@@ -644,6 +704,7 @@ if ($postsChanged) {
             $page = str_replace('###HREFLANG###', buildHreflangHtml($category, 'https://idrinth.de', $languages), $page);
             $page = str_replace('###CANONICAL_URL###', 'https://idrinth.de/' . $lang . '/' . $category, $page);
             $page = str_replace('###META_KEYWORDS###', '', $page);
+            $page = str_replace('###ASIDE###', '', $page);
             $page = str_replace('###CONTENT###', $listingContent, $page);
 
             file_put_contents($outputDir . '/' . $lang . '.html', minifyHtml($page));
@@ -699,6 +760,7 @@ if ($postsChanged) {
             $page = str_replace('###HREFLANG###', buildHreflangHtml('tag/' . $tagDirName, 'https://idrinth.de', $languages), $page);
             $page = str_replace('###CANONICAL_URL###', 'https://idrinth.de/' . $lang . '/tag/' . $tagDirName, $page);
             $page = str_replace('###META_KEYWORDS###', '', $page);
+            $page = str_replace('###ASIDE###', '', $page);
             $page = str_replace('###CONTENT###', $listingContent, $page);
 
             file_put_contents($outputDir . '/' . $lang . '.html', minifyHtml($page));
@@ -725,6 +787,7 @@ foreach ($languages as $lang) {
     $page = str_replace('###HREFLANG###', '', $page);
     $page = str_replace('###CANONICAL_URL###', 'https://idrinth.de/' . $lang . '/404', $page);
     $page = str_replace('###META_KEYWORDS###', '', $page);
+    $page = str_replace('###ASIDE###', $asideTemplates[$lang], $page);
     $page = str_replace('###CONTENT###', $notFoundTemplates[$lang], $page);
     file_put_contents($notFoundDir . '/' . $lang . '.html', minifyHtml($page));
     precompress($notFoundDir . '/' . $lang . '.html');
@@ -742,6 +805,7 @@ foreach ($languages as $lang) {
     $page = str_replace('###HREFLANG###', buildHreflangHtml('imprint', 'https://idrinth.de', $languages), $page);
     $page = str_replace('###CANONICAL_URL###', 'https://idrinth.de/' . $lang . '/imprint', $page);
     $page = str_replace('###META_KEYWORDS###', '', $page);
+    $page = str_replace('###ASIDE###', $asideTemplates[$lang], $page);
     $page = str_replace('###CONTENT###', $imprintTemplates[$lang], $page);
     file_put_contents($imprintDir . '/' . $lang . '.html', minifyHtml($page));
     precompress($imprintDir . '/' . $lang . '.html');
@@ -759,6 +823,7 @@ foreach ($languages as $lang) {
     $page = str_replace('###HREFLANG###', '', $page);
     $page = str_replace('###CANONICAL_URL###', 'https://idrinth.de/' . $lang . '/canceled', $page);
     $page = str_replace('###META_KEYWORDS###', '', $page);
+    $page = str_replace('###ASIDE###', $asideTemplates[$lang], $page);
     $page = str_replace('###CONTENT###', $canceledTemplates[$lang], $page);
     $page = str_replace('<meta name="description"', '<meta name="robots" content="noindex, nofollow">' . "\n" . '    <meta name="description"', $page);
     file_put_contents($canceledDir . '/' . $lang . '.html', minifyHtml($page));
@@ -777,6 +842,7 @@ foreach ($languages as $lang) {
     $page = str_replace('###HREFLANG###', '', $page);
     $page = str_replace('###CANONICAL_URL###', 'https://idrinth.de/' . $lang . '/thank-you', $page);
     $page = str_replace('###META_KEYWORDS###', '', $page);
+    $page = str_replace('###ASIDE###', $asideTemplates[$lang], $page);
     $page = str_replace('###CONTENT###', $thankYouTemplates[$lang], $page);
     $page = str_replace('<meta name="description"', '<meta name="robots" content="noindex, nofollow">' . "\n" . '    <meta name="description"', $page);
     file_put_contents($thankYouDir . '/' . $lang . '.html', minifyHtml($page));
@@ -829,6 +895,7 @@ $statsPage = str_replace('###PAGE_DESCRIPTION###', htmlspecialchars($translation
 $statsPage = str_replace('###HREFLANG###', '', $statsPage);
 $statsPage = str_replace('###CANONICAL_URL###', 'https://idrinth.de/en/statistics', $statsPage);
 $statsPage = str_replace('###META_KEYWORDS###', '', $statsPage);
+$statsPage = str_replace('###ASIDE###', $asideTemplates['en'], $statsPage);
 $statsPage = str_replace('###CONTENT###', $statsContent, $statsPage);
 $statsPage = str_replace('<meta name="description"', '<meta name="robots" content="noindex, nofollow">' . "\n" . '    <meta name="description"', $statsPage);
 file_put_contents($statisticsDir . '/en.html', minifyHtml($statsPage));

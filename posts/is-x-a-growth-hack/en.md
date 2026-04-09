@@ -12,7 +12,7 @@ This is a bit more valuable, it gives people a reason to look if it is done well
 
 ## Why don't you do X
 
-Might be the algorythm, but posts along the lines of "Give me attention for a question I don't care about" are as common as sand on a beach at the moment. People flog to them to be heared, increasing the noise and thereby decreasing the chance that anyone is heard, because they are just not findable.
+Might be the algorithm, but posts along the lines of "Give me attention for a question I don't care about" are as common as sand on a beach at the moment. People flock to them to be heard, increasing the noise and thereby decreasing the chance that anyone is heard, because they are just not findable.
 
 ## Is growth dead then?
 

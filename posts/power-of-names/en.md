@@ -26,4 +26,4 @@ The prayer is approximately "Defend (her), Rhea, (grant her) peace after a threa
 
 We now know, that the parents likely assumed their daughter was the grandchild of Hel and somehow related to Ares, additionally she was considered under threat, because otherwise the exact prayer structure doesn't make sense to exist in that way. The acronym could have been built with other names after all.
 
-Do you think these three layers are all I encoded here? Do you think this nameing has no effect? I'd be happy to hear from you on discord about what else you figure out from the name or your thoughts.
+Do you think these three layers are all I encoded here? Do you think this naming has no effect? I'd be happy to hear from you on discord about what else you figure out from the name or your thoughts.

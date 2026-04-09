@@ -7,7 +7,7 @@ The backend is json and md files, with pretty much everything generated from the
 ## What is missing so far and what are my plans?
 
 - Comments: I intentionally left the comments out, so i don't need to do regular moderation on them and check them for potential harmful content
-- Tag-Search: This will be coming, I ust don't see it as relevant yet
+- Tag-Search: This will be coming, I just don't see it as relevant yet
 - Open-Source: This blog is currently not open-source. I wonder if i should change that, given there are potentially more people who like easy solutions for blogs
 - RSS and ATOM: the feeds are being built right now, they'll be available in multiple flavors, one for all post and one for each category, so you can follow the interesting parts of your choice
 

@@ -598,9 +598,11 @@ foreach ($posts as $post) {
             $linkEntries = '';
             foreach ($post['links'] as $link) {
                 $entry = $linkListEntryTemplate;
-                $entry = str_replace('###LINK_URL###', htmlspecialchars($link['url'] ?? ''), $entry);
-                $entry = str_replace('###LINK_NAME###', htmlspecialchars($link['name'][$lang] ?? $link['name']['en'] ?? ''), $entry);
-                $entry = str_replace('###LINK_DESCRIPTION###', htmlspecialchars($link['description'][$lang] ?? $link['description']['en'] ?? ''), $entry);
+                $entry = str_replace('###LINK_URL###', htmlspecialchars($link['link'] ?? ''), $entry);
+                $linkName = is_array($link['name'] ?? '') ? ($link['name'][$lang] ?? $link['name']['en'] ?? '') : ($link['name'] ?? '');
+                $entry = str_replace('###LINK_NAME###', htmlspecialchars($linkName), $entry);
+                $linkDesc = is_array($link['description'] ?? '') ? ($link['description'][$lang] ?? $link['description']['en'] ?? '') : ($link['description'] ?? '');
+                $entry = str_replace('###LINK_DESCRIPTION###', htmlspecialchars($linkDesc), $entry);
                 $linkEntries .= $entry;
             }
             $content .= str_replace('###LINK_ENTRIES###', $linkEntries, $linkListTemplates[$lang]);

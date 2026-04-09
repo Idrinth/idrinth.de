@@ -97,6 +97,20 @@ function minifyHtml(string $html): string
     return trim($html);
 }
 
+function inlineMarkdown(string $text): string
+{
+    $text = htmlspecialchars($text);
+    // Inline code (must be first to protect contents from further processing)
+    $text = preg_replace('/`([^`]+)`/', '<code>$1</code>', $text);
+    // Bold
+    $text = preg_replace('/\*\*(.+?)\*\*/', '<strong>$1</strong>', $text);
+    // Italic
+    $text = preg_replace('/\*(.+?)\*/', '<em>$1</em>', $text);
+    // Links [text](url)
+    $text = preg_replace('/\[([^\]]+)\]\(([^)]+)\)/', '<a href="$2">$1</a>', $text);
+    return $text;
+}
+
 function markdownToHtml(string $markdown): string
 {
     $lines = explode("\n", $markdown);
@@ -109,7 +123,7 @@ function markdownToHtml(string $markdown): string
 
         if ($trimmed === '') {
             if ($paragraph !== '') {
-                $html .= '<p>' . htmlspecialchars($paragraph) . "</p>\n";
+                $html .= '<p>' . inlineMarkdown($paragraph) . "</p>\n";
                 $paragraph = '';
             }
             if ($inList) {
@@ -121,40 +135,40 @@ function markdownToHtml(string $markdown): string
 
         if (str_starts_with($trimmed, '## ')) {
             if ($paragraph !== '') {
-                $html .= '<p>' . htmlspecialchars($paragraph) . "</p>\n";
+                $html .= '<p>' . inlineMarkdown($paragraph) . "</p>\n";
                 $paragraph = '';
             }
             if ($inList) {
                 $html .= "</ul>\n";
                 $inList = false;
             }
-            $html .= '<h2>' . htmlspecialchars(substr($trimmed, 3)) . "</h2>\n";
+            $html .= '<h2>' . inlineMarkdown(substr($trimmed, 3)) . "</h2>\n";
             continue;
         }
 
         if (str_starts_with($trimmed, '# ')) {
             if ($paragraph !== '') {
-                $html .= '<p>' . htmlspecialchars($paragraph) . "</p>\n";
+                $html .= '<p>' . inlineMarkdown($paragraph) . "</p>\n";
                 $paragraph = '';
             }
             if ($inList) {
                 $html .= "</ul>\n";
                 $inList = false;
             }
-            $html .= '<h1>' . htmlspecialchars(substr($trimmed, 2)) . "</h1>\n";
+            $html .= '<h1>' . inlineMarkdown(substr($trimmed, 2)) . "</h1>\n";
             continue;
         }
 
         if (str_starts_with($trimmed, '- ')) {
             if ($paragraph !== '') {
-                $html .= '<p>' . htmlspecialchars($paragraph) . "</p>\n";
+                $html .= '<p>' . inlineMarkdown($paragraph) . "</p>\n";
                 $paragraph = '';
             }
             if (!$inList) {
                 $html .= "<ul>\n";
                 $inList = true;
             }
-            $html .= '<li>' . htmlspecialchars(substr($trimmed, 2)) . "</li>\n";
+            $html .= '<li>' . inlineMarkdown(substr($trimmed, 2)) . "</li>\n";
             continue;
         }
 
@@ -170,7 +184,7 @@ function markdownToHtml(string $markdown): string
     }
 
     if ($paragraph !== '') {
-        $html .= '<p>' . htmlspecialchars($paragraph) . "</p>\n";
+        $html .= '<p>' . inlineMarkdown($paragraph) . "</p>\n";
     }
     if ($inList) {
         $html .= "</ul>\n";

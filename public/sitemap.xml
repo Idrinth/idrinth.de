@@ -6,6 +6,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/" />
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de</loc>
@@ -13,6 +15,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/" />
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr</loc>
@@ -20,6 +24,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/" />
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/software-engineering</loc>
@@ -27,6 +33,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/software-engineering" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/software-engineering" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/software-engineering" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de/software-engineering</loc>
@@ -34,6 +42,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/software-engineering" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/software-engineering" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/software-engineering" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr/software-engineering</loc>
@@ -41,6 +51,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/software-engineering" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/software-engineering" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/software-engineering" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/open-source</loc>
@@ -48,6 +60,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/open-source" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/open-source" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/open-source" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de/open-source</loc>
@@ -55,6 +69,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/open-source" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/open-source" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/open-source" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr/open-source</loc>
@@ -62,6 +78,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/open-source" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/open-source" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/open-source" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/games</loc>
@@ -69,6 +87,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/games" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/games" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/games" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de/games</loc>
@@ -76,6 +96,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/games" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/games" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/games" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr/games</loc>
@@ -83,6 +105,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/games" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/games" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/games" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/streaming</loc>
@@ -90,6 +114,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/streaming" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/streaming" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/streaming" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de/streaming</loc>
@@ -97,6 +123,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/streaming" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/streaming" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/streaming" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr/streaming</loc>
@@ -104,6 +132,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/streaming" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/streaming" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/streaming" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/modding</loc>
@@ -111,6 +141,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/modding" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/modding" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/modding" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de/modding</loc>
@@ -118,6 +150,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/modding" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/modding" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/modding" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr/modding</loc>
@@ -125,6 +159,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/modding" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/modding" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/modding" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/stories</loc>
@@ -132,6 +168,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/stories" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/stories" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/stories" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de/stories</loc>
@@ -139,6 +177,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/stories" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/stories" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/stories" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr/stories</loc>
@@ -146,6 +186,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/stories" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/stories" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/stories" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/pen-and-paper</loc>
@@ -153,6 +195,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/pen-and-paper" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/pen-and-paper" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/pen-and-paper" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de/pen-and-paper</loc>
@@ -160,6 +204,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/pen-and-paper" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/pen-and-paper" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/pen-and-paper" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr/pen-and-paper</loc>
@@ -167,6 +213,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/pen-and-paper" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/pen-and-paper" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/pen-and-paper" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/world-building</loc>
@@ -174,6 +222,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/world-building" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/world-building" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/world-building" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de/world-building</loc>
@@ -181,6 +231,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/world-building" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/world-building" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/world-building" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr/world-building</loc>
@@ -188,6 +240,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/world-building" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/world-building" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/world-building" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/modding/mod-file-overwriting-to-patch</loc>
@@ -195,6 +249,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/modding/mod-file-overwriting-to-patch" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/modding/mod-file-overwriting-to-patch" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/modding/mod-file-overwriting-to-patch" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de/modding/mod-file-overwriting-to-patch</loc>
@@ -202,6 +258,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/modding/mod-file-overwriting-to-patch" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/modding/mod-file-overwriting-to-patch" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/modding/mod-file-overwriting-to-patch" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr/modding/mod-file-overwriting-to-patch</loc>
@@ -209,6 +267,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/modding/mod-file-overwriting-to-patch" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/modding/mod-file-overwriting-to-patch" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/modding/mod-file-overwriting-to-patch" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/software-engineering/a-question-of-databases</loc>
@@ -216,6 +276,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/software-engineering/a-question-of-databases" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/software-engineering/a-question-of-databases" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/software-engineering/a-question-of-databases" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de/software-engineering/a-question-of-databases</loc>
@@ -223,6 +285,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/software-engineering/a-question-of-databases" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/software-engineering/a-question-of-databases" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/software-engineering/a-question-of-databases" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr/software-engineering/a-question-of-databases</loc>
@@ -230,6 +294,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/software-engineering/a-question-of-databases" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/software-engineering/a-question-of-databases" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/software-engineering/a-question-of-databases" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/software-engineering/is-x-a-growth-hack</loc>
@@ -237,6 +303,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/software-engineering/is-x-a-growth-hack" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/software-engineering/is-x-a-growth-hack" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/software-engineering/is-x-a-growth-hack" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de/software-engineering/is-x-a-growth-hack</loc>
@@ -244,6 +312,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/software-engineering/is-x-a-growth-hack" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/software-engineering/is-x-a-growth-hack" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/software-engineering/is-x-a-growth-hack" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr/software-engineering/is-x-a-growth-hack</loc>
@@ -251,6 +321,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/software-engineering/is-x-a-growth-hack" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/software-engineering/is-x-a-growth-hack" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/software-engineering/is-x-a-growth-hack" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/world-building/power-of-names</loc>
@@ -258,6 +330,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/world-building/power-of-names" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/world-building/power-of-names" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/world-building/power-of-names" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de/world-building/power-of-names</loc>
@@ -265,6 +339,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/world-building/power-of-names" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/world-building/power-of-names" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/world-building/power-of-names" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr/world-building/power-of-names</loc>
@@ -272,6 +348,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/world-building/power-of-names" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/world-building/power-of-names" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/world-building/power-of-names" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/software-engineering/blogging-experience</loc>
@@ -279,6 +357,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/software-engineering/blogging-experience" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/software-engineering/blogging-experience" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/software-engineering/blogging-experience" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de/software-engineering/blogging-experience</loc>
@@ -286,6 +366,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/software-engineering/blogging-experience" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/software-engineering/blogging-experience" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/software-engineering/blogging-experience" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr/software-engineering/blogging-experience</loc>
@@ -293,6 +375,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/software-engineering/blogging-experience" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/software-engineering/blogging-experience" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/software-engineering/blogging-experience" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/modding/idrinth-thalui-in-skyrim-v1-1</loc>
@@ -300,6 +384,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/modding/idrinth-thalui-in-skyrim-v1-1" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/modding/idrinth-thalui-in-skyrim-v1-1" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/modding/idrinth-thalui-in-skyrim-v1-1" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de/modding/idrinth-thalui-in-skyrim-v1-1</loc>
@@ -307,6 +393,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/modding/idrinth-thalui-in-skyrim-v1-1" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/modding/idrinth-thalui-in-skyrim-v1-1" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/modding/idrinth-thalui-in-skyrim-v1-1" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr/modding/idrinth-thalui-in-skyrim-v1-1</loc>
@@ -314,6 +402,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/modding/idrinth-thalui-in-skyrim-v1-1" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/modding/idrinth-thalui-in-skyrim-v1-1" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/modding/idrinth-thalui-in-skyrim-v1-1" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/tag/patch</loc>
@@ -321,6 +411,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/patch" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/patch" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/patch" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de/tag/patch</loc>
@@ -328,6 +420,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/patch" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/patch" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/patch" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr/tag/patch</loc>
@@ -335,6 +429,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/patch" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/patch" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/patch" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/tag/total-war-warhammer-3</loc>
@@ -342,6 +438,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/total-war-warhammer-3" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/total-war-warhammer-3" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/total-war-warhammer-3" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de/tag/total-war-warhammer-3</loc>
@@ -349,6 +447,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/total-war-warhammer-3" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/total-war-warhammer-3" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/total-war-warhammer-3" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr/tag/total-war-warhammer-3</loc>
@@ -356,6 +456,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/total-war-warhammer-3" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/total-war-warhammer-3" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/total-war-warhammer-3" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/tag/mod-configuration-tool</loc>
@@ -363,6 +465,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/mod-configuration-tool" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/mod-configuration-tool" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/mod-configuration-tool" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de/tag/mod-configuration-tool</loc>
@@ -370,6 +474,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/mod-configuration-tool" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/mod-configuration-tool" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/mod-configuration-tool" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr/tag/mod-configuration-tool</loc>
@@ -377,6 +483,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/mod-configuration-tool" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/mod-configuration-tool" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/mod-configuration-tool" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/tag/github</loc>
@@ -384,6 +492,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/github" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/github" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/github" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de/tag/github</loc>
@@ -391,6 +501,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/github" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/github" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/github" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr/tag/github</loc>
@@ -398,6 +510,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/github" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/github" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/github" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/tag/database</loc>
@@ -405,6 +519,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/database" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/database" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/database" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de/tag/database</loc>
@@ -412,6 +528,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/database" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/database" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/database" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr/tag/database</loc>
@@ -419,6 +537,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/database" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/database" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/database" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/tag/system-design</loc>
@@ -426,6 +546,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/system-design" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/system-design" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/system-design" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de/tag/system-design</loc>
@@ -433,6 +555,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/system-design" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/system-design" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/system-design" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr/tag/system-design</loc>
@@ -440,6 +564,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/system-design" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/system-design" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/system-design" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/tag/relational</loc>
@@ -447,6 +573,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/relational" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/relational" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/relational" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de/tag/relational</loc>
@@ -454,6 +582,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/relational" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/relational" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/relational" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr/tag/relational</loc>
@@ -461,6 +591,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/relational" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/relational" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/relational" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/tag/document</loc>
@@ -468,6 +600,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/document" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/document" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/document" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de/tag/document</loc>
@@ -475,6 +609,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/document" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/document" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/document" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr/tag/document</loc>
@@ -482,6 +618,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/document" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/document" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/document" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/tag/vector</loc>
@@ -489,6 +627,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/vector" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/vector" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/vector" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de/tag/vector</loc>
@@ -496,6 +636,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/vector" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/vector" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/vector" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr/tag/vector</loc>
@@ -503,6 +645,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/vector" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/vector" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/vector" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/tag/x</loc>
@@ -510,6 +654,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/x" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/x" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/x" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de/tag/x</loc>
@@ -517,6 +663,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/x" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/x" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/x" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr/tag/x</loc>
@@ -524,6 +672,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/x" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/x" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/x" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/tag/twitter</loc>
@@ -531,6 +681,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/twitter" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/twitter" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/twitter" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de/tag/twitter</loc>
@@ -538,6 +690,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/twitter" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/twitter" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/twitter" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr/tag/twitter</loc>
@@ -545,6 +699,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/twitter" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/twitter" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/twitter" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/tag/growth</loc>
@@ -552,6 +708,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/growth" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/growth" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/growth" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de/tag/growth</loc>
@@ -559,6 +717,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/growth" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/growth" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/growth" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr/tag/growth</loc>
@@ -566,6 +726,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/growth" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/growth" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/growth" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/tag/project</loc>
@@ -573,6 +735,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/project" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/project" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/project" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de/tag/project</loc>
@@ -580,6 +744,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/project" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/project" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/project" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr/tag/project</loc>
@@ -587,6 +753,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/project" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/project" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/project" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/tag/theory</loc>
@@ -594,6 +762,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/theory" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/theory" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/theory" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de/tag/theory</loc>
@@ -601,6 +771,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/theory" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/theory" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/theory" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr/tag/theory</loc>
@@ -608,6 +780,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/theory" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/theory" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/theory" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/tag/names</loc>
@@ -615,6 +789,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/names" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/names" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/names" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de/tag/names</loc>
@@ -622,6 +798,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/names" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/names" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/names" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr/tag/names</loc>
@@ -629,6 +807,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/names" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/names" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/names" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/tag/immersion</loc>
@@ -636,6 +816,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/immersion" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/immersion" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/immersion" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de/tag/immersion</loc>
@@ -643,6 +825,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/immersion" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/immersion" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/immersion" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr/tag/immersion</loc>
@@ -650,6 +834,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/immersion" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/immersion" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/immersion" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/tag/php</loc>
@@ -657,6 +843,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/php" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/php" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/php" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de/tag/php</loc>
@@ -664,6 +852,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/php" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/php" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/php" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr/tag/php</loc>
@@ -671,6 +861,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/php" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/php" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/php" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/tag/static-site</loc>
@@ -678,6 +870,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/static-site" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/static-site" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/static-site" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de/tag/static-site</loc>
@@ -685,6 +879,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/static-site" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/static-site" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/static-site" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr/tag/static-site</loc>
@@ -692,6 +888,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/static-site" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/static-site" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/static-site" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/tag/skyrim</loc>
@@ -699,6 +897,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/skyrim" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/skyrim" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/skyrim" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de/tag/skyrim</loc>
@@ -706,6 +906,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/skyrim" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/skyrim" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/skyrim" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr/tag/skyrim</loc>
@@ -713,6 +915,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/skyrim" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/skyrim" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/skyrim" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/tag/follower</loc>
@@ -720,6 +924,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/follower" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/follower" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/follower" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de/tag/follower</loc>
@@ -727,6 +933,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/follower" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/follower" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/follower" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr/tag/follower</loc>
@@ -734,6 +942,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/follower" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/follower" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/follower" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/tag/announcement</loc>
@@ -741,6 +951,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/announcement" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/announcement" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/announcement" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de/tag/announcement</loc>
@@ -748,6 +960,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/announcement" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/announcement" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/announcement" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr/tag/announcement</loc>
@@ -755,6 +969,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/announcement" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/announcement" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/announcement" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/imprint</loc>
@@ -762,6 +978,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/imprint" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/imprint" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/imprint" />
+    <changefreq>monthly</changefreq>
+    <priority>0.2</priority>
   </url>
   <url>
     <loc>https://idrinth.de/de/imprint</loc>
@@ -769,6 +987,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/imprint" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/imprint" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/imprint" />
+    <changefreq>monthly</changefreq>
+    <priority>0.2</priority>
   </url>
   <url>
     <loc>https://idrinth.de/fr/imprint</loc>
@@ -776,6 +996,8 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/imprint" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/imprint" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/imprint" />
+    <changefreq>monthly</changefreq>
+    <priority>0.2</priority>
   </url>
 
 </urlset>

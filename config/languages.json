@@ -12,7 +12,9 @@
         "tag_description": "See the latest posts of the keyword %s here.",
         "more": "Read more",
         "home_intro": "Welcome to my tiny blog, I hope you'll feel at home here and enjoy your stay. Why not start with one of the latest posts below?",
-        "tag_intro": "These are posts tagged with %s."
+        "tag_intro": "These are posts tagged with %s.",
+        "rss_feed_title": "RSS Feed",
+        "atom_feed_title": "Atom Feed"
     },
     "de": {
         "latest_posts": "Neueste Beitr\u00e4ge",
@@ -27,7 +29,9 @@
         "tag_description": "Hier findest du die neuesten Beitr\u00e4ge zum Stichwort %s.",
         "more": "Weiterlesen",
         "home_intro": "Willkommen auf meinem kleinen Blog! Ich hoffe, du fühlst dich hier wie zu Hause und genießt deinen Aufenthalt. Lies doch gleich einen der neuesten Beiträge unten.",
-        "tag_intro": "Dies sind Beitr\u00e4ge mit dem Stichwort %s."
+        "tag_intro": "Dies sind Beitr\u00e4ge mit dem Stichwort %s.",
+        "rss_feed_title": "RSS-Feed",
+        "atom_feed_title": "Atom-Feed"
     },
     "fr": {
         "latest_posts": "Derniers articles",
@@ -42,6 +46,8 @@
         "tag_description": "D\u00e9couvrez les derniers articles du mot-cl\u00e9 %s ici.",
         "more": "Lire la suite",
         "home_intro": "Bienvenue sur mon petit blog! J'espère que vous vous sentirez comme chez vous et que vous apprécierez votre visite. Pourquoi ne pas commencer par lire l'un des derniers articles ci-dessous?",
-        "tag_intro": "Voici les articles avec le mot-cl\u00e9 %s."
+        "tag_intro": "Voici les articles avec le mot-cl\u00e9 %s.",
+        "rss_feed_title": "Flux RSS",
+        "atom_feed_title": "Flux Atom"
     }
 }

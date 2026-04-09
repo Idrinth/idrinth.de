@@ -260,6 +260,17 @@ function getRelatedPosts(array $currentPost, array $allPosts, int $maxResults = 
     return array_slice(array_column($scored, 'post'), 0, $maxResults);
 }
 
+function buildFeedLinks(string $lang, string $feedBasePath): string
+{
+    global $translations;
+    $rssTitle = $translations[$lang]['rss_feed_title'];
+    $atomTitle = $translations[$lang]['atom_feed_title'];
+    $rssHref = '/' . $lang . $feedBasePath . '/feed.rss';
+    $atomHref = '/' . $lang . $feedBasePath . '/feed.atom';
+    return '<link rel="alternate" type="application/rss+xml" title="' . htmlspecialchars($rssTitle) . '" href="' . $rssHref . '">' . "\n    "
+         . '<link rel="alternate" type="application/atom+xml" title="' . htmlspecialchars($atomTitle) . '" href="' . $atomHref . '">';
+}
+
 function tagSlug(string $tag): string
 {
     $slug = preg_replace('/[^a-z0-9]+/', '-', strtolower($tag));
@@ -646,6 +657,7 @@ foreach ($posts as $post) {
         $page = str_replace('###HREFLANG###', buildHreflangHtml($category . '/' . $slug, 'https://idrinth.de', $languages), $page);
         $page = str_replace('###CANONICAL_URL###', 'https://idrinth.de/' . $lang . '/' . $category . '/' . $slug, $page);
         $page = str_replace('###META_KEYWORDS###', '<meta name="keywords" content="' . htmlspecialchars(implode(', ', $post['tags'] ?? [])) . '">', $page);
+        $page = str_replace('###FEED_LINKS###', buildFeedLinks($lang, ''), $page);
         $page = str_replace('###ASIDE###', $asideTemplates[$lang], $page);
         $page = str_replace('###CONTENT###', $content, $page);
 
@@ -693,6 +705,7 @@ if ($postsChanged) {
         $page = str_replace('###HREFLANG###', buildHreflangHtml('', 'https://idrinth.de', $languages), $page);
         $page = str_replace('###CANONICAL_URL###', 'https://idrinth.de/' . $lang, $page);
         $page = str_replace('###META_KEYWORDS###', '', $page);
+        $page = str_replace('###FEED_LINKS###', buildFeedLinks($lang, ''), $page);
         $page = str_replace('###ASIDE###', '', $page);
         $page = str_replace('###CONTENT###', $listingContent, $page);
 
@@ -746,6 +759,7 @@ if ($postsChanged) {
             $page = str_replace('###HREFLANG###', buildHreflangHtml($category, 'https://idrinth.de', $languages), $page);
             $page = str_replace('###CANONICAL_URL###', 'https://idrinth.de/' . $lang . '/' . $category, $page);
             $page = str_replace('###META_KEYWORDS###', '', $page);
+            $page = str_replace('###FEED_LINKS###', buildFeedLinks($lang, '/' . $category), $page);
             $page = str_replace('###ASIDE###', '', $page);
             $page = str_replace('###CONTENT###', $listingContent, $page);
 
@@ -802,6 +816,7 @@ if ($postsChanged) {
             $page = str_replace('###HREFLANG###', buildHreflangHtml('tag/' . $tagDirName, 'https://idrinth.de', $languages), $page);
             $page = str_replace('###CANONICAL_URL###', 'https://idrinth.de/' . $lang . '/tag/' . $tagDirName, $page);
             $page = str_replace('###META_KEYWORDS###', '', $page);
+            $page = str_replace('###FEED_LINKS###', buildFeedLinks($lang, '/tag/' . $tagDirName), $page);
             $page = str_replace('###ASIDE###', '', $page);
             $page = str_replace('###CONTENT###', $listingContent, $page);
 
@@ -829,6 +844,7 @@ foreach ($languages as $lang) {
     $page = str_replace('###HREFLANG###', '', $page);
     $page = str_replace('###CANONICAL_URL###', 'https://idrinth.de/' . $lang . '/404', $page);
     $page = str_replace('###META_KEYWORDS###', '', $page);
+    $page = str_replace('###FEED_LINKS###', buildFeedLinks($lang, ''), $page);
     $page = str_replace('###ASIDE###', $asideTemplates[$lang], $page);
     $page = str_replace('###CONTENT###', $notFoundTemplates[$lang], $page);
     file_put_contents($notFoundDir . '/' . $lang . '.html', minifyHtml($page));
@@ -847,6 +863,7 @@ foreach ($languages as $lang) {
     $page = str_replace('###HREFLANG###', buildHreflangHtml('imprint', 'https://idrinth.de', $languages), $page);
     $page = str_replace('###CANONICAL_URL###', 'https://idrinth.de/' . $lang . '/imprint', $page);
     $page = str_replace('###META_KEYWORDS###', '', $page);
+    $page = str_replace('###FEED_LINKS###', buildFeedLinks($lang, ''), $page);
     $page = str_replace('###ASIDE###', $asideTemplates[$lang], $page);
     $page = str_replace('###CONTENT###', $imprintTemplates[$lang], $page);
     file_put_contents($imprintDir . '/' . $lang . '.html', minifyHtml($page));
@@ -865,6 +882,7 @@ foreach ($languages as $lang) {
     $page = str_replace('###HREFLANG###', '', $page);
     $page = str_replace('###CANONICAL_URL###', 'https://idrinth.de/' . $lang . '/canceled', $page);
     $page = str_replace('###META_KEYWORDS###', '', $page);
+    $page = str_replace('###FEED_LINKS###', buildFeedLinks($lang, ''), $page);
     $page = str_replace('###ASIDE###', $asideTemplates[$lang], $page);
     $page = str_replace('###CONTENT###', $canceledTemplates[$lang], $page);
     $page = str_replace('<meta name="description"', '<meta name="robots" content="noindex, nofollow">' . "\n" . '    <meta name="description"', $page);
@@ -884,6 +902,7 @@ foreach ($languages as $lang) {
     $page = str_replace('###HREFLANG###', '', $page);
     $page = str_replace('###CANONICAL_URL###', 'https://idrinth.de/' . $lang . '/thank-you', $page);
     $page = str_replace('###META_KEYWORDS###', '', $page);
+    $page = str_replace('###FEED_LINKS###', buildFeedLinks($lang, ''), $page);
     $page = str_replace('###ASIDE###', $asideTemplates[$lang], $page);
     $page = str_replace('###CONTENT###', $thankYouTemplates[$lang], $page);
     $page = str_replace('<meta name="description"', '<meta name="robots" content="noindex, nofollow">' . "\n" . '    <meta name="description"', $page);
@@ -937,6 +956,7 @@ $statsPage = str_replace('###PAGE_DESCRIPTION###', htmlspecialchars($translation
 $statsPage = str_replace('###HREFLANG###', '', $statsPage);
 $statsPage = str_replace('###CANONICAL_URL###', 'https://idrinth.de/en/statistics', $statsPage);
 $statsPage = str_replace('###META_KEYWORDS###', '', $statsPage);
+$statsPage = str_replace('###FEED_LINKS###', buildFeedLinks('en', ''), $statsPage);
 $statsPage = str_replace('###ASIDE###', $asideTemplates['en'], $statsPage);
 $statsPage = str_replace('###CONTENT###', $statsContent, $statsPage);
 $statsPage = str_replace('<meta name="description"', '<meta name="robots" content="noindex, nofollow">' . "\n" . '    <meta name="description"', $statsPage);

@@ -106,7 +106,8 @@ function inlineMarkdown(string $text): string
     $text = preg_replace('/\*\*(.+?)\*\*/', '<strong>$1</strong>', $text);
     // Italic
     $text = preg_replace('/\*(.+?)\*/', '<em>$1</em>', $text);
-    // Links [text](url)
+    // Links [text](url) - external links get target="_blank"
+    $text = preg_replace('/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/', '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>', $text);
     $text = preg_replace('/\[([^\]]+)\]\(([^)]+)\)/', '<a href="$2">$1</a>', $text);
     return $text;
 }

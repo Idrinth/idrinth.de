@@ -1,0 +1,38 @@
+{
+  "category": "games",
+  "tags": [
+   "travian",
+   "browsergame",
+   "guilty pleasure",
+   "strategy"
+  ],
+  "date": "2026-04-11",
+  "links": [
+    {
+      "link": "https://travian.idrinth.de",
+      "name": {
+        "en": "Travian Tools",
+        "de": "Travian Tools",
+        "fr": "Travian Tools"
+      },
+      "description": {
+        "en": "Check out the mentioned tools",
+        "de": "",
+        "fr": ""
+      }
+    },
+    {
+      "link": "https://www.travian.com/",
+      "name": {
+        "en": "Travian",
+        "de": "Travian",
+        "fr": "Travian"
+      },
+      "description": {
+        "en": "Check out the game",
+        "de": "",
+        "fr": ""
+      }
+    }
+  ]
+}

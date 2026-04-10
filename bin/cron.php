@@ -970,7 +970,7 @@ foreach ($languages as $lang) {
     $pathIndex = [];
     $wordScores = [];
 
-    foreach ($posts as $post) {
+    foreach ($publishedPosts as $post) {
         $slug = $post['slug'];
         $category = $post['category'];
         $articlePath = $category . '/' . $slug;

@@ -398,23 +398,8 @@ foreach ($feedFormats as $feedFile => $contentType) {
         break;
     }
 }
-if ($uri === '') {
-    findAndExit($uri, $language);
-}
 if (!str_contains($uri, '.')) {
-    if ($uri === 'imprint') {
-        findAndExit($uri, $language, false);
-    }
-    if ($uri === 'thank-you') {
-        findAndExit($uri, $language, false);
-    }
-    if ($uri === 'statistics') {
-        findAndExit($uri, 'en', false);
-    }
-    if ($uri === 'canceled') {
-        findAndExit($uri, $language, false);
-    }
-    findAndExit($uri, $language);
+    findAndExit($uri, $language, !in_array($uri, ['imprint', 'thank-you', 'statistics', 'canceled'], true));
 }
 header('Content-type: text/html; charset=utf-8', true, 404);
 findAndExit('404', $language, false);

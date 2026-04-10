@@ -928,6 +928,7 @@ foreach ($posts as $post) {
     $row = str_replace('###POST_CATEGORY###', htmlspecialchars($categoryTitle), $row);
     $row = str_replace('###POST_PATH###', $dataPath, $row);
     $row = str_replace('###POST_CATEGORY_SLUG###', htmlspecialchars($post['category']), $row);
+    $row = str_replace('###POST_DATE###', htmlspecialchars($post['date']), $row);
     $postRows .= $row;
 }
 

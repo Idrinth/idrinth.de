@@ -327,6 +327,25 @@ if ($uri === 'lang-stats') {
     echo json_encode($result);
     exit;
 }
+if ($uri === 'ad-stats') {
+    $result = [];
+    foreach (glob(ROOT_DIR . '/ads/*', GLOB_ONLYDIR) as $adDir) {
+        $month = basename($adDir);
+        $entry = ['month' => $month];
+        foreach (['leaderboard', 'banner', 'mobile'] as $size) {
+            $file = $adDir . '/viewed-' . $size . '.txt';
+            $entry[$size] = is_file($file) ? (int)file_get_contents($file) : 0;
+        }
+        $uniqueFile = $adDir . '/unique-viewed.txt';
+        $entry['unique'] = is_file($uniqueFile) ? (int)file_get_contents($uniqueFile) : 0;
+        $result[] = $entry;
+    }
+    usort($result, function ($a, $b) { return strcmp($b['month'], $a['month']); });
+    header('Content-type: application/json');
+    header('Cache-Control: no-cache');
+    echo json_encode($result);
+    exit;
+}
 if ($uri === 'random') {
     $postsFile = ROOT_DIR . '/output/posts.json';
     if (is_file($postsFile)) {

@@ -232,7 +232,10 @@ paths[path].down.forEach(function(el) { el.textContent = data.down; });
 }
 if (document.querySelector('.vote-up-stat[data-vote-path]')) {
 var scheduleStatVotes = window.requestIdleCallback || function(cb) { setTimeout(cb, 200); };
-scheduleStatVotes(loadStatVotes);
+scheduleStatVotes(function() {
+loadStatVotes();
+setInterval(loadStatVotes, 60000);
+});
 }
 function loadLangStats() {
 fetch('/lang-stats')
@@ -240,6 +243,7 @@ fetch('/lang-stats')
 .then(function(data) {
 var tbody = document.getElementById('lang-stats-body');
 if (!tbody) return;
+tbody.innerHTML = '';
 Object.keys(data).forEach(function(month) {
 var row = document.createElement('tr');
 var monthCell = document.createElement('td');
@@ -256,7 +260,35 @@ tbody.appendChild(row);
 }
 if (document.getElementById('lang-stats-body')) {
 var scheduleLangStats = window.requestIdleCallback || function(cb) { setTimeout(cb, 200); };
-scheduleLangStats(loadLangStats);
+scheduleLangStats(function() {
+loadLangStats();
+setInterval(loadLangStats, 60000);
+});
+}
+function loadAdStats() {
+fetch('/ad-stats')
+.then(function(r) { return r.json(); })
+.then(function(data) {
+var tbody = document.getElementById('ad-stats-body');
+if (!tbody) return;
+tbody.innerHTML = '';
+data.forEach(function(entry) {
+var row = document.createElement('tr');
+['month', 'leaderboard', 'banner', 'mobile', 'unique'].forEach(function(key) {
+var cell = document.createElement('td');
+cell.textContent = key === 'month' ? entry[key] : (entry[key] || 0) + ' ' + viewsLabel;
+row.appendChild(cell);
+});
+tbody.appendChild(row);
+});
+});
+}
+if (document.getElementById('ad-stats-body')) {
+var scheduleAdStats = window.requestIdleCallback || function(cb) { setTimeout(cb, 200); };
+scheduleAdStats(function() {
+loadAdStats();
+setInterval(loadAdStats, 60000);
+});
 }
 document.addEventListener('click', function(e) {
 var btn = e.target.closest('.vote-up, .vote-down');

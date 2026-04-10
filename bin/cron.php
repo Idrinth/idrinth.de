@@ -910,59 +910,87 @@ foreach ($languages as $lang) {
     precompress($thankYouDir . '/' . $lang . '.html');
 }
 
-// Generate statistics page (English only, not linked or in sitemap)
+// Generate statistics page per language (not linked or in sitemap)
 $statisticsDir = ROOT_DIR . '/output/statistics';
 if (!is_dir($statisticsDir)) {
     mkdir($statisticsDir, 0755, true);
 }
 
-$postRows = '';
-foreach ($posts as $post) {
-    $mdFile = ROOT_DIR . '/posts/' . $post['slug'] . '/en.md';
-    $title = is_file($mdFile) ? extractTitle(file_get_contents($mdFile), $post['slug']) : $post['slug'];
-    $categoryTitle = $translations['en']['categories'][$post['category']] ?? $post['category'];
-    $dataPath = htmlspecialchars($post['category'] . '/' . $post['slug']);
-
-    $row = $statisticsPostRowTemplate;
-    $row = str_replace('###POST_TITLE###', htmlspecialchars($title), $row);
-    $row = str_replace('###POST_CATEGORY###', htmlspecialchars($categoryTitle), $row);
-    $row = str_replace('###POST_PATH###', $dataPath, $row);
-    $row = str_replace('###POST_CATEGORY_SLUG###', htmlspecialchars($post['category']), $row);
-    $row = str_replace('###POST_DATE###', htmlspecialchars($post['date']), $row);
-    $postRows .= $row;
-}
-
-$categoryRows = '';
 $categoryCounts = [];
 foreach ($posts as $post) {
     $categoryCounts[$post['category']] = ($categoryCounts[$post['category']] ?? 0) + 1;
 }
 arsort($categoryCounts);
-foreach ($categoryCounts as $cat => $count) {
-    $categoryTitle = $translations['en']['categories'][$cat] ?? $cat;
-    $row = $statisticsCategoryRowTemplate;
-    $row = str_replace('###CATEGORY_TITLE###', htmlspecialchars($categoryTitle), $row);
-    $row = str_replace('###CATEGORY_SLUG###', htmlspecialchars($cat), $row);
-    $row = str_replace('###CATEGORY_COUNT###', (string)$count, $row);
-    $categoryRows .= $row;
+
+foreach ($languages as $lang) {
+    $postRows = '';
+    foreach ($posts as $post) {
+        $mdFile = ROOT_DIR . '/posts/' . $post['slug'] . '/' . $lang . '.md';
+        if (!is_file($mdFile)) {
+            $mdFile = ROOT_DIR . '/posts/' . $post['slug'] . '/en.md';
+        }
+        $title = is_file($mdFile) ? extractTitle(file_get_contents($mdFile), $post['slug']) : $post['slug'];
+        $categoryTitle = $translations[$lang]['categories'][$post['category']] ?? $post['category'];
+        $dataPath = htmlspecialchars($post['category'] . '/' . $post['slug']);
+
+        $row = $statisticsPostRowTemplate;
+        $row = str_replace('###LANG###', $lang, $row);
+        $row = str_replace('###POST_TITLE###', htmlspecialchars($title), $row);
+        $row = str_replace('###POST_CATEGORY###', htmlspecialchars($categoryTitle), $row);
+        $row = str_replace('###POST_PATH###', $dataPath, $row);
+        $row = str_replace('###POST_CATEGORY_SLUG###', htmlspecialchars($post['category']), $row);
+        $row = str_replace('###POST_DATE###', htmlspecialchars($post['date']), $row);
+        $postRows .= $row;
+    }
+
+    $categoryRows = '';
+    foreach ($categoryCounts as $cat => $count) {
+        $categoryTitle = $translations[$lang]['categories'][$cat] ?? $cat;
+        $row = $statisticsCategoryRowTemplate;
+        $row = str_replace('###CATEGORY_TITLE###', htmlspecialchars($categoryTitle), $row);
+        $row = str_replace('###CATEGORY_SLUG###', htmlspecialchars($cat), $row);
+        $row = str_replace('###CATEGORY_COUNT###', (string)$count, $row);
+        $categoryRows .= $row;
+    }
+
+    $statsContent = $statisticsTemplate;
+    $statsContent = str_replace('###STATISTICS_TITLE###', htmlspecialchars($translations[$lang]['statistics_title']), $statsContent);
+    $statsContent = str_replace('###STATISTICS_VIEWS_PER_POST###', htmlspecialchars($translations[$lang]['statistics_views_per_post']), $statsContent);
+    $statsContent = str_replace('###STATISTICS_LANGUAGE_DISTRIBUTION###', htmlspecialchars($translations[$lang]['statistics_language_distribution']), $statsContent);
+    $statsContent = str_replace('###STATISTICS_AD_VIEWS###', htmlspecialchars($translations[$lang]['statistics_ad_views']), $statsContent);
+    $statsContent = str_replace('###STATISTICS_CATEGORIES###', htmlspecialchars($translations[$lang]['statistics_categories']), $statsContent);
+    $statsContent = str_replace('###STATISTICS_POST###', htmlspecialchars($translations[$lang]['statistics_post']), $statsContent);
+    $statsContent = str_replace('###STATISTICS_CATEGORY###', htmlspecialchars($translations[$lang]['statistics_category']), $statsContent);
+    $statsContent = str_replace('###STATISTICS_PUBLISHED###', htmlspecialchars($translations[$lang]['statistics_published']), $statsContent);
+    $statsContent = str_replace('###STATISTICS_VIEWS###', htmlspecialchars($translations[$lang]['statistics_views']), $statsContent);
+    $statsContent = str_replace('###STATISTICS_READERS###', htmlspecialchars($translations[$lang]['statistics_readers']), $statsContent);
+    $statsContent = str_replace('###STATISTICS_VOTES_UP###', htmlspecialchars($translations[$lang]['statistics_votes_up']), $statsContent);
+    $statsContent = str_replace('###STATISTICS_VOTES_DOWN###', htmlspecialchars($translations[$lang]['statistics_votes_down']), $statsContent);
+    $statsContent = str_replace('###STATISTICS_MONTH###', htmlspecialchars($translations[$lang]['statistics_month']), $statsContent);
+    $statsContent = str_replace('###STATISTICS_ENGLISH###', htmlspecialchars($translations[$lang]['statistics_english']), $statsContent);
+    $statsContent = str_replace('###STATISTICS_GERMAN###', htmlspecialchars($translations[$lang]['statistics_german']), $statsContent);
+    $statsContent = str_replace('###STATISTICS_FRENCH###', htmlspecialchars($translations[$lang]['statistics_french']), $statsContent);
+    $statsContent = str_replace('###STATISTICS_LEADERBOARD###', htmlspecialchars($translations[$lang]['statistics_leaderboard']), $statsContent);
+    $statsContent = str_replace('###STATISTICS_BANNER###', htmlspecialchars($translations[$lang]['statistics_banner']), $statsContent);
+    $statsContent = str_replace('###STATISTICS_MOBILE###', htmlspecialchars($translations[$lang]['statistics_mobile']), $statsContent);
+    $statsContent = str_replace('###STATISTICS_UNIQUE_VIEWERS###', htmlspecialchars($translations[$lang]['statistics_unique_viewers']), $statsContent);
+    $statsContent = str_replace('###STATISTICS_POSTS###', htmlspecialchars($translations[$lang]['statistics_posts']), $statsContent);
+    $statsContent = str_replace('###STATS_POST_ROWS###', $postRows, $statsContent);
+    $statsContent = str_replace('###STATS_CATEGORY_ROWS###', $categoryRows, $statsContent);
+
+    $statsPage = $mainTemplates[$lang];
+    $statsPage = str_replace('###PAGE_TITLE###', $translations[$lang]['statistics_title'], $statsPage);
+    $statsPage = str_replace('###PAGE_DESCRIPTION###', htmlspecialchars($translations[$lang]['default_description']), $statsPage);
+    $statsPage = str_replace('###HREFLANG###', '', $statsPage);
+    $statsPage = str_replace('###CANONICAL_URL###', 'https://idrinth.de/' . $lang . '/statistics', $statsPage);
+    $statsPage = str_replace('###META_KEYWORDS###', '', $statsPage);
+    $statsPage = str_replace('###FEED_LINKS###', buildFeedLinks($lang, ''), $statsPage);
+    $statsPage = str_replace('###ASIDE###', $asideTemplates[$lang], $statsPage);
+    $statsPage = str_replace('###CONTENT###', $statsContent, $statsPage);
+    $statsPage = str_replace('<meta name="description"', '<meta name="robots" content="noindex, nofollow">' . "\n" . '    <meta name="description"', $statsPage);
+    file_put_contents($statisticsDir . '/' . $lang . '.html', minifyHtml($statsPage));
+    precompress($statisticsDir . '/' . $lang . '.html');
 }
-
-$statsContent = $statisticsTemplate;
-$statsContent = str_replace('###STATS_POST_ROWS###', $postRows, $statsContent);
-$statsContent = str_replace('###STATS_CATEGORY_ROWS###', $categoryRows, $statsContent);
-
-$statsPage = $mainTemplates['en'];
-$statsPage = str_replace('###PAGE_TITLE###', 'Statistics', $statsPage);
-$statsPage = str_replace('###PAGE_DESCRIPTION###', htmlspecialchars($translations['en']['default_description']), $statsPage);
-$statsPage = str_replace('###HREFLANG###', '', $statsPage);
-$statsPage = str_replace('###CANONICAL_URL###', 'https://idrinth.de/en/statistics', $statsPage);
-$statsPage = str_replace('###META_KEYWORDS###', '', $statsPage);
-$statsPage = str_replace('###FEED_LINKS###', buildFeedLinks('en', ''), $statsPage);
-$statsPage = str_replace('###ASIDE###', $asideTemplates['en'], $statsPage);
-$statsPage = str_replace('###CONTENT###', $statsContent, $statsPage);
-$statsPage = str_replace('<meta name="description"', '<meta name="robots" content="noindex, nofollow">' . "\n" . '    <meta name="description"', $statsPage);
-file_put_contents($statisticsDir . '/en.html', minifyHtml($statsPage));
-precompress($statisticsDir . '/en.html');
 
 // Generate weighted word score index per language
 foreach ($languages as $lang) {

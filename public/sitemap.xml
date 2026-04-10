@@ -244,6 +244,33 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://idrinth.de/en/world-building/ancient-gods-and-modern-settings</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/world-building/ancient-gods-and-modern-settings" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/world-building/ancient-gods-and-modern-settings" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/world-building/ancient-gods-and-modern-settings" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/world-building/ancient-gods-and-modern-settings" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/world-building/ancient-gods-and-modern-settings</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/world-building/ancient-gods-and-modern-settings" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/world-building/ancient-gods-and-modern-settings" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/world-building/ancient-gods-and-modern-settings" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/world-building/ancient-gods-and-modern-settings" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/world-building/ancient-gods-and-modern-settings</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/world-building/ancient-gods-and-modern-settings" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/world-building/ancient-gods-and-modern-settings" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/world-building/ancient-gods-and-modern-settings" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/world-building/ancient-gods-and-modern-settings" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://idrinth.de/en/modding/mod-file-overwriting-to-patch</loc>
         <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/modding/mod-file-overwriting-to-patch" />
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/modding/mod-file-overwriting-to-patch" />
@@ -404,6 +431,87 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/modding/idrinth-thalui-in-skyrim-v1-1" />
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/gods</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/gods" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/gods" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/gods" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/gods" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/gods</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/gods" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/gods" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/gods" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/gods" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/gods</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/gods" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/gods" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/gods" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/gods" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/divinity</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/divinity" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/divinity" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/divinity" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/divinity" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/divinity</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/divinity" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/divinity" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/divinity" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/divinity" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/divinity</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/divinity" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/divinity" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/divinity" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/divinity" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/belief</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/belief" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/belief" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/belief" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/belief" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/belief</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/belief" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/belief" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/belief" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/belief" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/belief</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/belief" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/belief" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/belief" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/belief" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/tag/patch</loc>

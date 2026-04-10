@@ -4,7 +4,14 @@
     <link href="https://idrinth.de/de"/>
     <link href="https://idrinth.de/de/feed.atom" rel="self" type="application/atom+xml"/>
     <id>https://idrinth.de/de</id>
-    <updated>2026-04-09T00:00:00+00:00</updated>
+    <updated>2026-04-10T00:00:00+00:00</updated>
+    <entry>
+        <title>Alte Götter und moderne Settings</title>
+        <link href="https://idrinth.de/de/world-building/ancient-gods-and-modern-settings"/>
+        <id>https://idrinth.de/de/world-building/ancient-gods-and-modern-settings</id>
+        <updated>2026-04-10T00:00:00+00:00</updated>
+        <summary>Ich arbeite gerade an einem kleinen Projekt, das versucht, ein Regelwerk über göttliche Vererbung und Spurenstärke...</summary>
+    </entry>
     <entry>
         <title>Mod-Dateien überschreiben, um zu patchen</title>
         <link href="https://idrinth.de/de/modding/mod-file-overwriting-to-patch"/>

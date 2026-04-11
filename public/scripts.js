@@ -208,6 +208,43 @@ fetch('/votes/' + votePath)
 upCount.textContent = data.up;
 downCount.textContent = data.down;
 });
+var readStartTime = Date.now();
+var readAccumulated = 0;
+var readVisible = !document.hidden;
+var readTimeSent = false;
+var readSessionId = Math.random().toString(36).substr(2, 12);
+function sendReadTime() {
+var total = readAccumulated;
+if (readVisible) {
+total += Date.now() - readStartTime;
+}
+if (total < 5000) return;
+var seconds = Math.min(Math.round(total / 1000), 3600);
+navigator.sendBeacon('/readtime/' + votePath, seconds + ':' + readSessionId);
+readTimeSent = true;
+}
+function pauseReadTimer() {
+if (readVisible) {
+readAccumulated += Date.now() - readStartTime;
+}
+readVisible = false;
+sendReadTime();
+}
+function resumeReadTimer() {
+readStartTime = Date.now();
+readVisible = true;
+readTimeSent = false;
+}
+document.addEventListener('visibilitychange', function() {
+if (document.hidden) {
+pauseReadTimer();
+} else {
+resumeReadTimer();
+}
+});
+window.addEventListener('blur', pauseReadTimer);
+window.addEventListener('focus', resumeReadTimer);
+window.addEventListener('pagehide', sendReadTime);
 }
 function loadStatVotes() {
 var paths = {};
@@ -235,6 +272,41 @@ var scheduleStatVotes = window.requestIdleCallback || function(cb) { setTimeout(
 scheduleStatVotes(function() {
 loadStatVotes();
 setInterval(loadStatVotes, 60000);
+});
+}
+function formatReadTime(seconds) {
+if (seconds < 60) return seconds + 's';
+var m = Math.floor(seconds / 60);
+var s = seconds % 60;
+return m + 'm ' + s + 's';
+}
+var readtimeTitle = document.body.getAttribute('data-readtime-title') || '{count} reading sessions';
+function loadReadTimes() {
+var els = document.querySelectorAll('.readtime-stat[data-path]');
+var paths = {};
+els.forEach(function(el) {
+var path = el.getAttribute('data-path');
+if (!paths[path]) paths[path] = [];
+paths[path].push(el);
+});
+Object.keys(paths).forEach(function(path) {
+fetch('/readtime/' + path)
+.then(function(r) { return r.json(); })
+.then(function(data) {
+var text = data.sessions > 0 ? formatReadTime(data.average) : '-';
+var title = readtimeTitle.replace('{count}', data.sessions);
+paths[path].forEach(function(el) {
+el.textContent = text;
+el.setAttribute('title', title);
+});
+});
+});
+}
+if (document.querySelector('.readtime-stat[data-path]')) {
+var scheduleReadTimes = window.requestIdleCallback || function(cb) { setTimeout(cb, 200); };
+scheduleReadTimes(function() {
+loadReadTimes();
+setInterval(loadReadTimes, 60000);
 });
 }
 function loadLangStats() {

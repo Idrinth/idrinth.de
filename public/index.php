@@ -52,9 +52,34 @@ $visitorIp = $_SERVER['REMOTE_ADDR'] ?? '';
 $visitorAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
 $visitorSecretFile = ROOT_DIR . '/config/visitor-secret.key';
 if (!is_file($visitorSecretFile)) {
-    file_put_contents($visitorSecretFile, bin2hex(random_bytes(32)));
+    $fp = fopen($visitorSecretFile, 'x');
+    if ($fp === false) {
+        if (!is_file($visitorSecretFile)) {
+            error_log('Failed to create visitor secret file: ' . $visitorSecretFile);
+            header('Content-type: text/plain', true, 500);
+            echo 'Internal server error';
+            exit;
+        }
+    } else {
+        $secret = bin2hex(random_bytes(32));
+        if (fwrite($fp, $secret) === false) {
+            fclose($fp);
+            unlink($visitorSecretFile);
+            error_log('Failed to write visitor secret file: ' . $visitorSecretFile);
+            header('Content-type: text/plain', true, 500);
+            echo 'Internal server error';
+            exit;
+        }
+        fclose($fp);
+    }
 }
 $visitorSecret = file_get_contents($visitorSecretFile);
+if ($visitorSecret === false || strlen($visitorSecret) !== 64) {
+    error_log('Visitor secret file is missing or has unexpected length: ' . $visitorSecretFile);
+    header('Content-type: text/plain', true, 500);
+    echo 'Internal server error';
+    exit;
+}
 $visitorHash = hash_hmac('sha256', $visitorIp . $visitorAgent . date('Y-m-d'), $visitorSecret);
 
 function displayHTMLAndExit(string $path, bool $countView, string $language, string $contentPath, TrackerInterface $tracker, string $visitorHash): void
@@ -157,6 +182,15 @@ if ($uri === 'views' || str_starts_with($uri, 'views/')) {
         echo json_encode(['error' => 'invalid path']);
         exit;
     }
+    if ($viewPath !== '') {
+        $outputRoot = realpath(ROOT_DIR . '/output');
+        $resolvedPath = realpath(ROOT_DIR . '/output/' . $viewPath);
+        if ($resolvedPath === false || !str_starts_with($resolvedPath, $outputRoot)) {
+            header('Content-type: application/json', true, 400);
+            echo json_encode(['error' => 'invalid path']);
+            exit;
+        }
+    }
     header('Content-type: application/json');
     header('Cache-Control: no-cache');
     echo json_encode($tracker->getPageViews($viewPath));
@@ -200,6 +234,15 @@ if ($uri === 'votes' || str_starts_with($uri, 'votes/')) {
         header('Content-type: application/json', true, 400);
         echo json_encode(['error' => 'invalid path']);
         exit;
+    }
+    if ($votePath !== '') {
+        $outputRoot = realpath(ROOT_DIR . '/output');
+        $resolvedPath = realpath(ROOT_DIR . '/output/' . $votePath);
+        if ($resolvedPath === false || !str_starts_with($resolvedPath, $outputRoot)) {
+            header('Content-type: application/json', true, 400);
+            echo json_encode(['error' => 'invalid path']);
+            exit;
+        }
     }
     header('Content-type: application/json');
     header('Cache-Control: no-cache');

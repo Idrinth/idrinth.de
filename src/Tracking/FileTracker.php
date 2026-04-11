@@ -184,8 +184,14 @@ class FileTracker implements TrackerInterface
             throw new \RuntimeException('Failed to acquire lock for voting');
         }
         $contents = stream_get_contents($fp);
-        $votes = $contents !== '' ? json_decode($contents, true) : [];
-        if (!is_array($votes)) {
+        if ($contents !== '') {
+            $votes = json_decode($contents, true);
+            if (!is_array($votes) || json_last_error() !== JSON_ERROR_NONE) {
+                flock($fp, LOCK_UN);
+                fclose($fp);
+                throw new \RuntimeException('Corrupted votes.json for path: ' . $path . ' (json error: ' . json_last_error_msg() . ')');
+            }
+        } else {
             $votes = [];
         }
         $votes[$identity] = $direction;

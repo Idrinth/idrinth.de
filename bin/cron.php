@@ -964,6 +964,7 @@ foreach ($languages as $lang) {
     $statsContent = str_replace('###STATISTICS_PUBLISHED###', htmlspecialchars($translations[$lang]['statistics_published']), $statsContent);
     $statsContent = str_replace('###STATISTICS_VIEWS###', htmlspecialchars($translations[$lang]['statistics_views']), $statsContent);
     $statsContent = str_replace('###STATISTICS_READERS###', htmlspecialchars($translations[$lang]['statistics_readers']), $statsContent);
+    $statsContent = str_replace('###STATISTICS_AVG_READ_TIME###', htmlspecialchars($translations[$lang]['statistics_avg_read_time']), $statsContent);
     $statsContent = str_replace('###STATISTICS_VOTES_UP###', htmlspecialchars($translations[$lang]['statistics_votes_up']), $statsContent);
     $statsContent = str_replace('###STATISTICS_VOTES_DOWN###', htmlspecialchars($translations[$lang]['statistics_votes_down']), $statsContent);
     $statsContent = str_replace('###STATISTICS_MONTH###', htmlspecialchars($translations[$lang]['statistics_month']), $statsContent);

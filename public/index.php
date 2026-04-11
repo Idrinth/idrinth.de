@@ -305,6 +305,69 @@ if ($uri === 'votes' || str_starts_with($uri, 'votes/')) {
     echo json_encode(['up' => $up, 'down' => $down, 'rating' => $up - $down]);
     exit;
 }
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && preg_match('#^readtime/(.+)$#', $uri, $rtm)) {
+    $rtPath = $rtm[1];
+    $body = trim(file_get_contents('php://input'));
+    $seconds = (int)$body;
+    if ($seconds < 5 || $seconds > 3600) {
+        header('Content-type: application/json', true, 400);
+        echo json_encode(['error' => 'seconds must be between 5 and 3600']);
+        exit;
+    }
+    $basePath = ROOT_DIR . '/output/' . $rtPath . '/';
+    if (!is_dir($basePath)) {
+        header('Content-type: application/json', true, 404);
+        echo json_encode(['error' => 'not found']);
+        exit;
+    }
+    $ip = $_SERVER['REMOTE_ADDR'] ?? '';
+    $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
+    $date = date('Y-m-d');
+    $hash = md5($ip . $userAgent . $date);
+    $rtFile = $basePath . 'readtime.json';
+    $fp = fopen($rtFile, 'c+');
+    if ($fp && flock($fp, LOCK_EX)) {
+        $contents = stream_get_contents($fp);
+        $data = $contents !== '' ? json_decode($contents, true) : [];
+        if (!is_array($data)) {
+            $data = [];
+        }
+        $prev = $data[$hash] ?? 0;
+        $data[$hash] = max($prev, $seconds);
+        ftruncate($fp, 0);
+        rewind($fp);
+        fwrite($fp, json_encode($data));
+        flock($fp, LOCK_UN);
+        fclose($fp);
+        header('Content-type: application/json');
+        echo json_encode(['ok' => true]);
+        exit;
+    }
+    if ($fp) {
+        fclose($fp);
+    }
+    header('Content-type: application/json', true, 500);
+    echo json_encode(['error' => 'failed']);
+    exit;
+}
+if ($uri === 'readtime' || str_starts_with($uri, 'readtime/')) {
+    $rtPath = trim(substr($uri, 8), '/');
+    $basePath = ROOT_DIR . '/output/' . ($rtPath !== '' ? $rtPath . '/' : '');
+    $rtFile = $basePath . 'readtime.json';
+    $sessions = 0;
+    $average = 0;
+    if (is_file($rtFile)) {
+        $data = json_decode(file_get_contents($rtFile), true);
+        if (is_array($data) && count($data) > 0) {
+            $sessions = count($data);
+            $average = round(array_sum($data) / $sessions);
+        }
+    }
+    header('Content-type: application/json');
+    header('Cache-Control: no-cache');
+    echo json_encode(['sessions' => $sessions, 'average' => $average]);
+    exit;
+}
 if ($uri === 'lang-stats') {
     $dir = ROOT_DIR . '/output/lang-stats';
     $result = [];

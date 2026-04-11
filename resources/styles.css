@@ -191,6 +191,10 @@ main > ol.post-grid > li > a.more {
     display: inline-block;
     font-weight: bold;
     font-size: 0.9em;
+    margin-bottom: 0.75em;
+    padding-bottom: 0.75em;
+    border-bottom: 1px solid var(--shadow-color);
+    width: 100%;
 }
 time {
     color: var(--secondary-text);

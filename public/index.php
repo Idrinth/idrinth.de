@@ -1,6 +1,13 @@
 <?php
 
 define("ROOT_DIR", dirname(__DIR__));
+
+require_once ROOT_DIR . '/src/Tracking/TrackerInterface.php';
+require_once ROOT_DIR . '/src/Tracking/FileTracker.php';
+
+use Idrinth\Tracking\TrackerInterface;
+use Idrinth\Tracking\FileTracker;
+
 function preferredEncoding(): string
 {
     $accept = $_SERVER['HTTP_ACCEPT_ENCODING'] ?? '';
@@ -30,85 +37,13 @@ function sendCompressed(string $path, string $contentType): void
     header('Content-Type: ' . $contentType);
     readfile($path);
 }
-function incrementFile(string $filePath): void
-{
-    $fp = fopen($filePath, 'c+');
-    if ($fp && flock($fp, LOCK_EX)) {
-        $count = (int)stream_get_contents($fp);
-        ftruncate($fp, 0);
-        rewind($fp);
-        fwrite($fp, (string)($count + 1));
-        flock($fp, LOCK_UN);
-    }
-    if ($fp) {
-        fclose($fp);
-    }
-}
-function trackUniqueVisitor(string $visitorsFile, string $uniqueCounterFile): void
-{
-    $ip = $_SERVER['REMOTE_ADDR'] ?? '';
-    $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
-    $date = date('Y-m-d');
-    $hash = md5($ip . $userAgent . $date);
-    $fp = fopen($visitorsFile, 'c+');
-    if (!$fp || !flock($fp, LOCK_EX)) {
-        if ($fp) {
-            fclose($fp);
-        }
-        return;
-    }
-    $contents = stream_get_contents($fp);
-    $visitors = $contents !== '' ? explode("\n", trim($contents)) : [];
-    if (in_array($hash, $visitors, true)) {
-        flock($fp, LOCK_UN);
-        fclose($fp);
-        return;
-    }
-    fseek($fp, 0, SEEK_END);
-    fwrite($fp, $hash . "\n");
-    flock($fp, LOCK_UN);
-    fclose($fp);
-    incrementFile($uniqueCounterFile);
-}
-function trackLanguageVisitor(string $language): void
-{
-    $ip = $_SERVER['REMOTE_ADDR'] ?? '';
-    $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
-    $date = date('Y-m-d');
-    $hash = md5($ip . $userAgent . $date);
-    $month = date('Y-m');
-    $dir = ROOT_DIR . '/output/lang-stats';
-    if (!is_dir($dir)) {
-        mkdir($dir, 0755, true);
-    }
-    $visitorsFile = $dir . '/visitors-' . $month . '-' . $language . '.txt';
-    $counterFile = $dir . '/count-' . $month . '-' . $language . '.txt';
-    $fp = fopen($visitorsFile, 'c+');
-    if (!$fp || !flock($fp, LOCK_EX)) {
-        if ($fp) {
-            fclose($fp);
-        }
-        return;
-    }
-    $contents = stream_get_contents($fp);
-    $visitors = $contents !== '' ? explode("\n", trim($contents)) : [];
-    if (in_array($hash, $visitors, true)) {
-        flock($fp, LOCK_UN);
-        fclose($fp);
-        return;
-    }
-    fseek($fp, 0, SEEK_END);
-    fwrite($fp, $hash . "\n");
-    flock($fp, LOCK_UN);
-    fclose($fp);
-    incrementFile($counterFile);
-}
-function incrementViewCount(string $path): void
-{
-    incrementFile($path . '/viewcount.txt');
-    trackUniqueVisitor($path . '/visitors-' . date('Y-m-d') . '.txt', $path . '/unique-viewcount.txt');
-}
-function displayHTMLAndExit(string $path, bool $countView = true, string $language = 'en'): void
+
+$tracker = new FileTracker(ROOT_DIR . '/output', ROOT_DIR . '/ads');
+$visitorIp = $_SERVER['REMOTE_ADDR'] ?? '';
+$visitorAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
+$visitorHash = md5($visitorIp . $visitorAgent . date('Y-m-d'));
+
+function displayHTMLAndExit(string $path, bool $countView, string $language, string $contentPath, TrackerInterface $tracker, string $visitorHash): void
 {
     if (is_file($path)) {
         header('Vary: Accept-Encoding');
@@ -117,37 +52,33 @@ function displayHTMLAndExit(string $path, bool $countView = true, string $langua
         header("Link: </styles.css?$cssHash>; rel=preload; as=style, </theme.js?$themeHash>; rel=preload; as=script");
         header('Permissions-Policy: all=()');
         if ($countView) {
-            register_shutdown_function('incrementViewCount', dirname($path));
-            register_shutdown_function('trackLanguageVisitor', $language);
+            register_shutdown_function([$tracker, 'incrementPageView'], $contentPath, $visitorHash);
+            register_shutdown_function([$tracker, 'trackLanguageVisitor'], $language, date('Y-m'), $visitorHash);
         }
         sendCompressed($path, 'text/html; charset=utf-8');
         exit;
     }
 }
-function findAndExit(string $uri, string $language, bool $countView = true): void
+function findAndExit(string $uri, string $language, bool $countView, TrackerInterface $tracker, string $visitorHash): void
 {
     $path = ROOT_DIR . str_replace('//', '/', '/output/' . $uri . '/');
-    displayHTMLAndExit($path . $language . '.html', $countView, $language);
-    displayHTMLAndExit($path . 'en.html', $countView, 'en');
+    displayHTMLAndExit($path . $language . '.html', $countView, $language, $uri, $tracker, $visitorHash);
+    displayHTMLAndExit($path . 'en.html', $countView, 'en', $uri, $tracker, $visitorHash);
 }
-function incrementAdViewCount(string $adDir, string $size): void
-{
-    incrementFile($adDir . '/viewed-' . $size . '.txt');
-    trackUniqueVisitor($adDir . '/ad-visitors-' . date('Y-m-d') . '.txt', $adDir . '/unique-viewed.txt');
-}
-function findAdAndExit(string $file, string $mime): void
+function findAdAndExit(string $file, string $mime, TrackerInterface $tracker, string $visitorHash): void
 {
     $size = pathinfo($file, PATHINFO_FILENAME);
-    $path = ROOT_DIR . '/ads/' . date('Y-m');
+    $month = date('Y-m');
+    $path = ROOT_DIR . '/ads/' . $month;
     if (is_file($path . '/' . $file)) {
-        register_shutdown_function('incrementAdViewCount', $path, $size);
+        register_shutdown_function([$tracker, 'incrementAdView'], $month, $size, $visitorHash);
         header('Content-type: ' . $mime);
         readfile($path . '/' . $file);
         exit;
     }
     $fallback = ROOT_DIR . '/ads/0000-00';
     if (is_file($fallback . '/' . $file)) {
-        register_shutdown_function('incrementAdViewCount', $fallback, $size);
+        register_shutdown_function([$tracker, 'incrementAdView'], '0000-00', $size, $visitorHash);
         header('Content-type: ' . $mime);
         readfile($fallback . '/' . $file);
         exit;
@@ -166,34 +97,34 @@ foreach ($supportedLanguages as $lang) {
     }
 }
 if ($uri === 'ad/leaderboard.avif') {
-    findAdAndExit('leaderboard.avif', 'image/avif');
+    findAdAndExit('leaderboard.avif', 'image/avif', $tracker, $visitorHash);
 }
 if ($uri === 'ad/leaderboard.webp') {
-    findAdAndExit('leaderboard.webp', 'image/webp');
+    findAdAndExit('leaderboard.webp', 'image/webp', $tracker, $visitorHash);
 }
 if ($uri === 'ad/leaderboard.jpg') {
-    findAdAndExit('leaderboard.jpg', 'image/jpeg');
+    findAdAndExit('leaderboard.jpg', 'image/jpeg', $tracker, $visitorHash);
 }
 if ($uri === 'ad/banner.avif') {
-    findAdAndExit('banner.avif', 'image/avif');
+    findAdAndExit('banner.avif', 'image/avif', $tracker, $visitorHash);
 }
 if ($uri === 'ad/banner.webp') {
-    findAdAndExit('banner.webp', 'image/webp');
+    findAdAndExit('banner.webp', 'image/webp', $tracker, $visitorHash);
 }
 if ($uri === 'ad/banner.jpg') {
-    findAdAndExit('banner.jpg', 'image/jpeg');
+    findAdAndExit('banner.jpg', 'image/jpeg', $tracker, $visitorHash);
 }
 if ($uri === 'ad/mobile.avif') {
-    findAdAndExit('mobile.avif', 'image/avif');
+    findAdAndExit('mobile.avif', 'image/avif', $tracker, $visitorHash);
 }
 if ($uri === 'ad/mobile.webp') {
-    findAdAndExit('mobile.webp', 'image/webp');
+    findAdAndExit('mobile.webp', 'image/webp', $tracker, $visitorHash);
 }
 if ($uri === 'ad/mobile.jpg') {
-    findAdAndExit('mobile.jpg', 'image/jpeg');
+    findAdAndExit('mobile.jpg', 'image/jpeg', $tracker, $visitorHash);
 }
 if ($uri === 'ad.lnk') {
-    findAdAndExit('link.txt', 'txt/plain');
+    findAdAndExit('link.txt', 'txt/plain', $tracker, $visitorHash);
 }
 $langPattern = implode('|', array_map('preg_quote', $supportedLanguages));
 if (preg_match('/^words-(' . $langPattern . ')\.json$/', $uri, $wm)) {
@@ -207,15 +138,9 @@ if (preg_match('/^words-(' . $langPattern . ')\.json$/', $uri, $wm)) {
 }
 if ($uri === 'views' || str_starts_with($uri, 'views/')) {
     $viewPath = trim(substr($uri, 5), '/');
-    $basePath = ROOT_DIR . '/output/' . ($viewPath !== '' ? $viewPath . '/' : '');
-    $viewFile = $basePath . 'viewcount.txt';
-    $uniqueFile = $basePath . 'unique-viewcount.txt';
     header('Content-type: application/json');
     header('Cache-Control: no-cache');
-    echo json_encode([
-        'views' => is_file($viewFile) ? (int)file_get_contents($viewFile) : 0,
-        'unique' => is_file($uniqueFile) ? (int)file_get_contents($uniqueFile) : 0,
-    ]);
+    echo json_encode($tracker->getPageViews($viewPath));
     exit;
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && preg_match('#^vote/(.+)$#', $uri, $vm)) {
@@ -233,76 +158,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && preg_match('#^vote/(.+)$#', $uri, $
         echo json_encode(['error' => 'not found']);
         exit;
     }
-    $ip = $_SERVER['REMOTE_ADDR'] ?? '';
-    $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
-    $date = date('Y-m-d');
-    $identity = md5($ip . $userAgent) . $date;
-    $votesFile = $basePath . 'votes.json';
-    $fp = fopen($votesFile, 'c+');
-    if ($fp && flock($fp, LOCK_EX)) {
-        $contents = stream_get_contents($fp);
-        $votes = $contents !== '' ? json_decode($contents, true) : [];
-        if (!is_array($votes)) {
-            $votes = [];
-        }
-        $votes[$identity] = $direction;
-        ftruncate($fp, 0);
-        rewind($fp);
-        fwrite($fp, json_encode($votes));
-        flock($fp, LOCK_UN);
-        fclose($fp);
-        $up = 0;
-        $down = 0;
-        foreach ($votes as $v) {
-            if ($v === 1) {
-                $up++;
-            } else {
-                $down++;
-            }
-        }
-        $ratingFile = $basePath . 'rating.txt';
-        $rfp = fopen($ratingFile, 'c+');
-        if ($rfp && flock($rfp, LOCK_EX)) {
-            ftruncate($rfp, 0);
-            rewind($rfp);
-            fwrite($rfp, (string)($up - $down));
-            flock($rfp, LOCK_UN);
-        }
-        if ($rfp) {
-            fclose($rfp);
-        }
+    $identity = md5($visitorIp . $visitorAgent) . date('Y-m-d');
+    try {
+        $result = $tracker->vote($votePath, $identity, $direction);
         header('Content-type: application/json');
-        echo json_encode(['up' => $up, 'down' => $down, 'rating' => $up - $down]);
-        exit;
+        echo json_encode($result);
+    } catch (\RuntimeException $e) {
+        header('Content-type: application/json', true, 500);
+        echo json_encode(['error' => 'failed']);
     }
-    if ($fp) {
-        fclose($fp);
-    }
-    header('Content-type: application/json', true, 500);
-    echo json_encode(['error' => 'failed']);
     exit;
 }
 if ($uri === 'votes' || str_starts_with($uri, 'votes/')) {
     $votePath = trim(substr($uri, 5), '/');
-    $basePath = ROOT_DIR . '/output/' . ($votePath !== '' ? $votePath . '/' : '');
-    $votesFile = $basePath . 'votes.json';
-    $up = 0;
-    $down = 0;
-    if (is_file($votesFile)) {
-        $votes = json_decode(file_get_contents($votesFile), true);
-        if (is_array($votes)) {
-            foreach ($votes as $v) {
-                if ($v === 1) {
-                    $up++;
-                } else {
-                    $down++;
-                }
-            }
-        }
-    }
     header('Content-type: application/json');
     header('Cache-Control: no-cache');
-    echo json_encode(['up' => $up, 'down' => $down, 'rating' => $up - $down]);
+    echo json_encode($tracker->getVotes($votePath));
     exit;
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && preg_match('#^readtime/(.+)$#', $uri, $rtm)) {
@@ -328,35 +199,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && preg_match('#^readtime/(.+)$#', $ur
         echo json_encode(['error' => 'not found']);
         exit;
     }
-    $ip = $_SERVER['REMOTE_ADDR'] ?? '';
-    $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
-    $date = date('Y-m-d');
-    $hash = md5($ip . $userAgent . $date);
-    $key = $sessionId !== '' ? $hash . '-' . $sessionId : $hash;
-    $rtFile = $basePath . '/readtime.json';
-    $fp = fopen($rtFile, 'c+');
-    if ($fp && flock($fp, LOCK_EX)) {
-        $contents = stream_get_contents($fp);
-        $data = $contents !== '' ? json_decode($contents, true) : [];
-        if (!is_array($data)) {
-            $data = [];
-        }
-        $prev = $data[$key] ?? 0;
-        $data[$key] = max($prev, $seconds);
-        ftruncate($fp, 0);
-        rewind($fp);
-        fwrite($fp, json_encode($data));
-        flock($fp, LOCK_UN);
-        fclose($fp);
+    $key = $sessionId !== '' ? $visitorHash . '-' . $sessionId : $visitorHash;
+    if ($tracker->trackReadTime($rtPath, $key, $seconds)) {
         header('Content-type: application/json');
         echo json_encode(['ok' => true]);
-        exit;
+    } else {
+        header('Content-type: application/json', true, 500);
+        echo json_encode(['error' => 'failed']);
     }
-    if ($fp) {
-        fclose($fp);
-    }
-    header('Content-type: application/json', true, 500);
-    echo json_encode(['error' => 'failed']);
     exit;
 }
 if ($uri === 'readtime' || str_starts_with($uri, 'readtime/')) {
@@ -374,68 +224,21 @@ if ($uri === 'readtime' || str_starts_with($uri, 'readtime/')) {
         echo json_encode(['error' => 'not found']);
         exit;
     }
-    $rtFile = $basePath . '/readtime.json';
-    $sessions = 0;
-    $average = 0;
-    if (is_file($rtFile)) {
-        $fp = fopen($rtFile, 'r');
-        if ($fp && flock($fp, LOCK_SH)) {
-            $contents = stream_get_contents($fp);
-            flock($fp, LOCK_UN);
-            fclose($fp);
-            $data = $contents !== '' ? json_decode($contents, true) : null;
-            if (is_array($data) && count($data) > 0) {
-                $sessions = count($data);
-                $average = round(array_sum($data) / $sessions);
-            }
-        } elseif ($fp) {
-            fclose($fp);
-        }
-    }
     header('Content-type: application/json');
     header('Cache-Control: no-cache');
-    echo json_encode(['sessions' => $sessions, 'average' => $average]);
+    echo json_encode($tracker->getReadTime($rtPath));
     exit;
 }
 if ($uri === 'lang-stats') {
-    $dir = ROOT_DIR . '/output/lang-stats';
-    $result = [];
-    if (is_dir($dir)) {
-        foreach (glob($dir . '/count-*.txt') as $file) {
-            $basename = basename($file, '.txt');
-            if (preg_match('/^count-(\d{4}-\d{2})-(\w{2})$/', $basename, $m)) {
-                $month = $m[1];
-                $lang = $m[2];
-                if (!isset($result[$month])) {
-                    $result[$month] = array_fill_keys($supportedLanguages, 0);
-                }
-                $result[$month][$lang] = (int)file_get_contents($file);
-            }
-        }
-        krsort($result);
-    }
     header('Content-type: application/json');
     header('Cache-Control: no-cache');
-    echo json_encode($result);
+    echo json_encode($tracker->getLanguageStats($supportedLanguages));
     exit;
 }
 if ($uri === 'ad-stats') {
-    $result = [];
-    foreach (glob(ROOT_DIR . '/ads/*', GLOB_ONLYDIR) as $adDir) {
-        $month = basename($adDir);
-        $entry = ['month' => $month];
-        foreach (['leaderboard', 'banner', 'mobile'] as $size) {
-            $file = $adDir . '/viewed-' . $size . '.txt';
-            $entry[$size] = is_file($file) ? (int)file_get_contents($file) : 0;
-        }
-        $uniqueFile = $adDir . '/unique-viewed.txt';
-        $entry['unique'] = is_file($uniqueFile) ? (int)file_get_contents($uniqueFile) : 0;
-        $result[] = $entry;
-    }
-    usort($result, function ($a, $b) { return strcmp($b['month'], $a['month']); });
     header('Content-type: application/json');
     header('Cache-Control: no-cache');
-    echo json_encode($result);
+    echo json_encode($tracker->getAdStats());
     exit;
 }
 if ($uri === 'random') {
@@ -491,7 +294,7 @@ foreach ($feedFormats as $feedFile => $contentType) {
     }
 }
 if (!str_contains($uri, '.')) {
-    findAndExit($uri, $language, !in_array($uri, ['imprint', 'thank-you', 'statistics', 'canceled'], true));
+    findAndExit($uri, $language, !in_array($uri, ['imprint', 'thank-you', 'statistics', 'canceled'], true), $tracker, $visitorHash);
 }
 header('Content-type: text/html; charset=utf-8', true, 404);
-findAndExit('404', $language, false);
+findAndExit('404', $language, false, $tracker, $visitorHash);

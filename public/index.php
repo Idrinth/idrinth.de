@@ -50,7 +50,12 @@ function sendCompressed(string $path, string $contentType): void
 $tracker = new FileTracker(ROOT_DIR . '/output', ROOT_DIR . '/ads');
 $visitorIp = $_SERVER['REMOTE_ADDR'] ?? '';
 $visitorAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
-$visitorHash = md5($visitorIp . $visitorAgent . date('Y-m-d'));
+$visitorSecretFile = ROOT_DIR . '/config/visitor-secret.key';
+if (!is_file($visitorSecretFile)) {
+    file_put_contents($visitorSecretFile, bin2hex(random_bytes(32)));
+}
+$visitorSecret = file_get_contents($visitorSecretFile);
+$visitorHash = hash_hmac('sha256', $visitorIp . $visitorAgent . date('Y-m-d'), $visitorSecret);
 
 function displayHTMLAndExit(string $path, bool $countView, string $language, string $contentPath, TrackerInterface $tracker, string $visitorHash): void
 {
@@ -133,7 +138,7 @@ if ($uri === 'ad/mobile.jpg') {
     findAdAndExit('mobile.jpg', 'image/jpeg', $tracker, $visitorHash);
 }
 if ($uri === 'ad.lnk') {
-    findAdAndExit('link.txt', 'txt/plain', $tracker, $visitorHash);
+    findAdAndExit('link.txt', 'text/plain', $tracker, $visitorHash);
 }
 $langPattern = implode('|', array_map('preg_quote', $supportedLanguages));
 if (preg_match('/^words-(' . $langPattern . ')\.json$/', $uri, $wm)) {
@@ -147,6 +152,11 @@ if (preg_match('/^words-(' . $langPattern . ')\.json$/', $uri, $wm)) {
 }
 if ($uri === 'views' || str_starts_with($uri, 'views/')) {
     $viewPath = trim(substr($uri, 5), '/');
+    if ($viewPath !== '' && (str_contains($viewPath, '..') || str_contains($viewPath, "\0") || str_starts_with($viewPath, '/'))) {
+        header('Content-type: application/json', true, 400);
+        echo json_encode(['error' => 'invalid path']);
+        exit;
+    }
     header('Content-type: application/json');
     header('Cache-Control: no-cache');
     echo json_encode($tracker->getPageViews($viewPath));
@@ -161,13 +171,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && preg_match('#^vote/(.+)$#', $uri, $
         exit;
     }
     $direction = $body === 'up' ? 1 : -1;
-    $basePath = ROOT_DIR . '/output/' . $votePath . '/';
-    if (!is_dir($basePath)) {
+    if (str_contains($votePath, '..') || str_contains($votePath, "\0") || str_starts_with($votePath, '/')) {
+        header('Content-type: application/json', true, 400);
+        echo json_encode(['error' => 'invalid path']);
+        exit;
+    }
+    $outputRoot = realpath(ROOT_DIR . '/output');
+    $basePath = realpath(ROOT_DIR . '/output/' . $votePath);
+    if ($basePath === false || !is_dir($basePath) || !str_starts_with($basePath, $outputRoot)) {
         header('Content-type: application/json', true, 404);
         echo json_encode(['error' => 'not found']);
         exit;
     }
-    $identity = md5($visitorIp . $visitorAgent) . date('Y-m-d');
+    $identity = hash_hmac('sha256', $visitorIp . $visitorAgent, $visitorSecret) . date('Y-m-d');
     try {
         $result = $tracker->vote($votePath, $identity, $direction);
         header('Content-type: application/json');
@@ -180,6 +196,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && preg_match('#^vote/(.+)$#', $uri, $
 }
 if ($uri === 'votes' || str_starts_with($uri, 'votes/')) {
     $votePath = trim(substr($uri, 5), '/');
+    if ($votePath !== '' && (str_contains($votePath, '..') || str_contains($votePath, "\0") || str_starts_with($votePath, '/'))) {
+        header('Content-type: application/json', true, 400);
+        echo json_encode(['error' => 'invalid path']);
+        exit;
+    }
     header('Content-type: application/json');
     header('Cache-Control: no-cache');
     echo json_encode($tracker->getVotes($votePath));

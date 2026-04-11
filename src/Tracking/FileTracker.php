@@ -15,6 +15,24 @@ class FileTracker implements TrackerInterface
         $this->adsDir = $adsDir;
     }
 
+    private function readFileWithLock(string $filePath): string
+    {
+        if (!is_file($filePath)) {
+            return '';
+        }
+        $fp = fopen($filePath, 'r');
+        if (!$fp || !flock($fp, LOCK_SH)) {
+            if ($fp) {
+                fclose($fp);
+            }
+            return '';
+        }
+        $contents = stream_get_contents($fp);
+        flock($fp, LOCK_UN);
+        fclose($fp);
+        return $contents !== false ? $contents : '';
+    }
+
     private function incrementFile(string $filePath): void
     {
         $fp = fopen($filePath, 'c+');
@@ -23,6 +41,7 @@ class FileTracker implements TrackerInterface
             ftruncate($fp, 0);
             rewind($fp);
             fwrite($fp, (string)($count + 1));
+            fflush($fp);
             flock($fp, LOCK_UN);
         }
         if ($fp) {
@@ -48,6 +67,7 @@ class FileTracker implements TrackerInterface
         }
         fseek($fp, 0, SEEK_END);
         fwrite($fp, $visitorHash . "\n");
+        fflush($fp);
         flock($fp, LOCK_UN);
         fclose($fp);
         $this->incrementFile($uniqueCounterFile);
@@ -67,11 +87,9 @@ class FileTracker implements TrackerInterface
     public function getPageViews(string $path): array
     {
         $basePath = $this->outputDir . '/' . ($path !== '' ? $path . '/' : '');
-        $viewFile = $basePath . 'viewcount.txt';
-        $uniqueFile = $basePath . 'unique-viewcount.txt';
         return [
-            'views' => is_file($viewFile) ? (int)file_get_contents($viewFile) : 0,
-            'unique' => is_file($uniqueFile) ? (int)file_get_contents($uniqueFile) : 0,
+            'views' => (int)$this->readFileWithLock($basePath . 'viewcount.txt'),
+            'unique' => (int)$this->readFileWithLock($basePath . 'unique-viewcount.txt'),
         ];
     }
 
@@ -99,6 +117,7 @@ class FileTracker implements TrackerInterface
         }
         fseek($fp, 0, SEEK_END);
         fwrite($fp, $visitorHash . "\n");
+        fflush($fp);
         flock($fp, LOCK_UN);
         fclose($fp);
         $this->incrementFile($counterFile);
@@ -117,7 +136,7 @@ class FileTracker implements TrackerInterface
                     if (!isset($result[$month])) {
                         $result[$month] = array_fill_keys($supportedLanguages, 0);
                     }
-                    $result[$month][$lang] = (int)file_get_contents($file);
+                    $result[$month][$lang] = (int)$this->readFileWithLock($file);
                 }
             }
             krsort($result);
@@ -144,10 +163,9 @@ class FileTracker implements TrackerInterface
             $entry = ['month' => $month];
             foreach (['leaderboard', 'banner', 'mobile'] as $size) {
                 $file = $adDir . '/viewed-' . $size . '.txt';
-                $entry[$size] = is_file($file) ? (int)file_get_contents($file) : 0;
+                $entry[$size] = (int)$this->readFileWithLock($file);
             }
-            $uniqueFile = $adDir . '/unique-viewed.txt';
-            $entry['unique'] = is_file($uniqueFile) ? (int)file_get_contents($uniqueFile) : 0;
+            $entry['unique'] = (int)$this->readFileWithLock($adDir . '/unique-viewed.txt');
             $result[] = $entry;
         }
         usort($result, function ($a, $b) { return strcmp($b['month'], $a['month']); });
@@ -174,6 +192,7 @@ class FileTracker implements TrackerInterface
         ftruncate($fp, 0);
         rewind($fp);
         fwrite($fp, json_encode($votes));
+        fflush($fp);
         flock($fp, LOCK_UN);
         fclose($fp);
         $up = 0;
@@ -191,6 +210,7 @@ class FileTracker implements TrackerInterface
             ftruncate($rfp, 0);
             rewind($rfp);
             fwrite($rfp, (string)($up - $down));
+            fflush($rfp);
             flock($rfp, LOCK_UN);
         }
         if ($rfp) {
@@ -205,8 +225,9 @@ class FileTracker implements TrackerInterface
         $votesFile = $basePath . 'votes.json';
         $up = 0;
         $down = 0;
-        if (is_file($votesFile)) {
-            $votes = json_decode(file_get_contents($votesFile), true);
+        $contents = $this->readFileWithLock($votesFile);
+        if ($contents !== '') {
+            $votes = json_decode($contents, true);
             if (is_array($votes)) {
                 foreach ($votes as $v) {
                     if ($v === 1) {
@@ -241,6 +262,7 @@ class FileTracker implements TrackerInterface
         ftruncate($fp, 0);
         rewind($fp);
         fwrite($fp, json_encode($data));
+        fflush($fp);
         flock($fp, LOCK_UN);
         fclose($fp);
         return true;

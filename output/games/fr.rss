@@ -6,6 +6,13 @@
     <description>Découvrez les derniers articles de la catégorie Jeux ici.</description>
     <language>fr</language>
     <atom:link href="https://idrinth.de/fr/games/feed.rss" rel="self" type="application/rss+xml"/>
+    <item>
+        <title>Travian - oh comme tu m&#039;as manqué !</title>
+        <link>https://idrinth.de/fr/games/travian-missed-you</link>
+        <guid>https://idrinth.de/fr/games/travian-missed-you</guid>
+        <pubDate>Sat, 11 Apr 2026 00:00:00 +0000</pubDate>
+        <description>Je joue à Travian Legends, un jeu par navigateur qui repose principalement sur la stratégie et la coopération. J&#039;y...</description>
+    </item>
 
 </channel>
 </rss>

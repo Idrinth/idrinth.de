@@ -6,6 +6,13 @@
     <description>Hier findest du die neuesten Beiträge der Kategorie Spiele.</description>
     <language>de</language>
     <atom:link href="https://idrinth.de/de/games/feed.rss" rel="self" type="application/rss+xml"/>
+    <item>
+        <title>Travian - oh wie ich dich vermisst habe!</title>
+        <link>https://idrinth.de/de/games/travian-missed-you</link>
+        <guid>https://idrinth.de/de/games/travian-missed-you</guid>
+        <pubDate>Sat, 11 Apr 2026 00:00:00 +0000</pubDate>
+        <description>Ich spiele Travian Legends, ein Browsergame, bei dem es hauptsächlich um Strategie und Zusammenarbeit geht. Ich spiele...</description>
+    </item>
 
 </channel>
 </rss>

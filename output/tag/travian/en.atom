@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Latest Posts tagged travian</title>
+    <link href="https://idrinth.de/en/tag/travian"/>
+    <link href="https://idrinth.de/en/tag/travian/feed.atom" rel="self" type="application/atom+xml"/>
+    <id>https://idrinth.de/en/tag/travian</id>
+    <updated>2026-04-11T00:00:00+00:00</updated>
+    <entry>
+        <title>Travian - oh how I have missed you!</title>
+        <link href="https://idrinth.de/en/games/travian-missed-you"/>
+        <id>https://idrinth.de/en/games/travian-missed-you</id>
+        <updated>2026-04-11T00:00:00+00:00</updated>
+        <summary>I do play Travian Legends, a browser game that is mostly about strategy and cooperation. I have been playing it on and...</summary>
+    </entry>
+
+</feed>

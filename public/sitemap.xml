@@ -244,6 +244,33 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://idrinth.de/en/games/travian-missed-you</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/games/travian-missed-you" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/games/travian-missed-you" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/games/travian-missed-you" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/games/travian-missed-you" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/games/travian-missed-you</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/games/travian-missed-you" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/games/travian-missed-you" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/games/travian-missed-you" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/games/travian-missed-you" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/games/travian-missed-you</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/games/travian-missed-you" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/games/travian-missed-you" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/games/travian-missed-you" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/games/travian-missed-you" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://idrinth.de/en/world-building/ancient-gods-and-modern-settings</loc>
         <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/world-building/ancient-gods-and-modern-settings" />
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/world-building/ancient-gods-and-modern-settings" />
@@ -431,6 +458,114 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/modding/idrinth-thalui-in-skyrim-v1-1" />
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/travian</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/travian" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/travian" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/travian" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/travian" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/travian</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/travian" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/travian" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/travian" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/travian" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/travian</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/travian" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/travian" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/travian" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/travian" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/browsergame</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/browsergame" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/browsergame" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/browsergame" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/browsergame" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/browsergame</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/browsergame" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/browsergame" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/browsergame" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/browsergame" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/browsergame</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/browsergame" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/browsergame" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/browsergame" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/browsergame" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/guilty-pleasure</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/guilty-pleasure" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/guilty-pleasure" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/guilty-pleasure" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/guilty-pleasure" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/guilty-pleasure</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/guilty-pleasure" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/guilty-pleasure" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/guilty-pleasure" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/guilty-pleasure" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/guilty-pleasure</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/guilty-pleasure" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/guilty-pleasure" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/guilty-pleasure" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/guilty-pleasure" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/strategy</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/strategy" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/strategy" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/strategy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/strategy" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/strategy</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/strategy" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/strategy" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/strategy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/strategy" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/strategy</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/strategy" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/strategy" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/strategy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/strategy" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/tag/gods</loc>

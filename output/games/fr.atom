@@ -4,6 +4,13 @@
     <link href="https://idrinth.de/fr/games"/>
     <link href="https://idrinth.de/fr/games/feed.atom" rel="self" type="application/atom+xml"/>
     <id>https://idrinth.de/fr/games</id>
-    <updated>2026-04-10T00:00:00+00:00</updated>
+    <updated>2026-04-11T00:00:00+00:00</updated>
+    <entry>
+        <title>Travian - oh comme tu m&#039;as manqué !</title>
+        <link href="https://idrinth.de/fr/games/travian-missed-you"/>
+        <id>https://idrinth.de/fr/games/travian-missed-you</id>
+        <updated>2026-04-11T00:00:00+00:00</updated>
+        <summary>Je joue à Travian Legends, un jeu par navigateur qui repose principalement sur la stratégie et la coopération. J&#039;y...</summary>
+    </entry>
 
 </feed>

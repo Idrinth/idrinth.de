@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+    <title>Neueste Beiträge mit Tag browsergame</title>
+    <link>https://idrinth.de/de/tag/browsergame</link>
+    <description>Hier findest du die neuesten Beiträge zum Stichwort browsergame.</description>
+    <language>de</language>
+    <atom:link href="https://idrinth.de/de/tag/browsergame/feed.rss" rel="self" type="application/rss+xml"/>
+    <item>
+        <title>Travian - oh wie ich dich vermisst habe!</title>
+        <link>https://idrinth.de/de/games/travian-missed-you</link>
+        <guid>https://idrinth.de/de/games/travian-missed-you</guid>
+        <pubDate>Sat, 11 Apr 2026 00:00:00 +0000</pubDate>
+        <description>Ich spiele Travian Legends, ein Browsergame, bei dem es hauptsächlich um Strategie und Zusammenarbeit geht. Ich spiele...</description>
+    </item>
+
+</channel>
+</rss>

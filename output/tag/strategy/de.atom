@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Neueste Beiträge mit Tag strategy</title>
+    <link href="https://idrinth.de/de/tag/strategy"/>
+    <link href="https://idrinth.de/de/tag/strategy/feed.atom" rel="self" type="application/atom+xml"/>
+    <id>https://idrinth.de/de/tag/strategy</id>
+    <updated>2026-04-11T00:00:00+00:00</updated>
+    <entry>
+        <title>Travian - oh wie ich dich vermisst habe!</title>
+        <link href="https://idrinth.de/de/games/travian-missed-you"/>
+        <id>https://idrinth.de/de/games/travian-missed-you</id>
+        <updated>2026-04-11T00:00:00+00:00</updated>
+        <summary>Ich spiele Travian Legends, ein Browsergame, bei dem es hauptsächlich um Strategie und Zusammenarbeit geht. Ich spiele...</summary>
+    </entry>
+
+</feed>

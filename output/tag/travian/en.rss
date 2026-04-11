@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+    <title>Latest Posts tagged travian</title>
+    <link>https://idrinth.de/en/tag/travian</link>
+    <description>See the latest posts of the keyword travian here.</description>
+    <language>en</language>
+    <atom:link href="https://idrinth.de/en/tag/travian/feed.rss" rel="self" type="application/rss+xml"/>
+    <item>
+        <title>Travian - oh how I have missed you!</title>
+        <link>https://idrinth.de/en/games/travian-missed-you</link>
+        <guid>https://idrinth.de/en/games/travian-missed-you</guid>
+        <pubDate>Sat, 11 Apr 2026 00:00:00 +0000</pubDate>
+        <description>I do play Travian Legends, a browser game that is mostly about strategy and cooperation. I have been playing it on and...</description>
+    </item>
+
+</channel>
+</rss>

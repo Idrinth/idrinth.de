@@ -16,6 +16,9 @@ spl_autoload_register(function (string $class): void {
 
 use De\Idrinth\Blog\Tracking\TrackerInterface;
 use De\Idrinth\Blog\Tracking\FileTracker;
+use De\Idrinth\Blog\Tracking\MariaDbTracker;
+use De\Idrinth\Blog\Tracking\PostgresTracker;
+use De\Idrinth\Blog\Tracking\SqliteTracker;
 
 function preferredEncoding(): string
 {
@@ -47,7 +50,57 @@ function sendCompressed(string $path, string $contentType): void
     readfile($path);
 }
 
-$tracker = new FileTracker(ROOT_DIR . '/output', ROOT_DIR . '/ads');
+$tracker = null;
+$configFile = ROOT_DIR . '/config/config.php';
+if (is_file($configFile)) {
+    $config = require $configFile;
+    if (is_array($config) && isset($config['driver'])) {
+        try {
+            switch ($config['driver']) {
+                case 'mariadb':
+                case 'mysql':
+                    $dsn = 'mysql:host=' . ($config['host'] ?? '127.0.0.1')
+                        . ';port=' . ($config['port'] ?? 3306)
+                        . ';dbname=' . ($config['database'] ?? 'idrinth_blog')
+                        . ';charset=utf8mb4';
+                    $pdo = new \PDO($dsn, $config['username'] ?? '', $config['password'] ?? '', [
+                        \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
+                    ]);
+                    $dbTracker = new MariaDbTracker($pdo);
+                    $dbTracker->createSchema();
+                    $tracker = $dbTracker;
+                    break;
+                case 'postgres':
+                case 'pgsql':
+                    $dsn = 'pgsql:host=' . ($config['host'] ?? '127.0.0.1')
+                        . ';port=' . ($config['port'] ?? 5432)
+                        . ';dbname=' . ($config['database'] ?? 'idrinth_blog');
+                    $pdo = new \PDO($dsn, $config['username'] ?? '', $config['password'] ?? '', [
+                        \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
+                    ]);
+                    $dbTracker = new PostgresTracker($pdo);
+                    $dbTracker->createSchema();
+                    $tracker = $dbTracker;
+                    break;
+                case 'sqlite':
+                    $path = $config['path'] ?? ROOT_DIR . '/config/tracking.sqlite';
+                    $pdo = new \PDO('sqlite:' . $path, null, null, [
+                        \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
+                    ]);
+                    $dbTracker = new SqliteTracker($pdo);
+                    $dbTracker->createSchema();
+                    $tracker = $dbTracker;
+                    break;
+            }
+        } catch (\PDOException $e) {
+            error_log('Database tracker failed, falling back to file tracker: ' . $e->getMessage());
+            $tracker = null;
+        }
+    }
+}
+if ($tracker === null) {
+    $tracker = new FileTracker(ROOT_DIR . '/output', ROOT_DIR . '/ads');
+}
 $visitorIp = $_SERVER['REMOTE_ADDR'] ?? '';
 $visitorAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
 $visitorSecretFile = ROOT_DIR . '/config/visitor-secret.key';

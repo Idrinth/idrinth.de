@@ -2,3 +2,4 @@
 /output/.template-hash
 /output/**/viewcount.txt
 /config/visitor-secret.key
+/config/config.php

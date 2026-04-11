@@ -223,19 +223,27 @@
             navigator.sendBeacon('/readtime/' + votePath, seconds + ':' + readSessionId);
             readTimeSent = true;
         }
+        function pauseReadTimer() {
+            if (readVisible) {
+                readAccumulated += Date.now() - readStartTime;
+            }
+            readVisible = false;
+            sendReadTime();
+        }
+        function resumeReadTimer() {
+            readStartTime = Date.now();
+            readVisible = true;
+            readTimeSent = false;
+        }
         document.addEventListener('visibilitychange', function() {
             if (document.hidden) {
-                if (readVisible) {
-                    readAccumulated += Date.now() - readStartTime;
-                }
-                readVisible = false;
-                sendReadTime();
+                pauseReadTimer();
             } else {
-                readStartTime = Date.now();
-                readVisible = true;
-                readTimeSent = false;
+                resumeReadTimer();
             }
         });
+        window.addEventListener('blur', pauseReadTimer);
+        window.addEventListener('focus', resumeReadTimer);
         window.addEventListener('pagehide', sendReadTime);
     }
     function loadStatVotes() {
@@ -272,6 +280,7 @@
         var s = seconds % 60;
         return m + 'm ' + s + 's';
     }
+    var readtimeTitle = document.body.getAttribute('data-readtime-title') || '{count} reading sessions';
     function loadReadTimes() {
         var els = document.querySelectorAll('.readtime-stat[data-path]');
         var paths = {};
@@ -285,7 +294,7 @@
                 .then(function(r) { return r.json(); })
                 .then(function(data) {
                     var text = data.sessions > 0 ? formatReadTime(data.average) : '-';
-                    var title = data.sessions + ' session' + (data.sessions !== 1 ? 's' : '');
+                    var title = readtimeTitle.replace('{count}', data.sessions);
                     paths[path].forEach(function(el) {
                         el.textContent = text;
                         el.setAttribute('title', title);

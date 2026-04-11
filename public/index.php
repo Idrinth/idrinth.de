@@ -307,6 +307,11 @@ if ($uri === 'votes' || str_starts_with($uri, 'votes/')) {
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && preg_match('#^readtime/(.+)$#', $uri, $rtm)) {
     $rtPath = $rtm[1];
+    if (str_contains($rtPath, '..') || str_contains($rtPath, "\0") || str_starts_with($rtPath, '/')) {
+        header('Content-type: application/json', true, 400);
+        echo json_encode(['error' => 'invalid path']);
+        exit;
+    }
     $body = trim(file_get_contents('php://input'));
     $parts = explode(':', $body, 2);
     $seconds = (int)$parts[0];
@@ -316,8 +321,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && preg_match('#^readtime/(.+)$#', $ur
         echo json_encode(['error' => 'seconds must be between 5 and 3600']);
         exit;
     }
-    $basePath = ROOT_DIR . '/output/' . $rtPath . '/';
-    if (!is_dir($basePath)) {
+    $outputRoot = realpath(ROOT_DIR . '/output');
+    $basePath = realpath(ROOT_DIR . '/output/' . $rtPath);
+    if ($basePath === false || !is_dir($basePath) || !str_starts_with($basePath, $outputRoot)) {
         header('Content-type: application/json', true, 404);
         echo json_encode(['error' => 'not found']);
         exit;
@@ -327,7 +333,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && preg_match('#^readtime/(.+)$#', $ur
     $date = date('Y-m-d');
     $hash = md5($ip . $userAgent . $date);
     $key = $sessionId !== '' ? $hash . '-' . $sessionId : $hash;
-    $rtFile = $basePath . 'readtime.json';
+    $rtFile = $basePath . '/readtime.json';
     $fp = fopen($rtFile, 'c+');
     if ($fp && flock($fp, LOCK_EX)) {
         $contents = stream_get_contents($fp);
@@ -355,15 +361,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && preg_match('#^readtime/(.+)$#', $ur
 }
 if ($uri === 'readtime' || str_starts_with($uri, 'readtime/')) {
     $rtPath = trim(substr($uri, 8), '/');
-    $basePath = ROOT_DIR . '/output/' . ($rtPath !== '' ? $rtPath . '/' : '');
-    $rtFile = $basePath . 'readtime.json';
+    if (str_contains($rtPath, '..') || str_contains($rtPath, "\0") || str_starts_with($rtPath, '/')) {
+        header('Content-type: application/json', true, 400);
+        echo json_encode(['error' => 'invalid path']);
+        exit;
+    }
+    $outputRoot = realpath(ROOT_DIR . '/output');
+    $candidate = $rtPath !== '' ? ROOT_DIR . '/output/' . $rtPath : ROOT_DIR . '/output';
+    $basePath = realpath($candidate);
+    if ($basePath === false || !str_starts_with($basePath, $outputRoot)) {
+        header('Content-type: application/json', true, 404);
+        echo json_encode(['error' => 'not found']);
+        exit;
+    }
+    $rtFile = $basePath . '/readtime.json';
     $sessions = 0;
     $average = 0;
     if (is_file($rtFile)) {
-        $data = json_decode(file_get_contents($rtFile), true);
-        if (is_array($data) && count($data) > 0) {
-            $sessions = count($data);
-            $average = round(array_sum($data) / $sessions);
+        $fp = fopen($rtFile, 'r');
+        if ($fp && flock($fp, LOCK_SH)) {
+            $contents = stream_get_contents($fp);
+            flock($fp, LOCK_UN);
+            fclose($fp);
+            $data = $contents !== '' ? json_decode($contents, true) : null;
+            if (is_array($data) && count($data) > 0) {
+                $sessions = count($data);
+                $average = round(array_sum($data) / $sessions);
+            }
+        } elseif ($fp) {
+            fclose($fp);
         }
     }
     header('Content-type: application/json');

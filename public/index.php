@@ -2,11 +2,20 @@
 
 define("ROOT_DIR", dirname(__DIR__));
 
-require_once ROOT_DIR . '/src/Tracking/TrackerInterface.php';
-require_once ROOT_DIR . '/src/Tracking/FileTracker.php';
+spl_autoload_register(function (string $class): void {
+    $prefix = 'De\\Idrinth\\Blog\\';
+    if (!str_starts_with($class, $prefix)) {
+        return;
+    }
+    $relative = substr($class, strlen($prefix));
+    $file = ROOT_DIR . '/src/' . str_replace('\\', '/', $relative) . '.php';
+    if (is_file($file)) {
+        require_once $file;
+    }
+});
 
-use Idrinth\Tracking\TrackerInterface;
-use Idrinth\Tracking\FileTracker;
+use De\Idrinth\Blog\Tracking\TrackerInterface;
+use De\Idrinth\Blog\Tracking\FileTracker;
 
 function preferredEncoding(): string
 {

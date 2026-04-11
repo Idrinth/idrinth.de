@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Idrinth\Tracking;
+namespace De\Idrinth\Blog\Tracking;
 
 class SqliteTracker implements TrackerInterface
 {

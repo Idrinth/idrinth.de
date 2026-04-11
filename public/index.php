@@ -308,7 +308,9 @@ if ($uri === 'votes' || str_starts_with($uri, 'votes/')) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && preg_match('#^readtime/(.+)$#', $uri, $rtm)) {
     $rtPath = $rtm[1];
     $body = trim(file_get_contents('php://input'));
-    $seconds = (int)$body;
+    $parts = explode(':', $body, 2);
+    $seconds = (int)$parts[0];
+    $sessionId = isset($parts[1]) ? preg_replace('/[^a-z0-9]/', '', $parts[1]) : '';
     if ($seconds < 5 || $seconds > 3600) {
         header('Content-type: application/json', true, 400);
         echo json_encode(['error' => 'seconds must be between 5 and 3600']);
@@ -324,6 +326,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && preg_match('#^readtime/(.+)$#', $ur
     $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
     $date = date('Y-m-d');
     $hash = md5($ip . $userAgent . $date);
+    $key = $sessionId !== '' ? $hash . '-' . $sessionId : $hash;
     $rtFile = $basePath . 'readtime.json';
     $fp = fopen($rtFile, 'c+');
     if ($fp && flock($fp, LOCK_EX)) {
@@ -332,8 +335,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && preg_match('#^readtime/(.+)$#', $ur
         if (!is_array($data)) {
             $data = [];
         }
-        $prev = $data[$hash] ?? 0;
-        $data[$hash] = max($prev, $seconds);
+        $prev = $data[$key] ?? 0;
+        $data[$key] = max($prev, $seconds);
         ftruncate($fp, 0);
         rewind($fp);
         fwrite($fp, json_encode($data));

@@ -212,6 +212,7 @@
         var readAccumulated = 0;
         var readVisible = !document.hidden;
         var readTimeSent = false;
+        var readSessionId = Math.random().toString(36).substr(2, 12);
         function sendReadTime() {
             var total = readAccumulated;
             if (readVisible) {
@@ -219,7 +220,7 @@
             }
             if (total < 5000) return;
             var seconds = Math.min(Math.round(total / 1000), 3600);
-            navigator.sendBeacon('/readtime/' + votePath, String(seconds));
+            navigator.sendBeacon('/readtime/' + votePath, seconds + ':' + readSessionId);
             readTimeSent = true;
         }
         document.addEventListener('visibilitychange', function() {

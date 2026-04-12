@@ -178,7 +178,7 @@ function findAdAndExit(string $file, string $mime, TrackerInterface $tracker, st
 }
 $uri = trim($_SERVER['REQUEST_URI'] ?? '', '/');
 $language = 'en';
-$supportedLanguages = array_keys(json_decode(file_get_contents(ROOT_DIR . '/config/languages.json'), true));
+$supportedLanguages = array_keys(require ROOT_DIR . '/config/languages.php');
 $languageFromUrl = false;
 foreach ($supportedLanguages as $lang) {
     if ($uri === $lang || str_starts_with($uri, $lang . '/')) {

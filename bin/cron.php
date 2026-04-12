@@ -2,7 +2,7 @@
 
 define("ROOT_DIR", dirname(__DIR__));
 
-$languageConfig = json_decode(file_get_contents(ROOT_DIR . '/config/languages.json'), true);
+$languageConfig = require ROOT_DIR . '/config/languages.php';
 $categoryConfig = json_decode(file_get_contents(ROOT_DIR . '/config/categories.json'), true);
 
 $languages = array_keys($languageConfig);
@@ -511,7 +511,7 @@ $allTemplateContents = implode('', $mainTemplates) . implode('', $entryTemplates
     . $statisticsTemplate . $statisticsPostRowTemplate . $statisticsCategoryRowTemplate
     . $sitemapTemplate . $sitemapEntryTemplate
     . $rssTemplate . $rssEntryTemplate . $atomTemplate . $atomEntryTemplate
-    . file_get_contents(ROOT_DIR . '/config/languages.json')
+    . file_get_contents(ROOT_DIR . '/config/languages.php')
     . file_get_contents(ROOT_DIR . '/config/categories.json');
 $currentHash = md5($allTemplateContents);
 $templatesChanged = true;

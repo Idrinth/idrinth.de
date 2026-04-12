@@ -511,7 +511,7 @@ $allTemplateContents = implode('', $mainTemplates) . implode('', $entryTemplates
     . $statisticsTemplate . $statisticsPostRowTemplate . $statisticsCategoryRowTemplate
     . $sitemapTemplate . $sitemapEntryTemplate
     . $rssTemplate . $rssEntryTemplate . $atomTemplate . $atomEntryTemplate
-    . file_get_contents(ROOT_DIR . '/config/languages.php')
+    . serialize($languageConfig)
     . file_get_contents(ROOT_DIR . '/config/categories.json');
 $currentHash = md5($allTemplateContents);
 $templatesChanged = true;

@@ -244,6 +244,33 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://idrinth.de/en/pen-and-paper/dnd-pathfinder-superhero</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/pen-and-paper/dnd-pathfinder-superhero" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/pen-and-paper/dnd-pathfinder-superhero" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/pen-and-paper/dnd-pathfinder-superhero" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/pen-and-paper/dnd-pathfinder-superhero" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/pen-and-paper/dnd-pathfinder-superhero</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/pen-and-paper/dnd-pathfinder-superhero" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/pen-and-paper/dnd-pathfinder-superhero" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/pen-and-paper/dnd-pathfinder-superhero" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/pen-and-paper/dnd-pathfinder-superhero" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/pen-and-paper/dnd-pathfinder-superhero</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/pen-and-paper/dnd-pathfinder-superhero" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/pen-and-paper/dnd-pathfinder-superhero" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/pen-and-paper/dnd-pathfinder-superhero" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/pen-and-paper/dnd-pathfinder-superhero" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://idrinth.de/en/games/travian-missed-you</loc>
         <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/games/travian-missed-you" />
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/games/travian-missed-you" />
@@ -458,6 +485,114 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/modding/idrinth-thalui-in-skyrim-v1-1" />
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/superhero</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/superhero" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/superhero" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/superhero" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/superhero" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/superhero</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/superhero" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/superhero" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/superhero" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/superhero" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/superhero</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/superhero" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/superhero" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/superhero" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/superhero" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/dnd</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/dnd" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/dnd" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/dnd" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/dnd" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/dnd</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/dnd" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/dnd" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/dnd" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/dnd" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/dnd</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/dnd" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/dnd" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/dnd" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/dnd" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/pathfinder</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/pathfinder" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/pathfinder" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/pathfinder" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/pathfinder" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/pathfinder</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/pathfinder" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/pathfinder" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/pathfinder" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/pathfinder" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/pathfinder</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/pathfinder" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/pathfinder" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/pathfinder" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/pathfinder" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/dungeons-and-dragons</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/dungeons-and-dragons" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/dungeons-and-dragons" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/dungeons-and-dragons" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/dungeons-and-dragons" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/dungeons-and-dragons</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/dungeons-and-dragons" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/dungeons-and-dragons" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/dungeons-and-dragons" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/dungeons-and-dragons" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/dungeons-and-dragons</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/dungeons-and-dragons" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/dungeons-and-dragons" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/dungeons-and-dragons" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/dungeons-and-dragons" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/tag/travian</loc>

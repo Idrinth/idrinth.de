@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+    <title>Neueste Beiträge mit Tag project management</title>
+    <link>https://idrinth.de/de/tag/project-management</link>
+    <description>Hier findest du die neuesten Beiträge zum Stichwort project management.</description>
+    <language>de</language>
+    <atom:link href="https://idrinth.de/de/tag/project-management/feed.rss" rel="self" type="application/rss+xml"/>
+    <item>
+        <title>Project View - an introduction</title>
+        <link>https://idrinth.de/de/open-source/introduction-project-view</link>
+        <guid>https://idrinth.de/de/open-source/introduction-project-view</guid>
+        <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
+        <description>I was busy looking for a decent way of sharing my public but hobby project progress with the world and was unable to...</description>
+    </item>
+
+</channel>
+</rss>

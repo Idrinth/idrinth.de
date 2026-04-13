@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Neueste Beiträge mit Tag javascript</title>
+    <link href="https://idrinth.de/de/tag/javascript"/>
+    <link href="https://idrinth.de/de/tag/javascript/feed.atom" rel="self" type="application/atom+xml"/>
+    <id>https://idrinth.de/de/tag/javascript</id>
+    <updated>2026-04-13T00:00:00+00:00</updated>
+    <entry>
+        <title>Project View - an introduction</title>
+        <link href="https://idrinth.de/de/open-source/introduction-project-view"/>
+        <id>https://idrinth.de/de/open-source/introduction-project-view</id>
+        <updated>2026-04-13T00:00:00+00:00</updated>
+        <summary>I was busy looking for a decent way of sharing my public but hobby project progress with the world and was unable to...</summary>
+    </entry>
+
+</feed>

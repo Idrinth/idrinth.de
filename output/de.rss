@@ -7,6 +7,13 @@
     <language>de</language>
     <atom:link href="https://idrinth.de/de/feed.rss" rel="self" type="application/rss+xml"/>
     <item>
+        <title>Project View - an introduction</title>
+        <link>https://idrinth.de/de/open-source/introduction-project-view</link>
+        <guid>https://idrinth.de/de/open-source/introduction-project-view</guid>
+        <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
+        <description>I was busy looking for a decent way of sharing my public but hobby project progress with the world and was unable to...</description>
+    </item>
+    <item>
         <title>D&amp;D und Pathfinder in ein gemischtes Superhelden-System verwandeln</title>
         <link>https://idrinth.de/de/pen-and-paper/dnd-pathfinder-superhero</link>
         <guid>https://idrinth.de/de/pen-and-paper/dnd-pathfinder-superhero</guid>
@@ -61,13 +68,6 @@
         <guid>https://idrinth.de/de/software-engineering/blogging-experience</guid>
         <pubDate>Sun, 05 Apr 2026 00:00:00 +0000</pubDate>
         <description>Wie man vielleicht bemerkt hat, ist dies größtenteils eine statische Seite, bestehend aus HTML, CSS und einer kleinen...</description>
-    </item>
-    <item>
-        <title>Idrinth Thalui in Skyrim v1.1</title>
-        <link>https://idrinth.de/de/modding/idrinth-thalui-in-skyrim-v1-1</link>
-        <guid>https://idrinth.de/de/modding/idrinth-thalui-in-skyrim-v1-1</guid>
-        <pubDate>Sat, 04 Apr 2026 00:00:00 +0000</pubDate>
-        <description>Eine der großen Mods, an denen ich gerade arbeite, ist Idrinth Thalui, der Altmer-Vampir in Skyrim SE. Neben tausenden...</description>
     </item>
 
 </channel>

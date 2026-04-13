@@ -12,13 +12,13 @@
       "link": "https://projects.idrinth.de",
       "name": {
         "en": "My Projects",
-        "de": "",
-        "fr": ""
+        "de": "Meine Projekte",
+        "fr": "Mes Projets"
       },
       "description": {
         "en": "Check out the project in live usage",
-        "de": "",
-        "fr": ""
+        "de": "Schau dir das Projekt im Live-Einsatz an",
+        "fr": "Découvrez le projet en utilisation réelle"
       }
     },
     {
@@ -30,8 +30,8 @@
       },
       "description": {
         "en": "Check out the code",
-        "de": "",
-        "fr": ""
+        "de": "Schau dir den Code an",
+        "fr": "Consultez le code"
       }
     }
   ]

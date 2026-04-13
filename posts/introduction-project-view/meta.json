@@ -1,0 +1,38 @@
+{
+  "category": "open-source",
+  "tags": [
+   "project",
+   "project management",
+   "php",
+   "javascript"
+  ],
+  "date": "2026-04-13",
+  "links": [
+    {
+      "link": "https://projects.idrinth.de",
+      "name": {
+        "en": "My Projects",
+        "de": "",
+        "fr": ""
+      },
+      "description": {
+        "en": "Check out the project in live usage",
+        "de": "",
+        "fr": ""
+      }
+    },
+    {
+      "link": "https://github.com/Idrinth/project-view",
+      "name": {
+        "en": "GitHub: Project View",
+        "de": "GitHub: Project View",
+        "fr": "GitHub: Project View"
+      },
+      "description": {
+        "en": "Check out the code",
+        "de": "",
+        "fr": ""
+      }
+    }
+  ]
+}

@@ -7,11 +7,11 @@
     <language>de</language>
     <atom:link href="https://idrinth.de/de/tag/php/feed.rss" rel="self" type="application/rss+xml"/>
     <item>
-        <title>Project View - an introduction</title>
+        <title>Project View - eine Einführung</title>
         <link>https://idrinth.de/de/open-source/introduction-project-view</link>
         <guid>https://idrinth.de/de/open-source/introduction-project-view</guid>
         <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
-        <description>I was busy looking for a decent way of sharing my public but hobby project progress with the world and was unable to...</description>
+        <description>Ich war damit beschäftigt, nach einem anständigen Weg zu suchen, meinen öffentlichen, aber Hobby-Projektfortschritt...</description>
     </item>
     <item>
         <title>Blogging-Erfahrung - Oder warum ich einen Blog von Grund auf gebaut habe</title>

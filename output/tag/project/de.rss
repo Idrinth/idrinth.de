@@ -7,6 +7,13 @@
     <language>de</language>
     <atom:link href="https://idrinth.de/de/tag/project/feed.rss" rel="self" type="application/rss+xml"/>
     <item>
+        <title>Wolfgang AI - A Gamemaster in Trouble</title>
+        <link>https://idrinth.de/de/open-source/wolfgang-ai-future</link>
+        <guid>https://idrinth.de/de/open-source/wolfgang-ai-future</guid>
+        <pubDate>Tue, 14 Apr 2026 00:00:00 +0000</pubDate>
+        <description>I have spent a lot of time on Wolfgang over the last year. He is built by me and a few contributors, offering writing...</description>
+    </item>
+    <item>
         <title>Project View - eine Einführung</title>
         <link>https://idrinth.de/de/open-source/introduction-project-view</link>
         <guid>https://idrinth.de/de/open-source/introduction-project-view</guid>

@@ -4,7 +4,14 @@
     <link href="https://idrinth.de/en"/>
     <link href="https://idrinth.de/en/feed.atom" rel="self" type="application/atom+xml"/>
     <id>https://idrinth.de/en</id>
-    <updated>2026-04-13T00:00:00+00:00</updated>
+    <updated>2026-04-14T00:00:00+00:00</updated>
+    <entry>
+        <title>Wolfgang AI - A Gamemaster in Trouble</title>
+        <link href="https://idrinth.de/en/open-source/wolfgang-ai-future"/>
+        <id>https://idrinth.de/en/open-source/wolfgang-ai-future</id>
+        <updated>2026-04-14T00:00:00+00:00</updated>
+        <summary>I have spent a lot of time on Wolfgang over the last year. He is built by me and a few contributors, offering writing...</summary>
+    </entry>
     <entry>
         <title>Project View - an introduction</title>
         <link href="https://idrinth.de/en/open-source/introduction-project-view"/>
@@ -60,13 +67,6 @@
         <id>https://idrinth.de/en/world-building/power-of-names</id>
         <updated>2026-04-06T00:00:00+00:00</updated>
         <summary>Names have power and I&#039;m not talking about magic properties they might also have in your world. The main power they...</summary>
-    </entry>
-    <entry>
-        <title>Blogging Experience - Or why i built a blog from scratch</title>
-        <link href="https://idrinth.de/en/software-engineering/blogging-experience"/>
-        <id>https://idrinth.de/en/software-engineering/blogging-experience</id>
-        <updated>2026-04-05T00:00:00+00:00</updated>
-        <summary>As you might have noticed, this is a static site for the most part, containing HTML, CSS and a tiny amount of...</summary>
     </entry>
 
 </feed>

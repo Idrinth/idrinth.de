@@ -4,7 +4,14 @@
     <link href="https://idrinth.de/fr/tag/project"/>
     <link href="https://idrinth.de/fr/tag/project/feed.atom" rel="self" type="application/atom+xml"/>
     <id>https://idrinth.de/fr/tag/project</id>
-    <updated>2026-04-13T00:00:00+00:00</updated>
+    <updated>2026-04-14T00:00:00+00:00</updated>
+    <entry>
+        <title>Wolfgang AI - A Gamemaster in Trouble</title>
+        <link href="https://idrinth.de/fr/open-source/wolfgang-ai-future"/>
+        <id>https://idrinth.de/fr/open-source/wolfgang-ai-future</id>
+        <updated>2026-04-14T00:00:00+00:00</updated>
+        <summary>I have spent a lot of time on Wolfgang over the last year. He is built by me and a few contributors, offering writing...</summary>
+    </entry>
     <entry>
         <title>Project View - une introduction</title>
         <link href="https://idrinth.de/fr/open-source/introduction-project-view"/>

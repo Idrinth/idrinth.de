@@ -244,6 +244,33 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://idrinth.de/en/open-source/wolfgang-ai-future</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/open-source/wolfgang-ai-future" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/open-source/wolfgang-ai-future" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/open-source/wolfgang-ai-future" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/open-source/wolfgang-ai-future" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/open-source/wolfgang-ai-future</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/open-source/wolfgang-ai-future" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/open-source/wolfgang-ai-future" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/open-source/wolfgang-ai-future" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/open-source/wolfgang-ai-future" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/open-source/wolfgang-ai-future</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/open-source/wolfgang-ai-future" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/open-source/wolfgang-ai-future" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/open-source/wolfgang-ai-future" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/open-source/wolfgang-ai-future" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://idrinth.de/en/open-source/introduction-project-view</loc>
         <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/open-source/introduction-project-view" />
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/open-source/introduction-project-view" />
@@ -512,6 +539,114 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/modding/idrinth-thalui-in-skyrim-v1-1" />
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/database</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/database" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/database" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/database" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/database" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/database</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/database" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/database" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/database" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/database" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/database</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/database" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/database" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/database" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/database" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/ai</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/ai" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/ai" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/ai" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/ai" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/ai</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/ai" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/ai" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/ai" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/ai" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/ai</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/ai" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/ai" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/ai" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/ai" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/roleplay</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/roleplay" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/roleplay" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/roleplay" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/roleplay" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/roleplay</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/roleplay" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/roleplay" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/roleplay" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/roleplay" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/roleplay</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/roleplay" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/roleplay" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/roleplay" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/roleplay" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/chatbot</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/chatbot" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/chatbot" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/chatbot" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/chatbot" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/chatbot</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/chatbot" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/chatbot" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/chatbot" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/chatbot" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/chatbot</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/chatbot" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/chatbot" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/chatbot" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/chatbot" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/tag/project</loc>
@@ -1023,33 +1158,6 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/github" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/github" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/github" />
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://idrinth.de/en/tag/database</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/database" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/database" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/database" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/database" />
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://idrinth.de/de/tag/database</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/database" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/database" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/database" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/database" />
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://idrinth.de/fr/tag/database</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/database" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/database" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/database" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/database" />
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>

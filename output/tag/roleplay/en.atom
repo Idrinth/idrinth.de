@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Latest Posts tagged roleplay</title>
+    <link href="https://idrinth.de/en/tag/roleplay"/>
+    <link href="https://idrinth.de/en/tag/roleplay/feed.atom" rel="self" type="application/atom+xml"/>
+    <id>https://idrinth.de/en/tag/roleplay</id>
+    <updated>2026-04-14T00:00:00+00:00</updated>
+    <entry>
+        <title>Wolfgang AI - A Gamemaster in Trouble</title>
+        <link href="https://idrinth.de/en/open-source/wolfgang-ai-future"/>
+        <id>https://idrinth.de/en/open-source/wolfgang-ai-future</id>
+        <updated>2026-04-14T00:00:00+00:00</updated>
+        <summary>I have spent a lot of time on Wolfgang over the last year. He is built by me and a few contributors, offering writing...</summary>
+    </entry>
+
+</feed>

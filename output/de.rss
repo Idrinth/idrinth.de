@@ -7,6 +7,13 @@
     <language>de</language>
     <atom:link href="https://idrinth.de/de/feed.rss" rel="self" type="application/rss+xml"/>
     <item>
+        <title>Wolfgang AI - A Gamemaster in Trouble</title>
+        <link>https://idrinth.de/de/open-source/wolfgang-ai-future</link>
+        <guid>https://idrinth.de/de/open-source/wolfgang-ai-future</guid>
+        <pubDate>Tue, 14 Apr 2026 00:00:00 +0000</pubDate>
+        <description>I have spent a lot of time on Wolfgang over the last year. He is built by me and a few contributors, offering writing...</description>
+    </item>
+    <item>
         <title>Project View - eine Einführung</title>
         <link>https://idrinth.de/de/open-source/introduction-project-view</link>
         <guid>https://idrinth.de/de/open-source/introduction-project-view</guid>
@@ -61,13 +68,6 @@
         <guid>https://idrinth.de/de/world-building/power-of-names</guid>
         <pubDate>Mon, 06 Apr 2026 00:00:00 +0000</pubDate>
         <description>Namen haben Macht und ich spreche nicht von magischen Eigenschaften, die sie in deiner Welt möglicherweise auch haben...</description>
-    </item>
-    <item>
-        <title>Blogging-Erfahrung - Oder warum ich einen Blog von Grund auf gebaut habe</title>
-        <link>https://idrinth.de/de/software-engineering/blogging-experience</link>
-        <guid>https://idrinth.de/de/software-engineering/blogging-experience</guid>
-        <pubDate>Sun, 05 Apr 2026 00:00:00 +0000</pubDate>
-        <description>Wie man vielleicht bemerkt hat, ist dies größtenteils eine statische Seite, bestehend aus HTML, CSS und einer kleinen...</description>
     </item>
 
 </channel>

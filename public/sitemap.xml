@@ -1458,5 +1458,32 @@
     <changefreq>monthly</changefreq>
     <priority>0.2</priority>
   </url>
+  <url>
+    <loc>https://idrinth.de/en/shop</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/shop" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/shop" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/shop" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/shop" />
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/shop</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/shop" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/shop" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/shop" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/shop" />
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/shop</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/shop" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/shop" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/shop" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/shop" />
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
 
 </urlset>

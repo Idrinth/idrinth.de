@@ -1,0 +1,39 @@
+{
+  "category": "open-source",
+  "tags": [
+    "database",
+    "ai",
+    "roleplay",
+    "chatbot",
+    "project"
+  ],
+  "date": "2026-04-14",
+  "links": [
+    {
+      "link": "https://github.com/bjoern-buettner/roleplay-ai",
+      "name": {
+        "en": "Github Repository",
+        "de": "",
+        "fr": ""
+      },
+      "description": {
+        "en": "help build the gamemaster",
+        "de": "",
+        "fr": ""
+      }
+    },
+    {
+      "link": "https://wolfgang-ai.com",
+      "name": {
+        "en": "Wolfgang AI",
+        "de": "",
+        "fr": ""
+      },
+      "description": {
+        "en": "have your own role play session",
+        "de": "",
+        "fr": ""
+      }
+    }
+  ]
+}

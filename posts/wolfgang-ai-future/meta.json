@@ -13,26 +13,26 @@
       "link": "https://github.com/bjoern-buettner/roleplay-ai",
       "name": {
         "en": "Github Repository",
-        "de": "",
-        "fr": ""
+        "de": "Github-Repository",
+        "fr": "Dépôt Github"
       },
       "description": {
         "en": "help build the gamemaster",
-        "de": "",
-        "fr": ""
+        "de": "hilf mit, den Spielleiter zu bauen",
+        "fr": "aidez à construire le maître de jeu"
       }
     },
     {
       "link": "https://wolfgang-ai.com",
       "name": {
         "en": "Wolfgang AI",
-        "de": "",
-        "fr": ""
+        "de": "Wolfgang AI",
+        "fr": "Wolfgang AI"
       },
       "description": {
         "en": "have your own role play session",
-        "de": "",
-        "fr": ""
+        "de": "starte deine eigene Rollenspiel-Sitzung",
+        "fr": "lancez votre propre session de jeu de rôle"
       }
     }
   ]

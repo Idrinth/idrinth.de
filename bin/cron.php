@@ -395,7 +395,6 @@ $entryTemplates = [];
 $listingTemplates = [];
 $notFoundTemplates = [];
 $imprintTemplates = [];
-$shopTemplates = [];
 $canceledTemplates = [];
 $thankYouTemplates = [];
 $postDateTemplates = [];
@@ -406,7 +405,6 @@ foreach ($languages as $lang) {
     $listingTemplates[$lang] = file_get_contents(ROOT_DIR . '/resources/' . $lang . '/post-listing.html');
     $notFoundTemplates[$lang] = file_get_contents(ROOT_DIR . '/resources/' . $lang . '/404.html');
     $imprintTemplates[$lang] = file_get_contents(ROOT_DIR . '/resources/' . $lang . '/imprint.html');
-    $shopTemplates[$lang] = file_get_contents(ROOT_DIR . '/resources/' . $lang . '/shop.html');
     $canceledTemplates[$lang] = file_get_contents(ROOT_DIR . '/resources/' . $lang . '/canceled.html');
     $thankYouTemplates[$lang] = file_get_contents(ROOT_DIR . '/resources/' . $lang . '/thank-you.html');
     $postDateTemplates[$lang] = file_get_contents(ROOT_DIR . '/resources/' . $lang . '/post-date.html');
@@ -508,7 +506,7 @@ foreach ($languages as $lang) {
 // Detect template changes
 $templateHashFile = ROOT_DIR . '/output/.template-hash';
 $allTemplateContents = implode('', $mainTemplates) . implode('', $entryTemplates) . implode('', $listingTemplates)
-    . implode('', $notFoundTemplates) . implode('', $imprintTemplates) . implode('', $shopTemplates) . implode('', $canceledTemplates) . implode('', $thankYouTemplates) . implode('', $postDateTemplates)
+    . implode('', $notFoundTemplates) . implode('', $imprintTemplates) . implode('', $canceledTemplates) . implode('', $thankYouTemplates) . implode('', $postDateTemplates)
     . implode('', $relatedPostsTemplates) . $relatedPostEntryTemplate . $tagLinkTemplate
     . $statisticsTemplate . $statisticsPostRowTemplate . $statisticsCategoryRowTemplate
     . $sitemapTemplate . $sitemapEntryTemplate
@@ -872,25 +870,6 @@ foreach ($languages as $lang) {
     precompress($imprintDir . '/' . $lang . '.html');
 }
 
-// Generate shop page per language
-$shopDir = ROOT_DIR . '/output/shop';
-if (!is_dir($shopDir)) {
-    mkdir($shopDir, 0755, true);
-}
-foreach ($languages as $lang) {
-    $page = $mainTemplates[$lang];
-    $page = str_replace('###PAGE_TITLE###', htmlspecialchars($translations[$lang]['shop_title']), $page);
-    $page = str_replace('###PAGE_DESCRIPTION###', htmlspecialchars($translations[$lang]['shop_description']), $page);
-    $page = str_replace('###HREFLANG###', buildHreflangHtml('shop', 'https://idrinth.de', $languages), $page);
-    $page = str_replace('###CANONICAL_URL###', 'https://idrinth.de/' . $lang . '/shop', $page);
-    $page = str_replace('###META_KEYWORDS###', '', $page);
-    $page = str_replace('###FEED_LINKS###', buildFeedLinks($lang, ''), $page);
-    $page = str_replace('###ASIDE###', $asideTemplates[$lang], $page);
-    $page = str_replace('###CONTENT###', $shopTemplates[$lang], $page);
-    file_put_contents($shopDir . '/' . $lang . '.html', minifyHtml($page));
-    precompress($shopDir . '/' . $lang . '.html');
-}
-
 // Generate canceled donation page per language (not in sitemap)
 $canceledDir = ROOT_DIR . '/output/canceled';
 if (!is_dir($canceledDir)) {
@@ -1128,9 +1107,6 @@ foreach (array_keys($tags) as $tag) {
 
 // Imprint
 $sitemapPaths[] = ['path' => 'imprint', 'changefreq' => 'monthly', 'priority' => '0.2'];
-
-// Shop
-$sitemapPaths[] = ['path' => 'shop', 'changefreq' => 'monthly', 'priority' => '0.4'];
 
 $sitemapEntries = '';
 foreach ($sitemapPaths as $item) {

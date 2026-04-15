@@ -7,6 +7,13 @@
     <language>en</language>
     <atom:link href="https://idrinth.de/en/feed.rss" rel="self" type="application/rss+xml"/>
     <item>
+        <title>Does AI code well?</title>
+        <link>https://idrinth.de/en/software-engineering/does-ai-code-well</link>
+        <guid>https://idrinth.de/en/software-engineering/does-ai-code-well</guid>
+        <pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate>
+        <description>I have been playing around with AI, especially Claude Code and ChatGPT&#039;s Codes for a while now and the anwer seems to...</description>
+    </item>
+    <item>
         <title>Wolfgang AI - A Gamemaster in Trouble</title>
         <link>https://idrinth.de/en/open-source/wolfgang-ai-future</link>
         <guid>https://idrinth.de/en/open-source/wolfgang-ai-future</guid>
@@ -61,13 +68,6 @@
         <guid>https://idrinth.de/en/software-engineering/is-x-a-growth-hack</guid>
         <pubDate>Tue, 07 Apr 2026 00:00:00 +0000</pubDate>
         <description>I&#039;ve been active on X/Twitter again recently and the amount of people who promise growth is even higher than before.</description>
-    </item>
-    <item>
-        <title>The Power of Names</title>
-        <link>https://idrinth.de/en/world-building/power-of-names</link>
-        <guid>https://idrinth.de/en/world-building/power-of-names</guid>
-        <pubDate>Mon, 06 Apr 2026 00:00:00 +0000</pubDate>
-        <description>Names have power and I&#039;m not talking about magic properties they might also have in your world. The main power they...</description>
     </item>
 
 </channel>

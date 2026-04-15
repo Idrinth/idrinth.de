@@ -244,6 +244,33 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://idrinth.de/en/software-engineering/does-ai-code-well</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/software-engineering/does-ai-code-well" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/software-engineering/does-ai-code-well" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/software-engineering/does-ai-code-well" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/software-engineering/does-ai-code-well" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/software-engineering/does-ai-code-well</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/software-engineering/does-ai-code-well" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/software-engineering/does-ai-code-well" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/software-engineering/does-ai-code-well" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/software-engineering/does-ai-code-well" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/software-engineering/does-ai-code-well</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/software-engineering/does-ai-code-well" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/software-engineering/does-ai-code-well" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/software-engineering/does-ai-code-well" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/software-engineering/does-ai-code-well" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://idrinth.de/en/open-source/wolfgang-ai-future</loc>
         <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/open-source/wolfgang-ai-future" />
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/open-source/wolfgang-ai-future" />
@@ -541,33 +568,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://idrinth.de/en/tag/database</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/database" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/database" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/database" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/database" />
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://idrinth.de/de/tag/database</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/database" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/database" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/database" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/database" />
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://idrinth.de/fr/tag/database</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/database" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/database" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/database" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/database" />
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://idrinth.de/en/tag/ai</loc>
         <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/ai" />
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/ai" />
@@ -591,6 +591,87 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/ai" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/ai" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/ai" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/opinion</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/opinion" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/opinion" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/opinion" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/opinion" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/opinion</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/opinion" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/opinion" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/opinion" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/opinion" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/opinion</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/opinion" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/opinion" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/opinion" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/opinion" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/coding</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/coding" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/coding" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/coding" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/coding" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/coding</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/coding" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/coding" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/coding" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/coding" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/coding</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/coding" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/coding" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/coding" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/coding" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/database</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/database" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/database" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/database" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/database" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/database</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/database" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/database" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/database" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/database" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/database</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/database" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/database" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/database" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/database" />
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>

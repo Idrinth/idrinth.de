@@ -4,7 +4,14 @@
     <link href="https://idrinth.de/en"/>
     <link href="https://idrinth.de/en/feed.atom" rel="self" type="application/atom+xml"/>
     <id>https://idrinth.de/en</id>
-    <updated>2026-04-14T00:00:00+00:00</updated>
+    <updated>2026-04-15T00:00:00+00:00</updated>
+    <entry>
+        <title>Does AI code well?</title>
+        <link href="https://idrinth.de/en/software-engineering/does-ai-code-well"/>
+        <id>https://idrinth.de/en/software-engineering/does-ai-code-well</id>
+        <updated>2026-04-15T00:00:00+00:00</updated>
+        <summary>I have been playing around with AI, especially Claude Code and ChatGPT&#039;s Codes for a while now and the anwer seems to...</summary>
+    </entry>
     <entry>
         <title>Wolfgang AI - A Gamemaster in Trouble</title>
         <link href="https://idrinth.de/en/open-source/wolfgang-ai-future"/>
@@ -60,13 +67,6 @@
         <id>https://idrinth.de/en/software-engineering/is-x-a-growth-hack</id>
         <updated>2026-04-07T00:00:00+00:00</updated>
         <summary>I&#039;ve been active on X/Twitter again recently and the amount of people who promise growth is even higher than before.</summary>
-    </entry>
-    <entry>
-        <title>The Power of Names</title>
-        <link href="https://idrinth.de/en/world-building/power-of-names"/>
-        <id>https://idrinth.de/en/world-building/power-of-names</id>
-        <updated>2026-04-06T00:00:00+00:00</updated>
-        <summary>Names have power and I&#039;m not talking about magic properties they might also have in your world. The main power they...</summary>
     </entry>
 
 </feed>

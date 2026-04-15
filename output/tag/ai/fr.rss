@@ -7,6 +7,13 @@
     <language>fr</language>
     <atom:link href="https://idrinth.de/fr/tag/ai/feed.rss" rel="self" type="application/rss+xml"/>
     <item>
+        <title>Does AI code well?</title>
+        <link>https://idrinth.de/fr/software-engineering/does-ai-code-well</link>
+        <guid>https://idrinth.de/fr/software-engineering/does-ai-code-well</guid>
+        <pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate>
+        <description>I have been playing around with AI, especially Claude Code and ChatGPT&#039;s Codes for a while now and the anwer seems to...</description>
+    </item>
+    <item>
         <title>Wolfgang AI - Un maître de jeu en difficulté</title>
         <link>https://idrinth.de/fr/open-source/wolfgang-ai-future</link>
         <guid>https://idrinth.de/fr/open-source/wolfgang-ai-future</guid>

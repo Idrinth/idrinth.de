@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+    <title>Latest Posts tagged coding</title>
+    <link>https://idrinth.de/en/tag/coding</link>
+    <description>See the latest posts of the keyword coding here.</description>
+    <language>en</language>
+    <atom:link href="https://idrinth.de/en/tag/coding/feed.rss" rel="self" type="application/rss+xml"/>
+    <item>
+        <title>Does AI code well?</title>
+        <link>https://idrinth.de/en/software-engineering/does-ai-code-well</link>
+        <guid>https://idrinth.de/en/software-engineering/does-ai-code-well</guid>
+        <pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate>
+        <description>I have been playing around with AI, especially Claude Code and ChatGPT&#039;s Codes for a while now and the anwer seems to...</description>
+    </item>
+
+</channel>
+</rss>

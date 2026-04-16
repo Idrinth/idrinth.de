@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+    <title>Latest Posts tagged warhammer 3</title>
+    <link>https://idrinth.de/en/tag/warhammer-3</link>
+    <description>See the latest posts of the keyword warhammer 3 here.</description>
+    <language>en</language>
+    <atom:link href="https://idrinth.de/en/tag/warhammer-3/feed.rss" rel="self" type="application/rss+xml"/>
+    <item>
+        <title>Update on Nexusmods returning</title>
+        <link>https://idrinth.de/en/modding/updates-on-nexusmods-returning</link>
+        <guid>https://idrinth.de/en/modding/updates-on-nexusmods-returning</guid>
+        <pubDate>Thu, 16 Apr 2026 00:00:00 +0000</pubDate>
+        <description>I had been unable to login into Nexusmods for months, so there is quite a big backlog there. Great support from their...</description>
+    </item>
+
+</channel>
+</rss>

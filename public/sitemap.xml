@@ -244,6 +244,33 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://idrinth.de/en/modding/updates-on-nexusmods-returning</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/modding/updates-on-nexusmods-returning" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/modding/updates-on-nexusmods-returning" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/modding/updates-on-nexusmods-returning" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/modding/updates-on-nexusmods-returning" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/modding/updates-on-nexusmods-returning</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/modding/updates-on-nexusmods-returning" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/modding/updates-on-nexusmods-returning" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/modding/updates-on-nexusmods-returning" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/modding/updates-on-nexusmods-returning" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/modding/updates-on-nexusmods-returning</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/modding/updates-on-nexusmods-returning" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/modding/updates-on-nexusmods-returning" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/modding/updates-on-nexusmods-returning" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/modding/updates-on-nexusmods-returning" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://idrinth.de/en/software-engineering/does-ai-code-well</loc>
         <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/software-engineering/does-ai-code-well" />
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/software-engineering/does-ai-code-well" />
@@ -566,6 +593,141 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/modding/idrinth-thalui-in-skyrim-v1-1" />
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/nexusmods</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/nexusmods" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/nexusmods" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/nexusmods" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/nexusmods" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/nexusmods</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/nexusmods" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/nexusmods" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/nexusmods" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/nexusmods" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/nexusmods</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/nexusmods" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/nexusmods" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/nexusmods" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/nexusmods" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/total-war</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/total-war" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/total-war" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/total-war" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/total-war" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/total-war</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/total-war" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/total-war" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/total-war" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/total-war" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/total-war</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/total-war" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/total-war" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/total-war" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/total-war" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/total-war-warhammer-3</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/total-war-warhammer-3" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/total-war-warhammer-3" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/total-war-warhammer-3" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/total-war-warhammer-3" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/total-war-warhammer-3</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/total-war-warhammer-3" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/total-war-warhammer-3" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/total-war-warhammer-3" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/total-war-warhammer-3" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/total-war-warhammer-3</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/total-war-warhammer-3" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/total-war-warhammer-3" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/total-war-warhammer-3" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/total-war-warhammer-3" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/warhammer-3</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/warhammer-3" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/warhammer-3" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/warhammer-3" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/warhammer-3" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/warhammer-3</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/warhammer-3" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/warhammer-3" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/warhammer-3" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/warhammer-3" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/warhammer-3</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/warhammer-3" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/warhammer-3" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/warhammer-3" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/warhammer-3" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/steam</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/steam" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/steam" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/steam" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/steam" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/steam</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/steam" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/steam" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/steam" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/steam" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/steam</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/steam" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/steam" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/steam" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/steam" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/tag/ai</loc>
@@ -1158,33 +1320,6 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/patch" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/patch" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/patch" />
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://idrinth.de/en/tag/total-war-warhammer-3</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/total-war-warhammer-3" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/total-war-warhammer-3" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/total-war-warhammer-3" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/total-war-warhammer-3" />
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://idrinth.de/de/tag/total-war-warhammer-3</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/total-war-warhammer-3" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/total-war-warhammer-3" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/total-war-warhammer-3" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/total-war-warhammer-3" />
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://idrinth.de/fr/tag/total-war-warhammer-3</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/total-war-warhammer-3" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/total-war-warhammer-3" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/total-war-warhammer-3" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/total-war-warhammer-3" />
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>

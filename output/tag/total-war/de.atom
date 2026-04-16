@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Neueste Beiträge mit Tag total war</title>
+    <link href="https://idrinth.de/de/tag/total-war"/>
+    <link href="https://idrinth.de/de/tag/total-war/feed.atom" rel="self" type="application/atom+xml"/>
+    <id>https://idrinth.de/de/tag/total-war</id>
+    <updated>2026-04-16T00:00:00+00:00</updated>
+    <entry>
+        <title>Update on Nexusmods returning</title>
+        <link href="https://idrinth.de/de/modding/updates-on-nexusmods-returning"/>
+        <id>https://idrinth.de/de/modding/updates-on-nexusmods-returning</id>
+        <updated>2026-04-16T00:00:00+00:00</updated>
+        <summary>I had been unable to login into Nexusmods for months, so there is quite a big backlog there. Great support from their...</summary>
+    </entry>
+
+</feed>

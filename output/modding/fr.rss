@@ -7,6 +7,13 @@
     <language>fr</language>
     <atom:link href="https://idrinth.de/fr/modding/feed.rss" rel="self" type="application/rss+xml"/>
     <item>
+        <title>Update on Nexusmods returning</title>
+        <link>https://idrinth.de/fr/modding/updates-on-nexusmods-returning</link>
+        <guid>https://idrinth.de/fr/modding/updates-on-nexusmods-returning</guid>
+        <pubDate>Thu, 16 Apr 2026 00:00:00 +0000</pubDate>
+        <description>I had been unable to login into Nexusmods for months, so there is quite a big backlog there. Great support from their...</description>
+    </item>
+    <item>
         <title>Écraser des fichiers de mod pour patcher</title>
         <link>https://idrinth.de/fr/modding/mod-file-overwriting-to-patch</link>
         <guid>https://idrinth.de/fr/modding/mod-file-overwriting-to-patch</guid>

@@ -4,7 +4,14 @@
     <link href="https://idrinth.de/en/modding"/>
     <link href="https://idrinth.de/en/modding/feed.atom" rel="self" type="application/atom+xml"/>
     <id>https://idrinth.de/en/modding</id>
-    <updated>2026-04-09T00:00:00+00:00</updated>
+    <updated>2026-04-16T00:00:00+00:00</updated>
+    <entry>
+        <title>Update on Nexusmods returning</title>
+        <link href="https://idrinth.de/en/modding/updates-on-nexusmods-returning"/>
+        <id>https://idrinth.de/en/modding/updates-on-nexusmods-returning</id>
+        <updated>2026-04-16T00:00:00+00:00</updated>
+        <summary>I had been unable to login into Nexusmods for months, so there is quite a big backlog there. Great support from their...</summary>
+    </entry>
     <entry>
         <title>Mod File Overwriting To Patch</title>
         <link href="https://idrinth.de/en/modding/mod-file-overwriting-to-patch"/>

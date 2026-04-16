@@ -1,0 +1,52 @@
+{
+  "category": "modding",
+  "tags": [
+   "nexusmods",
+   "total war",
+   "total war: warhammer 3",
+   "warhammer 3",
+    "steam"
+  ],
+  "date": "2026-04-16",
+  "links": [
+    {
+      "link": "https://www.nexusmods.com/profile/Idrinth",
+      "name": {
+        "en": "My Profile",
+        "de": "",
+        "fr": ""
+      },
+      "description": {
+        "en": "Check out the mods",
+        "de": "",
+        "fr": ""
+      }
+    },
+    {
+      "link": "https://steamcommunity.com/sharedfiles/filedetails/?id=3700933274",
+      "name": {
+        "en": "Idrinth's Mod Configuration Tool Expansion",
+        "de": "",
+        "fr": ""
+      },
+      "description": {
+        "en": "If you want more out of the MCT",
+        "de": "",
+        "fr": ""
+      }
+    },
+    {
+      "link": "https://steamcommunity.com/sharedfiles/filedetails/?id=3632634959",
+      "name": {
+        "en": "Idrinth's Hostile Slot Fixes",
+        "de": "",
+        "fr": ""
+      },
+      "description": {
+        "en": "If you have any mod edit hostile slots",
+        "de": "",
+        "fr": ""
+      }
+    }
+  ]
+}

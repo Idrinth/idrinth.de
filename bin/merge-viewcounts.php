@@ -4,7 +4,7 @@ define("ROOT_DIR", dirname(__DIR__));
 
 $outputDir = ROOT_DIR . '/output';
 
-foreach (['viewcount.txt', 'unique-viewcount.txt'] as $countFile) {
+foreach (['viewcount.txt', 'unique-viewcount.txt', 'bot-viewcount.txt', 'bot-unique-viewcount.txt'] as $countFile) {
 foreach (glob($outputDir . '/*' . $countFile) as $file) {
     $basename = basename($file, $countFile);
     if ($basename === '') {

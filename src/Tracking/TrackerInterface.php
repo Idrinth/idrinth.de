@@ -6,14 +6,14 @@ namespace De\Idrinth\Blog\Tracking;
 
 interface TrackerInterface
 {
-    public function incrementPageView(string $path, string $visitorHash): void;
+    public function incrementPageView(string $path, string $visitorHash, bool $isBot = false): void;
 
     /**
-     * @return array{views: int, unique: int}
+     * @return array{views: int, unique: int, bot_views: int, bot_unique: int}
      */
     public function getPageViews(string $path): array;
 
-    public function trackLanguageVisitor(string $language, string $month, string $visitorHash): void;
+    public function trackLanguageVisitor(string $language, string $month, string $visitorHash, bool $isBot = false): void;
 
     /**
      * @param string[] $supportedLanguages

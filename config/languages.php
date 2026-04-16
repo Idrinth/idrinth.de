@@ -39,6 +39,9 @@ return [
         'statistics_mobile' => 'Mobile',
         'statistics_unique_viewers' => 'Unique Viewers',
         'statistics_posts' => 'Posts',
+        'statistics_bot_views' => 'Bot Views',
+        'statistics_bot_readers' => 'Bot Readers',
+        'statistics_bots' => 'Bots',
     ],
     'de' => [
         'latest_posts' => 'Neueste Beiträge',
@@ -78,6 +81,9 @@ return [
         'statistics_mobile' => 'Mobil',
         'statistics_unique_viewers' => 'Einzigartige Betrachter',
         'statistics_posts' => 'Beiträge',
+        'statistics_bot_views' => 'Bot-Aufrufe',
+        'statistics_bot_readers' => 'Bot-Leser',
+        'statistics_bots' => 'Bots',
     ],
     'fr' => [
         'latest_posts' => 'Derniers articles',
@@ -117,5 +123,8 @@ return [
         'statistics_mobile' => 'Mobile',
         'statistics_unique_viewers' => 'Visiteurs uniques',
         'statistics_posts' => 'Articles',
+        'statistics_bot_views' => 'Vues des bots',
+        'statistics_bot_readers' => 'Lecteurs bots',
+        'statistics_bots' => 'Bots',
     ],
 ];

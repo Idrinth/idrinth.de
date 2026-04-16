@@ -73,7 +73,7 @@ class FileTracker implements TrackerInterface
         $this->incrementFile($uniqueCounterFile);
     }
 
-    public function incrementPageView(string $path, string $visitorHash): void
+    public function incrementPageView(string $path, string $visitorHash, bool $isBot = false): void
     {
         $basePath = $this->outputDir . '/' . $path . '/';
         $this->incrementFile($basePath . 'viewcount.txt');
@@ -82,6 +82,14 @@ class FileTracker implements TrackerInterface
             $basePath . 'unique-viewcount.txt',
             $visitorHash
         );
+        if ($isBot) {
+            $this->incrementFile($basePath . 'bot-viewcount.txt');
+            $this->trackUniqueVisitor(
+                $basePath . 'bot-visitors-' . date('Y-m-d') . '.txt',
+                $basePath . 'bot-unique-viewcount.txt',
+                $visitorHash
+            );
+        }
     }
 
     public function getPageViews(string $path): array
@@ -90,10 +98,12 @@ class FileTracker implements TrackerInterface
         return [
             'views' => (int)$this->readFileWithLock($basePath . 'viewcount.txt'),
             'unique' => (int)$this->readFileWithLock($basePath . 'unique-viewcount.txt'),
+            'bot_views' => (int)$this->readFileWithLock($basePath . 'bot-viewcount.txt'),
+            'bot_unique' => (int)$this->readFileWithLock($basePath . 'bot-unique-viewcount.txt'),
         ];
     }
 
-    public function trackLanguageVisitor(string $language, string $month, string $visitorHash): void
+    public function trackLanguageVisitor(string $language, string $month, string $visitorHash, bool $isBot = false): void
     {
         $dir = $this->outputDir . '/lang-stats';
         if (!is_dir($dir)) {
@@ -121,6 +131,11 @@ class FileTracker implements TrackerInterface
         flock($fp, LOCK_UN);
         fclose($fp);
         $this->incrementFile($counterFile);
+        if ($isBot) {
+            $botVisitorsFile = $dir . '/bot-visitors-' . $month . '-' . $language . '.txt';
+            $botCounterFile = $dir . '/bot-count-' . $month . '-' . $language . '.txt';
+            $this->trackUniqueVisitor($botVisitorsFile, $botCounterFile, $visitorHash);
+        }
     }
 
     public function getLanguageStats(array $supportedLanguages): array
@@ -128,15 +143,30 @@ class FileTracker implements TrackerInterface
         $dir = $this->outputDir . '/lang-stats';
         $result = [];
         if (is_dir($dir)) {
+            $botKeys = [];
+            foreach ($supportedLanguages as $lang) {
+                $botKeys[$lang . '_bot'] = 0;
+            }
             foreach (glob($dir . '/count-*.txt') as $file) {
                 $basename = basename($file, '.txt');
                 if (preg_match('/^count-(\d{4}-\d{2})-(\w{2})$/', $basename, $m)) {
                     $month = $m[1];
                     $lang = $m[2];
                     if (!isset($result[$month])) {
-                        $result[$month] = array_fill_keys($supportedLanguages, 0);
+                        $result[$month] = array_fill_keys($supportedLanguages, 0) + $botKeys;
                     }
                     $result[$month][$lang] = (int)$this->readFileWithLock($file);
+                }
+            }
+            foreach (glob($dir . '/bot-count-*.txt') as $file) {
+                $basename = basename($file, '.txt');
+                if (preg_match('/^bot-count-(\d{4}-\d{2})-(\w{2})$/', $basename, $m)) {
+                    $month = $m[1];
+                    $lang = $m[2];
+                    if (!isset($result[$month])) {
+                        $result[$month] = array_fill_keys($supportedLanguages, 0) + $botKeys;
+                    }
+                    $result[$month][$lang . '_bot'] = (int)$this->readFileWithLock($file);
                 }
             }
             krsort($result);

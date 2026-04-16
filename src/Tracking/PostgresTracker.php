@@ -19,25 +19,35 @@ class PostgresTracker implements TrackerInterface
             path VARCHAR(500) NOT NULL,
             total_views INT NOT NULL DEFAULT 0,
             unique_views INT NOT NULL DEFAULT 0,
+            bot_views INT NOT NULL DEFAULT 0,
+            bot_unique_views INT NOT NULL DEFAULT 0,
             PRIMARY KEY (path)
         )');
+        $this->addColumnIfMissing('page_views', 'bot_views', 'INT NOT NULL DEFAULT 0');
+        $this->addColumnIfMissing('page_views', 'bot_unique_views', 'INT NOT NULL DEFAULT 0');
         $this->pdo->exec('CREATE TABLE IF NOT EXISTS page_visitors (
             path VARCHAR(500) NOT NULL,
             visitor_hash CHAR(32) NOT NULL,
+            is_bot SMALLINT NOT NULL DEFAULT 0,
             PRIMARY KEY (path, visitor_hash)
         )');
+        $this->addColumnIfMissing('page_visitors', 'is_bot', 'SMALLINT NOT NULL DEFAULT 0');
         $this->pdo->exec('CREATE TABLE IF NOT EXISTS language_stats (
             language VARCHAR(5) NOT NULL,
             month CHAR(7) NOT NULL,
             visit_count INT NOT NULL DEFAULT 0,
+            bot_visit_count INT NOT NULL DEFAULT 0,
             PRIMARY KEY (language, month)
         )');
+        $this->addColumnIfMissing('language_stats', 'bot_visit_count', 'INT NOT NULL DEFAULT 0');
         $this->pdo->exec('CREATE TABLE IF NOT EXISTS language_visitors (
             language VARCHAR(5) NOT NULL,
             month CHAR(7) NOT NULL,
             visitor_hash CHAR(32) NOT NULL,
+            is_bot SMALLINT NOT NULL DEFAULT 0,
             PRIMARY KEY (language, month, visitor_hash)
         )');
+        $this->addColumnIfMissing('language_visitors', 'is_bot', 'SMALLINT NOT NULL DEFAULT 0');
         $this->pdo->exec('CREATE TABLE IF NOT EXISTS ad_views (
             month CHAR(7) NOT NULL,
             size VARCHAR(20) NOT NULL,
@@ -63,22 +73,39 @@ class PostgresTracker implements TrackerInterface
         )');
     }
 
-    public function incrementPageView(string $path, string $visitorHash): void
+    private function addColumnIfMissing(string $table, string $column, string $definition): void
+    {
+        try {
+            $stmt = $this->pdo->prepare(
+                "SELECT COUNT(*) FROM information_schema.columns WHERE table_name = ? AND column_name = ?"
+            );
+            $stmt->execute([$table, $column]);
+            if ((int)$stmt->fetchColumn() === 0) {
+                $this->pdo->exec("ALTER TABLE $table ADD COLUMN $column $definition");
+            }
+        } catch (\PDOException $e) {
+            error_log('Schema migration warning: ' . $e->getMessage());
+        }
+    }
+
+    public function incrementPageView(string $path, string $visitorHash, bool $isBot = false): void
     {
         try {
             $this->pdo->beginTransaction();
+            $botInc = $isBot ? 1 : 0;
             $stmt = $this->pdo->prepare(
-                'INSERT INTO page_views (path, total_views, unique_views) VALUES (?, 1, 0)
-                ON CONFLICT (path) DO UPDATE SET total_views = page_views.total_views + 1'
+                'INSERT INTO page_views (path, total_views, unique_views, bot_views, bot_unique_views) VALUES (?, 1, 0, ?, 0)
+                ON CONFLICT (path) DO UPDATE SET total_views = page_views.total_views + 1, bot_views = page_views.bot_views + ?'
             );
-            $stmt->execute([$path]);
+            $stmt->execute([$path, $botInc, $botInc]);
             $stmt = $this->pdo->prepare(
-                'INSERT INTO page_visitors (path, visitor_hash) VALUES (?, ?)
-                ON CONFLICT (path, visitor_hash) DO NOTHING'
+                'INSERT INTO page_visitors (path, visitor_hash, is_bot) VALUES (?, ?, ?)
+                ON CONFLICT (path, visitor_hash) DO UPDATE SET is_bot = GREATEST(page_visitors.is_bot, EXCLUDED.is_bot)'
             );
-            $stmt->execute([$path, $visitorHash]);
+            $stmt->execute([$path, $visitorHash, $isBot ? 1 : 0]);
             if ($stmt->rowCount() > 0) {
-                $stmt = $this->pdo->prepare('UPDATE page_views SET unique_views = unique_views + 1 WHERE path = ?');
+                $uniqueInc = $isBot ? ', bot_unique_views = bot_unique_views + 1' : '';
+                $stmt = $this->pdo->prepare('UPDATE page_views SET unique_views = unique_views + 1' . $uniqueInc . ' WHERE path = ?');
                 $stmt->execute([$path]);
             }
             $this->pdo->commit();
@@ -92,30 +119,36 @@ class PostgresTracker implements TrackerInterface
 
     public function getPageViews(string $path): array
     {
-        $stmt = $this->pdo->prepare('SELECT total_views, unique_views FROM page_views WHERE path = ?');
+        $stmt = $this->pdo->prepare('SELECT total_views, unique_views, bot_views, bot_unique_views FROM page_views WHERE path = ?');
         $stmt->execute([$path]);
         $row = $stmt->fetch(\PDO::FETCH_ASSOC);
         if ($row) {
-            return ['views' => (int)$row['total_views'], 'unique' => (int)$row['unique_views']];
+            return [
+                'views' => (int)$row['total_views'],
+                'unique' => (int)$row['unique_views'],
+                'bot_views' => (int)$row['bot_views'],
+                'bot_unique' => (int)$row['bot_unique_views'],
+            ];
         }
-        return ['views' => 0, 'unique' => 0];
+        return ['views' => 0, 'unique' => 0, 'bot_views' => 0, 'bot_unique' => 0];
     }
 
-    public function trackLanguageVisitor(string $language, string $month, string $visitorHash): void
+    public function trackLanguageVisitor(string $language, string $month, string $visitorHash, bool $isBot = false): void
     {
         try {
             $this->pdo->beginTransaction();
             $stmt = $this->pdo->prepare(
-                'INSERT INTO language_visitors (language, month, visitor_hash) VALUES (?, ?, ?)
-                ON CONFLICT (language, month, visitor_hash) DO NOTHING'
+                'INSERT INTO language_visitors (language, month, visitor_hash, is_bot) VALUES (?, ?, ?, ?)
+                ON CONFLICT (language, month, visitor_hash) DO UPDATE SET is_bot = GREATEST(language_visitors.is_bot, EXCLUDED.is_bot)'
             );
-            $stmt->execute([$language, $month, $visitorHash]);
+            $stmt->execute([$language, $month, $visitorHash, $isBot ? 1 : 0]);
             if ($stmt->rowCount() > 0) {
+                $botInc = $isBot ? 1 : 0;
                 $stmt = $this->pdo->prepare(
-                    'INSERT INTO language_stats (language, month, visit_count) VALUES (?, ?, 1)
-                    ON CONFLICT (language, month) DO UPDATE SET visit_count = language_stats.visit_count + 1'
+                    'INSERT INTO language_stats (language, month, visit_count, bot_visit_count) VALUES (?, ?, 1, ?)
+                    ON CONFLICT (language, month) DO UPDATE SET visit_count = language_stats.visit_count + 1, bot_visit_count = language_stats.bot_visit_count + ?'
                 );
-                $stmt->execute([$language, $month]);
+                $stmt->execute([$language, $month, $botInc, $botInc]);
             }
             $this->pdo->commit();
         } catch (\PDOException $e) {
@@ -128,13 +161,18 @@ class PostgresTracker implements TrackerInterface
 
     public function getLanguageStats(array $supportedLanguages): array
     {
-        $stmt = $this->pdo->query('SELECT language, month, visit_count FROM language_stats ORDER BY month DESC');
+        $stmt = $this->pdo->query('SELECT language, month, visit_count, bot_visit_count FROM language_stats ORDER BY month DESC');
         $result = [];
+        $botKeys = [];
+        foreach ($supportedLanguages as $lang) {
+            $botKeys[$lang . '_bot'] = 0;
+        }
         foreach ($stmt->fetchAll(\PDO::FETCH_ASSOC) as $row) {
             if (!isset($result[$row['month']])) {
-                $result[$row['month']] = array_fill_keys($supportedLanguages, 0);
+                $result[$row['month']] = array_fill_keys($supportedLanguages, 0) + $botKeys;
             }
             $result[$row['month']][$row['language']] = (int)$row['visit_count'];
+            $result[$row['month']][$row['language'] . '_bot'] = (int)$row['bot_visit_count'];
         }
         krsort($result);
         return $result;

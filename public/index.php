@@ -19,6 +19,7 @@ use De\Idrinth\Blog\Tracking\FileTracker;
 use De\Idrinth\Blog\Tracking\MariaDbTracker;
 use De\Idrinth\Blog\Tracking\PostgresTracker;
 use De\Idrinth\Blog\Tracking\SqliteTracker;
+use De\Idrinth\Blog\Tracking\BotDetector;
 
 function preferredEncoding(): string
 {
@@ -134,8 +135,9 @@ if ($visitorSecret === false || strlen($visitorSecret) !== 64) {
     exit;
 }
 $visitorHash = hash_hmac('sha256', $visitorIp . $visitorAgent . date('Y-m-d'), $visitorSecret);
+$isBot = BotDetector::isBot($visitorAgent);
 
-function displayHTMLAndExit(string $path, bool $countView, string $language, string $contentPath, TrackerInterface $tracker, string $visitorHash): void
+function displayHTMLAndExit(string $path, bool $countView, string $language, string $contentPath, TrackerInterface $tracker, string $visitorHash, bool $isBot = false): void
 {
     if (is_file($path)) {
         header('Vary: Accept-Encoding');
@@ -144,18 +146,18 @@ function displayHTMLAndExit(string $path, bool $countView, string $language, str
         header("Link: </styles.css?$cssHash>; rel=preload; as=style, </theme.js?$themeHash>; rel=preload; as=script");
         header('Permissions-Policy: all=()');
         if ($countView) {
-            register_shutdown_function([$tracker, 'incrementPageView'], $contentPath, $visitorHash);
-            register_shutdown_function([$tracker, 'trackLanguageVisitor'], $language, date('Y-m'), $visitorHash);
+            register_shutdown_function([$tracker, 'incrementPageView'], $contentPath, $visitorHash, $isBot);
+            register_shutdown_function([$tracker, 'trackLanguageVisitor'], $language, date('Y-m'), $visitorHash, $isBot);
         }
         sendCompressed($path, 'text/html; charset=utf-8');
         exit;
     }
 }
-function findAndExit(string $uri, string $language, bool $countView, TrackerInterface $tracker, string $visitorHash): void
+function findAndExit(string $uri, string $language, bool $countView, TrackerInterface $tracker, string $visitorHash, bool $isBot = false): void
 {
     $path = ROOT_DIR . str_replace('//', '/', '/output/' . $uri . '/');
-    displayHTMLAndExit($path . $language . '.html', $countView, $language, $uri, $tracker, $visitorHash);
-    displayHTMLAndExit($path . 'en.html', $countView, 'en', $uri, $tracker, $visitorHash);
+    displayHTMLAndExit($path . $language . '.html', $countView, $language, $uri, $tracker, $visitorHash, $isBot);
+    displayHTMLAndExit($path . 'en.html', $countView, 'en', $uri, $tracker, $visitorHash, $isBot);
 }
 function findAdAndExit(string $file, string $mime, TrackerInterface $tracker, string $visitorHash): void
 {
@@ -420,7 +422,7 @@ foreach ($feedFormats as $feedFile => $contentType) {
     }
 }
 if (!str_contains($uri, '.')) {
-    findAndExit($uri, $language, !in_array($uri, ['imprint', 'thank-you', 'statistics', 'canceled'], true), $tracker, $visitorHash);
+    findAndExit($uri, $language, !in_array($uri, ['imprint', 'thank-you', 'statistics', 'canceled'], true), $tracker, $visitorHash, $isBot);
 }
 header('Content-type: text/html; charset=utf-8', true, 404);
-findAndExit('404', $language, false, $tracker, $visitorHash);
+findAndExit('404', $language, false, $tracker, $visitorHash, $isBot);

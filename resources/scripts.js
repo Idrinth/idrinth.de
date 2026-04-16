@@ -17,6 +17,16 @@
             var cat = el.getAttribute('data-category');
             el.textContent = (categoryTotals[cat] || 0) + ' ' + viewsLabel;
         });
+        var categoryBotTotals = {};
+        document.querySelectorAll('.bot-views[data-category]').forEach(function(el) {
+            var cat = el.getAttribute('data-category');
+            var count = parseInt(el.textContent, 10) || 0;
+            categoryBotTotals[cat] = (categoryBotTotals[cat] || 0) + count;
+        });
+        document.querySelectorAll('.category-bot-views[data-category]').forEach(function(el) {
+            var cat = el.getAttribute('data-category');
+            el.textContent = (categoryBotTotals[cat] || 0) + ' ' + viewsLabel;
+        });
         var categoryUniqueTotals = {};
         document.querySelectorAll('.unique-views[data-category]').forEach(function(el) {
             var cat = el.getAttribute('data-category');
@@ -27,18 +37,38 @@
             var cat = el.getAttribute('data-category');
             el.textContent = (categoryUniqueTotals[cat] || 0) + ' ' + viewsLabel;
         });
+        var categoryBotUniqueTotals = {};
+        document.querySelectorAll('.bot-unique-views[data-category]').forEach(function(el) {
+            var cat = el.getAttribute('data-category');
+            var count = parseInt(el.textContent, 10) || 0;
+            categoryBotUniqueTotals[cat] = (categoryBotUniqueTotals[cat] || 0) + count;
+        });
+        document.querySelectorAll('.category-bot-unique-views[data-category]').forEach(function(el) {
+            var cat = el.getAttribute('data-category');
+            el.textContent = (categoryBotUniqueTotals[cat] || 0) + ' ' + viewsLabel;
+        });
     }
     function updateViews() {
         var paths = {};
         document.querySelectorAll('.views[data-path]').forEach(function(el) {
             var path = el.getAttribute('data-path');
-            if (!paths[path]) paths[path] = { views: [], unique: [] };
+            if (!paths[path]) paths[path] = { views: [], unique: [], botViews: [], botUnique: [] };
             paths[path].views.push(el);
         });
         document.querySelectorAll('.unique-views[data-path]').forEach(function(el) {
             var path = el.getAttribute('data-path');
-            if (!paths[path]) paths[path] = { views: [], unique: [] };
+            if (!paths[path]) paths[path] = { views: [], unique: [], botViews: [], botUnique: [] };
             paths[path].unique.push(el);
+        });
+        document.querySelectorAll('.bot-views[data-path]').forEach(function(el) {
+            var path = el.getAttribute('data-path');
+            if (!paths[path]) paths[path] = { views: [], unique: [], botViews: [], botUnique: [] };
+            paths[path].botViews.push(el);
+        });
+        document.querySelectorAll('.bot-unique-views[data-path]').forEach(function(el) {
+            var path = el.getAttribute('data-path');
+            if (!paths[path]) paths[path] = { views: [], unique: [], botViews: [], botUnique: [] };
+            paths[path].botUnique.push(el);
         });
         var promises = Object.keys(paths).map(function(path) {
             return fetch('/views/' + path)
@@ -50,6 +80,12 @@
                     });
                     paths[path].unique.forEach(function(el) {
                         el.textContent = data.unique + ' ' + viewsLabel;
+                    });
+                    paths[path].botViews.forEach(function(el) {
+                        el.textContent = (data.bot_views || 0) + ' ' + viewsLabel;
+                    });
+                    paths[path].botUnique.forEach(function(el) {
+                        el.textContent = (data.bot_unique || 0) + ' ' + viewsLabel;
                     });
                 });
         });
@@ -325,6 +361,9 @@
                         var cell = document.createElement('td');
                         cell.textContent = data[month][lang] || 0;
                         row.appendChild(cell);
+                        var botCell = document.createElement('td');
+                        botCell.textContent = data[month][lang + '_bot'] || 0;
+                        row.appendChild(botCell);
                     });
                     tbody.appendChild(row);
                 });

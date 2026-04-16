@@ -976,6 +976,9 @@ foreach ($languages as $lang) {
     $statsContent = str_replace('###STATISTICS_MOBILE###', htmlspecialchars($translations[$lang]['statistics_mobile']), $statsContent);
     $statsContent = str_replace('###STATISTICS_UNIQUE_VIEWERS###', htmlspecialchars($translations[$lang]['statistics_unique_viewers']), $statsContent);
     $statsContent = str_replace('###STATISTICS_POSTS###', htmlspecialchars($translations[$lang]['statistics_posts']), $statsContent);
+    $statsContent = str_replace('###STATISTICS_BOT_VIEWS###', htmlspecialchars($translations[$lang]['statistics_bot_views']), $statsContent);
+    $statsContent = str_replace('###STATISTICS_BOT_READERS###', htmlspecialchars($translations[$lang]['statistics_bot_readers']), $statsContent);
+    $statsContent = str_replace('###STATISTICS_BOTS###', htmlspecialchars($translations[$lang]['statistics_bots']), $statsContent);
     $statsContent = str_replace('###STATS_POST_ROWS###', $postRows, $statsContent);
     $statsContent = str_replace('###STATS_CATEGORY_ROWS###', $categoryRows, $statsContent);
 

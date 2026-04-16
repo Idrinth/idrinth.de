@@ -13,39 +13,39 @@
       "link": "https://www.nexusmods.com/profile/Idrinth",
       "name": {
         "en": "My Profile",
-        "de": "",
-        "fr": ""
+        "de": "Mein Profil",
+        "fr": "Mon profil"
       },
       "description": {
         "en": "Check out the mods",
-        "de": "",
-        "fr": ""
+        "de": "Schau dir die Mods an",
+        "fr": "Découvrez les mods"
       }
     },
     {
       "link": "https://steamcommunity.com/sharedfiles/filedetails/?id=3700933274",
       "name": {
         "en": "Idrinth's Mod Configuration Tool Expansion",
-        "de": "",
-        "fr": ""
+        "de": "Idrinths Mod Configuration Tool Erweiterung",
+        "fr": "Extension du Mod Configuration Tool d'Idrinth"
       },
       "description": {
         "en": "If you want more out of the MCT",
-        "de": "",
-        "fr": ""
+        "de": "Wenn du mehr aus dem MCT herausholen willst",
+        "fr": "Si vous voulez tirer plus du MCT"
       }
     },
     {
       "link": "https://steamcommunity.com/sharedfiles/filedetails/?id=3632634959",
       "name": {
         "en": "Idrinth's Hostile Slot Fixes",
-        "de": "",
-        "fr": ""
+        "de": "Idrinths Hostile Slot Fixes",
+        "fr": "Corrections de slots hostiles d'Idrinth"
       },
       "description": {
         "en": "If you have any mod edit hostile slots",
-        "de": "",
-        "fr": ""
+        "de": "Wenn ein Mod feindliche Slots bearbeitet",
+        "fr": "Si vous avez un mod qui modifie les slots hostiles"
       }
     }
   ]

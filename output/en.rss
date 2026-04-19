@@ -7,6 +7,13 @@
     <language>en</language>
     <atom:link href="https://idrinth.de/en/feed.rss" rel="self" type="application/rss+xml"/>
     <item>
+        <title>Idrinth&#039;s Teaks: Blame Yourself</title>
+        <link>https://idrinth.de/en/modding/blame-yourself</link>
+        <guid>https://idrinth.de/en/modding/blame-yourself</guid>
+        <pubDate>Sun, 19 Apr 2026 00:00:00 +0000</pubDate>
+        <description>I was lazy in the last couple days, mostly patching my Skyrim modlist. One small thing I built was a new mod version...</description>
+    </item>
+    <item>
         <title>Update on Nexusmods returning</title>
         <link>https://idrinth.de/en/modding/updates-on-nexusmods-returning</link>
         <guid>https://idrinth.de/en/modding/updates-on-nexusmods-returning</guid>
@@ -61,13 +68,6 @@
         <guid>https://idrinth.de/en/modding/mod-file-overwriting-to-patch</guid>
         <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
         <description>I recently was fed up with waiting for the Mod Configuration Tool to include my fixes, so I thought I&#039;d just go ahead...</description>
-    </item>
-    <item>
-        <title>A question of databases</title>
-        <link>https://idrinth.de/en/software-engineering/a-question-of-databases</link>
-        <guid>https://idrinth.de/en/software-engineering/a-question-of-databases</guid>
-        <pubDate>Wed, 08 Apr 2026 00:00:00 +0000</pubDate>
-        <description>I read quite a few posts in X recently, that were promoting single database applications. I am concerned reading this,...</description>
     </item>
 
 </channel>

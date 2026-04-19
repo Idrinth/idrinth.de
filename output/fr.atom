@@ -4,7 +4,14 @@
     <link href="https://idrinth.de/fr"/>
     <link href="https://idrinth.de/fr/feed.atom" rel="self" type="application/atom+xml"/>
     <id>https://idrinth.de/fr</id>
-    <updated>2026-04-16T00:00:00+00:00</updated>
+    <updated>2026-04-19T00:00:00+00:00</updated>
+    <entry>
+        <title>Idrinth&#039;s Teaks: Blame Yourself</title>
+        <link href="https://idrinth.de/fr/modding/blame-yourself"/>
+        <id>https://idrinth.de/fr/modding/blame-yourself</id>
+        <updated>2026-04-19T00:00:00+00:00</updated>
+        <summary>I was lazy in the last couple days, mostly patching my Skyrim modlist. One small thing I built was a new mod version...</summary>
+    </entry>
     <entry>
         <title>Mise à jour sur le retour sur Nexusmods</title>
         <link href="https://idrinth.de/fr/modding/updates-on-nexusmods-returning"/>
@@ -60,13 +67,6 @@
         <id>https://idrinth.de/fr/modding/mod-file-overwriting-to-patch</id>
         <updated>2026-04-09T00:00:00+00:00</updated>
         <summary>J&#039;en avais récemment assez d&#039;attendre que le Mod Configuration Tool intègre mes corrections, alors j&#039;ai décidé de...</summary>
-    </entry>
-    <entry>
-        <title>Une question de bases de données</title>
-        <link href="https://idrinth.de/fr/software-engineering/a-question-of-databases"/>
-        <id>https://idrinth.de/fr/software-engineering/a-question-of-databases</id>
-        <updated>2026-04-08T00:00:00+00:00</updated>
-        <summary>J&#039;ai lu pas mal de publications sur X récemment, qui faisaient la promotion d&#039;applications à base de données unique.</summary>
     </entry>
 
 </feed>

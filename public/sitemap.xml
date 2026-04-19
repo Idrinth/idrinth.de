@@ -244,6 +244,33 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://idrinth.de/en/modding/blame-yourself</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/modding/blame-yourself" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/modding/blame-yourself" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/modding/blame-yourself" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/modding/blame-yourself" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/modding/blame-yourself</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/modding/blame-yourself" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/modding/blame-yourself" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/modding/blame-yourself" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/modding/blame-yourself" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/modding/blame-yourself</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/modding/blame-yourself" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/modding/blame-yourself" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/modding/blame-yourself" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/modding/blame-yourself" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://idrinth.de/en/modding/updates-on-nexusmods-returning</loc>
         <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/modding/updates-on-nexusmods-returning" />
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/modding/updates-on-nexusmods-returning" />
@@ -593,6 +620,87 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/modding/idrinth-thalui-in-skyrim-v1-1" />
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/skyrim</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/skyrim" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/skyrim" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/skyrim" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/skyrim" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/skyrim</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/skyrim" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/skyrim" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/skyrim" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/skyrim" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/skyrim</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/skyrim" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/skyrim" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/skyrim" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/skyrim" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/esl</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/esl" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/esl" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/esl" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/esl" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/esl</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/esl" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/esl" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/esl" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/esl" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/esl</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/esl" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/esl" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/esl" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/esl" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/creation-kit</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/creation-kit" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/creation-kit" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/creation-kit" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/creation-kit" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/creation-kit</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/creation-kit" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/creation-kit" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/creation-kit" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/creation-kit" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/creation-kit</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/creation-kit" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/creation-kit" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/creation-kit" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/creation-kit" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://idrinth.de/en/tag/nexusmods</loc>
@@ -1671,33 +1779,6 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/static-site" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/static-site" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/static-site" />
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://idrinth.de/en/tag/skyrim</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/skyrim" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/skyrim" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/skyrim" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/skyrim" />
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://idrinth.de/de/tag/skyrim</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/skyrim" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/skyrim" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/skyrim" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/skyrim" />
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://idrinth.de/fr/tag/skyrim</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/skyrim" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/skyrim" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/skyrim" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/skyrim" />
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>

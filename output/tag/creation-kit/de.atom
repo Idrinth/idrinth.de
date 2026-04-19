@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Neueste Beiträge mit Tag creation kit</title>
+    <link href="https://idrinth.de/de/tag/creation-kit"/>
+    <link href="https://idrinth.de/de/tag/creation-kit/feed.atom" rel="self" type="application/atom+xml"/>
+    <id>https://idrinth.de/de/tag/creation-kit</id>
+    <updated>2026-04-19T00:00:00+00:00</updated>
+    <entry>
+        <title>Idrinth&#039;s Teaks: Blame Yourself</title>
+        <link href="https://idrinth.de/de/modding/blame-yourself"/>
+        <id>https://idrinth.de/de/modding/blame-yourself</id>
+        <updated>2026-04-19T00:00:00+00:00</updated>
+        <summary>I was lazy in the last couple days, mostly patching my Skyrim modlist. One small thing I built was a new mod version...</summary>
+    </entry>
+
+</feed>

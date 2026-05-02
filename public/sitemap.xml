@@ -244,6 +244,33 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://idrinth.de/en/modding/skyrim-party-sheet</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/modding/skyrim-party-sheet" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/modding/skyrim-party-sheet" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/modding/skyrim-party-sheet" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/modding/skyrim-party-sheet" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/modding/skyrim-party-sheet</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/modding/skyrim-party-sheet" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/modding/skyrim-party-sheet" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/modding/skyrim-party-sheet" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/modding/skyrim-party-sheet" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/modding/skyrim-party-sheet</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/modding/skyrim-party-sheet" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/modding/skyrim-party-sheet" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/modding/skyrim-party-sheet" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/modding/skyrim-party-sheet" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://idrinth.de/en/modding/blame-yourself</loc>
         <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/modding/blame-yourself" />
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/modding/blame-yourself" />
@@ -645,6 +672,60 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/skyrim" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/skyrim" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/skyrim" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/follower</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/follower" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/follower" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/follower" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/follower" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/follower</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/follower" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/follower" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/follower" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/follower" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/follower</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/follower" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/follower" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/follower" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/follower" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/en/tag/development</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/development" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/development" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/development" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/development" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/de/tag/development</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/development" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/development" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/development" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/development" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://idrinth.de/fr/tag/development</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/development" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/development" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/development" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/development" />
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1779,33 +1860,6 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/static-site" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/static-site" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/static-site" />
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://idrinth.de/en/tag/follower</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/follower" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/follower" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/follower" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/follower" />
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://idrinth.de/de/tag/follower</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/follower" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/follower" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/follower" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/follower" />
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://idrinth.de/fr/tag/follower</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://idrinth.de/en/tag/follower" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://idrinth.de/de/tag/follower" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://idrinth.de/fr/tag/follower" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://idrinth.de/tag/follower" />
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>

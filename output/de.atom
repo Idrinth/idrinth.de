@@ -4,7 +4,14 @@
     <link href="https://idrinth.de/de"/>
     <link href="https://idrinth.de/de/feed.atom" rel="self" type="application/atom+xml"/>
     <id>https://idrinth.de/de</id>
-    <updated>2026-04-19T00:00:00+00:00</updated>
+    <updated>2026-05-02T00:00:00+00:00</updated>
+    <entry>
+        <title>Skyrim Party Sheet</title>
+        <link href="https://idrinth.de/de/modding/skyrim-party-sheet"/>
+        <id>https://idrinth.de/de/modding/skyrim-party-sheet</id>
+        <updated>2026-05-02T00:00:00+00:00</updated>
+        <summary>Skyrim Party Sheet is a UI mod, that allows a quick glance at companions, followers and summons to make better tactical...</summary>
+    </entry>
     <entry>
         <title>Idrinth&#039;s Teaks: Blame Yourself</title>
         <link href="https://idrinth.de/de/modding/blame-yourself"/>
@@ -60,13 +67,6 @@
         <id>https://idrinth.de/de/world-building/ancient-gods-and-modern-settings</id>
         <updated>2026-04-10T00:00:00+00:00</updated>
         <summary>Ich arbeite gerade an einem kleinen Projekt, das versucht, ein Regelwerk über göttliche Vererbung und Spurenstärke...</summary>
-    </entry>
-    <entry>
-        <title>Mod-Dateien überschreiben, um zu patchen</title>
-        <link href="https://idrinth.de/de/modding/mod-file-overwriting-to-patch"/>
-        <id>https://idrinth.de/de/modding/mod-file-overwriting-to-patch</id>
-        <updated>2026-04-09T00:00:00+00:00</updated>
-        <summary>Ich hatte es kürzlich satt, darauf zu warten, dass das Mod Configuration Tool meine Korrekturen übernimmt, also...</summary>
     </entry>
 
 </feed>

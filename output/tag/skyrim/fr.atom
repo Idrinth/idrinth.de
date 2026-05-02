@@ -4,7 +4,14 @@
     <link href="https://idrinth.de/fr/tag/skyrim"/>
     <link href="https://idrinth.de/fr/tag/skyrim/feed.atom" rel="self" type="application/atom+xml"/>
     <id>https://idrinth.de/fr/tag/skyrim</id>
-    <updated>2026-04-19T00:00:00+00:00</updated>
+    <updated>2026-05-02T00:00:00+00:00</updated>
+    <entry>
+        <title>Skyrim Party Sheet</title>
+        <link href="https://idrinth.de/fr/modding/skyrim-party-sheet"/>
+        <id>https://idrinth.de/fr/modding/skyrim-party-sheet</id>
+        <updated>2026-05-02T00:00:00+00:00</updated>
+        <summary>Skyrim Party Sheet is a UI mod, that allows a quick glance at companions, followers and summons to make better tactical...</summary>
+    </entry>
     <entry>
         <title>Idrinth&#039;s Teaks: Blame Yourself</title>
         <link href="https://idrinth.de/fr/modding/blame-yourself"/>
